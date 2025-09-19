@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import LandingPage from './pages/LandingPage'
-import LoginPage from './pages/LoginPage'
-import SignupPage from './pages/SignupPage'
-import Dashboard from './pages/Dashboard'
-import ForgotPasswordPage from './pages/ForgotPasswordPage'
-import ContactPage from './pages/ContactPage'
-import TermsPage from './pages/TermsPage'
+import LandingPage from './pages/landing/LandingPage'
+import LoginPage from './pages/auth/LoginPage'
+import SignupPage from './pages/auth/SignupPage'
+import Dashboard from './pages/dashbaord/Dashboard'
+import ForgotPasswordPage from './pages/auth/ForgotPasswordPage'
+import ContactPage from './pages/landing/ContactPage'
+import TermsPage from './pages/landing/TermsPage'
 import './App.css'
 
 function App() {

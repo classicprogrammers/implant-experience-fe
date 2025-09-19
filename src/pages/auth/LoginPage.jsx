@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import './AuthPage.css'
+import { HiEye, HiEyeOff, HiOutlineEye, HiOutlineEyeOff } from 'react-icons/hi'
+import '../../assets/css/AuthPage.css'
 
 function LoginPage() {
   const [formData, setFormData] = useState({
@@ -53,7 +54,7 @@ function LoginPage() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="input your email in here"
+                  placeholder="Enter your email"
                 />
               </div>
 
@@ -67,14 +68,14 @@ function LoginPage() {
                     value={formData.password}
                     onChange={handleChange}
                     required
-                    placeholder="input your password in here"
+                    placeholder="Enter your password"
                   />
                   <button
                     type="button"
                     className="password-toggle"
                     onClick={() => setShowPassword(!showPassword)}
                   >
-                    {showPassword ? '👁️' : '👁️‍🗨️'}
+                    {showPassword ? <HiOutlineEye /> : <HiOutlineEyeOff />}
                   </button>
                 </div>
               </div>
@@ -98,19 +99,25 @@ function LoginPage() {
               <button type="button" className="btn-google">
                 Sign in with google
               </button>
+
+              <div className="forgot-password">
+                <Link to="/forgot-password">Forgot password?</Link>
+              </div>
             </form>
           </div>
 
         </div>
       </div>
       <footer className="auth-footer-new">
-        <div className="footer-left">
-          <span>© 2005 yoursup.com</span>
-          <Link to="/contact">Contact Us</Link>
-        </div>
-        <div className="footer-right">
-          <Link to="/terms">Terms & Conditions</Link>
-          <Link to="/privacy">Privacy Policy</Link>
+        <div className="container">
+          <div className="footer-left">
+            <span>© 2025 yourapp.com</span>
+            <Link to="/contact">Contact Us</Link>
+          </div>
+          <div className="footer-right">
+            <Link to="/terms">Terms & Conditions</Link>
+            <Link to="/privacy">Privacy Policy</Link>
+          </div>
         </div>
       </footer>
     </>

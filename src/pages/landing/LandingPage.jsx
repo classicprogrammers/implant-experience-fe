@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import './LandingPage.css'
+import '../../assets/css/LandingPage.css'
 
 function LandingPage() {
   return (
@@ -15,7 +15,7 @@ function LandingPage() {
           <div className="nav-brand">
             <div className="logo">
               <div className="logo-icon">❤️</div>
-              <span>THE IMPLANT EXPERIENCE</span>
+              <span className=" bg-red-100 p-2 rounded">THE IMPLANT EXPERIENCE</span>
             </div>
           </div>
           <div className="nav-links">
@@ -24,10 +24,9 @@ function LandingPage() {
             <Link to="/resource" className="nav-link">Resource</Link>
             <Link to="/newsletter" className="nav-link">Newsletter</Link>
           </div>
-          <div className="nav-actions">
-            <Link to="/login" className="btn btn-teal">Login</Link>
-            <Link to="/signup" className="btn btn-dark-blue">Become a Member</Link>
-          </div>
+          <div className="nav-actions"></div>
+          <Link to="/login" className="btn btn-teal">Login</Link>
+          <Link to="/signup" className="btn btn-dark-blue">Become a Member</Link>
         </nav>
       </header>
 
@@ -46,7 +45,7 @@ function LandingPage() {
           <span>Real-Time Updates</span>
         </div>
       </footer>
-    </div>
+    </div >
   )
 }
 

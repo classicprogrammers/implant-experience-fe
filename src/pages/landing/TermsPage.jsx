@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import './TermsPage.css'
+import '../../assets/css/termsPage.css'
 
 function TermsPage() {
   return (

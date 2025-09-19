@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import './Dashboard.css'
+import '../../assets/css/Dashboard.css'
 
 function Dashboard() {
   const [activeTab, setActiveTab] = useState('overview')
