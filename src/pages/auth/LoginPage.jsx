@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { HiEye, HiEyeOff, HiOutlineEye, HiOutlineEyeOff } from 'react-icons/hi'
-import '../../assets/css/AuthPage.css'
+import { api } from '../../utils/api'
+import '../../App.css'
 
 function LoginPage() {
   const [formData, setFormData] = useState({
@@ -10,7 +11,24 @@ function LoginPage() {
   })
   const [isLoading, setIsLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
+  const [error, setError] = useState('')
   const navigate = useNavigate()
+
+  // Auth functions inside the component
+  const login = async (credentials) => {
+    try {
+      const response = await api.post('/auth/login', credentials)
+      return response.data
+    } catch (error) {
+      throw new Error(error.response?.data?.message || 'Login failed')
+    }
+  }
+
+  const setAuthData = (data) => {
+    localStorage.setItem('authToken', data.token)
+    localStorage.setItem('refreshToken', data.refreshToken)
+    localStorage.setItem('user', JSON.stringify(data.user))
+  }
 
   const handleChange = (e) => {
     setFormData({
@@ -22,14 +40,29 @@ function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsLoading(true)
+    setError('')
 
-    // Simulate API call
-    setTimeout(() => {
-      console.log('Login attempt:', formData)
+    try {
+      // Call the login API
+      const response = await login(formData)
+
+      if (response.success) {
+        // Store auth data in localStorage
+        setAuthData(response.data)
+
+        console.log('Login successful:', response.data)
+
+        // Navigate to dashboard
+        navigate('/dashboard')
+      } else {
+        setError(response.message || 'Login failed')
+      }
+    } catch (error) {
+      console.error('Login error:', error)
+      setError(error.message || 'An error occurred during login')
+    } finally {
       setIsLoading(false)
-      // For now, just navigate to dashboard
-      navigate('/dashboard')
-    }, 1000)
+    }
   }
 
   return (
@@ -45,6 +78,20 @@ function LoginPage() {
             </div>
 
             <form onSubmit={handleSubmit} className="auth-form-new">
+              {error && (
+                <div className="error-message" style={{
+                  color: '#ef4444',
+                  backgroundColor: '#fef2f2',
+                  border: '1px solid #fecaca',
+                  padding: '12px',
+                  borderRadius: '6px',
+                  marginBottom: '16px',
+                  fontSize: '14px'
+                }}>
+                  {error}
+                </div>
+              )}
+
               <div className="form-group-new">
                 <label htmlFor="email">Email</label>
                 <input
@@ -54,7 +101,7 @@ function LoginPage() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="Enter your email"
+                  placeholder="input your email in here"
                 />
               </div>
 
@@ -68,7 +115,7 @@ function LoginPage() {
                     value={formData.password}
                     onChange={handleChange}
                     required
-                    placeholder="Enter your password"
+                    placeholder="input your password in here"
                   />
                   <button
                     type="button"
@@ -83,25 +130,23 @@ function LoginPage() {
               <div className="forgot-password">
                 <Link to="/forgot-password">Forgot passwod?</Link>
               </div>
+              
+              <div className='flex gap-[15px] flex-col'>
+                <button
+                  type="submit"
+                  className="btn-signin"
+                  disabled={isLoading}
+                >
+                  {isLoading ? 'Signing In...' : 'Sign in'}
+                </button>
 
-              <button
-                type="submit"
-                className="btn-signin"
-                disabled={isLoading}
-              >
-                {isLoading ? 'Signing In...' : 'Sign in'}
-              </button>
+                <div className="divider">
+                  <span>Or</span>
+                </div>
 
-              <div className="divider">
-                <span>Or</span>
-              </div>
-
-              <button type="button" className="btn-google">
-                Sign in with google
-              </button>
-
-              <div className="forgot-password">
-                <Link to="/forgot-password">Forgot password?</Link>
+                <button type="button" className="btn-google">
+                  Sign in with google
+                </button>
               </div>
             </form>
           </div>

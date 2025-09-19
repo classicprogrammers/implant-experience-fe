@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { HiEye, HiEyeOff, HiOutlineEye, HiOutlineEyeOff } from 'react-icons/hi'
-import '../../assets/css/AuthPage.css'
+import '../../App.css'
 
 function SignUpPage() {
   const [formData, setFormData] = useState({
@@ -62,7 +62,7 @@ function SignUpPage() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  placeholder="Enter your name"
+                  placeholder="input your name in here"
                 />
               </div>
 
@@ -75,7 +75,7 @@ function SignUpPage() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="Enter your email"
+                  placeholder="input your email in here"
                 />
               </div>
 
@@ -89,7 +89,7 @@ function SignUpPage() {
                     value={formData.password}
                     onChange={handleChange}
                     required
-                    placeholder="Enter your password"
+                    placeholder="input your password in here"
                   />
                   <button
                     type="button"
@@ -111,7 +111,7 @@ function SignUpPage() {
                     value={formData.confirmPassword}
                     onChange={handleChange}
                     required
-                    placeholder="Enter your password"
+                    placeholder="input your password in here"
                   />
                   <button
                     type="button"
@@ -134,21 +134,24 @@ function SignUpPage() {
                 <label htmlFor="agreeToTerms">I have read and agree to the Terms of Service</label>
               </div>
 
-              <button
-                type="submit"
-                className="btn-signin"
-                disabled={isLoading || !agreeToTerms}
-              >
-                {isLoading ? 'Signing Up...' : 'Sign up'}
-              </button>
+              <div className='flex gap-[15px] flex-col'>
+                <button
+                  type="submit"
+                  className="btn-signin"
+                  disabled={isLoading || !agreeToTerms}
+                >
+                  {isLoading ? 'Signing Up...' : 'Sign up'}
+                </button>
 
-              <div className="divider">
-                <span>Or</span>
+                <div className="divider">
+                  <span>Or</span>
+                </div>
+
+                <Link to="/login" className="btn-google">
+                  Login
+                </Link>
               </div>
-
-              <Link to="/login" className="btn-google">
-                Login
-              </Link>
+              
             </form>
           </div>
 
