@@ -31,6 +31,7 @@ body {
   width: 100%;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #f6f6f7;
   font-family: 'CabinetGrotesk-Variable', 'CabinetGrotesk-Regular', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
@@ -134,7 +135,7 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #f6f6f7;
   }
 
   a:hover {

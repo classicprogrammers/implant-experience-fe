@@ -130,14 +130,14 @@ function LoginPage() {
               <div className="forgot-password">
                 <Link to="/forgot-password">Forgot passwod?</Link>
               </div>
-              
+
               <div className='flex gap-[15px] flex-col'>
                 <button
                   type="submit"
                   className="btn-signin"
                   disabled={isLoading}
                 >
-                  {isLoading ? 'Signing In...' : 'Sign in'}
+                  {isLoading ? 'Signing In...' : 'Sign In'}
                 </button>
 
                 <div className="divider">

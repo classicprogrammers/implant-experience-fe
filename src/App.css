@@ -2,7 +2,7 @@
    GLOBAL STYLES & RESET
    ======================================== */
 
-   @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 
 * {
@@ -22,6 +22,8 @@ body {
   line-height: 1.6;
   color: #333;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 /* ========================================
@@ -248,10 +250,14 @@ div {
 #root {
   min-height: 100vh;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .App {
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 button:focus {
@@ -653,7 +659,7 @@ button:focus {
   color: #00ACB2;
 }
 
-.forgot-password-content{
+.forgot-password-content {
   font-family: "Mulish", sans-serif;
   color: #92929D;
   font-size: 16px;
