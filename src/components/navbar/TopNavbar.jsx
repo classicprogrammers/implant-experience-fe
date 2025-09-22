@@ -1,5 +1,6 @@
 import React from 'react';
 import './TopNavbar.css';
+import avatarImage from '../../assets/images/avatar.jpg';
 
 const TopNavbar = ({ onMenuToggle }) => {
     return (
@@ -14,7 +15,7 @@ const TopNavbar = ({ onMenuToggle }) => {
             {/* Search Bar */}
             <div className="search-container">
                 <div className="search-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </div>
@@ -37,11 +38,7 @@ const TopNavbar = ({ onMenuToggle }) => {
 
                 {/* User Avatar */}
                 <div className="user-avatar">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="20" cy="20" r="20" fill="#F97316" />
-                        <circle cx="20" cy="16" r="6" fill="white" />
-                        <path d="M8 32C8 26.4772 12.4772 22 18 22H22C27.5228 22 32 26.4772 32 32V36H8V32Z" fill="white" />
-                    </svg>
+                    <img src={avatarImage} alt="User Avatar" className="avatar-image" />
                 </div>
 
                 {/* User Info */}

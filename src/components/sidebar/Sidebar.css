@@ -71,7 +71,7 @@
     left: 24px;
     right: 24px;
     height: 1px;
-    background: #E2E8F0;
+    background: #EDEDED;
 }
 
 .logo-image {
@@ -93,7 +93,8 @@
 
 /* Setting ke upar line */
 .nav-item:nth-last-child(2) {
-    border-top: 1px solid #E2E8F0;
+    border-top: 1px solid #EDEDED;
+    border-radius: 0;
     margin-top: 20px;
     padding-top: 20px;
 }

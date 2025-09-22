@@ -1,6 +1,6 @@
 /* Top Navbar Styles - 100% Figma Match */
 .top-navbar {
-    width: 1143px;
+    width: calc(100vw - 281px);
     height: 80px;
     left: 281px;
     opacity: 1;
@@ -14,6 +14,7 @@
     padding: 0 32px;
     border-bottom: 1px solid #F1F5F9;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    box-sizing: border-box;
 }
 
 /* Mobile Menu Button */
@@ -40,7 +41,8 @@
 .search-container {
     display: flex;
     align-items: center;
-    width: 537px;
+    width: 400px;
+    max-width: 537px;
     height: 40px;
     background: #FFFFFF;
     border: 1px solid #E1E4F7;
@@ -48,15 +50,16 @@
     padding: 8px 12px;
     gap: 12px;
     box-sizing: border-box;
+    flex-shrink: 1;
 }
 
 .search-icon {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #9CA3AF;
+    color: #BCBDC1;
     flex-shrink: 0;
 }
 
@@ -120,6 +123,13 @@
     transform: scale(1.05);
 }
 
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 /* User Info */
 .user-info {
     display: flex;
@@ -168,7 +178,8 @@
     }
 
     .search-container {
-        width: 400px;
+        width: 350px;
+        max-width: 400px;
     }
 }
 

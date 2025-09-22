@@ -1,7 +1,7 @@
 /* Dashboard Layout */
 .dashboard-layout {
     display: flex;
-    min-height: 100vh;
+    min-height: 10vh;
     background: #f6f6f7;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     position: relative;
@@ -37,5 +37,421 @@
     .main-content {
         margin-top: 70px;
         padding: 16px 12px;
+    }
+}
+
+/* Dashboard Content Styles */
+.dashboard-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Today Section */
+.today-section {
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 16px 16px 24px 16px;
+    margin-bottom: 32px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1A365D;
+    margin: 0 0 20px 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    max-width: 800px;
+}
+
+/* Card Styles */
+.card {
+    background: #FAFCFE;
+    border-radius: 15px;
+    padding: 8px 12px 12px 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    min-height: 90px;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Safe Card - Active (Teal Background) */
+.safe-card.active {
+    background: #00ACB2;
+    border-color: #00ACB2;
+}
+
+.safe-card.active .card-icon {
+    color: #FFFFFF;
+    background: #00325C;
+}
+
+.safe-card.active .card-text {
+    color: #FFFFFF;
+}
+
+.safe-card.active .card-number {
+    color: #FFFFFF;
+}
+
+.safe-card.active .card-subtitle {
+    color: #FFFFFF;
+}
+
+/* Monitor and Actions Cards - Inactive (Light Blue Background) */
+.monitor-card,
+.actions-card {
+    background: #FAFCFE;
+}
+
+.monitor-card .card-icon,
+.actions-card .card-icon {
+    color: #6B7280;
+    background: #F3F4F6;
+}
+
+.monitor-card .card-text,
+.actions-card .card-text {
+    color: #374151;
+}
+
+.monitor-card .card-subtitle,
+.actions-card .card-subtitle {
+    color: #00325C;
+}
+
+.monitor-card .card-number,
+.actions-card .card-number {
+    color: #00325C;
+}
+
+/* Card Icon */
+.card-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0;
+    background: #1E40AF;
+    border-radius: 8px;
+}
+
+.card-icon img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    image-rendering: auto;
+}
+
+/* Card Content */
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    margin-top: 0;
+}
+
+.card-text {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0;
+    color: #FFFFFF;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.card-subtitle {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0;
+    color: #FFFFFF;
+    opacity: 0.8;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.card-number {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    position: absolute;
+    bottom: 12px;
+    left: 8px;
+}
+
+.card-arrow {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border-radius: 50%;
+}
+
+.card-arrow img {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+    image-rendering: auto;
+}
+
+/* Activity Log Container */
+.activity-log-container {
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 16px 16px 24px 16px;
+    margin-bottom: 32px;
+}
+
+/* Device Alerts Container */
+
+/* Activity Cards */
+.activity-card {
+    padding: 16px;
+    border-radius: 12px;
+    border: none;
+}
+
+.activity-card-pink {
+    background-color: #FFEBF4;
+}
+
+.activity-card-white {
+    background-color: #FAFCFE;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.notification-icon {
+    width: 16px;
+    height: 16px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.notification-icon svg {
+    width: 12px;
+    height: 12px;
+}
+
+.activity-card .text-xs {
+    font-size: 10px !important;
+    color: #7B7B7B !important;
+}
+
+/* Pending Badge */
+.pending-badge {
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    border-radius: 70px;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.activity-log-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1F2937;
+    margin: 0;
+}
+
+.pending-text {
+    color: #646A7A;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.pending-count {
+    background-color: #D8D4FA;
+    color: #374151;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.view-more-button {
+    width: 200px;
+    margin: 16px auto 0 auto;
+    display: block;
+    background-color: #00ACB2;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.view-more-button:hover {
+    background-color: #0099A0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 172, 178, 0.3);
+}
+
+/* Device Alerts Section */
+.device-alerts-section {
+    margin-top: 24px;
+}
+
+.device-alerts-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1F2937;
+    margin: 0;
+}
+
+.device-alerts-section .flex {
+    margin-bottom: 16px;
+}
+
+.three-dots-icon {
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.three-dots-icon:hover {
+    background-color: #F3F4F6;
+}
+
+.device-alerts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.device-alert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid #EDEDED;
+}
+
+.device-alert-item:last-child {
+    border-bottom: none;
+}
+
+.device-alert-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin: 0 0 4px 0;
+}
+
+.device-alert-desc {
+    font-size: 12px;
+    color: #6B7280;
+    margin: 0;
+}
+
+.device-alert-time {
+    font-size: 12px;
+    color: #9CA3AF;
+}
+
+
+/* Responsive Design for Cards */
+@media (max-width: 768px) {
+    .dashboard-content {
+        width: 95%;
+        padding: 0 16px;
+    }
+
+    .today-section {
+        height: auto;
+        min-height: 180px;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .card {
+        padding: 20px 16px;
+    }
+
+    .card-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card-text {
+        font-size: 14px;
+    }
+
+    .card-number {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+
+    .card {
+        padding: 16px 12px;
+        gap: 12px;
+    }
+
+    .card-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .card-text {
+        font-size: 13px;
+    }
+
+    .card-number {
+        font-size: 24px;
     }
 }
