@@ -25,9 +25,8 @@ function Dashboard() {
       <div className="main-content">
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-8">
-            <div className="dashboard-content">
               {/* Today Section */}
-              <div className="today-section">
+              <div className="today-section me-[20px]">
                 <h2 className="section-title">Today</h2>
                 <div className="cards-container">
                   {/* Safe Card - Active */}
@@ -76,7 +75,14 @@ function Dashboard() {
                   </div>
                 </div>
               </div>
-            </div>
+              {/* Device Section */}
+              <div className="today-section me-[20px]">
+                <h2 className="section-title">My device</h2>
+                <div className="cards-container">
+                  {/* Safe Card - Active */}
+                 
+                </div>
+              </div>
           </div>
 
           {/* Right Sidebar - 4 columns */}
