@@ -12,17 +12,8 @@ function LoginPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
   const navigate = useNavigate()
-
-  // Auth functions inside the component
-  const login = async (credentials) => {
-    try {
-      const response = await api.post('/auth/login', credentials)
-      return response.data
-    } catch (error) {
-      throw new Error(error.response?.data?.message || 'Login failed')
-    }
-  }
 
   const setAuthData = (data) => {
     localStorage.setItem('authToken', data.token)
@@ -41,25 +32,41 @@ function LoginPage() {
     e.preventDefault()
     setIsLoading(true)
     setError('')
+    setSuccess('')
 
     try {
       // Call the login API
-      const response = await login(formData)
+      const response = await api.post('/auth/login', formData)
 
-      if (response.success) {
+      if (response.data.success) {
         // Store auth data in localStorage
-        setAuthData(response.data)
+        setAuthData(response.data.data)
 
-        console.log('Login successful:', response.data)
+        console.log('Login successful:', response.data.data)
+        setSuccess(response.data.message || 'Login successful!')
 
-        // Navigate to dashboard
-        navigate('/dashboard')
+        // Navigate to dashboard after a short delay to show success message
+        setTimeout(() => {
+          navigate('/dashboard')
+        }, 1000)
       } else {
-        setError(response.message || 'Login failed')
+        setError(response.data.message || 'Login failed')
       }
     } catch (error) {
       console.error('Login error:', error)
-      setError(error.message || 'An error occurred during login')
+
+      // Extract error message from response
+      let errorMessage = 'An error occurred during login'
+
+      if (error.response?.data?.message) {
+        errorMessage = error.response.data.message
+      } else if (error.response?.data?.error) {
+        errorMessage = error.response.data.error
+      } else if (error.message) {
+        errorMessage = error.message
+      }
+
+      setError(errorMessage)
     } finally {
       setIsLoading(false)
     }
@@ -89,6 +96,20 @@ function LoginPage() {
                   fontSize: '14px'
                 }}>
                   {error}
+                </div>
+              )}
+
+              {success && (
+                <div className="success-message" style={{
+                  color: '#059669',
+                  backgroundColor: '#f0fdf4',
+                  border: '1px solid #bbf7d0',
+                  padding: '12px',
+                  borderRadius: '6px',
+                  marginBottom: '16px',
+                  fontSize: '14px'
+                }}>
+                  {success}
                 </div>
               )}
 

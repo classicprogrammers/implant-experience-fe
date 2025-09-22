@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useToast } from '../../contexts/ToastContext';
+import { api } from '../../utils/api';
 import './Sidebar.css';
 import logoImage from '../../assets/images/implant-logo.png';
 import categoryImage from '../../assets/images/category.png';
@@ -9,8 +12,51 @@ import groupImage from '../../assets/images/Group.png';
 import setting2Image from '../../assets/images/setting-2.png';
 
 const Sidebar = ({ isOpen, onClose }) => {
-    const [notifications, setNotifications] = useState(0);
-    const [resources, setResources] = useState(0);
+    const [notifications] = useState(0);
+    const [resources] = useState(0);
+    const [isLoggingOut, setIsLoggingOut] = useState(false);
+    const navigate = useNavigate();
+    const { success } = useToast();
+
+    const handleLogout = async () => {
+        try {
+            setIsLoggingOut(true);
+            
+            // Call logout API
+            await api.post('/auth/logout');
+            
+            // Clear localStorage
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('refreshToken');
+            localStorage.removeItem('user');
+            
+            // Show success toast
+            success('Logged out successfully!', 2000);
+            
+            // Navigate to login page after a short delay to show toast
+            setTimeout(() => {
+                navigate('/login');
+            }, 1000);
+            
+        } catch (error) {
+            console.error('Logout error:', error);
+            
+            // Even if API call fails, clear localStorage and redirect
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('refreshToken');
+            localStorage.removeItem('user');
+            
+            // Show success toast even if API fails (user is still logged out)
+            success('Logged out successfully!', 2000);
+            
+            // Navigate to login page after a short delay to show toast
+            setTimeout(() => {
+                navigate('/login');
+            }, 1000);
+        } finally {
+            setIsLoggingOut(false);
+        }
+    };
 
     return (
         <>
@@ -76,11 +122,21 @@ const Sidebar = ({ isOpen, onClose }) => {
                         <span className="nav-text">Setting</span>
                     </div>
 
-                    <div className="nav-item">
+                    <div
+                        className="nav-item"
+                        onClick={handleLogout}
+                        style={{
+                            cursor: 'pointer',
+                            opacity: isLoggingOut ? 0.7 : 1,
+                            pointerEvents: isLoggingOut ? 'none' : 'auto'
+                        }}
+                    >
                         <div className="nav-icon">
                             <img src={groupImage} alt="Log Out" width="16" height="16" />
                         </div>
-                        <span className="nav-text">Log Out</span>
+                        <span className="nav-text">
+                            {isLoggingOut ? 'Logging Out...' : 'Log Out'}
+                        </span>
                     </div>
                 </nav>
             </div>
