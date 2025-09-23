@@ -408,7 +408,7 @@
     }
 
     .card {
-        min-height: 80px;
+        min-height: 85px;
         padding: 10px;
     }
 
@@ -422,14 +422,11 @@
         height: 40px;
     }
 
-    .card-text {
-        font-size: 14px;
-    }
 
     .card-number {
-        font-size: 28px;
         bottom: 10px;
         left: 12px;
+        font-size: 28px;
     }
 
     .card-arrow {
@@ -442,7 +439,6 @@
 
 @media (max-width: 480px) {
     .section-title {
-        font-size: 20px;
         margin-bottom: 16px;
     }
 
@@ -455,20 +451,12 @@
         height: 36px;
     }
 
-    .card-text {
-        font-size: 13px;
-    }
-
 }
 
 @media (max-width: 1200px) {
     .cards-container {
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;
-    }
-
-    .card-number {
-        font-size: 28px;
     }
 }
 
@@ -480,21 +468,12 @@
     .cards-container {
         gap: 12px;
     }
-
-    .card-text {
-        font-size: 13px;
-    }
-
-    .card-subtitle {
-        font-size: 9px;
-    }
-
-    .card-number {
-        font-size: 24px;
-    }
 }
 
 @media (max-width: 576px) {
+    .search-container-dashboard{
+        width: 100%;
+    }
     .dashboard-content {
         padding: 0 12px;
     }
@@ -504,7 +483,6 @@
     }
 
     .section-title {
-        font-size: 16px;
         margin-bottom: 12px;
     }
 
@@ -516,14 +494,6 @@
     .card-icon img {
         width: 14px;
         height: 14px;
-    }
-
-    .card-text {
-        font-size: 11px;
-    }
-
-    .card-subtitle {
-        font-size: 7px;
     }
 
     .card-arrow img {
@@ -565,20 +535,10 @@
 
 
     .section-title {
-        font-size: 14px;
         margin-bottom: 10px;
     }
 
-    .card-text {
-        font-size: 10px;
-    }
-
-    .card-subtitle {
-        font-size: 6px;
-    }
-
     .card-number {
-        font-size: 16px;
         bottom: 4px;
         left: 3px;
     }
@@ -592,14 +552,9 @@
         gap: 2px;
     }
 
-    .pending-text {
-        font-size: 9px;
-    }
-
     .pending-count {
         width: 12px;
         height: 12px;
-        font-size: 8px;
     }
 }
 
@@ -839,7 +794,6 @@
 
     .filter-pill {
         padding: 6px 12px;
-        font-size: 12px;
     }
 
     .search-field {
@@ -851,12 +805,6 @@
     .table-row {
         min-width: 500px;
         gap: 12px;
-    }
-
-    .header-cell,
-    .table-cell {
-        min-width: 80px;
-        font-size: 12px;
     }
 
     .device-info {
@@ -873,15 +821,6 @@
         height: 16px;
     }
 
-    .device-name {
-        font-size: 12px;
-    }
-
-    .status-badge {
-        padding: 4px 8px;
-        font-size: 10px;
-    }
-
     .status-dot {
         width: 6px;
         height: 6px;
@@ -892,10 +831,6 @@
     .devices-card {
         padding: 16px;
         margin-bottom: 24px;
-    }
-
-    .devices-title {
-        font-size: 18px;
     }
 
     .devices-controls {
@@ -921,12 +856,6 @@
         padding: 12px 0;
     }
 
-    .header-cell,
-    .table-cell {
-        min-width: 70px;
-        font-size: 11px;
-    }
-
     .device-info {
         flex-direction: column;
         align-items: flex-start;
@@ -941,15 +870,6 @@
     .device-icon img {
         width: 14px;
         height: 14px;
-    }
-
-    .device-name {
-        font-size: 11px;
-    }
-
-    .status-badge {
-        padding: 3px 6px;
-        font-size: 9px;
     }
 
     .status-dot {
