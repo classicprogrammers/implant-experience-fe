@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useToast } from '../../contexts/ToastContext';
 import { api } from '../../utils/api';
 import './Sidebar.css';
 import logoImage from '../../assets/images/implant-logo.png';
 import categoryImage from '../../assets/images/category.png';
+import categoryImage2 from '../../assets/images/category-2.png';
 import notificationImage from '../../assets/images/notification.png';
+import notificationImage2 from '../../assets/images/notification-2.png';
 import deviceImage from '../../assets/images/Device.png';
+import deviceImage2 from '../../assets/images/Device-2.png';
 import vector2Image from '../../assets/images/Vector-2.png';
 import groupImage from '../../assets/images/Group.png';
 import setting2Image from '../../assets/images/setting-2.png';
@@ -17,38 +20,39 @@ const Sidebar = ({ isOpen, onClose }) => {
     const [isLoggingOut, setIsLoggingOut] = useState(false);
     const navigate = useNavigate();
     const { success } = useToast();
+    const location = useLocation();
 
     const handleLogout = async () => {
         try {
             setIsLoggingOut(true);
-            
+
             // Call logout API
             await api.post('/auth/logout');
-            
+
             // Clear localStorage
             localStorage.removeItem('authToken');
             localStorage.removeItem('refreshToken');
             localStorage.removeItem('user');
-            
+
             // Show success toast
             success('Logged out successfully!', 2000);
-            
+
             // Navigate to login page after a short delay to show toast
             setTimeout(() => {
                 navigate('/login');
             }, 1000);
-            
+
         } catch (error) {
             console.error('Logout error:', error);
-            
+
             // Even if API call fails, clear localStorage and redirect
             localStorage.removeItem('authToken');
             localStorage.removeItem('refreshToken');
             localStorage.removeItem('user');
-            
+
             // Show success toast even if API fails (user is still logged out)
             success('Logged out successfully!', 2000);
-            
+
             // Navigate to login page after a short delay to show toast
             setTimeout(() => {
                 navigate('/login');
@@ -77,16 +81,16 @@ const Sidebar = ({ isOpen, onClose }) => {
 
                 {/* Navigation Items */}
                 <nav className="sidebar-nav">
-                    <div className="nav-item active">
+                    <div className={`nav-item ${location.pathname === '/dashboard' ? 'active' : ''}`} onClick={() => navigate('/dashboard')}>
                         <div className="nav-icon">
-                            <img src={categoryImage} alt="Dashboard" width="16" height="16" />
+                            <img src={location.pathname === '/dashboard' ? categoryImage : categoryImage2} alt="Dashboard" width="16" height="16" />
                         </div>
                         <span className="nav-text">Dashboard</span>
                     </div>
 
-                    <div className="nav-item">
+                    <div className={`nav-item ${location.pathname === '/notifications' ? 'active' : ''}`} onClick={() => navigate('/notifications')}>
                         <div className="nav-icon">
-                            <img src={notificationImage} alt="Notification" width="16" height="16" />
+                            <img src={location.pathname == '/notifications' ? notificationImage2   : notificationImage} alt="Notification" width="16" height="16" />
                         </div>
                         <span className="nav-text">Notification</span>
                         {notifications > 0 && (
@@ -96,14 +100,14 @@ const Sidebar = ({ isOpen, onClose }) => {
                         )}
                     </div>
 
-                    <div className="nav-item">
+                    <div className={`nav-item ${location.pathname === '/my-devices' ? 'active' : ''}`} onClick={() => navigate('/my-devices')}>
                         <div className="nav-icon">
-                            <img src={deviceImage} alt="My Devices" width="16" height="16" />
+                            <img src={location.pathname === '/my-devices' ? deviceImage2 : deviceImage} alt="My Devices" width="16" height="16" />
                         </div>
                         <span className="nav-text">My Devices</span>
                     </div>
 
-                    <div className="nav-item">
+                    <div className={`nav-item ${location.pathname === '/resources' ? 'active' : ''}`} onClick={() => navigate('/resources')}>
                         <div className="nav-icon">
                             <img src={vector2Image} alt="Resources" width="16" height="16" />
                         </div>
@@ -115,7 +119,7 @@ const Sidebar = ({ isOpen, onClose }) => {
                         )}
                     </div>
 
-                    <div className="nav-item">
+                    <div className={`nav-item ${location.pathname === '/settings' ? 'active' : ''}`} onClick={() => navigate('/settings')}>
                         <div className="nav-icon">
                             <img src={setting2Image} alt="Setting" width="16" height="16" />
                         </div>
@@ -123,7 +127,7 @@ const Sidebar = ({ isOpen, onClose }) => {
                     </div>
 
                     <div
-                        className="nav-item"
+                        className={`nav-item`}
                         onClick={handleLogout}
                         style={{
                             cursor: 'pointer',

@@ -3,7 +3,6 @@
     display: flex;
     min-height: 10vh;
     background: #f6f6f7;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     position: relative;
 }
 
@@ -62,7 +61,6 @@
     font-weight: 600;
     color: #1A365D;
     margin: 0 0 20px 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .cards-container {
@@ -177,7 +175,6 @@
     line-height: 1.2;
     margin: 0;
     color: #FFFFFF;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .card-subtitle {
@@ -187,7 +184,6 @@
     margin: 0;
     color: #FFFFFF;
     opacity: 0.8;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .card-number {
@@ -196,7 +192,6 @@
     line-height: 1;
     margin: 0;
 
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     position: absolute;
     bottom: 10px;
     left: 16px;
@@ -471,9 +466,10 @@
 }
 
 @media (max-width: 576px) {
-    .search-container-dashboard{
+    .search-container-dashboard {
         width: 100%;
     }
+
     .dashboard-content {
         padding: 0 12px;
     }
@@ -610,7 +606,6 @@
     font-weight: 600;
     color: #1A365D;
     margin: 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .devices-controls {

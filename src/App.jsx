@@ -7,6 +7,7 @@ import Dashboard from './pages/dashbaord/Dashboard'
 import ForgotPasswordPage from './pages/auth/ForgotPasswordPage'
 import ContactPage from './pages/landing/ContactPage'
 import TermsPage from './pages/landing/TermsPage'
+import NotificationPage from './components/notification/NotificationPage'
 import './App.css'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/notifications" element={<NotificationPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/terms" element={<TermsPage />} />
