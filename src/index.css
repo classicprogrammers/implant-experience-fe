@@ -1,7 +1,9 @@
+@import "./assets/Fonts/WEB/css/cabinet-grotesk.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "./assets/Fonts/WEB/css/cabinet-grotesk.css";
+
+
 
 :root {
   font-family: 'CabinetGrotesk-Variable', 'CabinetGrotesk-Regular', system-ui, Avenir, Helvetica, Arial, sans-serif;

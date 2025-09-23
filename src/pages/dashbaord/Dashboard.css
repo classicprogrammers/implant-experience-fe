@@ -405,16 +405,16 @@
 
     .today-section {
         height: auto;
-        min-height: 180px;
+    }
+
+    .card {
+        min-height: 80px;
+        padding: 10px;
     }
 
     .cards-container {
         grid-template-columns: 1fr;
         gap: 16px;
-    }
-
-    .card {
-        padding: 20px 16px;
     }
 
     .card-icon {
@@ -428,6 +428,15 @@
 
     .card-number {
         font-size: 28px;
+        bottom: 10px;
+        left: 12px;
+    }
+
+    .card-arrow {
+        width: 18px;
+        height: 18px;
+        bottom: 10px;
+        right: 10px;
     }
 }
 
@@ -438,7 +447,6 @@
     }
 
     .card {
-        padding: 16px 12px;
         gap: 12px;
     }
 
@@ -451,19 +459,12 @@
         font-size: 13px;
     }
 
-    .card-number {
-        font-size: 24px;
-    }
 }
 
 @media (max-width: 1200px) {
     .cards-container {
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;
-    }
-
-    .card {
-        min-height: 80px;
     }
 
     .card-number {
@@ -474,10 +475,6 @@
 @media (max-width: 992px) {
     .dashboard-content {
         padding: 0 20px;
-    }
-
-    .today-section {
-        padding: 16px 12px 20px 12px;
     }
 
     .cards-container {
@@ -503,18 +500,12 @@
     }
 
     .today-section {
-        padding: 12px 8px 12px 8px;
         margin-bottom: 20px;
     }
 
     .section-title {
         font-size: 16px;
         margin-bottom: 12px;
-    }
-
-    .card {
-        min-height: 60px;
-        padding: 4px 8px 8px 4px;
     }
 
     .card-icon {
@@ -535,27 +526,9 @@
         font-size: 7px;
     }
 
-    .card-number {
-        font-size: 18px;
-        bottom: 6px;
-        left: 4px;
-    }
-
-    .card-arrow {
-        width: 18px;
-        height: 18px;
-        bottom: 6px;
-        right: 6px;
-    }
-
     .card-arrow img {
         width: 8px;
         height: 8px;
-    }
-
-    .activity-log-container {
-        padding: 10px;
-        margin-bottom: 20px;
     }
 
     .activity-card {
@@ -570,12 +543,6 @@
     .notification-icon svg {
         width: 8px;
         height: 8px;
-    }
-
-    .view-more-button {
-        width: 140px;
-        font-size: 11px;
-        padding: 5px 10px;
     }
 
     .device-alert-item {
@@ -596,18 +563,10 @@
         padding: 0 8px;
     }
 
-    .today-section {
-        padding: 10px 6px 10px 6px;
-    }
 
     .section-title {
         font-size: 14px;
         margin-bottom: 10px;
-    }
-
-    .card {
-        min-height: 55px;
-        padding: 3px 6px 6px 3px;
     }
 
     .card-text {
@@ -624,25 +583,8 @@
         left: 3px;
     }
 
-    .card-arrow {
-        width: 16px;
-        height: 16px;
-        bottom: 4px;
-        right: 4px;
-    }
-
-    .activity-log-container {
-        padding: 8px;
-    }
-
     .activity-card {
         padding: 8px;
-    }
-
-    .view-more-button {
-        width: 120px;
-        font-size: 10px;
-        padding: 4px 8px;
     }
 
     .pending-badge {
@@ -658,5 +600,360 @@
         width: 12px;
         height: 12px;
         font-size: 8px;
+    }
+}
+
+/* My Devices Section */
+.devices-card {
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 32px;
+}
+
+/* Responsive Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+}
+
+/* Small screens (default) - both columns full width */
+.sm\:col-span-12 {
+    grid-column: span 12;
+}
+
+/* Medium screens - both columns full width */
+@media (min-width: 768px) {
+    .md\:col-span-12 {
+        grid-column: span 12;
+    }
+}
+
+/* Large screens - 8 and 4 columns */
+@media (min-width: 1024px) {
+    .lg\:col-span-8 {
+        grid-column: span 8;
+    }
+
+    .lg\:col-span-4 {
+        grid-column: span 4;
+    }
+}
+
+.devices-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.devices-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1A365D;
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.devices-controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.filter-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #F5F5F5;
+    border: 1px solid #E0E0E0;
+    border-radius: 89px;
+    padding: 5px 16px;
+    color: #636363;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-pill span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.filter-pill:hover {
+    background: #EEEEEE;
+}
+
+.filter-pill svg {
+    color: #636363;
+    width: 16px;
+    height: 16px;
+}
+
+.search-container-dashboard {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-field {
+    background: #F5F5F5;
+    border: 1px solid #E0E0E0;
+    border-radius: 89px;
+    padding: 8px 16px 8px 16px;
+    color: #636363;
+    font-size: 14px;
+    font-weight: 400;
+    /* width: 200px; */
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.search-field::placeholder {
+    color: #636363;
+    opacity: 0.7;
+}
+
+.search-field:focus {
+    border-color: #2B6CB0;
+    box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    right: 12px;
+    color: #2B6CB0;
+    pointer-events: none;
+}
+
+.devices-table {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid #E5E7EB;
+    margin-bottom: 16px;
+    min-width: 600px;
+}
+
+.header-cell {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6B7280;
+    text-align: left;
+    min-width: 100px;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid #F3F4F6;
+    align-items: center;
+    min-width: 600px;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-cell {
+    display: flex;
+    align-items: center;
+    min-width: 100px;
+}
+
+.device-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.device-icon {
+    width: 32px;
+    height: 32px;
+    background: #F3F4F6;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.device-icon img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.device-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #EBF8FF;
+    color: #2B6CB0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #2B6CB0;
+    border-radius: 50%;
+}
+
+/* Responsive Design for My Devices Table */
+@media (max-width: 768px) {
+    .devices-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .devices-controls {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .filter-pill {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .search-field {
+        width: 100%;
+        min-width: 200px;
+    }
+
+    .table-header,
+    .table-row {
+        min-width: 500px;
+        gap: 12px;
+    }
+
+    .header-cell,
+    .table-cell {
+        min-width: 80px;
+        font-size: 12px;
+    }
+
+    .device-info {
+        gap: 8px;
+    }
+
+    .device-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .device-icon img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .device-name {
+        font-size: 12px;
+    }
+
+    .status-badge {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+
+    .status-dot {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .devices-card {
+        padding: 16px;
+        margin-bottom: 24px;
+    }
+
+    .devices-title {
+        font-size: 18px;
+    }
+
+    .devices-controls {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .filter-pill {
+        width: 100%;
+        justify-content: center;
+        padding: 8px 16px;
+    }
+
+    .search-field {
+        width: 100%;
+    }
+
+    .table-header,
+    .table-row {
+        min-width: 400px;
+        gap: 8px;
+        padding: 12px 0;
+    }
+
+    .header-cell,
+    .table-cell {
+        min-width: 70px;
+        font-size: 11px;
+    }
+
+    .device-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .device-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .device-icon img {
+        width: 14px;
+        height: 14px;
+    }
+
+    .device-name {
+        font-size: 11px;
+    }
+
+    .status-badge {
+        padding: 3px 6px;
+        font-size: 9px;
+    }
+
+    .status-dot {
+        width: 5px;
+        height: 5px;
     }
 }
