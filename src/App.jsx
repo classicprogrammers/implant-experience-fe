@@ -9,6 +9,8 @@ import ContactPage from './pages/landing/ContactPage'
 import TermsPage from './pages/landing/TermsPage'
 import NotificationPage from './components/notification/NotificationPage'
 import './App.css'
+import ResourcesPage from './components/resources/ResourcesPage'
+import SettingsPage from './components/settings/SettingsPage'
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/notifications" element={<NotificationPage />} />
+            <Route path="/resources" element={<ResourcesPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/terms" element={<TermsPage />} />

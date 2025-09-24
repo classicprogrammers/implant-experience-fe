@@ -26,57 +26,57 @@ function Dashboard() {
       <div className="main-content">
         <div className="grid grid-cols-12 gap-4">
           <div className="sm:col-span-12 md:col-span-12 lg:col-span-8">
-            {/* Today Section */}
+              {/* Today Section */}
             <div className="today-section">
-              <h2 className="section-title">Today</h2>
-              <div className="cards-container">
-                {/* Safe Card - Active */}
-                <div className="card safe-card active">
-                  <div className="card-icon">
-                    <img src={group40321Image} alt="Safe" width="20" height="20" />
+                <h2 className="section-title">Today</h2>
+                <div className="cards-container">
+                  {/* Safe Card - Active */}
+                  <div className="card safe-card active">
+                    <div className="card-icon">
+                      <img src={group40321Image} alt="Safe" width="20" height="20" />
+                    </div>
+                    <div className="card-content">
+                      <span className="card-text">Safe</span>
+                      <span className="card-subtitle">Any Text</span>
+                    </div>
+                    <div className="card-number">01</div>
+                    <div className="card-arrow">
+                      <img src={arrowImage} alt="Arrow" width="16" height="16" />
+                    </div>
                   </div>
-                  <div className="card-content">
-                    <span className="card-text">Safe</span>
-                    <span className="card-subtitle">Any Text</span>
-                  </div>
-                  <div className="card-number">01</div>
-                  <div className="card-arrow">
-                    <img src={arrowImage} alt="Arrow" width="16" height="16" />
-                  </div>
-                </div>
 
-                {/* Monitor Card - Inactive */}
-                <div className="card monitor-card">
-                  <div className="card-icon">
-                    <img src={monitorImage} alt="Monitor" width="20" height="20" />
+                  {/* Monitor Card - Inactive */}
+                  <div className="card monitor-card">
+                    <div className="card-icon">
+                      <img src={monitorImage} alt="Monitor" width="20" height="20" />
+                    </div>
+                    <div className="card-content">
+                      <span className="card-text">Monitor</span>
+                      <span className="card-subtitle">Any Text</span>
+                    </div>
+                    <div className="card-number">01</div>
+                    <div className="card-arrow">
+                      <img src={arrowImage} alt="Arrow" width="16" height="16" />
+                    </div>
                   </div>
-                  <div className="card-content">
-                    <span className="card-text">Monitor</span>
-                    <span className="card-subtitle">Any Text</span>
-                  </div>
-                  <div className="card-number">01</div>
-                  <div className="card-arrow">
-                    <img src={arrowImage} alt="Arrow" width="16" height="16" />
-                  </div>
-                </div>
 
-                {/* Actions Card - Inactive */}
-                <div className="card actions-card">
-                  <div className="card-icon">
-                    <img src={gear1Image} alt="Actions" width="20" height="20" />
-                  </div>
-                  <div className="card-content">
-                    <span className="card-text">Actions</span>
-                    <span className="card-subtitle">Any Text</span>
-                  </div>
-                  <div className="card-number">01</div>
-                  <div className="card-arrow">
-                    <img src={arrowImage} alt="Arrow" width="16" height="16" />
+                  {/* Actions Card - Inactive */}
+                  <div className="card actions-card">
+                    <div className="card-icon">
+                      <img src={gear1Image} alt="Actions" width="20" height="20" />
+                    </div>
+                    <div className="card-content">
+                      <span className="card-text">Actions</span>
+                      <span className="card-subtitle">Any Text</span>
+                    </div>
+                    <div className="card-number">01</div>
+                    <div className="card-arrow">
+                      <img src={arrowImage} alt="Arrow" width="16" height="16" />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            {/* Device Section */}
+              {/* Device Section */}
             <div className="devices-card md:me-[20px]">
               <div className="devices-header">
                 <h2 className="devices-title">My Devices</h2>
@@ -180,8 +180,8 @@ function Dashboard() {
                     </div>
                   </div>
                 </div>
+                </div>
               </div>
-            </div>
           </div>
 
           {/* Right Sidebar - 4 columns */}

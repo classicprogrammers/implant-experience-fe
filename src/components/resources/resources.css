@@ -1,0 +1,11 @@
+.custom-faq-section{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+}
+
+@media (max-width: 1080px) {
+    .custom-faq-section{
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
