@@ -10,8 +10,10 @@ import notificationImage from '../../assets/images/notification.png';
 import notificationImage2 from '../../assets/images/notification-2.png';
 import deviceImage from '../../assets/images/Device.png';
 import deviceImage2 from '../../assets/images/Device-2.png';
-import vector2Image from '../../assets/images/Vector-2.png';
+import resourcesImage from '../../assets/images/resources.png';
+import resourcesImage2 from '../../assets/images/resourcesActive.png';
 import groupImage from '../../assets/images/Group.png';
+import settingImage from '../../assets/images/gear 1.png';
 import setting2Image from '../../assets/images/setting-2.png';
 
 const Sidebar = ({ isOpen, onClose }) => {
@@ -109,7 +111,7 @@ const Sidebar = ({ isOpen, onClose }) => {
 
                     <div className={`nav-item ${location.pathname === '/resources' ? 'active' : ''}`} onClick={() => navigate('/resources')}>
                         <div className="nav-icon">
-                            <img src={vector2Image} alt="Resources" width="16" height="16" />
+                        <img src={location.pathname === '/resources' ? resourcesImage2 : resourcesImage} alt="Setting" width="16" height="16" />
                         </div>
                         <span className="nav-text">Resources</span>
                         {resources > 0 && (
@@ -121,7 +123,7 @@ const Sidebar = ({ isOpen, onClose }) => {
 
                     <div className={`nav-item ${location.pathname === '/settings' ? 'active' : ''}`} onClick={() => navigate('/settings')}>
                         <div className="nav-icon">
-                            <img src={setting2Image} alt="Setting" width="16" height="16" />
+                            <img src={location.pathname === '/settings' ? setting2Image : settingImage} alt="Setting" width="16" height="16" />
                         </div>
                         <span className="nav-text">Setting</span>
                     </div>
