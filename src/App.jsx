@@ -4,6 +4,7 @@ import LandingPage from './pages/landing/LandingPage'
 import LoginPage from './pages/auth/LoginPage'
 import SignupPage from './pages/auth/SignupPage'
 import Dashboard from './pages/dashbaord/Dashboard'
+import MyDevices from './pages/devices/MyDevices'
 import ForgotPasswordPage from './pages/auth/ForgotPasswordPage'
 import ContactPage from './pages/landing/ContactPage'
 import TermsPage from './pages/landing/TermsPage'
@@ -23,6 +24,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/my-devices" element={<MyDevices />} />
             <Route path="/notifications" element={<NotificationPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/settings" element={<SettingsPage />} />

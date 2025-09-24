@@ -64,7 +64,7 @@ function ResourcesPage() {
                         <div>
                             <div style={{ borderRadius: '8px', backgroundColor: '#00325C', marginBottom: '8px', overflow: 'hidden' }}>
                                 <button style={{ display: 'flex', width: '100%', justifyContent: 'space-between', padding: '12px 20px', background: 'transparent', border: 'none', cursor: 'pointer' }} onClick={() => toggleFaq(0)}>
-                                    <h2 style={{ fontSize: '16px', fontWeight: '800', color: '#CFD3D7', margin: 0, textAlign: 'left', lineHeight: '1.2' }}>Lorem Ipsum is simply dummy text of the printing a</h2>
+                                    <h2 style={{ fontSize: '16px', fontWeight: '800', color: '#CFD3D7', margin: 0, textAlign: 'left', lineHeight: '1.2' , maxWidth : '90%' }}>Lorem Ipsum is simply dummy text of the printing a</h2>
 
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d={openFaq === 0 ? "M5 12h14" : "M12 5v14M5 12h14"} stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -80,7 +80,7 @@ function ResourcesPage() {
 
                             <div style={{ borderRadius: '8px', backgroundColor: '#00325C', marginBottom: '8px', overflow: 'hidden' }}>
                                 <button style={{ display: 'flex', width: '100%', justifyContent: 'space-between', padding: '12px 20px', background: 'transparent', border: 'none', cursor: 'pointer' }} onClick={() => toggleFaq(1)}>
-                                    <h2 style={{ fontSize: '16px', fontWeight: '800', color: '#CFD3D7', margin: 0, textAlign: 'left', lineHeight: '1.2' }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+                                    <h2 style={{ fontSize: '16px', fontWeight: '800', color: '#CFD3D7', margin: 0, textAlign: 'left', lineHeight: '1.2' , maxWidth : '90%' }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
 
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d={openFaq === 1 ? "M5 12h14" : "M12 5v14M5 12h14"} stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -96,7 +96,7 @@ function ResourcesPage() {
 
                             <div style={{ borderRadius: '8px', backgroundColor: '#00325C', marginBottom: '8px', overflow: 'hidden' }}>
                                 <button style={{ display: 'flex', width: '100%', justifyContent: 'space-between', padding: '12px 20px', background: 'transparent', border: 'none', cursor: 'pointer' }} onClick={() => toggleFaq(2)}>
-                                    <h2 style={{ fontSize: '16px', fontWeight: '800', color: '#CFD3D7', margin: 0, textAlign: 'left', lineHeight: '1.2' }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+                                    <h2 style={{ fontSize: '16px', fontWeight: '800', color: '#CFD3D7', margin: 0, textAlign: 'left', lineHeight: '1.2' , maxWidth : '90%' }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
 
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d={openFaq === 2 ? "M5 12h14" : "M12 5v14M5 12h14"} stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -111,7 +111,7 @@ function ResourcesPage() {
                             </div>
                             <div style={{ borderRadius: '8px', backgroundColor: '#00325C', marginBottom: '8px', overflow: 'hidden' }}>
                                 <button style={{ display: 'flex', width: '100%', justifyContent: 'space-between', padding: '12px 20px', background: 'transparent', border: 'none', cursor: 'pointer' }} onClick={() => toggleFaq(3)}>
-                                    <h2 style={{ fontSize: '16px', fontWeight: '800', color: '#CFD3D7', margin: 0, textAlign: 'left', lineHeight: '1.2' }}>Lorem Ipsum is simply dummy text of the printing </h2>
+                                    <h2 style={{ fontSize: '16px', fontWeight: '800', color: '#CFD3D7', margin: 0, textAlign: 'left', lineHeight: '1.2' , maxWidth : '90%' }}>Lorem Ipsum is simply dummy text of the printing </h2>
 
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d={openFaq === 3 ? "M5 12h14" : "M12 5v14M5 12h14"} stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -126,7 +126,7 @@ function ResourcesPage() {
                             </div>
                             <div style={{ borderRadius: '8px', backgroundColor: '#00325C', marginBottom: '8px', overflow: 'hidden' }}>
                                 <button style={{ display: 'flex', width: '100%', justifyContent: 'space-between', padding: '12px 20px', background: 'transparent', border: 'none', cursor: 'pointer' }} onClick={() => toggleFaq(4)}>
-                                    <h2 style={{ fontSize: '16px', fontWeight: '800', color: '#CFD3D7', margin: 0, textAlign: 'left', lineHeight: '1.2' }}>Lorem Ipsum is simply dummy text of the printing </h2>
+                                    <h2 style={{ fontSize: '16px', fontWeight: '800', color: '#CFD3D7', margin: 0, textAlign: 'left', lineHeight: '1.2' , maxWidth : '90%' }}>Lorem Ipsum is simply dummy text of the printing </h2>
 
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d={openFaq === 4 ? "M5 12h14" : "M12 5v14M5 12h14"} stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -141,7 +141,7 @@ function ResourcesPage() {
                             </div>
                             <div style={{ borderRadius: '8px', backgroundColor: '#00325C', marginBottom: '8px', overflow: 'hidden' }}>
                                 <button style={{ display: 'flex', width: '100%', justifyContent: 'space-between', padding: '12px 20px', background: 'transparent', border: 'none', cursor: 'pointer' }} onClick={() => toggleFaq(5)}>
-                                    <h2 style={{ fontSize: '16px', fontWeight: '800', color: '#CFD3D7', margin: 0, textAlign: 'left', lineHeight: '1.2' }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+                                    <h2 style={{ fontSize: '16px', fontWeight: '800', color: '#CFD3D7', margin: 0, textAlign: 'left', lineHeight: '1.2' , maxWidth : '90%' }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
 
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d={openFaq === 5 ? "M5 12h14" : "M12 5v14M5 12h14"} stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />

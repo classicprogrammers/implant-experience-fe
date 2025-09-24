@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../../App.css'
+import Footer from '../../components/footer/Footer'
 
 function ContactPage() {
   const [formData, setFormData] = useState({
@@ -164,16 +165,7 @@ function ContactPage() {
           </div>
         </div>
 
-        <footer className="contact-footer">
-          <div className="footer-left">
-            <span>© 2025 yourapp.com</span>
-            <Link to="/contact">Contact Us</Link>
-          </div>
-          <div className="footer-right">
-            <Link to="/terms">Terms & Conditions</Link>
-            <Link to="/privacy">Privacy Policy</Link>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </div>
   )

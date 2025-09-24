@@ -876,3 +876,177 @@
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+/* Device Card API Integration Styles */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #4fc3f7;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-container p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.retry-button {
+    background-color: #4fc3f7;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.retry-button:hover {
+    background-color: #29b6f6;
+}
+
+.no-devices {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.no-devices p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Status Badge Styles */
+.status-safe {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-monitor {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-recall {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Status Dot Styles */
+.status-dot-safe {
+    background-color: #28a745;
+}
+
+.status-dot-monitor {
+    background-color: #ffc107;
+}
+
+.status-dot-recall {
+    background-color: #dc3545;
+}
+
+/* Filter Select Styles */
+.filter-select {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 20px;
+}
+
+.filter-select:focus {
+    outline: none;
+}
+
+/* Capitalize utility class */
+.capitalize {
+    text-transform: capitalize;
+}
+
+/* Device Card Link Styling */
+.devices-title-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.devices-title-link:hover {
+    color: #4fc3f7;
+}
+
+.devices-title-link:hover .devices-title {
+    color: #4fc3f7;
+}
+
+/* Activity Log API Integration Styles */
+.no-activity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.no-activity p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Activity Card Severity Styles */
+.activity-card-red {
+    background-color: #fef2f2;
+    border-left: 4px solid #ef4444;
+}
+
+.activity-card-yellow {
+    background-color: #fffbeb;
+    border-left: 4px solid #f59e0b;
+}
+
+.activity-card-white {
+    background-color: #ffffff;
+    border-left: 4px solid #e5e7eb;
+}
