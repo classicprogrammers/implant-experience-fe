@@ -91,21 +91,7 @@
     box-sizing: border-box;
 }
 
-/* Setting ke upar line */
-.nav-item:nth-last-child(2) {
-    border-top: 1px solid #EDEDED;
-    border-radius: 0;
-    margin-top: 20px;
-    padding-top: 24px;
-    margin-left: 24px;
-    margin-right: 24px;
-    width: calc(100% - 48px);
-}
 
-.nav-item:nth-last-child(2).active {
-    border-radius: 8px;
-    border-top: none;
-}
 
 .nav-item {
     display: flex;

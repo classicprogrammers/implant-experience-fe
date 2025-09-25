@@ -1,20 +1,9 @@
 import React, { useState } from 'react'
-import Sidebar from '../sidebar/Sidebar'
-import TopNavbar from '../navbar/TopNavbar'
 import './SettingsPage.css'
 
 function SettingsPage() {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false)
     const [showNewPassword, setShowNewPassword] = useState(false)
     const [showRepeatPassword, setShowRepeatPassword] = useState(false)
-
-    const handleMenuToggle = () => {
-        setIsSidebarOpen(!isSidebarOpen)
-    }
-
-    const handleSidebarClose = () => {
-        setIsSidebarOpen(false)
-    }
 
     const toggleNewPassword = () => {
         setShowNewPassword(!showNewPassword)
@@ -25,10 +14,6 @@ function SettingsPage() {
     }
 
     return (
-        <div className="dashboard-layout">
-            <Sidebar isOpen={isSidebarOpen} onClose={handleSidebarClose} />
-            <TopNavbar onMenuToggle={handleMenuToggle} />
-            <div className="main-content">
                 <div className="settings-page">
                     <div className="settings-container">
                         {/* Account Section */}
@@ -118,8 +103,6 @@ function SettingsPage() {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
     )
 }
 

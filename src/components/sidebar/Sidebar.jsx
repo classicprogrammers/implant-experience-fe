@@ -121,6 +121,10 @@ const Sidebar = ({ isOpen, onClose }) => {
                         )}
                     </div>
 
+                    <div className='nav-item'>
+                    <hr style={{border: '1px solid #EDEDED', width: '100%'}}/>
+                    </div>
+
                     <div className={`nav-item ${location.pathname === '/settings' ? 'active' : ''}`} onClick={() => navigate('/settings')}>
                         <div className="nav-icon">
                             <img src={location.pathname === '/settings' ? setting2Image : settingImage} alt="Setting" width="16" height="16" />

@@ -1,27 +1,18 @@
-/* My Devices Page Layout */
-.my-devices-layout {
-    display: flex;
-    min-height: 100vh;
-    background: #f6f6f7;
-    position: relative;
-}
-
+/* My Devices Content Styles */
 .my-devices-content {
-    flex: 1;
-    margin-left: 281px;
-    margin-top: 80px;
     padding: 32px;
     background: #f6f6f7;
     min-height: calc(100vh - 80px);
-    transition: margin-left 0.3s ease;
 }
 
-/* Header */
+/* Header Styles */
 .my-devices-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
 .breadcrumb {
@@ -29,59 +20,66 @@
     align-items: center;
     gap: 8px;
     font-size: 14px;
-    color: #666;
+    color: #6B7280;
+    font-weight: 400;
 }
 
 .breadcrumb a {
-    color: #4fc3f7;
+    color: #6B7280;
     text-decoration: none;
-    font-weight: 500;
+    transition: color 0.2s ease;
 }
 
 .breadcrumb a:hover {
-    text-decoration: underline;
+    color: #00ACB2;
 }
 
 .breadcrumb-separator {
-    color: #999;
+    color: #6B7280;
 }
 
 .breadcrumb-current {
-    color: #333;
+    color: #374151;
     font-weight: 500;
 }
 
 .header-actions {
     display: flex;
     gap: 12px;
+    flex-wrap: wrap;
 }
 
 .action-button {
     padding: 10px 20px;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+    font-family: inherit;
 }
 
 .contact-provider {
-    background-color: #20b2aa;
+    background: #00ACB2;
     color: white;
 }
 
 .contact-provider:hover {
-    background-color: #1a9b94;
+    background: #0099A0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 172, 178, 0.3);
 }
 
 .download-report {
-    background-color: #20b2aa;
+    background: #00ACB2;
     color: white;
 }
 
 .download-report:hover {
-    background-color: #1a9b94;
+    background: #0099A0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 172, 178, 0.3);
 }
 
 /* Grid Layout */
@@ -89,107 +87,103 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 32px;
-    max-width: 1400px;
+    max-width: 1200px;
 }
 
-/* Left Column */
 .left-column {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
-/* Device Information Card */
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Device Information Card - Dark Blue Background */
 .device-info-card {
-    background: #1a2b5c;
-    border-radius: 12px;
-    padding: 32px;
-    color: white;
-    overflow: hidden;
+    background: #1A365D;
+    border-radius: 15px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .device-info-header {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
 }
 
 .device-icon {
+    width: 48px;
+    height: 48px;
+    background: #00ACB2;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.rocket-icon {
-    width: 40px;
-    height: 40px;
-    background-color: #20b2aa;
-    border: 2px solid white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.rocket-icon svg {
+    width: 24px;
+    height: 24px;
 }
 
 .device-info-title {
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 600;
+    color: #FFFFFF;
     margin: 0;
-    color: white;
 }
 
 .device-info-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0;
-    border-radius: 8px;
-    overflow: hidden;
+    gap: 24px;
 }
 
 .device-details-left {
-    background: white;
-    padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
 }
 
 .device-details-right {
-    background: #20b2aa;
-    padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
+    background: #00ACB2;
+    padding: 20px;
+    border-radius: 12px;
 }
 
 .info-item {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
 }
 
 .info-label {
-    font-size: 14px;
-    color: #666;
+    font-size: 12px;
     font-weight: 500;
-}
-
-.device-details-right .info-label {
-    color: white;
-    font-size: 13px;
-}
-
-.info-value-text {
-    font-size: 16px;
-    color: #333;
-    font-weight: 700;
+    color: #9CA3AF;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .info-value {
-    font-size: 16px;
-    color: white;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+.info-value-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #FFFFFF;
 }
 
 .status-container {
@@ -201,150 +195,141 @@
 .status-dot {
     width: 8px;
     height: 8px;
-    background-color: #20b2aa;
+    background: #00ACB2;
     border-radius: 50%;
 }
 
 .status-text {
-    font-size: 16px;
-    color: #20b2aa;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 500;
+    color: #00ACB2;
 }
 
 /* Device Timeline Card */
 .device-timeline-card {
-    background: white;
-    border-radius: 12px;
+    background: #FFFFFF;
+    border-radius: 15px;
     padding: 24px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .timeline-tabs {
     display: flex;
-    gap: 24px;
+    gap: 0;
     margin-bottom: 24px;
-    border-bottom: 1px solid #e5e7eb;
-    padding-bottom: 16px;
+    border-bottom: 1px solid #E5E7EB;
 }
 
 .timeline-tab {
     background: none;
     border: none;
-    padding: 8px 0;
-    font-size: 16px;
+    padding: 12px 24px;
+    font-size: 14px;
     font-weight: 500;
-    color: #666;
+    color: #6B7280;
     cursor: pointer;
     position: relative;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
+    font-family: inherit;
 }
 
 .timeline-tab:hover {
-    color: #4fc3f7;
+    color: #374151;
 }
 
 .timeline-tab.active {
-    color: #4fc3f7;
+    color: #00ACB2;
+    font-weight: 600;
 }
 
-.tab-indicator {
-    width: 8px;
-    height: 8px;
-    background-color: #4fc3f7;
-    border-radius: 50%;
+.timeline-tab.active .tab-indicator {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #00ACB2;
 }
 
 .timeline-title {
-    font-size: 20px;
-    font-weight: 700;
-    color: #333;
-    margin: 0 0 24px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1A365D;
+    margin: 0 0 20px 0;
 }
 
 .timeline-container {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
 .timeline-item {
     display: flex;
-    align-items: flex-start;
     gap: 16px;
-    margin-bottom: 24px;
+    padding: 16px 0;
     position: relative;
 }
 
 .timeline-icon {
-    width: 40px;
-    height: 40px;
-    background: #f8f9fa;
+    width: 32px;
+    height: 32px;
+    background: #F3F4F6;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    z-index: 2;
-    position: relative;
 }
 
 .event-icon {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .timeline-content {
     flex: 1;
-    padding-top: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .timeline-event-title {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
-    color: #333;
-    margin-bottom: 4px;
+    color: #374151;
 }
 
 .timeline-event-description {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 4px;
+    font-size: 13px;
+    color: #6B7280;
 }
 
 .timeline-event-date {
     font-size: 12px;
-    color: #999;
+    color: #9CA3AF;
 }
 
 .timeline-line {
     position: absolute;
-    left: 20px;
-    top: 40px;
+    left: 15px;
+    top: 48px;
+    bottom: -16px;
     width: 2px;
-    height: 24px;
-    background: #e5e7eb;
-    z-index: 1;
-}
-
-/* Right Column */
-.right-column {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    background: #E5E7EB;
 }
 
 /* Status Card */
 .status-card {
-    background: white;
-    border-radius: 12px;
+    background: #FFFFFF;
+    border-radius: 15px;
     padding: 24px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .status-title {
-    font-size: 20px;
-    font-weight: 700;
-    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1A365D;
     margin: 0 0 20px 0;
 }
 
@@ -356,13 +341,13 @@
 }
 
 .status-alert-item {
-    background: #fef2f2;
-    border-radius: 8px;
-    padding: 16px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    border-left: 4px solid #f87171;
+    align-items: flex-start;
+    padding: 16px;
+    background: #FDF2F8;
+    border-radius: 12px;
+    border: 1px solid #FCE7F3;
 }
 
 .alert-content {
@@ -372,153 +357,163 @@
 .alert-message {
     font-size: 14px;
     font-weight: 500;
-    color: #333;
+    color: #374151;
     margin: 0 0 4px 0;
 }
 
 .alert-time {
     font-size: 12px;
-    color: #666;
+    color: #9CA3AF;
     margin: 0;
 }
 
 .alert-icon {
-    color: #f87171;
+    color: #6B7280;
+    margin-left: 12px;
+    flex-shrink: 0;
+}
+
+.alert-icon svg {
+    width: 16px;
+    height: 16px;
 }
 
 .view-more-button {
-    background: #20b2aa;
+    width: 100%;
+    background: #00ACB2;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
+    border-radius: 8px;
+    padding: 12px;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
+    transition: all 0.2s ease;
+    font-family: inherit;
 }
 
 .view-more-button:hover {
-    background-color: #1a9b94;
+    background: #0099A0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 172, 178, 0.3);
 }
 
 /* Quick Actions Card */
 .quick-actions-card {
-    background: white;
-    border-radius: 12px;
+    background: #FFFFFF;
+    border-radius: 15px;
     padding: 24px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .quick-actions-title {
-    font-size: 20px;
-    font-weight: 700;
-    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1A365D;
     margin: 0 0 20px 0;
 }
 
 .quick-actions-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
 }
 
 .quick-action-item {
-    background: none;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 16px;
     display: flex;
     align-items: center;
     gap: 12px;
+    padding: 12px 16px;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     text-align: left;
     width: 100%;
+    font-family: inherit;
 }
 
 .quick-action-item:hover {
-    background: #f8f9fa;
-    border-color: #4fc3f7;
+    background: #F3F4F6;
+    border-color: #D1D5DB;
+    transform: translateY(-1px);
 }
 
 .action-icon {
-    font-size: 18px;
-    width: 24px;
-    text-align: center;
+    font-size: 16px;
 }
 
 .action-title {
     font-size: 14px;
     font-weight: 500;
-    color: #333;
+    color: #374151;
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
-    .my-devices-content {
-        margin-left: 280px;
-        margin-top: 80px;
-    }
-}
-
 @media (max-width: 768px) {
     .my-devices-content {
-        margin-left: 0;
-        margin-top: 70px;
         padding: 24px 16px;
     }
-    
+
     .my-devices-grid {
         grid-template-columns: 1fr;
         gap: 24px;
     }
-    
-    .my-devices-header {
-        flex-direction: column;
-        gap: 16px;
-        align-items: flex-start;
-    }
-    
-    .header-actions {
-        width: 100%;
-        justify-content: flex-end;
-    }
-    
+
     .device-info-content {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 16px;
     }
-    
+
+    .my-devices-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
     .timeline-tabs {
         flex-wrap: wrap;
-        gap: 16px;
+    }
+
+    .timeline-tab {
+        padding: 8px 16px;
+        font-size: 13px;
     }
 }
 
 @media (max-width: 480px) {
     .my-devices-content {
-        margin-top: 70px;
         padding: 16px 12px;
     }
-    
-    .device-info-card {
-        padding: 24px;
-    }
-    
+
+    .device-info-card,
     .device-timeline-card,
     .status-card,
     .quick-actions-card {
-        padding: 20px;
+        padding: 16px;
     }
-    
-    .header-actions {
-        flex-direction: column;
-        gap: 8px;
+
+    .device-info-header {
+        gap: 12px;
     }
-    
+
+    .device-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .device-info-title {
+        font-size: 18px;
+    }
+
     .action-button {
-        width: 100%;
+        padding: 8px 16px;
+        font-size: 13px;
     }
 }
