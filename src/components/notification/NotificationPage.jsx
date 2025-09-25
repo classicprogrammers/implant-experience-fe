@@ -1,25 +1,9 @@
-import React, { useState } from 'react'
-import Sidebar from '../sidebar/Sidebar'
-import TopNavbar from '../navbar/TopNavbar'
+import React from 'react'
 import './NotificationPage.css'
 import notificationGreenImage from '../../assets/images/notification-green.png'
 
 function NotificationPage() {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-
-    const handleMenuToggle = () => {
-        setIsSidebarOpen(!isSidebarOpen)
-    }
-
-    const handleSidebarClose = () => {
-        setIsSidebarOpen(false)
-    }
-
     return (
-        <div className="dashboard-layout">
-            <Sidebar isOpen={isSidebarOpen} onClose={handleSidebarClose} />
-            <TopNavbar onMenuToggle={handleMenuToggle} />
-            <div className="main-content">
                 <div className="notification-page">
                     <div className="notification-container">
                         {/* Header Section */}
@@ -123,10 +107,6 @@ function NotificationPage() {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        //   </div >
-        // </div >
     )
 }
 

@@ -1,20 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Sidebar from '../../components/sidebar/Sidebar'
-import TopNavbar from '../../components/navbar/TopNavbar'
 import './MyDevices.css'
 
 const MyDevices = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false)
     const [activeTab, setActiveTab] = useState('history')
-
-    const handleMenuToggle = () => {
-        setIsSidebarOpen(!isSidebarOpen)
-    }
-
-    const handleSidebarClose = () => {
-        setIsSidebarOpen(false)
-    }
 
     const timelineEvents = [
         {
@@ -93,16 +82,12 @@ const MyDevices = () => {
     ]
 
     return (
-        <div className="my-devices-layout">
-            <Sidebar isOpen={isSidebarOpen} onClose={handleSidebarClose} />
-            <TopNavbar onMenuToggle={handleMenuToggle} />
-            
-            <div className="my-devices-content">
+        <div className="my-devices-content">
                 {/* Header */}
                 <div className="my-devices-header">
                     <div className="breadcrumb">
                         <Link to="/dashboard">Dashboard</Link>
-                        <span className="breadcrumb-separator">></span>
+                        <span className="breadcrumb-separator">{'>'}</span>
                         <span className="breadcrumb-current">My Devices</span>
                     </div>
                     <div className="header-actions">
@@ -124,14 +109,14 @@ const MyDevices = () => {
                                 <div className="device-icon">
                                     <div className="rocket-icon">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="#20b2aa"/>
-                                            <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" stroke="white" strokeWidth="1"/>
+                                            <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="#20b2aa" />
+                                            <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" stroke="white" strokeWidth="1" />
                                         </svg>
                                     </div>
                                 </div>
                                 <h2 className="device-info-title">Device Information</h2>
                             </div>
-                            
+
                             <div className="device-info-content">
                                 <div className="device-details-left">
                                     <div className="info-item">
@@ -150,7 +135,7 @@ const MyDevices = () => {
                                         <span className="info-value-text">S2021*****983242</span>
                                     </div>
                                 </div>
-                                
+
                                 <div className="device-details-right">
                                     <div className="info-item">
                                         <span className="info-label">Implant Date</span>
@@ -171,29 +156,29 @@ const MyDevices = () => {
                         {/* Device Timeline */}
                         <div className="device-timeline-card">
                             <div className="timeline-tabs">
-                                <button 
+                                <button
                                     className={`timeline-tab ${activeTab === 'history' ? 'active' : ''}`}
                                     onClick={() => setActiveTab('history')}
                                 >
                                     <div className="tab-indicator"></div>
                                     History
                                 </button>
-                                <button 
+                                <button
                                     className={`timeline-tab ${activeTab === 'alerts' ? 'active' : ''}`}
                                     onClick={() => setActiveTab('alerts')}
                                 >
                                     Alerts
                                 </button>
-                                <button 
+                                <button
                                     className={`timeline-tab ${activeTab === 'resource' ? 'active' : ''}`}
                                     onClick={() => setActiveTab('resource')}
                                 >
                                     Resource
                                 </button>
                             </div>
-                            
+
                             <h3 className="timeline-title">Device Timeline</h3>
-                            
+
                             <div className="timeline-container">
                                 {timelineEvents.map((event, index) => (
                                     <div key={event.id} className="timeline-item">
@@ -250,7 +235,6 @@ const MyDevices = () => {
                     </div>
                 </div>
             </div>
-        </div>
     )
 }
 
