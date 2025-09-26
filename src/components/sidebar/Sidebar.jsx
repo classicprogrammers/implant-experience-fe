@@ -111,7 +111,7 @@ const Sidebar = ({ isOpen, onClose }) => {
 
                     <div className={`nav-item ${location.pathname === '/resources' ? 'active' : ''}`} onClick={() => navigate('/resources')}>
                         <div className="nav-icon">
-                        <img src={location.pathname === '/resources' ? resourcesImage2 : resourcesImage} alt="Setting" width="16" height="16" />
+                            <img src={location.pathname === '/resources' ? resourcesImage2 : resourcesImage} alt="Setting" width="16" height="16" />
                         </div>
                         <span className="nav-text">Resources</span>
                         {resources > 0 && (
