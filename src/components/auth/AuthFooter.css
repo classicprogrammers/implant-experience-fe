@@ -1,0 +1,69 @@
+/* Auth Footer Styles - Dedicated component to avoid conflicts */
+.auth-footer {
+    width: 100%;
+    padding: 1rem 0;
+    margin-top: auto;
+    background: white;
+    border-top: none;
+}
+
+.auth-footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.auth-footer-left {
+    display: flex;
+    align-items: center;
+}
+
+.auth-footer-left span {
+    color: #9CA3AF;
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+.auth-footer-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.auth-footer-left a,
+.auth-footer-right a {
+    color: #2563EB;
+    text-decoration: underline;
+    font-size: 0.875rem;
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+.auth-footer-left a:hover,
+.auth-footer-right a:hover {
+    color: #1D4ED8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .auth-footer-container {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+        padding: 0 1rem;
+    }
+    
+    .auth-footer-right {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-footer-right {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

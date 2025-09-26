@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { HiEye, HiEyeOff, HiOutlineEye, HiOutlineEyeOff } from 'react-icons/hi'
 import { api } from '../../utils/api'
+import AuthFooter from '../../components/auth/AuthFooter'
 import '../../App.css'
 
 function SignUpPage() {
@@ -123,9 +124,9 @@ function SignUpPage() {
         console.log('Registration successful:', response.data.data)
         setSuccess(response.data.message || 'Registration successful!')
 
-        // Navigate to dashboard after a short delay to show success message
+        // Navigate to OCR page after a short delay to show success message
         setTimeout(() => {
-          navigate('/dashboard')
+          navigate('/ocr')
         }, 1500)
       } else {
         setError(response.data.message || 'Registration failed')
@@ -349,18 +350,7 @@ function SignUpPage() {
 
         </div>
       </div>
-      <footer className="auth-footer-new">
-        <div className="container">
-          <div className="footer-left">
-            <span>© 2025 yourapp.com</span>
-            <Link to="/contact">Contact Us</Link>
-          </div>
-          <div className="footer-right">
-            <Link to="/terms">Terms & Conditions</Link>
-            <Link to="/privacy">Privacy Policy</Link>
-          </div>
-        </div>
-      </footer>
+      <AuthFooter />
     </>
   )
 }

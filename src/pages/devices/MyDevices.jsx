@@ -1,5 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import DeviceImage from '../../assets/images/Device-2.png'
+import Implanted from '../../assets/images/Device.png'
+import Followup from '../../assets/images/Followup.png'
+import Status from '../../assets/images/Status.png'
+import SaftetyCheck from '../../assets/images/Sheild.png'
 import './MyDevices.css'
 
 const MyDevices = () => {
@@ -12,7 +17,7 @@ const MyDevices = () => {
             title: 'Device Implanted',
             description: 'Successfully Implanted by Dr. Jennifer',
             date: 'September 12, 2023',
-            icon: '🌿'
+            icon: Implanted
         },
         {
             id: 2,
@@ -20,7 +25,7 @@ const MyDevices = () => {
             title: 'First Follow-up',
             description: 'Routine Checkup completed successfully',
             date: 'December 15, 2023',
-            icon: '👤'
+            icon: Followup
         },
         {
             id: 3,
@@ -28,7 +33,7 @@ const MyDevices = () => {
             title: 'Status Update',
             description: 'Move to monitor status for routine observation',
             date: 'January 3, 2025',
-            icon: '📋'
+            icon: Status
         },
         {
             id: 4,
@@ -36,7 +41,7 @@ const MyDevices = () => {
             title: 'Safety Check Complete',
             description: 'Monthly safely review passed',
             date: 'January 5, 2025',
-            icon: '✅'
+            icon: SaftetyCheck
         }
     ]
 
@@ -108,10 +113,11 @@ const MyDevices = () => {
                             <div className="device-info-header">
                                 <div className="device-icon">
                                     <div className="rocket-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        {/* <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                             <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="#20b2aa" />
                                             <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" stroke="white" strokeWidth="1" />
-                                        </svg>
+                                        </svg> */}
+                                        <img src={DeviceImage} alt="" />
                                     </div>
                                 </div>
                                 <h2 className="device-info-title">Device Information</h2>
@@ -183,7 +189,7 @@ const MyDevices = () => {
                                 {timelineEvents.map((event, index) => (
                                     <div key={event.id} className="timeline-item">
                                         <div className="timeline-icon">
-                                            <span className="event-icon">{event.icon}</span>
+                                            <span className="event-icon"><img src={event.icon} alt="" style={{width: '18px', height: '18px'}}/></span>
                                         </div>
                                         <div className="timeline-content">
                                             <div className="timeline-event-title">{event.title}</div>

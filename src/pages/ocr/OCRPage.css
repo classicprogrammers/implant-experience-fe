@@ -1,0 +1,359 @@
+/* OCR Page Styles - Based on Auth Page Design */
+.ocr-page {
+    min-height: 100vh;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+}
+
+.ocr-container {
+    width: 100%;
+    max-width: 620px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ocr-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 29px 28.1px 0px #0000000D;
+    padding: 2rem;
+    width: 100%;
+    border: none;
+    position: relative;
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #A0AEC0;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.close-button:hover {
+    color: #64748B;
+    background: #F7FAFC;
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1A365D;
+    margin: 0 0 1.5rem 0;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: #00ACB2;
+    border-radius: 2px;
+}
+
+/* OCR Upload Section */
+.ocr-upload-section {
+    margin-bottom: 2rem;
+}
+
+.upload-area {
+    border: 2px dashed #00ACB2;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: #FAFCFE;
+}
+
+.upload-area:hover {
+    border-color: #00BFA5;
+    background: #F0FDFA;
+    transform: translateY(-2px);
+}
+
+.file-input {
+    display: none;
+}
+
+.upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.upload-icon {
+    color: #00ACB2;
+    transition: all 0.3s ease;
+}
+
+.upload-area:hover .upload-icon {
+    color: #00BFA5;
+    transform: scale(1.1);
+}
+
+.upload-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.upload-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1A365D;
+    margin: 0;
+}
+
+.upload-formats {
+    font-size: 0.875rem;
+    color: #64748B;
+    margin: 0;
+}
+
+/* Verify Button */
+.verify-button {
+    background: #1A365D;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.verify-button:hover {
+    background: #2D4A6B;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 54, 93, 0.3);
+}
+
+/* Manual Form Section */
+.manual-form-section {
+    border-top: 1px solid #E5E7EB;
+    padding-top: 2rem;
+}
+
+.ocr-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Form Groups - Using Auth Styles */
+.form-group-new {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group-new label {
+    font-weight: 700;
+    color: #11142D;
+    font-size: 0.9rem;
+    margin-left: 16px;
+}
+
+.form-group-new input {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #00ACB2 !important;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    width: 100%;
+    height: 56px;
+    box-sizing: border-box;
+    background: white;
+}
+
+.form-group-new input:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 3px rgba(0, 172, 178, 0.1);
+    border-color: #00ACB2;
+}
+
+.form-group-new input::placeholder {
+    color: #A0AEC0;
+}
+
+.form-group-new input[type="date"] {
+    color: #11142D;
+}
+
+.form-group-new input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #00ACB2;
+    cursor: pointer;
+}
+
+/* Register Button */
+.register-button {
+    background: #00ACB2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.register-button:hover:not(:disabled) {
+    background: #00BFA5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 172, 178, 0.3);
+}
+
+.register-button:disabled {
+    background: #A0AEC0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* File Upload States */
+.upload-area.has-file {
+    border-color: #00BFA5;
+    background: #F0FDFA;
+    border-style: solid;
+}
+
+.upload-area.has-file .upload-icon {
+    color: #00BFA5;
+}
+
+.upload-area.has-file .upload-title {
+    color: #00BFA5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ocr-page {
+        padding: 1rem;
+    }
+
+    .ocr-card {
+        padding: 1.5rem;
+    }
+
+    .upload-area {
+        padding: 1.5rem;
+    }
+
+    .upload-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .upload-title {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .ocr-page {
+        padding: 0.5rem;
+    }
+
+    .ocr-card {
+        padding: 1rem;
+    }
+
+    .upload-area {
+        padding: 1rem;
+    }
+
+    .form-group-new input {
+        height: 48px;
+        font-size: 0.9rem;
+    }
+
+    .verify-button,
+    .register-button {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Animation for form interactions */
+.form-group-new input.changing {
+    animation: inputChange 0.4s ease;
+}
+
+@keyframes inputChange {
+    0% {
+        transform: scale(1);
+        border-color: #00ACB2;
+    }
+
+    50% {
+        transform: scale(1.02);
+        border-color: #00BFA5;
+    }
+
+    100% {
+        transform: scale(1);
+        border-color: #00ACB2;
+    }
+}
+
+/* Loading state for register button */
+.register-button.loading {
+    position: relative;
+    color: transparent;
+}
+
+.register-button.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}

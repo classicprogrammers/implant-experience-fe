@@ -6,6 +6,7 @@ import SignupPage from './pages/auth/SignupPage'
 import ForgotPasswordPage from './pages/auth/ForgotPasswordPage'
 import ContactPage from './pages/landing/ContactPage'
 import TermsPage from './pages/landing/TermsPage'
+import OCRPage from './pages/ocr/OCRPage'
 import DashboardRoutes from './layouts/DashboardRoutes'
 import './App.css'
 
@@ -22,6 +23,8 @@ function App() {
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/terms" element={<TermsPage />} />
+            {/* OCR page - accessible after sign-in/sign-up */}
+            <Route path="/ocr" element={<OCRPage />} />
             {/* Dashboard routes with sidebar and navbar */}
             <Route path="/*" element={<DashboardRoutes />} />
           </Routes>
