@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 // import { useEffect } from 'react'
 import '../../App.css';
 import '../../assets/css/landing.css';
+import logo from '../../assets/images/implant-logo.png';
 import Footer from '../../components/footer/Footer';
 
 function LandingPage() {
@@ -16,8 +17,7 @@ function LandingPage() {
       <header className="landing-header">
         <div className="landing-nav-container container">
           <div className="landing-logo">
-            <span className="landing-logo-implant">THE IMPLANT</span>
-            <span className="landing-logo-experience">EXPERIENCE</span>
+            <img src={logo} alt="Logo" className="landing-logo-img" />
           </div>
 
           <nav className="landing-nav-menu">

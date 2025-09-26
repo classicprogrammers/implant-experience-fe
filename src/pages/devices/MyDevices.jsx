@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import DeviceImage from '../../assets/images/Device-2.png'
-import Implanted from '../../assets/images/Device.png'
+import Implanted from '../../assets/images/DeviceBlack.png'
 import Followup from '../../assets/images/Followup.png'
 import Status from '../../assets/images/Status.png'
-import SaftetyCheck from '../../assets/images/Sheild.png'
+import SaftetyCheck from '../../assets/images/Shield.png'
 import './MyDevices.css'
 
 const MyDevices = () => {
