@@ -1,63 +1,16 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 import '../../App.css';
 import '../../assets/css/landing.css';
-import logo from '../../assets/images/implant-logo.png';
+import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
+import logo from '../../assets/images/implant-logo.png';
 
 function LandingPage() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
   return (
     <div className="landing-page">
-      {/* Top Header Bar */}
-      <div className="landing-top-banner">
-        <span className="landing-banner-text">THE IMPLANT EXPERIENCE</span>
-      </div>
+      {/* Header Component */}
+      <Header variant="landing" />
 
-      {/* Header */}
-      <header className="landing-header">
-        <div className="landing-nav-container container">
-          <div className="landing-logo">
-            <img src={logo} alt="Logo" className="landing-logo-img" />
-          </div>
-
-          <nav className={`landing-nav-menu ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-            <div className="mobile-menu-content">
-              <div className="landing-nav-item active">
-                <div className="landing-nav-dot"></div>
-                <span>Home</span>
-              </div>
-              <div className="landing-nav-item">
-                <span>About</span>
-              </div>
-              <div className="landing-nav-item">
-                <span>Resource</span>
-              </div>
-              <div className="landing-nav-item">
-                <span>Newsletter</span>
-              </div>
-            </div>
-          </nav>
-
-          <div className="landing-auth-buttons">
-            <Link to="/login" className="landing-btn-login">Login</Link>
-            <Link to="/signup" className="landing-btn-member">Become a Member</Link>
-          </div>
-
-          <div className={`landing-mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`} onClick={toggleMobileMenu}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-      </header>
-
-      {/* Hero Section */}
       <section className="landing-hero-section">
         <div className="landing-hero-container container">
           <div className="landing-hero-badge">
@@ -97,16 +50,13 @@ function LandingPage() {
         </div>
       </section>
       {/*  */}
-      <marquee behavior="" direction="left">
+      <marquee behavior="" direction="left" className='bg-[#00ACB2] block'>
         <div className="landing-marquee-container">
           <div className="landing-marquee-item">
             <img src={logo} alt="Logo" className="landing-marquee-img" />
           </div>
         </div>
-
       </marquee>
-
-      {/* Footer */}
       <Footer />
     </div >
   )

@@ -846,32 +846,6 @@ button:focus {
   flex-shrink: 0;
 }
 
-.nav-item {
-  display: block;
-  width: 100%;
-  padding: 0.75rem 2rem;
-  border: none;
-  background: none;
-  text-align: left;
-  color: #64748b;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.2s;
-  border-left: 3px solid transparent;
-}
-
-.nav-item:hover {
-  background: #f1f5f9;
-  color: #2563eb;
-}
-
-.nav-item.active {
-  background: #eff6ff;
-  color: #2563eb;
-  border-left-color: #2563eb;
-  font-weight: 500;
-}
-
 .dashboard-main {
   flex: 1;
   padding: 2rem;
@@ -1135,23 +1109,9 @@ button:focus {
     order: 2;
   }
 
-  .nav-item {
-    padding: 0.75rem 1rem;
-  }
-
   .dashboard-main {
     padding: 1rem;
     order: 1;
-  }
-
-  .header-content {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .header-left h1 {
-    font-size: 1.5rem;
   }
 
   .stats-grid {

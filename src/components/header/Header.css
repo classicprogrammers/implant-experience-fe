@@ -1,0 +1,881 @@
+/* Implant Header Component Styles */
+:root {
+  --implant-primary-teal: #00B5C7;
+  --implant-primary-dark-blue: #00325C;
+  --implant-primary-white: #FFF;
+  --implant-neutral-50: #FAFAFA;
+  --implant-neutral-500: #0C1312;
+  --implant-text-gray: #556171;
+  --implant-text-dark: #0B1030;
+  --implant-star-blue: #1B2E7D;
+  --implant-link-purple: #4753BF;
+  --implant-highlight-cyan: #82EBED;
+}
+
+/* Base Header Styles */
+.implant-header {
+  width: 100%;
+  position: relative;
+  z-index: 1000;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  animation: implant-slideDown 0.3s ease-out;
+}
+
+@keyframes implant-slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Landing Header Styles */
+.implant-header-landing {
+  background: var(--implant-primary-white);
+}
+
+.implant-header-banner {
+  width: 100%;
+  height: 48px;
+  background: var(--implant-primary-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.implant-banner-text {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--implant-primary-white);
+  letter-spacing: 1px;
+}
+
+.implant-header-main {
+  width: 100%;
+  height: 100px;
+  background: var(--implant-primary-white);
+  border-bottom: 1px solid #EEEFEF;
+  position: relative;
+}
+
+.implant-header-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.implant-header-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  z-index: 1001;
+}
+
+.implant-logo-img {
+  max-height: 65px;
+  width: auto;
+}
+
+.implant-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background: var(--implant-primary-white);
+  border: 1px solid rgba(143, 146, 146, 0.15);
+  border-radius: 9999px;
+  padding: 7px 20px 7px 7px;
+  height: 48px;
+}
+
+.implant-nav-items {
+  display: flex;
+  align-items: center;
+}
+
+.implant-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 20px;
+  border-radius: 9999px;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  width: max-content;
+  min-width: 110px;
+  border: none;
+}
+
+.implant-nav-item:active , .implant-nav-item-active:active{
+  border: none;
+  outline: none;
+}
+
+.implant-nav-item-active {
+  border: 1px solid #8F929226;
+  border-radius: 25px;
+  outline: none;
+}
+
+.implant-nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--implant-primary-teal);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.implant-nav-item-active .implant-nav-dot {
+  opacity: 1;
+  transform: scale(1.2);
+  position: absolute;
+  left: 10px;
+}
+
+.implant-nav-item span {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 160%;
+  color: var(--implant-neutral-500);
+  position: absolute;
+  left: 25px;
+}
+
+.implant-header-auth-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.implant-btn-login,
+.implant-btn-member {
+  height: 44px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 160%;
+  transition: all 0.3s ease;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.implant-btn-login {
+  background: var(--implant-primary-teal);
+  color: var(--implant-primary-white);
+}
+
+.implant-btn-login:hover {
+  background: #00A693;
+  color: var(--implant-primary-white);
+  text-decoration: none;
+}
+
+.implant-btn-member {
+  background: var(--implant-primary-dark-blue);
+  color: var(--implant-primary-white);
+}
+
+.implant-btn-member:hover {
+  background: #002A4A;
+  color: var(--implant-primary-white);
+  text-decoration: none;
+}
+
+/* Mobile Menu Toggle */
+.implant-mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.implant-mobile-menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--implant-primary-dark-blue);
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+.implant-mobile-menu-toggle.implant-active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.implant-mobile-menu-toggle.implant-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.implant-mobile-menu-toggle.implant-active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Mobile Menu Overlay */
+.implant-mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+}
+
+/* Mobile Menu Auth Buttons */
+.implant-mobile-auth-buttons {
+  display: none;
+}
+
+/* Dashboard Header Styles */
+.implant-header-dashboard {
+  width: calc(100vw - 281px);
+  height: 80px;
+  left: 281px;
+  opacity: 1;
+  background: #FFFFFF;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  border-bottom: 1px solid #F1F5F9;
+  box-sizing: border-box;
+}
+
+/* Mobile Menu Button for Dashboard */
+.implant-mobile-menu-button {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background: #F8FAFC;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #6B7280;
+  margin-right: 16px;
+}
+
+.implant-mobile-menu-button:hover {
+  background: #F1F5F9;
+  color: #374151;
+}
+
+/* Search Container */
+.implant-search-container {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: 400px;
+  max-width: 537px;
+  height: 40px;
+  background: #FFFFFF;
+  border: 1px solid #E1E4F7;
+  border-radius: 12px;
+  padding: 8px 16px 8px 20px;
+  gap: 8px;
+  box-sizing: border-box;
+  flex-shrink: 1;
+  position: relative;
+}
+
+.implant-search-icon {
+  width: 16px !important;
+  height: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #BCBDC1 !important;
+  flex-shrink: 0 !important;
+  margin-right: 8px !important;
+  order: 1 !important;
+  float: left !important;
+  position: relative !important;
+}
+
+.implant-search-input {
+  flex: 1 !important;
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #374151 !important;
+  line-height: 20px !important;
+  order: 2 !important;
+}
+
+.implant-search-input::placeholder {
+  color: #9CA3AF;
+}
+
+.implant-search-input:focus {
+  outline: none;
+}
+
+/* User Section */
+.implant-user-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Notification Bell */
+.implant-notification-bell {
+  width: 36px;
+  height: 36px;
+  background: #F8FAFC;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #6B7280;
+}
+
+.implant-notification-bell:hover {
+  background: #F1F5F9;
+  color: #374151;
+}
+
+/* User Avatar */
+.implant-user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.implant-user-avatar:hover {
+  transform: scale(1.05);
+}
+
+.implant-avatar-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* User Info */
+.implant-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.implant-user-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  line-height: 20px;
+}
+
+.implant-user-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #6B7280;
+  line-height: 16px;
+}
+
+/* Dropdown Arrow */
+.implant-dropdown-arrow {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #6B7280;
+}
+
+.implant-dropdown-arrow:hover {
+  color: #374151;
+  transform: translateY(1px);
+}
+
+/* Mobile Menu Styles */
+.implant-header-nav.implant-mobile-open {
+  display: flex !important;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 9999;
+  justify-content: flex-end;
+  padding: 0;
+  animation: implant-fadeIn 0.3s ease;
+}
+
+@keyframes implant-fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.implant-header-nav.implant-mobile-open .implant-nav-items {
+  background: var(--implant-primary-white);
+  width: 350px;
+  height: 100%;
+  padding: 80px 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  animation: implant-slideInFromRight 0.3s ease forwards;
+  position: relative;
+  border-radius: 0;
+}
+
+@keyframes implant-slideInFromRight {
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Mobile Close Button */
+.implant-mobile-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: #F8FAFC;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #6B7280;
+  z-index: 10001;
+}
+
+.implant-mobile-close-btn:hover {
+  background: #F1F5F9;
+  color: #374151;
+  transform: scale(1.1);
+}
+
+.implant-header-nav.implant-mobile-open .implant-nav-item {
+  padding: 20px 30px;
+  border-radius: 0;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  background: transparent;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #F1F5F9;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.implant-header-nav.implant-mobile-open .implant-nav-item:last-of-type {
+  border-bottom: none;
+}
+
+.implant-header-nav.implant-mobile-open .implant-nav-item.implant-nav-item-active {
+  background: linear-gradient(90deg, var(--implant-primary-teal) 0%, rgba(0, 181, 199, 0.1) 100%);
+  color: var(--implant-primary-teal);
+  font-weight: 600;
+  border-left: 4px solid var(--implant-primary-teal);
+}
+
+.implant-header-nav.implant-mobile-open .implant-nav-item:hover {
+  background: #F8FAFC;
+  color: var(--implant-primary-teal);
+  transform: translateX(5px);
+  border-left: 4px solid rgba(0, 181, 199, 0.3);
+}
+
+.implant-header-nav.implant-mobile-open .implant-nav-item:active {
+  transform: translateX(2px);
+  background: rgba(0, 181, 199, 0.05);
+}
+
+.implant-header-nav.implant-mobile-open .implant-mobile-auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: auto;
+  padding: 30px;
+  border-top: 1px solid #F1F5F9;
+  background: #FAFAFA;
+}
+
+.implant-header-nav.implant-mobile-open .implant-mobile-auth-buttons .implant-btn-login,
+.implant-header-nav.implant-mobile-open .implant-mobile-auth-buttons .implant-btn-member {
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.implant-header-nav.implant-mobile-open .implant-mobile-auth-buttons .implant-btn-login {
+  background: var(--implant-primary-teal);
+  color: var(--implant-primary-white);
+}
+
+.implant-header-nav.implant-mobile-open .implant-mobile-auth-buttons .implant-btn-login:hover {
+  background: #00A693;
+  color: var(--implant-primary-white);
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 181, 199, 0.3);
+}
+
+.implant-header-nav.implant-mobile-open .implant-mobile-auth-buttons .implant-btn-member {
+  background: var(--implant-primary-dark-blue);
+  color: var(--implant-primary-white);
+}
+
+.implant-header-nav.implant-mobile-open .implant-mobile-auth-buttons .implant-btn-member:hover {
+  background: #002A4A;
+  color: var(--implant-primary-white);
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 50, 92, 0.3);
+}
+
+/* Responsive Design */
+
+/* Large Desktop */
+@media (max-width: 1440px) {
+  .implant-header-dashboard {
+    width: calc(100vw - 281px);
+    left: 281px;
+  }
+
+  .implant-search-container {
+    width: 300px;
+    max-width: 350px;
+    padding: 6px 12px 6px 16px;
+  }
+
+  .implant-header-container {
+    max-width: 1200px;
+    padding: 0 1.5rem;
+  }
+
+  .implant-logo-img {
+    max-height: 55px;
+  }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+  .implant-header-dashboard {
+    width: calc(100vw - 280px);
+    left: 280px;
+    padding: 0 24px;
+  }
+
+  .implant-search-container {
+    width: 350px;
+    height: 44px;
+  }
+
+  .implant-user-section {
+    gap: 12px;
+  }
+
+  .implant-header-container {
+    max-width: 960px;
+  }
+
+  .implant-header-nav {
+    gap: 25px;
+    padding: 7px 20px 7px 12px;
+  }
+
+  .implant-btn-login,
+  .implant-btn-member {
+    width: 140px;
+    font-size: 13px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .implant-header-main {
+    height: 80px;
+  }
+
+  .implant-header-nav {
+    display: none;
+  }
+
+  .implant-mobile-menu-toggle {
+    display: flex;
+  }
+
+  .implant-header-auth-buttons {
+    gap: 6px;
+  }
+
+  .implant-btn-login,
+  .implant-btn-member {
+    width: 110px;
+    font-size: 11px;
+    height: 38px;
+    padding: 0 8px;
+  }
+
+  .implant-logo-img {
+    max-height: 50px;
+  }
+
+  .implant-header-container {
+    max-width: 720px;
+    padding: 0 1rem;
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+  .implant-header-banner {
+    height: 40px;
+  }
+
+  .implant-banner-text {
+    font-size: 18px;
+  }
+
+  .implant-header-main {
+    height: 70px;
+  }
+
+  .implant-header-container {
+    gap: 10px;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .implant-header-logo {
+    flex: 1;
+  }
+
+  .implant-nav-items {
+    display: flex;
+    align-items: unset;
+    gap: 10px;
+  }
+
+  .implant-logo-img {
+    max-height: 38px;
+  }
+
+  .implant-header-auth-buttons {
+    display: none;
+  }
+
+  .implant-mobile-menu-overlay {
+    display: block;
+  }
+
+  /* Dashboard responsive */
+  .implant-header-dashboard {
+    width: 100vw;
+    left: 0;
+    padding: 0 16px;
+    height: 70px;
+    box-sizing: border-box;
+  }
+
+  .implant-mobile-menu-button {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .implant-search-container {
+    width: 200px;
+    height: 36px;
+    padding: 6px 10px 6px 14px;
+    flex-shrink: 1;
+    min-width: 0;
+    gap: 6px;
+  }
+
+  .implant-user-section {
+    flex-shrink: 0;
+    gap: 8px;
+  }
+
+  .implant-user-info {
+    display: none;
+  }
+
+  .implant-search-input {
+    font-size: 13px;
+  }
+
+  .implant-user-name {
+    font-size: 13px;
+  }
+
+  .implant-user-role {
+    font-size: 11px;
+  }
+
+  .implant-notification-bell,
+  .implant-user-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .implant-dropdown-arrow {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Mobile Medium */
+@media (max-width: 576px) {
+  .implant-header-main {
+    height: 65px;
+  }
+
+  .implant-header-container {
+    gap: 8px;
+    padding: 0 0.75rem;
+  }
+
+  .implant-logo-img {
+    max-height: 45px;
+  }
+
+  .implant-header-dashboard {
+    padding: 0 12px;
+    height: 60px;
+    box-sizing: border-box;
+  }
+
+  .implant-search-container {
+    width: 150px;
+    height: 32px;
+    padding: 4px 8px 4px 12px;
+    flex-shrink: 1;
+    min-width: 0;
+    gap: 4px;
+  }
+
+  .implant-user-section {
+    gap: 6px;
+  }
+
+  .implant-search-input {
+    font-size: 12px;
+  }
+
+  .implant-user-section {
+    gap: 8px;
+  }
+
+  .implant-user-name {
+    font-size: 12px;
+  }
+
+  .implant-user-role {
+    font-size: 10px;
+  }
+
+  .implant-notification-bell,
+  .implant-user-avatar {
+    width: 28px;
+    height: 28px;
+  }
+
+  .implant-dropdown-arrow {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+  .implant-header-main {
+    height: 60px;
+  }
+
+  .implant-header-container {
+    padding: 0 0.5rem;
+    gap: 6px;
+  }
+
+  .implant-logo-img {
+    max-height: 32px;
+  }
+
+  .implant-header-dashboard {
+    padding: 0 12px;
+    height: 60px;
+    box-sizing: border-box;
+  }
+}
+
+/* Mobile Extra Small */
+@media (max-width: 360px) {
+  .implant-header-main {
+    height: 55px;
+  }
+
+  .implant-header-container {
+    padding: 0 0.3rem;
+    gap: 4px;
+  }
+
+  .implant-logo-img {
+    max-height: 28px;
+  }
+}

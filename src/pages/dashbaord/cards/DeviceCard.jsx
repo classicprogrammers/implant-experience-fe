@@ -1,50 +1,99 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import deviceImage from '../../../assets/images/Device.png'
-import { api } from '../../../utils/api'
+// import { api } from '../../../utils/api' // Commented out for development
 
 const DeviceCard = () => {
-    const [devices, setDevices] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
+    // Dummy data for development - matching the image data
+    const dummyDevices = [
+        {
+            id: 1,
+            device_master: {
+                brand: "Device Name",
+                model: "Model"
+            },
+            manufacturer: "Device Name",
+            model: "Model",
+            implant_date: "2025-02-02",
+            status: "active"
+        },
+        {
+            id: 2,
+            device_master: {
+                brand: "Device Name",
+                model: "Model"
+            },
+            manufacturer: "Device Name",
+            model: "Model",
+            implant_date: "2025-02-02",
+            status: "active"
+        },
+        {
+            id: 3,
+            device_master: {
+                brand: "Device Name",
+                model: "Model"
+            },
+            manufacturer: "Device Name",
+            model: "Model",
+            implant_date: "2025-02-02",
+            status: "active"
+        },
+        {
+            id: 4,
+            device_master: {
+                brand: "Device Name",
+                model: "Model"
+            },
+            manufacturer: "Device Name",
+            model: "Model",
+            implant_date: "2025-02-02",
+            status: "active"
+        }
+    ]
+
+    const [devices, setDevices] = useState(dummyDevices)
+    const [loading] = useState(false) // Set to false since we're using dummy data
+    const [error] = useState(null)
     const [searchTerm, setSearchTerm] = useState('')
     const [statusFilter, setStatusFilter] = useState('all')
 
+    // COMMENTED OUT API CODE FOR DEVELOPMENT
     // Fetch devices from API
-    const fetchDevices = async () => {
-        try {
-            setLoading(true)
-            setError(null)
-            const response = await api.get('/devices')
-            
-            if (response.data.success && Array.isArray(response.data.data.devices)) {
-                setDevices(response.data.data.devices)
-            } else {
-                setError('Failed to fetch devices')
-                setDevices([]) // Ensure devices is always an array
-            }
-        } catch (err) {
-            console.error('Error fetching devices:', err)
-            setError('Failed to load devices. Please try again.')
-            setDevices([]) // Ensure devices is always an array
-        } finally {
-            setLoading(false)
-        }
-    }
+    // const fetchDevices = async () => {
+    //     try {
+    //         setLoading(true)
+    //         setError(null)
+    //         const response = await api.get('/devices')
+    //         
+    //         if (response.data.success && Array.isArray(response.data.data.devices)) {
+    //             setDevices(response.data.data.devices)
+    //         } else {
+    //             setError('Failed to fetch devices')
+    //             setDevices([]) // Ensure devices is always an array
+    //         }
+    //     } catch (err) {
+    //         console.error('Error fetching devices:', err)
+    //         setError('Failed to load devices. Please try again.')
+    //         setDevices([]) // Ensure devices is always an array
+    //     } finally {
+    //         setLoading(false)
+    //     }
+    // }
 
-    useEffect(() => {
-        fetchDevices()
-    }, [])
+    // useEffect(() => {
+    //     fetchDevices()
+    // }, [])
 
     // Filter devices based on search term and status
     const filteredDevices = Array.isArray(devices) ? devices.filter(device => {
-        const matchesSearch = 
+        const matchesSearch =
             device.device_master?.brand?.toLowerCase().includes(searchTerm.toLowerCase()) ||
             device.device_master?.model?.toLowerCase().includes(searchTerm.toLowerCase()) ||
             device.manufacturer?.toLowerCase().includes(searchTerm.toLowerCase())
-        
+
         const matchesStatus = statusFilter === 'all' || device.status === statusFilter
-        
+
         return matchesSearch && matchesStatus
     }) : []
 
@@ -52,16 +101,18 @@ const DeviceCard = () => {
     const formatDate = (dateString) => {
         if (!dateString) return 'N/A'
         const date = new Date(dateString)
-        return date.toLocaleDateString('en-US', { 
-            month: '2-digit', 
-            day: '2-digit', 
-            year: '2-digit' 
+        return date.toLocaleDateString('en-US', {
+            month: '2-digit',
+            day: '2-digit',
+            year: '2-digit'
         })
     }
 
     // Get status badge class based on device status
     const getStatusBadgeClass = (status) => {
         switch (status) {
+            case 'active':
+                return 'status-badge status-active'
             case 'safe':
                 return 'status-badge status-safe'
             case 'monitor':
@@ -76,6 +127,8 @@ const DeviceCard = () => {
     // Get status dot class based on device status
     const getStatusDotClass = (status) => {
         switch (status) {
+            case 'active':
+                return 'status-dot status-dot-active'
             case 'safe':
                 return 'status-dot status-dot-safe'
             case 'monitor':
@@ -109,7 +162,7 @@ const DeviceCard = () => {
                 </div>
                 <div className="error-container">
                     <p className="error-message">{error}</p>
-                    <button onClick={fetchDevices} className="retry-button">
+                    <button onClick={() => setDevices(dummyDevices)} className="retry-button">
                         Try Again
                     </button>
                 </div>
@@ -125,12 +178,13 @@ const DeviceCard = () => {
                 </Link>
                 <div className="devices-controls">
                     <div className="filter-pill">
-                        <select 
-                            value={statusFilter} 
+                        <select
+                            value={statusFilter}
                             onChange={(e) => setStatusFilter(e.target.value)}
                             className="filter-select"
                         >
                             <option value="all">All Status</option>
+                            <option value="active">Active</option>
                             <option value="safe">Safe</option>
                             <option value="monitor">Monitor</option>
                             <option value="recall">Recall</option>
@@ -146,9 +200,9 @@ const DeviceCard = () => {
                         </svg>
                     </div>
                     <div className="search-container-dashboard">
-                        <input 
-                            type="text" 
-                            placeholder="Search devices..." 
+                        <input
+                            type="text"
+                            placeholder="Search devices..."
                             className="search-field"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
@@ -175,7 +229,7 @@ const DeviceCard = () => {
                         <div key={device.id} className="table-row">
                             <div className="table-cell">
                                 <div className="device-info">
-                                    <div className="device-icon">
+                                    <div className="device-icon bg-[#F6F7F9]">
                                         <img src={deviceImage} alt="Device" width="20" height="20" />
                                     </div>
                                     <span>{device.device_master?.brand || device.manufacturer || 'Unknown Device'}</span>
