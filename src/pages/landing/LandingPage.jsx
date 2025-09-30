@@ -4,6 +4,7 @@ import '../../assets/css/landing.css';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import logo from '../../assets/images/implant-logo.png';
+import badge from '../../assets/images/landingHero.png';
 
 function LandingPage() {
   return (
@@ -14,7 +15,7 @@ function LandingPage() {
       <section className="landing-hero-section">
         <div className="landing-hero-container container">
           <div className="landing-hero-badge">
-            <img src="https://api.builder.io/api/v1/image/assets/TEMP/2070a485fbad4155ad7801fd58b79b8ebd585062?width=298" alt="Badge" className="landing-badge-img" />
+            <img src={badge} alt="Badge" className="landing-badge-img" />
           </div>
 
           <div className="landing-hero-section-content">

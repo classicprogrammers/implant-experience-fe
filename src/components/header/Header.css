@@ -52,7 +52,7 @@
   font-weight: 400;
   line-height: 18px;
   color: var(--implant-primary-white);
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
 }
 
 .implant-header-main {

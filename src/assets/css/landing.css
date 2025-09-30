@@ -41,7 +41,7 @@
     height: 90vh;
     min-height: 600px;
     background: linear-gradient(270deg, rgba(9, 50, 36, 0.00) 0%, var(--primary-teal) 91.23%),
-        url('../../assets/images/landingHero.png') center/cover;
+        url('../../assets/images/landingBgHero.png') center/cover;
     position: relative;
     display: flex;
     align-items: center;
