@@ -1,11 +1,17 @@
 import { Link } from 'react-router-dom'
-// import { useEffect } from 'react'
+import { useState } from 'react'
 import '../../App.css';
 import '../../assets/css/landing.css';
 import logo from '../../assets/images/implant-logo.png';
 import Footer from '../../components/footer/Footer';
 
 function LandingPage() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <div className="landing-page">
       {/* Top Header Bar */}
@@ -20,25 +26,33 @@ function LandingPage() {
             <img src={logo} alt="Logo" className="landing-logo-img" />
           </div>
 
-          <nav className="landing-nav-menu">
-            <div className="landing-nav-item active">
-              <div className="landing-nav-dot"></div>
-              <span>Home</span>
-            </div>
-            <div className="landing-nav-item">
-              <span>About</span>
-            </div>
-            <div className="landing-nav-item">
-              <span>Resource</span>
-            </div>
-            <div className="landing-nav-item">
-              <span>Newsletter</span>
+          <nav className={`landing-nav-menu ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+            <div className="mobile-menu-content">
+              <div className="landing-nav-item active">
+                <div className="landing-nav-dot"></div>
+                <span>Home</span>
+              </div>
+              <div className="landing-nav-item">
+                <span>About</span>
+              </div>
+              <div className="landing-nav-item">
+                <span>Resource</span>
+              </div>
+              <div className="landing-nav-item">
+                <span>Newsletter</span>
+              </div>
             </div>
           </nav>
 
           <div className="landing-auth-buttons">
             <Link to="/login" className="landing-btn-login">Login</Link>
             <Link to="/signup" className="landing-btn-member">Become a Member</Link>
+          </div>
+
+          <div className={`landing-mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`} onClick={toggleMobileMenu}>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
       </header>
@@ -82,6 +96,15 @@ function LandingPage() {
           </div>
         </div>
       </section>
+      {/*  */}
+      <marquee behavior="" direction="left">
+        <div className="landing-marquee-container">
+          <div className="landing-marquee-item">
+            <img src={logo} alt="Logo" className="landing-marquee-img" />
+          </div>
+        </div>
+
+      </marquee>
 
       {/* Footer */}
       <Footer />

@@ -42,6 +42,7 @@
     background: var(--primary-white);
     border-bottom: 1px solid #EEEFEF;
     position: relative;
+    z-index: 1000;
 }
 
 .landing-nav-container {
@@ -49,12 +50,21 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    padding: 0 2rem;
 }
 
 .landing-logo {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    flex-shrink: 0;
+    z-index: 1001;
+}
+
+.landing-logo-img {
+    max-height: 50px;
+    width: auto;
 }
 
 .landing-logo-implant {
@@ -137,6 +147,7 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    flex-shrink: 0;
 }
 
 .landing-btn-login {
@@ -166,7 +177,7 @@
     width: 100%;
     height: 100vh;
     background: linear-gradient(270deg, rgba(9, 50, 36, 0.00) 0%, var(--primary-teal) 91.23%),
-        url('https://api.builder.io/api/v1/image/assets/TEMP/ff18ee519502364ebe79f59762dea5c1e3df0f2e?width=2588') center/cover;
+        url('../../assets/images/landingHero.png') center/cover;
     position: relative;
     display: flex;
     align-items: center;
@@ -430,53 +441,908 @@
     transition: all 0.3s ease;
 }
 
-/* Responsive Design */
-@media (max-width: 1440px) {
-    .data-features {
-        gap: 50px;
+/* Mobile Menu Toggle */
+.landing-mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.landing-mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary-dark-blue);
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+.landing-mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.landing-mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.landing-mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+/* Mobile Menu Styles */
+.landing-nav-menu.mobile-open {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: flex-end;
+    padding: 0;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.landing-nav-menu.mobile-open .mobile-menu-content {
+    background: var(--primary-white);
+    width: 280px;
+    height: 100%;
+    padding: 80px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    animation: slideInFromRight 0.3s ease forwards;
+}
+
+@keyframes slideInFromRight {
+    to {
+        transform: translateX(0);
     }
 }
 
-@media (max-width: 768px) {
+.landing-nav-menu.mobile-open .landing-nav-item {
+    padding: 16px 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.landing-nav-menu.mobile-open .landing-nav-item.active {
+    background: var(--neutral-50);
+    color: var(--primary-teal);
+}
+
+.landing-nav-menu.mobile-open .landing-nav-item:hover {
+    background: var(--neutral-50);
+}
+
+/* Marquee Styles */
+.landing-marquee-container {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.landing-marquee-img {
+    max-height: 40px;
+    width: auto;
+}
+
+/* Responsive Design */
+/* Large Desktop */
+@media (max-width: 1440px) {
+    .landing-hero-container {
+        max-width: 1140px;
+        padding: 0 1.5rem;
+    }
+
+    .landing-hero-title {
+        font-size: 60px;
+    }
+
+    .landing-hero-description {
+        font-size: 22px;
+        width: 580px;
+    }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+    .landing-hero-container {
+        max-width: 960px;
+    }
+
+    .landing-hero-title {
+        font-size: 55px;
+    }
+
+    .landing-hero-description {
+        font-size: 20px;
+        width: 520px;
+    }
+
     .landing-nav-container {
-        flex-direction: column;
-        gap: 20px;
+        padding: 0 1.5rem;
     }
 
     .landing-nav-menu {
-        order: 3;
+        gap: 25px;
+        padding: 7px 20px 7px 12px;
     }
 
-    .landing-auth-buttons {
-        order: 2;
+    .landing-btn-login,
+    .landing-btn-member {
+        width: 140px;
+        font-size: 13px;
+    }
+
+    .landing-logo-img {
+        max-height: 45px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .landing-hero-container {
+        max-width: 720px;
+        padding: 0 1rem;
     }
 
     .landing-hero-title {
         font-size: 48px;
     }
 
+    .landing-hero-subtitle {
+        font-size: 20px;
+    }
+
     .landing-hero-description {
+        font-size: 18px;
         width: 100%;
+        max-width: 500px;
+    }
+
+    .landing-header {
+        height: 80px;
+    }
+
+    .landing-nav-container {
+        padding: 0 1rem;
+    }
+
+    .landing-nav-menu {
+        display: none;
+    }
+
+    .landing-mobile-menu-toggle {
+        display: flex;
+    }
+
+    .landing-auth-buttons {
+        gap: 6px;
+    }
+
+    .landing-btn-login,
+    .landing-btn-member {
+        width: 110px;
+        font-size: 11px;
+        height: 38px;
+        padding: 0 8px;
+    }
+
+    .landing-logo-img {
+        max-height: 40px;
+    }
+
+    .landing-marquee-img {
+        max-height: 35px;
+    }
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+    .landing-top-banner {
+        height: 40px;
+    }
+
+    .landing-banner-text {
         font-size: 18px;
     }
 
-    .landing-hero-cta {
-        flex-direction: column;
-        gap: 20px;
+    .landing-header {
+        height: 70px;
+    }
+
+    .landing-nav-container {
+        padding: 0 0.75rem;
+        gap: 10px;
+    }
+
+    .landing-logo {
+        flex: 1;
+    }
+
+    .landing-logo-img {
+        max-height: 32px;
+    }
+
+    .landing-auth-buttons {
+        gap: 4px;
+        flex-shrink: 0;
+    }
+
+    .landing-hero-section {
+        height: 90vh;
+        padding: 2rem 0;
+    }
+
+    .landing-hero-container {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .landing-hero-title {
+        font-size: 42px;
+        line-height: 1.1;
+    }
+
+    .landing-hero-subtitle {
+        font-size: 18px;
+    }
+
+    .landing-hero-description {
+        font-size: 16px;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .landing-hero-badge {
+        width: 150px;
+        height: 50px;
+        margin-bottom: 15px;
+    }
+
+    .landing-badge-img {
+        width: 120px;
+        height: 35px;
     }
 
     .landing-cta-button {
+        font-size: 20px;
+        padding: 12px 25px;
         width: 100%;
-        font-size: 24px;
+        max-width: 300px;
+    }
+
+    .landing-navigation-arrows {
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .landing-nav-arrow {
+        width: 45px;
+        height: 45px;
+    }
+
+    .landing-auth-buttons {
+        flex-direction: row;
+        gap: 4px;
+    }
+
+    .landing-btn-login,
+    .landing-btn-member {
+        width: 85px;
+        font-size: 10px;
+        height: 34px;
+        padding: 0 6px;
+    }
+
+    .landing-marquee-img {
+        max-height: 30px;
+    }
+}
+
+/* Mobile Medium */
+@media (max-width: 576px) {
+    .landing-hero-title {
+        font-size: 36px;
+    }
+
+    .landing-hero-subtitle {
+        font-size: 16px;
+    }
+
+    .landing-hero-description {
+        font-size: 14px;
+    }
+
+    .landing-cta-button {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+
+    .landing-hero-badge {
+        width: 130px;
+        height: 45px;
+    }
+
+    .landing-badge-img {
+        width: 100px;
+        height: 30px;
+    }
+
+    .landing-header {
+        height: 65px;
+    }
+
+    .landing-nav-container {
+        padding: 0 0.5rem;
+        gap: 8px;
+    }
+
+    .landing-logo-img {
+        max-height: 28px;
+    }
+
+    .landing-btn-login,
+    .landing-btn-member {
+        width: 75px;
+        font-size: 9px;
+        height: 30px;
+        padding: 0 4px;
+    }
+
+    .landing-marquee-img {
+        max-height: 28px;
+    }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+    .landing-hero-title {
+        font-size: 32px;
+    }
+
+    .landing-hero-subtitle {
+        font-size: 15px;
+    }
+
+    .landing-hero-description {
+        font-size: 13px;
+    }
+
+    .landing-cta-button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    .landing-hero-badge {
+        width: 120px;
+        height: 40px;
+    }
+
+    .landing-badge-img {
+        width: 90px;
+        height: 28px;
+    }
+
+    .landing-header {
+        height: 60px;
+    }
+
+    .landing-nav-container {
+        padding: 0 0.4rem;
+        gap: 6px;
+    }
+
+    .landing-logo-img {
+        max-height: 26px;
+    }
+
+    .landing-btn-login,
+    .landing-btn-member {
+        width: 70px;
+        font-size: 8px;
+        height: 28px;
+        padding: 0 3px;
+    }
+
+    .landing-marquee-container {
+        padding: 10px 0;
+    }
+
+    .landing-marquee-img {
+        max-height: 25px;
+    }
+
+    .landing-footer {
+        padding: 40px 15px 30px;
+    }
+
+    .landing-footer-experience {
+        font-size: 80px;
+    }
+
+    .landing-footer-implant {
+        font-size: 28px;
+    }
+}
+
+/* Mobile Extra Small */
+@media (max-width: 360px) {
+    .landing-hero-title {
+        font-size: 28px;
+    }
+
+    .landing-hero-subtitle {
+        font-size: 14px;
+    }
+
+    .landing-hero-description {
+        font-size: 12px;
+    }
+
+    .landing-cta-button {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+
+    .landing-hero-badge {
+        width: 110px;
+        height: 35px;
+    }
+
+    .landing-badge-img {
+        width: 80px;
+        height: 25px;
+    }
+
+    .landing-header {
+        height: 55px;
+    }
+
+    .landing-nav-container {
+        padding: 0 0.3rem;
+        gap: 4px;
+    }
+
+    .landing-logo-img {
+        max-height: 24px;
+    }
+
+    .landing-btn-login,
+    .landing-btn-member {
+        width: 65px;
+        font-size: 7px;
+        height: 26px;
+        padding: 0 2px;
+    }
+}
+}
+
+
+
+.landing-footer-links span {
+
+    font-family: 'DM Sans', sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    line-height: 25.6px;
+
+    color: var(--primary-white);
+
+}
+
+
+
+.landing-footer-legal {
+
+    display: flex;
+
+    gap: 30px;
+
+}
+
+
+
+.landing-footer-legal a {
+
+    font-family: 'DM Sans', sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    line-height: 25.6px;
+
+    color: var(--primary-white);
+
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+
+}
+
+
+/* Mobile Menu Toggle */
+.landing-mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.landing-mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary-dark-blue);
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+.landing-mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.landing-mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.landing-mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+
+/* Responsive Design */
+
+/* Large Desktop */
+@media (max-width: 1440px) {
+
+    .landing-hero-container {
+        max-width: 1140px;
+        padding: 0 1.5rem;
+    }
+
+    .landing-hero-title {
+        font-size: 60px;
+    }
+
+    .landing-hero-description {
+        font-size: 22px;
+        width: 580px;
+    }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+    .landing-hero-container {
+        max-width: 960px;
+    }
+
+    .landing-hero-title {
+        font-size: 55px;
+    }
+
+    .landing-hero-description {
+        font-size: 20px;
+        width: 520px;
+    }
+
+
+
+    .landing-nav-menu {
+
+        gap: 30px;
+        padding: 7px 25px 7px 12px;
+    }
+
+    .landing-btn-login,
+    .landing-btn-member {
+        width: 160px;
+        font-size: 14px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .landing-hero-container {
+        max-width: 720px;
+        padding: 0 1rem;
+    }
+
+
+
+    .landing-hero-title {
+
+        font-size: 48px;
+
+    }
+
+
+    .landing-hero-subtitle {
+        font-size: 20px;
+    }
+
+
+    .landing-hero-description {
+
+        font-size: 18px;
+        width: 100%;
+
+        max-width: 500px;
+    }
+
+    .landing-nav-menu {
+        display: none;
+    }
+
+    .landing-mobile-menu-toggle {
+        display: flex;
+    }
+
+    .landing-auth-buttons {
+        gap: 8px;
+    }
+
+    .landing-btn-login,
+    .landing-btn-member {
+        width: 120px;
+        font-size: 12px;
+        height: 40px;
+    }
+
+    .landing-marquee-img {
+        max-height: 35px;
+    }
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+    .landing-top-banner {
+        height: 40px;
+    }
+
+    .landing-banner-text {
+        font-size: 18px;
+    }
+
+    .landing-header {
+        height: 80px;
+    }
+
+    .landing-nav-container {
+        padding: 0 1rem;
+    }
+
+    .landing-logo-img {
+        max-height: 35px;
+    }
+
+    .landing-hero-section {
+        height: 90vh;
+        padding: 2rem 0;
+    }
+
+    .landing-hero-container {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .landing-hero-title {
+        font-size: 42px;
+        line-height: 1.1;
+    }
+
+    .landing-hero-subtitle {
+        font-size: 18px;
+
+    }
+
+
+
+    .landing-hero-description {
+        font-size: 16px;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .landing-hero-badge {
+        width: 150px;
+        height: 50px;
+        margin-bottom: 15px;
+    }
+
+    .landing-badge-img {
+        width: 120px;
+        height: 35px;
+    }
+
+    .landing-cta-button {
+        font-size: 20px;
+        padding: 12px 25px;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .landing-navigation-arrows {
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .landing-nav-arrow {
+        width: 45px;
+        height: 45px;
+    }
+
+    .landing-auth-buttons {
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+    .landing-btn-login,
+    .landing-btn-member {
+        width: 100px;
+        font-size: 11px;
+        height: 36px;
+    }
+
+    .landing-marquee-img {
+        max-height: 30px;
+    }
+}
+
+/* Mobile Medium */
+@media (max-width: 576px) {
+    .landing-hero-title {
+        font-size: 36px;
+    }
+
+    .landing-hero-subtitle {
+        font-size: 16px;
+    }
+
+    .landing-hero-description {
+        font-size: 14px;
+    }
+
+    .landing-cta-button {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+
+    .landing-hero-badge {
+        width: 130px;
+        height: 45px;
+    }
+
+    .landing-badge-img {
+        width: 100px;
+        height: 30px;
+    }
+
+    .landing-nav-container {
+        padding: 0 0.75rem;
+    }
+
+    .landing-logo-img {
+        max-height: 30px;
+    }
+
+    .landing-btn-login,
+    .landing-btn-member {
+        width: 90px;
+        font-size: 10px;
+        height: 32px;
+    }
+
+    .landing-marquee-img {
+        max-height: 28px;
+    }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+    .landing-hero-title {
+        font-size: 32px;
+    }
+
+    .landing-hero-subtitle {
+        font-size: 15px;
+    }
+
+    .landing-hero-description {
+        font-size: 13px;
+    }
+
+
+
+    .landing-cta-button {
+
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    .landing-hero-badge {
+        width: 120px;
+        height: 40px;
+    }
+
+    .landing-badge-img {
+        width: 90px;
+        height: 28px;
+    }
+
+    .landing-nav-container {
+        padding: 0 0.5rem;
+    }
+
+    .landing-marquee-container {
+        padding: 10px 0;
+    }
+
+    .landing-marquee-img {
+        max-height: 25px;
     }
 
 
     .landing-footer {
-        padding: 50px 20px;
+
+        padding: 40px 15px 30px;
     }
 
-    .landing-footer-bottom {
-        flex-direction: column;
-        gap: 20px;
+    .landing-footer-experience {
+        font-size: 80px;
     }
+
+    .landing-footer-implant {
+        font-size: 28px;
+    }
+}
+
+/* Mobile Extra Small */
+@media (max-width: 360px) {
+    .landing-hero-title {
+        font-size: 28px;
+    }
+
+    .landing-hero-subtitle {
+        font-size: 14px;
+    }
+
+    .landing-hero-description {
+        font-size: 12px;
+    }
+
+    .landing-cta-button {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+
+    .landing-hero-badge {
+        width: 110px;
+        height: 35px;
+    }
+
+    .landing-badge-img {
+        width: 80px;
+        height: 25px;
+    }
+
 }

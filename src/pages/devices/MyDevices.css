@@ -141,49 +141,71 @@
 
 .device-info-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    grid-template-columns: 2fr 1.5fr;
+    gap: 18px;
 }
 
 .device-details-left {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 10px;
 }
 
 .device-details-right {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
     background: #00ACB2;
-    padding: 20px;
-    border-radius: 12px;
+    padding: 10px 5px 10px 5px;
+    border-radius: 15px;
 }
 
 .info-item {
     display: flex;
-    flex-direction: column;
     gap: 4px;
+    justify-content: space-between;
+    padding: 10px 10px 10px 10px;
+}
+.info-item-right {
+    display: flex;
+    gap: 4px;
+    justify-content: space-between;
+    padding: 10px 10px 10px 10px;
+}
+.info-item-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    justify-content: space-between;
+    padding: 10px 10px 10px 10px;
 }
 
 .info-label {
     font-size: 12px;
     font-weight: 500;
-    color: #9CA3AF;
+    color: #2E2C34;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.info-label-right {
+    font-size: 14px;
+    font-weight: 400;
+    color: #FFFFFF;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.info-value {
-    font-size: 14px;
-    font-weight: 500;
+
+.info-value-right {
+    font-size: 16px;
+    font-weight: 600;
     color: #FFFFFF;
 }
 
 .info-value-text {
     font-size: 14px;
-    font-weight: 500;
-    color: #FFFFFF;
+    font-weight: 800;
+
 }
 
 .status-container {
@@ -226,7 +248,7 @@
     padding: 12px 24px;
     font-size: 14px;
     font-weight: 500;
-    color: #6B7280;
+    color: #0C1312;
     cursor: pointer;
     position: relative;
     transition: color 0.2s ease;
@@ -252,9 +274,9 @@
 }
 
 .timeline-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #1A365D;
+    font-size: 16px;
+    font-weight: 800;
+    color: #14131A;
     margin: 0 0 20px 0;
 }
 
@@ -295,8 +317,8 @@
 
 .timeline-event-title {
     font-size: 14px;
-    font-weight: 600;
-    color: #374151;
+    font-weight: 800;
+    color: #000000;
 }
 
 .timeline-event-description {
