@@ -188,7 +188,7 @@
 }
 
 .implant-btn-login:hover {
-  background: #00A693;
+  /* background: #00A693; */
   color: var(--implant-primary-white);
   text-decoration: none;
 }

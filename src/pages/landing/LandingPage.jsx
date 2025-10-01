@@ -3,8 +3,10 @@ import '../../App.css';
 import '../../assets/css/landing.css';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
-import logo from '../../assets/images/implant-logo.png';
+// import logo from '../../assets/images/implant-logo.png';
 import badge from '../../assets/images/landingHero.png';
+import marqueeLogo from '../../assets/images/marqueeLogo.png'
+import stethoscope from '../../assets/images/stethoscope.png'
 
 function LandingPage() {
   return (
@@ -51,13 +53,90 @@ function LandingPage() {
         </div>
       </section>
       {/*  */}
-      <marquee behavior="" direction="left" className='bg-[#00ACB2] block'>
-        <div className="landing-marquee-container">
-          <div className="landing-marquee-item">
-            <img src={logo} alt="Logo" className="landing-marquee-img" />
+      <div className="overflow-hidden bg-[#00ACB2] py-[5px]">
+        <div className="flex animate-marquee whitespace-nowrap">
+          <div className="flex items-center gap-[50px] text-white mx-[40px]">
+            <h1 className="text-lg font-bold">Trusted Care</h1>
+            <img src={marqueeLogo} alt="" className="w-5 h-5" />
+          </div>
+          <div className="flex items-center gap-[50px] text-white mx-[40px]">
+            <h1 className="text-lg font-semibold">Affordable Access</h1>
+            <img src={marqueeLogo} alt="" className="w-5 h-5" />
+          </div>
+          <div className="flex items-center gap-[50px] text-white mx-[40px]">
+            <h1 className="text-lg font-semibold">Real-Time Alerts</h1>
+            <img src={marqueeLogo} alt="" className="w-5 h-5" />
+          </div>
+          {/* Duplicate content for seamless loop */}
+          <div className="flex items-center gap-[50px] text-white mx-[40px]">
+            <h1 className="text-lg font-semibold">Trusted Care</h1>
+            <img src={marqueeLogo} alt="" className="w-5 h-5" />
+          </div>
+          <div className="flex items-center gap-[50px] text-white mx-[40px]">
+            <h1 className="text-lg font-semibold">Affordable Access</h1>
+            <img src={marqueeLogo} alt="" className="w-5 h-5" />
+          </div>
+          <div className="flex items-center gap-[50px] text-white mx-[40px]">
+            <h1 className="text-lg font-semibold">Real-Time Alerts</h1>
+            <img src={marqueeLogo} alt="" className="w-5 h-5" />
           </div>
         </div>
-      </marquee>
+      </div>
+      {/* Section 2 - Mission Statement */}
+      <section className="bg-[#133C75] text-white">
+        <div className="grid grid-cols-12 gap-6 bg-[#0A3C78] items-center">
+          {/* Left side image */}
+          <div className="col-span-12 md:col-span-5 lg:col-span-4 p-4">
+            <img
+              src={stethoscope}
+              alt="stethoscope"
+              className="w-full h-auto max-h-[700px]"
+            />
+          </div>
+
+          {/* Right side content */}
+          <div className="col-span-12 md:col-span-7 lg:col-span-8 p-6 p-[50px] text-white leading-relaxed">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#82EBED] mb-[20px]">
+              Mission Statement – <br className="hidden md:block" /> The Ethical Obligation
+            </h2>
+
+            <p className="text-base leading-relaxed text-white mb-[20px]">
+              Born from the urgent need exposed by countless device failures and regulatory gaps,
+              The Implant Experience is more than a tracking service – it’s a movement toward
+              patient empowerment and device accountability.
+            </p>
+
+            <p className="text-base leading-relaxed text-white mb-[20px]">
+              With 32 million Americans living with implanted medical devices and a history of systemic
+              failures in device and implant monitoring, we are building the safety net that should have
+              existed all along. It’s our ethical obligation to do so. Our platform bridges the dangerous
+              gap between device manufacturers, healthcare providers, and the patients whose lives depend
+              on these technologies.
+            </p>
+
+            <button className="bg-[#82EBED] text-[18px] text-[#133C75] font-bold px-5 py-2 rounded-[8px] shadow-md hover:bg-[#6bd9da] transition">
+              <Link to="/signup" className='text-[#133C75]'>Become a Member</Link>
+            </button>
+
+          </div>
+        </div>
+
+
+      </section>
+      {/* section Meet John P.Ownens */}
+      <div className="meet flex flex-col justify-between items-center py-[20px]">
+        <h1 className='font-bold text-[55px]'>Meet John P. Owens</h1>
+        <p className='font-bold text-[26px]'>John Owens-Founder & CEO</p>
+        <p className='font-bold text-[22px]'>John brings two decades of executive experience in medical device implant management and witnessed
+          firsthand the devastating impact of inadequate device tracking systems.
+          After seeing countless patients struggle with device complications — from Essure birth control failures to metal-on-metal hip disasters — John recognized that the 510(k)
+          clearance process and fragmented surveillance systems were failing millions of Americans.</p>
+      </div>
+      <section>
+
+      </section>
+
+
       <Footer />
     </div >
   )

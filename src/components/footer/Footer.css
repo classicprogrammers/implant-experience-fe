@@ -25,10 +25,10 @@
   justify-content: center;
 }
 
-.heart-shape {
+/* .heart-shape {
   width: 40px;
   height: 36px;
-  background-color: #4fc3f7; /* Light blue */
+  background-color: #4fc3f7; 
   border: 2px solid white;
   border-radius: 20px 20px 20px 20px;
   position: relative;
@@ -36,9 +36,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
-.heart-shape::before,
+/* .heart-shape::before,
 .heart-shape::after {
   content: '';
   width: 20px;
@@ -51,15 +51,15 @@
   border-radius: 20px 20px 0 0;
   transform: rotate(-90deg);
   transform-origin: 0 100%;
-}
-
+} */
+/* 
 .heart-shape::after {
   left: -10px;
   transform: rotate(90deg);
   transform-origin: 100% 100%;
-}
+} */
 
-.bone-shape {
+/* .bone-shape {
   width: 16px;
   height: 20px;
   background-color: white;
@@ -86,7 +86,7 @@
 
 .bone-shape::after {
   right: -3px;
-}
+} */
 
 .logo-text {
   display: flex;
