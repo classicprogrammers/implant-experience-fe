@@ -5,6 +5,12 @@ import Implanted from '../../assets/images/DeviceBlack.png'
 import Followup from '../../assets/images/Followup.png'
 import Status from '../../assets/images/Status.png'
 import SaftetyCheck from '../../assets/images/Shield.png'
+import msgJenifer from '../../assets/images/msgJenifer.png';
+import calendarSilhouette from '../../assets/images/calendarSilhouette.png';
+import actionReport from '../../assets/images/actionReport.png';
+import deviceGuide from '../../assets/images/deviceGuide.png';
+
+
 import './MyDevices.css'
 
 const MyDevices = () => {
@@ -64,27 +70,12 @@ const MyDevices = () => {
     ]
 
     const quickActions = [
-        {
-            id: 1,
-            title: 'Message Dr. Jennifer',
-            icon: '💬'
-        },
-        {
-            id: 2,
-            title: 'Schedule Appointment',
-            icon: '📅'
-        },
-        {
-            id: 3,
-            title: 'Download Full Report',
-            icon: '📄'
-        },
-        {
-            id: 4,
-            title: 'View Device Guide',
-            icon: '📖'
-        }
-    ]
+        { id: 1, title: 'Message Dr. Jennifer', icon: msgJenifer },
+        { id: 2, title: 'Schedule Appointment', icon: calendarSilhouette },
+        { id: 3, title: 'Download Full Report', icon: actionReport },
+        { id: 4, title: 'View Device Guide', icon: deviceGuide }
+    ];
+
 
     return (
         <div className="my-devices-content">
@@ -233,7 +224,7 @@ const MyDevices = () => {
                         <div className="quick-actions-list">
                             {quickActions.map((action) => (
                                 <button key={action.id} className="quick-action-item">
-                                    <span className="action-icon">{action.icon}</span>
+                                    <img src={action.icon} alt="" className="action-icon" />
                                     <span className="action-title">{action.title}</span>
                                 </button>
                             ))}
