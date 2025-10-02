@@ -734,7 +734,7 @@
 .device-icon {
     width: 32px;
     height: 32px;
-    background: #F3F4F6;
+    background: #F3F4F6 !important;
     border-radius: 8px;
     display: flex;
     align-items: center;

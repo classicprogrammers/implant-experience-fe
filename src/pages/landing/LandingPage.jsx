@@ -9,6 +9,7 @@ import marqueeLogo from '../../assets/images/marqueeLogo.png'
 import stethoscope from '../../assets/images/stethoscope.png'
 
 function LandingPage() {
+  
   return (
     <div className="landing-page">
       {/* Header Component */}
