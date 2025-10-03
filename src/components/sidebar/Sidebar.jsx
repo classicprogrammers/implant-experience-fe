@@ -13,7 +13,7 @@ import deviceImage2 from '../../assets/images/Device-2.png';
 import resourcesImage from '../../assets/images/resources.png';
 import resourcesImage2 from '../../assets/images/resourcesActive.png';
 import groupImage from '../../assets/images/Group.png';
-import settingImage from '../../assets/images/gear 1.png';
+import settingImage from '../../assets/images/setting.png';
 import setting2Image from '../../assets/images/setting-2.png';
 
 const Sidebar = ({ isOpen, onClose }) => {

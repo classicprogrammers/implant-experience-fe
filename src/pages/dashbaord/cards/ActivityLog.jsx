@@ -5,7 +5,7 @@ const ActivityLog = () => {
     const [activityLogs, setActivityLogs] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
-    const [pendingCount, setPendingCount] = useState(0)
+    const [pendingCount, setPendingCount] = useState(0);
 
     // Fetch activity logs from API
     const fetchActivityLogs = async () => {

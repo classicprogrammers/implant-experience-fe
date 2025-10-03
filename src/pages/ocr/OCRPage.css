@@ -1,5 +1,6 @@
-/* OCR Page Styles - Based on Auth Page Design */
-.ocr-page {
+/* OCR Page Styles - Scoped under parent class */
+
+.ocr-page-wrapper .ocr-page {
     min-height: 100vh;
     background: #FFFFFF;
     display: flex;
@@ -9,7 +10,7 @@
     position: relative;
 }
 
-.ocr-container {
+.ocr-page-wrapper .ocr-container {
     width: 100%;
     max-width: 620px;
     display: flex;
@@ -17,7 +18,7 @@
     align-items: center;
 }
 
-.ocr-card {
+.ocr-page-wrapper .ocr-card {
     background: white;
     border-radius: 8px;
     box-shadow: 0px 29px 28.1px 0px #0000000D;
@@ -28,7 +29,7 @@
 }
 
 /* Close Button */
-.close-button {
+.ocr-page-wrapper .close-button {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -42,13 +43,13 @@
     z-index: 10;
 }
 
-.close-button:hover {
+.ocr-page-wrapper .close-button:hover {
     color: #64748B;
     background: #F7FAFC;
 }
 
 /* Section Titles */
-.section-title {
+.ocr-page-wrapper .section-title {
     font-size: 1.5rem;
     font-weight: 700;
     color: #1A365D;
@@ -57,7 +58,7 @@
     padding-bottom: 0.5rem;
 }
 
-.section-title::after {
+.ocr-page-wrapper .section-title::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -69,11 +70,11 @@
 }
 
 /* OCR Upload Section */
-.ocr-upload-section {
+.ocr-page-wrapper .ocr-upload-section {
     margin-bottom: 2rem;
 }
 
-.upload-area {
+.ocr-page-wrapper .upload-area {
     border: 2px dashed #00ACB2;
     border-radius: 8px;
     padding: 2rem;
@@ -84,17 +85,17 @@
     background: #FAFCFE;
 }
 
-.upload-area:hover {
+.ocr-page-wrapper .upload-area:hover {
     border-color: #00BFA5;
     background: #F0FDFA;
     transform: translateY(-2px);
 }
 
-.file-input {
+.ocr-page-wrapper .file-input {
     display: none;
 }
 
-.upload-label {
+.ocr-page-wrapper .upload-label {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -103,37 +104,37 @@
     width: 100%;
 }
 
-.upload-icon {
+.ocr-page-wrapper .upload-icon {
     color: #00ACB2;
     transition: all 0.3s ease;
 }
 
-.upload-area:hover .upload-icon {
+.ocr-page-wrapper .upload-area:hover .upload-icon {
     color: #00BFA5;
     transform: scale(1.1);
 }
 
-.upload-text {
+.ocr-page-wrapper .upload-text {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
 }
 
-.upload-title {
+.ocr-page-wrapper .upload-title {
     font-size: 1.125rem;
     font-weight: 600;
     color: #1A365D;
     margin: 0;
 }
 
-.upload-formats {
+.ocr-page-wrapper .upload-formats {
     font-size: 0.875rem;
     color: #64748B;
     margin: 0;
 }
 
 /* Verify Button */
-.verify-button {
+.ocr-page-wrapper .verify-button {
     background: #1A365D;
     color: white;
     border: none;
@@ -146,39 +147,39 @@
     width: 100%;
 }
 
-.verify-button:hover {
+.ocr-page-wrapper .verify-button:hover {
     background: #2D4A6B;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(26, 54, 93, 0.3);
 }
 
 /* Manual Form Section */
-.manual-form-section {
+.ocr-page-wrapper .manual-form-section {
     border-top: 1px solid #E5E7EB;
     padding-top: 2rem;
 }
 
-.ocr-form {
+.ocr-page-wrapper .ocr-form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
 /* Form Groups - Using Auth Styles */
-.form-group-new {
+.ocr-page-wrapper .form-group-new {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-.form-group-new label {
+.ocr-page-wrapper .form-group-new label {
     font-weight: 700;
     color: #11142D;
     font-size: 0.9rem;
     margin-left: 16px;
 }
 
-.form-group-new input {
+.ocr-page-wrapper .form-group-new input {
     padding: 0.75rem 1.5rem;
     border: 1px solid #00ACB2 !important;
     border-radius: 8px;
@@ -191,27 +192,27 @@
     background: white;
 }
 
-.form-group-new input:focus {
+.ocr-page-wrapper .form-group-new input:focus {
     transform: scale(1.02);
     box-shadow: 0 0 0 3px rgba(0, 172, 178, 0.1);
     border-color: #00ACB2;
 }
 
-.form-group-new input::placeholder {
+.ocr-page-wrapper .form-group-new input::placeholder {
     color: #A0AEC0;
 }
 
-.form-group-new input[type="date"] {
+.ocr-page-wrapper .form-group-new input[type="date"] {
     color: #11142D;
 }
 
-.form-group-new input[type="date"]::-webkit-calendar-picker-indicator {
+.ocr-page-wrapper .form-group-new input[type="date"]::-webkit-calendar-picker-indicator {
     color: #00ACB2;
     cursor: pointer;
 }
 
 /* Register Button */
-.register-button {
+.ocr-page-wrapper .register-button {
     background: #00ACB2;
     color: white;
     border: none;
@@ -225,13 +226,13 @@
     width: 100%;
 }
 
-.register-button:hover:not(:disabled) {
+.ocr-page-wrapper .register-button:hover:not(:disabled) {
     background: #00BFA5;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 172, 178, 0.3);
 }
 
-.register-button:disabled {
+.ocr-page-wrapper .register-button:disabled {
     background: #A0AEC0;
     cursor: not-allowed;
     transform: none;
@@ -239,75 +240,75 @@
 }
 
 /* File Upload States */
-.upload-area.has-file {
+.ocr-page-wrapper .upload-area.has-file {
     border-color: #00BFA5;
     background: #F0FDFA;
     border-style: solid;
 }
 
-.upload-area.has-file .upload-icon {
+.ocr-page-wrapper .upload-area.has-file .upload-icon {
     color: #00BFA5;
 }
 
-.upload-area.has-file .upload-title {
+.ocr-page-wrapper .upload-area.has-file .upload-title {
     color: #00BFA5;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .ocr-page {
+    .ocr-page-wrapper .ocr-page {
         padding: 1rem;
     }
 
-    .ocr-card {
+    .ocr-page-wrapper .ocr-card {
         padding: 1.5rem;
     }
 
-    .upload-area {
+    .ocr-page-wrapper .upload-area {
         padding: 1.5rem;
     }
 
-    .upload-icon svg {
+    .ocr-page-wrapper .upload-icon svg {
         width: 36px;
         height: 36px;
     }
 
-    .upload-title {
+    .ocr-page-wrapper .upload-title {
         font-size: 1rem;
     }
 
-    .section-title {
+    .ocr-page-wrapper .section-title {
         font-size: 1.25rem;
     }
 }
 
 @media (max-width: 480px) {
-    .ocr-page {
+    .ocr-page-wrapper .ocr-page {
         padding: 0.5rem;
     }
 
-    .ocr-card {
+    .ocr-page-wrapper .ocr-card {
         padding: 1rem;
     }
 
-    .upload-area {
+    .ocr-page-wrapper .upload-area {
         padding: 1rem;
     }
 
-    .form-group-new input {
+    .ocr-page-wrapper .form-group-new input {
         height: 48px;
         font-size: 0.9rem;
     }
 
-    .verify-button,
-    .register-button {
+    .ocr-page-wrapper .verify-button,
+    .ocr-page-wrapper .register-button {
         padding: 0.875rem 1.5rem;
         font-size: 1rem;
     }
 }
 
 /* Animation for form interactions */
-.form-group-new input.changing {
+.ocr-page-wrapper .form-group-new input.changing {
     animation: inputChange 0.4s ease;
 }
 
@@ -329,12 +330,12 @@
 }
 
 /* Loading state for register button */
-.register-button.loading {
+.ocr-page-wrapper .register-button.loading {
     position: relative;
     color: transparent;
 }
 
-.register-button.loading::after {
+.ocr-page-wrapper .register-button.loading::after {
     content: '';
     position: absolute;
     top: 50%;

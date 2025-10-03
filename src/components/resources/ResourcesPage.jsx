@@ -49,7 +49,7 @@ function ResourcesPage() {
     ]
 
     return (
-        <div className="flex min-h-[50vh] h-[90vh] items-center justify-center">
+        <div className="flex min-h-[50vh] h-[90vh] items-center justify-center p-[20px]">
             <div className="space-y-4 custom-faq-section max-w-[1280px] mx-auto">
                 <div className="mb-12 space-y-0 max-w-[510px]">
                     <h1 className="mx-auto text-start mb-4" style={{ fontSize: '48px', fontWeight: '800', color: '#00325C' }}>
@@ -63,60 +63,60 @@ function ResourcesPage() {
                 </div>
                 <div>
                     {faqData.map((faq) => (
-                        <div 
+                        <div
                             key={faq.id}
-                            style={{ 
-                                borderRadius: '8px', 
-                                backgroundColor: '#00325C', 
-                                marginBottom: '8px', 
-                                overflow: 'hidden' 
+                            style={{
+                                borderRadius: '8px',
+                                backgroundColor: '#00325C',
+                                marginBottom: '8px',
+                                overflow: 'hidden'
                             }}
                         >
-                            <button 
-                                className="faq-button" 
-                                style={{ 
-                                    display: 'flex', 
-                                    width: '100%', 
-                                    justifyContent: 'space-between', 
-                                    padding: faq.padding, 
-                                    background: 'transparent', 
-                                    border: 'none', 
-                                    cursor: 'pointer' 
-                                }} 
-                                onClick={() => toggleFaq(faq.id)} 
+                            <button
+                                className="faq-button"
+                                style={{
+                                    display: 'flex',
+                                    width: '100%',
+                                    justifyContent: 'space-between',
+                                    padding: faq.padding,
+                                    background: 'transparent',
+                                    border: 'none',
+                                    cursor: 'pointer'
+                                }}
+                                onClick={() => toggleFaq(faq.id)}
                                 aria-expanded={openFaq === faq.id}
                             >
-                                <h2 style={{ 
-                                    fontSize: '16px', 
-                                    fontWeight: '800', 
-                                    color: '#CFD3D7', 
-                                    margin: 0, 
-                                    textAlign: 'left', 
-                                    lineHeight: '1.2', 
-                                    maxWidth: '90%' 
+                                <h2 style={{
+                                    fontSize: '16px',
+                                    fontWeight: '800',
+                                    color: '#CFD3D7',
+                                    margin: 0,
+                                    textAlign: 'left',
+                                    lineHeight: '1.2',
+                                    maxWidth: '90%'
                                 }}>
                                     {faq.question}
                                 </h2>
 
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path 
-                                        d={openFaq === faq.id ? "M5 12h14" : "M12 5v14M5 12h14"} 
-                                        stroke="white" 
-                                        strokeWidth="2" 
-                                        strokeLinecap="round" 
-                                        strokeLinejoin="round" 
+                                    <path
+                                        d={openFaq === faq.id ? "M5 12h14" : "M12 5v14M5 12h14"}
+                                        stroke="white"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
                                     />
                                 </svg>
                             </button>
 
                             <div className={`faq-answer ${openFaq === faq.id ? 'faq-answer-open' : 'faq-answer-closed'}`}>
                                 <div className="faq-answer-content">
-                                    <p style={{ 
-                                        margin: 0, 
-                                        color: '#00325C', 
-                                        fontSize: '16px', 
-                                        fontWeight: '400', 
-                                        lineHeight: '1.5' 
+                                    <p style={{
+                                        margin: 0,
+                                        color: '#00325C',
+                                        fontSize: '16px',
+                                        fontWeight: '400',
+                                        lineHeight: '1.5'
                                     }}>
                                         {faq.answer}
                                     </p>

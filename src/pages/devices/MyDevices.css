@@ -1,12 +1,16 @@
-/* My Devices Content Styles */
-.my-devices-content {
-    padding: 32px;
+/* My Devices Page Styles - Scoped under parent class */
+.my-devices-page {
+    /* Parent container styles if needed */
+}
+
+.my-devices-page .my-devices-content {
+    padding: 20px;
     background: #f6f6f7;
     min-height: calc(100vh - 80px);
 }
 
 /* Header Styles */
-.my-devices-header {
+.my-devices-page .my-devices-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,7 +19,7 @@
     gap: 16px;
 }
 
-.breadcrumb {
+.my-devices-page .breadcrumb {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -24,32 +28,32 @@
     font-weight: 400;
 }
 
-.breadcrumb a {
+.my-devices-page .breadcrumb a {
     color: #6B7280;
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
-.breadcrumb a:hover {
+.my-devices-page .breadcrumb a:hover {
     color: #00ACB2;
 }
 
-.breadcrumb-separator {
+.my-devices-page .breadcrumb-separator {
     color: #6B7280;
 }
 
-.breadcrumb-current {
+.my-devices-page .breadcrumb-current {
     color: #374151;
     font-weight: 500;
 }
 
-.header-actions {
+.my-devices-page .header-actions {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
 }
 
-.action-button {
+.my-devices-page .action-button {
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
@@ -60,119 +64,122 @@
     font-family: inherit;
 }
 
-.contact-provider {
+.my-devices-page .contact-provider {
     background: #00ACB2;
     color: white;
 }
 
-.contact-provider:hover {
+.my-devices-page .contact-provider:hover {
     background: #0099A0;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 172, 178, 0.3);
 }
 
-.download-report {
+.my-devices-page .download-report {
     background: #00ACB2;
     color: white;
 }
 
-.download-report:hover {
+.my-devices-page .download-report:hover {
     background: #0099A0;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 172, 178, 0.3);
 }
 
 /* Grid Layout */
-.my-devices-grid {
+.my-devices-page .my-devices-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 32px;
     max-width: 1200px;
+    margin: auto;
 }
 
-.left-column {
+.my-devices-page .left-column {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
-.right-column {
+.my-devices-page .right-column {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
 /* Device Information Card - Dark Blue Background */
-.device-info-card {
+.my-devices-page .device-info-card {
     background: #1A365D;
-    border-radius: 15px;
+    border-radius: 18px;
     padding: 24px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.device-info-header {
+.my-devices-page .device-info-header {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 24px;
 }
 
-.device-icon {
-    width: 48px;
-    height: 48px;
-    background: #00ACB2;
+.my-devices-page .device-icon {
+    width: 52px;
+    height: 52px;
+    background: #00ACB2 !important;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.rocket-icon svg {
+.my-devices-page .rocket-icon svg {
     width: 24px;
     height: 24px;
 }
 
-.device-info-title {
+.my-devices-page .device-info-title {
     font-size: 20px;
     font-weight: 600;
     color: #FFFFFF;
     margin: 0;
 }
 
-.device-info-content {
+.my-devices-page .device-info-content {
     display: grid;
-    grid-template-columns: 2fr 1.5fr;
+    grid-template-columns: 1fr 1fr;
     gap: 18px;
 }
 
-.device-details-left {
+.my-devices-page .device-details-left {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.device-details-right {
+.my-devices-page .device-details-right {
     display: flex;
     flex-direction: column;
-    gap: 12px;
     background: #00ACB2;
     padding: 10px 5px 10px 5px;
     border-radius: 15px;
 }
 
-.info-item {
+.my-devices-page .info-item {
+    display: flex;
+    gap: 4px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.my-devices-page .info-item-right {
     display: flex;
     gap: 4px;
     justify-content: space-between;
     padding: 10px 10px 10px 10px;
 }
-.info-item-right {
-    display: flex;
-    gap: 4px;
-    justify-content: space-between;
-    padding: 10px 10px 10px 10px;
-}
-.info-item-right {
+
+.my-devices-page .info-item-right {
     display: flex;
     flex-direction: column;
     gap: 1px;
@@ -180,14 +187,15 @@
     padding: 10px 10px 10px 10px;
 }
 
-.info-label {
+.my-devices-page .info-label {
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 700;
     color: #2E2C34;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
-.info-label-right {
+
+.my-devices-page .info-label-right {
     font-size: 14px;
     font-weight: 400;
     color: #FFFFFF;
@@ -196,53 +204,53 @@
 }
 
 
-.info-value-right {
+.my-devices-page .info-value-right {
     font-size: 16px;
     font-weight: 600;
     color: #FFFFFF;
 }
 
-.info-value-text {
+.my-devices-page .info-value-text {
     font-size: 14px;
     font-weight: 800;
 
 }
 
-.status-container {
+.my-devices-page .status-container {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.status-dot {
+.my-devices-page .status-dot {
     width: 8px;
     height: 8px;
     background: #00ACB2;
     border-radius: 50%;
 }
 
-.status-text {
+.my-devices-page .status-text {
     font-size: 14px;
     font-weight: 500;
     color: #00ACB2;
 }
 
 /* Device Timeline Card */
-.device-timeline-card {
+.my-devices-page .device-timeline-card {
     background: #FFFFFF;
     border-radius: 15px;
     padding: 24px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.timeline-tabs {
+.my-devices-page .timeline-tabs {
     display: flex;
     gap: 0;
     margin-bottom: 24px;
     border-bottom: 1px solid #E5E7EB;
 }
 
-.timeline-tab {
+.my-devices-page .timeline-tab {
     background: none;
     border: none;
     padding: 12px 24px;
@@ -255,16 +263,16 @@
     font-family: inherit;
 }
 
-.timeline-tab:hover {
+.my-devices-page .timeline-tab:hover {
     color: #374151;
 }
 
-.timeline-tab.active {
+.my-devices-page .timeline-tab.active {
     color: #00ACB2;
     font-weight: 600;
 }
 
-.timeline-tab.active .tab-indicator {
+.my-devices-page .timeline-tab.active .tab-indicator {
     position: absolute;
     bottom: -1px;
     left: 0;
@@ -273,96 +281,104 @@
     background: #00ACB2;
 }
 
-.timeline-title {
+.my-devices-page .timeline-title {
     font-size: 16px;
     font-weight: 800;
     color: #14131A;
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
 }
 
-.timeline-container {
+.my-devices-page .timeline-container {
     display: flex;
     flex-direction: column;
     gap: 0;
 }
 
-.timeline-item {
+.my-devices-page .timeline-item {
     display: flex;
     gap: 16px;
-    padding: 16px 0;
+    padding: 6px 0;
     position: relative;
 }
 
-.timeline-icon {
-    width: 32px;
-    height: 32px;
-    background: #F3F4F6;
+.my-devices-page .timeline-icon {
+    width: 28px;
+    height: 28px;
+    background: #ffffff;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    box-shadow: 0px 0px 4px 0px #00000026;
+
 }
 
-.event-icon {
+.my-devices-page .event-icon {
     font-size: 16px;
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.timeline-content {
+.my-devices-page .timeline-content {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.timeline-event-title {
+.my-devices-page .timeline-event-title {
     font-size: 14px;
     font-weight: 800;
     color: #000000;
 }
 
-.timeline-event-description {
+.my-devices-page .timeline-event-description {
     font-size: 13px;
     color: #6B7280;
 }
 
-.timeline-event-date {
+.my-devices-page .timeline-event-date {
     font-size: 12px;
     color: #9CA3AF;
 }
 
-.timeline-line {
+.my-devices-page .timeline-line {
     position: absolute;
-    left: 15px;
-    top: 48px;
-    bottom: -16px;
+    left: 13px;
+    top: 35px;
+    bottom: -5px;
     width: 2px;
     background: #E5E7EB;
 }
 
 /* Status Card */
-.status-card {
+.my-devices-page .status-card {
     background: #FFFFFF;
     border-radius: 15px;
     padding: 24px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.status-title {
+.my-devices-page .status-title {
     font-size: 18px;
     font-weight: 600;
     color: #1A365D;
     margin: 0 0 20px 0;
 }
 
-.status-alerts {
+.my-devices-page .status-alerts {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin-bottom: 20px;
 }
 
-.status-alert-item {
+.my-devices-page .status-alert-item {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -372,35 +388,37 @@
     border: 1px solid #FCE7F3;
 }
 
-.alert-content {
+.my-devices-page .alert-content {
     flex: 1;
 }
 
-.alert-message {
-    font-size: 14px;
-    font-weight: 500;
-    color: #374151;
+.my-devices-page .alert-message {
+    font-size: 15px;
+    font-weight: 700;
+    color: #000000;
     margin: 0 0 4px 0;
 }
 
-.alert-time {
+.my-devices-page .alert-time {
     font-size: 12px;
     color: #9CA3AF;
     margin: 0;
 }
 
-.alert-icon {
+.my-devices-page .alert-icon {
     color: #6B7280;
     margin-left: 12px;
     flex-shrink: 0;
 }
 
-.alert-icon svg {
-    width: 16px;
-    height: 16px;
+.my-devices-page .alert-icon svg {
+    width: 20px;
+    height: 20px;
+    color: #000000;
+    fill: #000000;
 }
 
-.view-more-button {
+.my-devices-page .view-more-button {
     width: 100%;
     background: #00ACB2;
     color: white;
@@ -414,40 +432,39 @@
     font-family: inherit;
 }
 
-.view-more-button:hover {
+.my-devices-page .view-more-button:hover {
     background: #0099A0;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 172, 178, 0.3);
 }
 
 /* Quick Actions Card */
-.quick-actions-card {
+.my-devices-page .quick-actions-card {
     background: #FFFFFF;
     border-radius: 15px;
     padding: 24px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.quick-actions-title {
+.my-devices-page .quick-actions-title {
     font-size: 18px;
     font-weight: 600;
     color: #1A365D;
     margin: 0 0 20px 0;
 }
 
-.quick-actions-list {
+.my-devices-page .quick-actions-list {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.quick-action-item {
+.my-devices-page .quick-action-item {
     display: flex;
     align-items: center;
     gap: 12px;
     padding: 12px 16px;
-    background: #F9FAFB;
-    border: 1px solid #E5E7EB;
+    background: #FAFAFA;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -456,17 +473,17 @@
     font-family: inherit;
 }
 
-.quick-action-item:hover {
+.my-devices-page .quick-action-item:hover {
     background: #F3F4F6;
     border-color: #D1D5DB;
     transform: translateY(-1px);
 }
 
-.action-icon {
+.my-devices-page .action-icon {
     font-size: 16px;
 }
 
-.action-title {
+.my-devices-page .action-title {
     font-size: 14px;
     font-weight: 500;
     color: #374151;
@@ -474,68 +491,75 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .my-devices-content {
+    .my-devices-page .my-devices-content {
         padding: 24px 16px;
     }
 
-    .my-devices-grid {
+    .my-devices-page .my-devices-grid {
         grid-template-columns: 1fr;
         gap: 24px;
     }
 
-    .device-info-content {
+    .my-devices-page .device-info-content {
         grid-template-columns: 1fr;
         gap: 16px;
     }
 
-    .my-devices-header {
+    .my-devices-page .my-devices-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 12px;
     }
 
-    .header-actions {
+    .my-devices-page .header-actions {
         width: 100%;
         justify-content: flex-start;
     }
 
-    .timeline-tabs {
+    .my-devices-page .timeline-tabs {
         flex-wrap: wrap;
     }
 
-    .timeline-tab {
+    .my-devices-page .timeline-tab {
         padding: 8px 16px;
         font-size: 13px;
     }
 }
 
 @media (max-width: 480px) {
-    .my-devices-content {
+    .my-devices-page .my-devices-content {
         padding: 16px 12px;
     }
 
-    .device-info-card,
-    .device-timeline-card,
-    .status-card,
-    .quick-actions-card {
+    .my-devices-page .device-info-card,
+    .my-devices-page .device-timeline-card,
+    .my-devices-page .status-card,
+    .my-devices-page .quick-actions-card {
         padding: 16px;
     }
 
-    .device-info-header {
+    .my-devices-page .device-info-header {
         gap: 12px;
     }
 
-    .device-icon {
+    .my-devices-page .device-icon {
         width: 40px;
         height: 40px;
     }
 
-    .device-info-title {
+    .my-devices-page .device-info-title {
         font-size: 18px;
     }
 
-    .action-button {
+    .my-devices-page .action-button {
         padding: 8px 16px;
         font-size: 13px;
+    }
+}
+
+@media (max-width:1080px) {
+    .my-devices-page .device-info-content {
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
 }
