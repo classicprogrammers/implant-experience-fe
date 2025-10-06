@@ -7,9 +7,29 @@ import Footer from '../../components/footer/Footer';
 import badge from '../../assets/images/landingHero.png';
 import marqueeLogo from '../../assets/images/marqueeLogo.png'
 import stethoscope from '../../assets/images/stethoscope.png'
+import meetjohnSec from '../../assets/images/meetjohnSec.png';
+import johnOwens from '../../assets/images/JohnOwens.png';
+import workHospital from '../../assets/images/workHospital.png';
 
 function LandingPage() {
-  
+  const valueProposition = [
+    {
+      title: 'Trusted Care',
+      subtitle: "Safety Shouldn't Be a Luxury",
+      description: 'We\'re not funded by device manufacturers or insurance companies. Our loyalty is to you — the millions living with implanted devices who deserve better than the status quo.'
+    },
+    {
+      title: 'Affordable Access',
+      subtitle: 'Built by Patients, For Patients ',
+      description: "At just $9.99/month, we're making device safety accessible to everyone. Because whether you have a $50,000 heart device or a $500 mesh implant, you deserve the same level of protection."
+    },
+    {
+      title: 'Real-Time Alerts',
+      subtitle: 'Every Second Counts',
+      description: 'While the average recall notification takes 3-6 months to reach patients, our system delivers alerts in real-time. The difference could save your life.'
+    }
+  ]
+
   return (
     <div className="landing-page">
       {/* Header Component */}
@@ -124,16 +144,65 @@ function LandingPage() {
 
 
       </section>
-      {/* section Meet John P.Ownens */}
-      <div className="meet flex flex-col justify-between items-center py-[20px]">
-        <h1 className='font-bold text-[55px]'>Meet John P. Owens</h1>
-        <p className='font-bold text-[26px]'>John Owens-Founder & CEO</p>
-        <p className='font-bold text-[22px]'>John brings two decades of executive experience in medical device implant management and witnessed
-          firsthand the devastating impact of inadequate device tracking systems.
-          After seeing countless patients struggle with device complications — from Essure birth control failures to metal-on-metal hip disasters — John recognized that the 510(k)
-          clearance process and fragmented surveillance systems were failing millions of Americans.</p>
-      </div>
-      <section>
+      {/* Meet John P. Owens Section */}
+      <section className="john-owens-hero-section">
+        <div className="meet-john-section-image">
+          <img src={meetjohnSec} alt="Meet John Section" className="meet-john-img" />
+        </div>
+        <div className="john-owens-hero-container">
+          <div className="john-owens-content">
+            <h1 className="john-owens-title">Meet John P. Owens</h1>
+            <h2 className="john-owens-subtitle">John Owens - Founder & CEO</h2>
+            <p className="john-owens-description">
+              John brings two decades of executive experience in medical device implant management and witnessed firsthand the devastating impact of inadequate device tracking systems. After seeing countless patients struggle with device complications — from Essure birth control failures to metal-on-metal hip disasters — John recognized that the 510(k) clearance process and fragmented surveillance systems were failing millions of Americans.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* The Implant Experience Section */}
+      <section className="implant-experience-section">
+        <div className="john-owens-portrait">
+          <img src={johnOwens} alt="John P. Owens" className="john-portrait-img" />
+        </div>
+        <div className="implant-experience-container">
+          <div className="implant-experience-left">
+            <h2 className="implant-experience-title">During My Years Working With Hospitals,</h2>
+            <p className="implant-experience-description">
+              I Saw The Human Cost Of Poor Device Oversight. Patients Like Angie Firmalino, Dr. Stephen Tower, And Thousands Of Others Suffered Because Our System Prioritizes Speed To Market Over Safety.
+            </p>
+            <button className="implant-experience-btn">
+              <Link to="/signup">See more</Link>
+            </button>
+          </div>
+
+          <div className="implant-experience-right">
+            <div className="implant-experience-block">
+              <h3 className="implant-experience-subtitle">The Implant Experience is</h3>
+              <p className="implant-experience-text">our answer to a broken system that has left patients in the dark for too long.</p>
+            </div>
+
+            <div className="implant-experience-block">
+              <h3 className="implant-experience-subtitle">His Mission:</h3>
+              <p className="implant-experience-text">Transform device tracking from a regulatory afterthought into a patient-centered right.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Value Proposition Section */}
+      <section className="value-proposition-section">
+        <h2 className="value-proposition-title">Value Proposition</h2>
+        <div className="value-proposition-container ">
+
+          {valueProposition.map((item, index) => (
+            <div className="value-proposition-block" key={index}>
+              <h2>{item.title}</h2>
+              <h3>{item.subtitle}</h3>
+              <p>{item.description}</p>
+            </div>
+          ))}
+
+        </div>
 
       </section>
 

@@ -119,7 +119,6 @@
     border: none;
     border-radius: 8px;
     color: var(--primary-white);
-    font-family: 'Cabinet Grotesk', sans-serif;
     font-size: 28px;
     font-weight: 700;
     cursor: pointer;
@@ -192,7 +191,6 @@
 }
 
 .landing-footer-implant {
-    font-family: 'Bebas Neue', sans-serif;
     font-size: 40px;
     font-weight: 400;
     line-height: 18px;
@@ -200,7 +198,6 @@
 }
 
 .landing-footer-experience {
-    font-family: 'Bebas Neue', sans-serif;
     font-size: 128px;
     font-weight: 400;
     line-height: 18px;
@@ -213,7 +210,6 @@
 }
 
 .landing-footer-contact-title {
-    font-family: 'DM Sans', sans-serif;
     font-size: 20px;
     font-weight: 600;
     line-height: 24px;
@@ -240,7 +236,6 @@
 }
 
 .landing-contact-item span {
-    font-family: 'DM Sans', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 25.6px;
@@ -269,7 +264,6 @@
 }
 
 .landing-social-icon span {
-    font-family: 'Font Awesome 5 Brands', sans-serif;
     font-size: 18px;
     color: var(--primary-white);
 }
@@ -283,7 +277,6 @@
 }
 
 .landing-footer-links span {
-    font-family: 'DM Sans', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 25.6px;
@@ -296,7 +289,6 @@
 }
 
 .landing-footer-legal a {
-    font-family: 'DM Sans', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 25.6px;
@@ -350,8 +342,13 @@
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .landing-nav-menu.mobile-open .mobile-menu-content {
@@ -371,15 +368,22 @@
     to {
         transform: translateX(0);
     }
-}@keyframes marquee {
-  0%   { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 15s linear infinite;
+    display: flex;
+    width: max-content;
+    animation: marquee 15s linear infinite;
 }
 
 
@@ -414,9 +418,417 @@
     width: auto;
 }
 
-.landing-footer-links span {
+/* John Owens Hero Section */
+.john-owens-hero-section {
+    width: 100%;
+    min-height: 50vh;
+    background: linear-gradient(rgba(75, 103, 106, 0.9), rgba(75, 103, 106, 0.9)), url('../../assets/images/Rectangle7.png');
 
-    font-family: 'DM Sans', sans-serif;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 50px 0 150px 0;
+}
+
+.john-owens-hero-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.john-owens-content {
+    width: 100%;
+    max-width: 1000px;
+    z-index: 2;
+    text-align: center;
+}
+
+.john-owens-title {
+    font-size: 70px !important;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--primary-white);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.john-owens-subtitle {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--primary-white);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.john-owens-description {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--primary-white);
+    text-align: center;
+    max-width: 1500px !important;
+    margin: 0 auto;
+}
+
+.john-owens-portrait {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    border-radius: 0;
+    overflow: visible;
+    width: 500px;
+}
+
+@media (max-width: 768px) {
+    .john-owens-portrait {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin: 20px auto !important;
+        display: block !important;
+        z-index: 1 !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .john-owens-portrait {
+        bottom: 0%;
+        left: 35%;
+        margin: 15px auto !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .john-owens-portrait {
+        margin: 10px auto !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .john-owens-portrait {
+        margin: 8px auto !important;
+    }
+}
+
+.john-portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.meet-john-section-image {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 4;
+    width: 150px;
+    height: 80px;
+}
+
+/* Tablet aur usse chhoti screens ke liye */
+@media (max-width: 991px) {
+  .your-section-class {
+    padding: 40px 20px; /* left-right gap */
+  }
+
+  .your-section-class .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .your-section-class .block {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    padding: 0 15px;
+  }
+
+  .your-section-class h2 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .your-section-class p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+/* Mobile screens ke liye */
+@media (max-width: 576px) {
+  .your-section-class {
+    padding: 30px 15px;
+  }
+
+  .your-section-class h2 {
+    font-size: 22px;
+  }
+
+  .your-section-class p {
+    font-size: 15px;
+  }
+}
+/* Tablet aur usse chhoti screens ke liye */
+@media (max-width: 991px) {
+    .value-proposition-section {
+      padding: 40px 20px;
+    }
+  
+    .value-proposition-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+  
+    .value-proposition-block {
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+      padding: 0 15px;
+    }
+  
+    .value-proposition-block img {
+      width: 120px;   /* image chhoti */
+      height: auto;   /* proportion maintain */
+      margin-bottom: 15px;
+    }
+  
+    .value-proposition-title {
+      font-size: 36px;
+      line-height: 1.2;
+      padding: 0 10px;
+    }
+  
+    .value-proposition-block h2 {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+  
+    .value-proposition-block p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+  
+  /* Mobile screens (576px se niche) */
+  @media (max-width: 576px) {
+    .value-proposition-section {
+      padding: 30px 15px;
+    }
+  
+    .value-proposition-title {
+      font-size: 28px;
+    }
+  
+    .value-proposition-block img {
+      width: 90px; /* aur chhoti image */
+    }
+  
+    .value-proposition-block h2 {
+      font-size: 22px;
+    }
+  
+    .value-proposition-block p {
+      font-size: 15px;
+    }
+  }
+  
+
+/* Implant Experience Section */
+.implant-experience-section {
+    width: 100%;
+    min-height: 385px;
+    background-color: #003878;
+    /* Solid blue background color */
+    background-image: url('../../assets/images/workHospital.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px 0;
+    position: relative;
+}
+
+.implant-experience-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+    position: relative;
+}
+
+.implant-experience-left {
+    z-index: 2;
+    padding-right: 50px;
+    max-width: 560px;
+}
+
+.implant-experience-title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--primary-white);
+    margin-bottom: 20px;
+}
+
+.implant-experience-description {
+    font-size: 18px !important;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--primary-white);
+    margin-bottom: 40px;
+}
+
+.implant-experience-btn {
+    background: #00ACB2;
+    color: var(--primary-white);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 80px;
+    font-size: 18px !important;
+    font-weight: 900 !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.implant-experience-btn:hover {
+    background: #0099a6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 172, 178, 0.3);
+}
+
+.implant-experience-btn a {
+    color: var(--primary-white);
+    text-decoration: none;
+}
+
+.implant-experience-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 2;
+    padding-left: 180px;
+}
+
+.implant-experience-block {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+}
+
+.implant-experience-subtitle {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--primary-white);
+    margin-bottom: 5px;
+}
+
+.implant-experience-text {
+    font-size: 17px !important;
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--primary-white);
+}
+
+/* Value Proposition Section */
+.value-proposition-section {
+    width: 100%;
+    min-height: 385px;
+    background-color: #003878;
+    background-image: url('../../assets/images/valueProposition.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+.value-proposition-section div , .value-proposition-section h2{
+   position: relative;
+   z-index: 1;
+}
+
+.value-proposition-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgb(0 50 92 / 90%);
+    z-index: 1;
+}
+
+.value-proposition-title {
+    font-size: 55px;
+    font-weight: 700;
+    line-height: 0.5;
+    color: #FFF;
+    text-align: center;
+    /* margin-bottom: 20px; */
+}
+
+.value-proposition-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: #FFF;
+
+}
+
+.value-proposition-block {
+    width: 28%;
+    text-align: center;
+    /* line-height: 1.5; */
+}
+
+.value-proposition-block h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 0.5;
+    color: #82EBED;
+}
+
+.value-proposition-block h3 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 3;
+    color: #FFF;
+}
+
+.value-proposition-block p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #FFF;
+}
+
+.landing-footer-links span {
 
     font-size: 16px;
 
@@ -441,8 +853,6 @@
 
 
 .landing-footer-legal a {
-
-    font-family: 'DM Sans', sans-serif;
 
     font-size: 16px;
 
@@ -507,6 +917,75 @@
         font-size: 22px;
         width: 580px;
     }
+
+    /* Meet John Section Responsive */
+    .john-owens-hero-section {
+        padding: 40px 0 120px 0;
+    }
+
+    .john-owens-content {
+        max-width: 900px;
+        padding: 0 2rem;
+    }
+
+    .john-owens-title {
+        font-size: 48px;
+    }
+
+    .john-owens-subtitle {
+        font-size: 20px;
+    }
+
+    .john-owens-description {
+        font-size: 16px;
+        max-width: 1000px;
+    }
+
+    .meet-john-section-image {
+        width: 130px;
+        height: 70px;
+    }
+
+    /* Implant Experience Section Responsive */
+    .implant-experience-section {
+        padding: 50px 0;
+    }
+
+    .implant-experience-container {
+        max-width: 1200px;
+        padding: 0 2rem;
+        gap: 15px;
+    }
+
+    .implant-experience-left {
+        padding-right: 50px;
+        max-width: 480px;
+    }
+
+    .implant-experience-right {
+        padding-left: 140px;
+    }
+
+    .implant-experience-title {
+        font-size: 40px;
+    }
+
+    .implant-experience-description {
+        font-size: 16px;
+    }
+
+    .implant-experience-btn {
+        padding: 12px 60px;
+        font-size: 16px;
+    }
+
+    .implant-experience-subtitle {
+        font-size: 20px;
+    }
+
+    .implant-experience-text {
+        font-size: 14px;
+    }
 }
 
 /* Desktop */
@@ -524,6 +1003,75 @@
         width: 520px;
     }
 
+    /* Meet John Section Responsive */
+    .john-owens-hero-section {
+        padding: 35px 0 100px 0;
+    }
+
+    .john-owens-content {
+        max-width: 800px;
+        padding: 0 1.5rem;
+    }
+
+    .john-owens-title {
+        font-size: 42px;
+    }
+
+    .john-owens-subtitle {
+        font-size: 18px;
+    }
+
+    .john-owens-description {
+        font-size: 15px;
+        max-width: 900px;
+    }
+
+    .meet-john-section-image {
+        width: 120px;
+        height: 65px;
+    }
+
+    /* Implant Experience Section Responsive */
+    .implant-experience-section {
+        padding: 35px 0 45px 0;
+    }
+
+    .implant-experience-container {
+        max-width: 1000px;
+        padding: 0 1.5rem;
+        gap: 10px;
+    }
+
+    .implant-experience-left {
+        padding-right: 50px;
+        max-width: 420px;
+    }
+
+    .implant-experience-right {
+        padding-left: 120px;
+    }
+
+    .implant-experience-title {
+        font-size: 28px;
+    }
+
+    .implant-experience-description {
+        font-size: 15px;
+    }
+
+    .implant-experience-btn {
+        padding: 10px 50px;
+        font-size: 15px;
+    }
+
+    .implant-experience-subtitle {
+        font-size: 18px;
+    }
+
+    .implant-experience-text {
+        font-size: 13px;
+    }
+
 
 
     .landing-nav-menu {
@@ -536,6 +1084,16 @@
     .landing-btn-member {
         width: 160px;
         font-size: 14px;
+    }
+}
+
+@media (min-width: 1300px) {
+    .john-owens-portrait {
+        width: 600px;
+    }
+
+    .implant-experience-section {
+        min-height: 450px;
     }
 }
 
@@ -589,6 +1147,96 @@
 
     .landing-marquee-img {
         max-height: 35px;
+    }
+
+    /* Meet John Section Tablet */
+    .john-owens-hero-section {
+        min-height: 45vh;
+        padding: 30px 0 80px 0;
+    }
+
+    .john-owens-content {
+        max-width: 700px;
+        padding: 0 1rem;
+    }
+
+    .john-owens-title {
+        font-size: 38px;
+        margin-bottom: 8px;
+    }
+
+    .john-owens-subtitle {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .john-owens-description {
+        font-size: 14px;
+        max-width: 800px;
+    }
+
+    .john-owens-portrait {
+        top: 30%;
+    }
+
+    .john-portrait-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .meet-john-section-image {
+        width: 110px;
+        height: 60px;
+        top: 15px;
+        left: 15px;
+    }
+
+    .meet-john-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* Implant Experience Section Tablet */
+    .implant-experience-section {
+        padding: 30px 0 40px 0;
+    }
+
+    .implant-experience-container {
+        max-width: 800px;
+        gap: 8px;
+        padding: 0 1rem;
+    }
+
+    .implant-experience-left {
+        padding-right: 50px;
+        max-width: 380px;
+    }
+
+    .implant-experience-right {
+        padding-left: 100px;
+    }
+
+    .implant-experience-title {
+        font-size: 24px;
+    }
+
+    .implant-experience-description {
+        font-size: 14px;
+    }
+
+    .implant-experience-btn {
+        padding: 8px 40px;
+        font-size: 14px;
+    }
+
+    .implant-experience-subtitle {
+        font-size: 16px;
+    }
+
+    .implant-experience-text {
+        font-size: 12px;
     }
 }
 
@@ -681,6 +1329,125 @@
 
     .landing-marquee-img {
         max-height: 30px;
+    }
+
+    /* Meet John Section Mobile Large */
+    .john-owens-hero-section {
+        min-height: 40vh;
+        padding: 25px 0 50px 0;
+    }
+
+    .john-owens-content {
+        max-width: 600px;
+        padding: 0 2rem;
+        text-align: center;
+    }
+
+    .john-owens-title {
+        font-size: 32px;
+        margin-bottom: 6px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .john-owens-subtitle {
+        font-size: 14px;
+        margin-bottom: 12px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .john-owens-description {
+        font-size: 13px;
+        max-width: 700px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .john-owens-portrait {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 20px auto;
+        display: block;
+        z-index: 1;
+    }
+
+    .john-portrait-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .meet-john-section-image {
+        width: 70px;
+        height: 40px;
+        top: 10px;
+        left: 10px;
+        z-index: 2;
+    }
+
+    .meet-john-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .john-owens-portrait {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+    }
+
+    /* Implant Experience Section Mobile Large */
+    .implant-experience-section {
+        padding: 25px 0 35px 0;
+    }
+
+    .implant-experience-container {
+        max-width: 600px;
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 0 1rem;
+    }
+
+    .implant-experience-left {
+        padding-right: 0;
+        max-width: 100%;
+        order: 1;
+        margin-bottom: 15px;
+    }
+
+    .implant-experience-right {
+        padding-left: 0;
+        order: 2;
+    }
+
+    .implant-experience-title {
+        font-size: 22px;
+    }
+
+    .implant-experience-description {
+        font-size: 13px;
+    }
+
+    .implant-experience-btn {
+        font-size: 14px;
+        padding: 8px 30px;
+    }
+
+    .implant-experience-subtitle {
+        font-size: 16px;
+    }
+
+    .implant-experience-text {
+        font-size: 12px;
+        max-width: 100%;
+    }
+
+    .implant-experience-block {
+        padding: 0;
     }
 }
 
@@ -777,6 +1544,104 @@
         max-height: 25px;
     }
 
+    /* Meet John Section Mobile Medium */
+    .john-owens-hero-section {
+        padding: 20px 0 40px 0;
+    }
+
+    .john-owens-content {
+        max-width: 500px;
+        padding: 0 1.5rem;
+        text-align: center;
+    }
+
+    .john-owens-title {
+        font-size: 28px;
+        margin-bottom: 5px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .john-owens-subtitle {
+        font-size: 12px;
+        margin-bottom: 10px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .john-owens-description {
+        font-size: 12px;
+        max-width: 600px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .john-owens-portrait {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 15px auto;
+        display: block;
+        z-index: 1;
+    }
+
+    .john-portrait-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .meet-john-section-image {
+        width: 60px;
+        height: 35px;
+        top: 8px;
+        left: 8px;
+        z-index: 2;
+    }
+
+    .meet-john-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* Implant Experience Section Mobile Medium */
+    .implant-experience-section {
+        padding: 20px 0 30px 0;
+    }
+
+    .implant-experience-container {
+        max-width: 500px;
+        gap: 20px;
+        padding: 0 0.5rem;
+    }
+
+    .implant-experience-left {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .implant-experience-title {
+        font-size: 20px;
+    }
+
+    .implant-experience-description {
+        font-size: 12px;
+    }
+
+    .implant-experience-btn {
+        font-size: 13px;
+        padding: 6px 25px;
+    }
+
+    .implant-experience-subtitle {
+        font-size: 14px;
+    }
+
+    .implant-experience-text {
+        font-size: 11px;
+    }
 
     .landing-footer {
 
@@ -821,4 +1686,234 @@
         height: 25px;
     }
 
+    /* Meet John Section Mobile Extra Small */
+    .john-owens-hero-section {
+        padding: 15px 0 30px 0;
+    }
+
+    .john-owens-content {
+        max-width: 400px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .john-owens-title {
+        font-size: 24px;
+        margin-bottom: 4px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .john-owens-subtitle {
+        font-size: 10px;
+        margin-bottom: 8px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .john-owens-description {
+        font-size: 11px;
+        max-width: 500px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .john-owens-portrait {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 8px auto;
+        display: block;
+        z-index: 1;
+    }
+
+    .john-portrait-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .meet-john-section-image {
+        width: 40px;
+        height: 25px;
+        top: 5px;
+        left: 5px;
+        z-index: 2;
+    }
+
+    .meet-john-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* Implant Experience Section Mobile Extra Small */
+    .implant-experience-section {
+        padding: 15px 0 25px 0;
+    }
+
+    .implant-experience-container {
+        max-width: 400px;
+        gap: 15px;
+        padding: 0 0.25rem;
+    }
+
+    .implant-experience-left {
+        max-width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .implant-experience-title {
+        font-size: 18px;
+    }
+
+    .implant-experience-description {
+        font-size: 11px;
+    }
+
+    .implant-experience-btn {
+        font-size: 12px;
+        padding: 5px 20px;
+    }
+
+    .implant-experience-subtitle {
+        font-size: 12px;
+    }
+
+    .implant-experience-text {
+        font-size: 10px;
+    }
+
+    .john-owens-portrait {
+        position: relative;
+        transform: none;
+        margin: 20px auto;
+    }
+
+    /* Implant Experience Section Mobile */
+    .implant-experience-section {
+        padding: 40px 0;
+    }
+
+    .implant-experience-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .implant-experience-title {
+        font-size: 20px;
+    }
+
+    .implant-experience-description {
+        font-size: 14px;
+    }
+
+    .implant-experience-btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .implant-experience-subtitle {
+        font-size: 18px;
+    }
+
+    .implant-experience-text {
+        font-size: 14px;
+    }
+
+    .implant-experience-block {
+        padding: 20px;
+    }
+
+    .meet-john-section-image {
+        width: 80px;
+        height: 40px;
+        top: 8px;
+        left: 8px;
+    }
+
 }
+/* Tablet aur usse chhoti screens ke liye */
+@media (max-width: 991px) {
+  .value-proposition-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* blocks ke beech spacing */
+  }
+
+  .value-proposition-block {
+    width: 90%;  /* full width ke close tak */
+    text-align: center;
+  }
+
+  .value-proposition-title {
+    font-size: 36px; /* heading chhoti ho jae */
+    line-height: 1.2;
+  }
+
+  .value-proposition-block h2 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .value-proposition-block p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+/* Tablet aur usse chhoti screens ke liye */
+@media (max-width: 991px) {
+    .value-proposition-section {
+      padding: 40px 20px; /* top-bottom 40px, left-right 20px */
+    }
+  
+    .value-proposition-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px; /* blocks ke beech spacing */
+    }
+  
+    .value-proposition-block {
+      width: 100%;   /* full width use kare */
+      max-width: 500px; /* readability ke liye max width */
+      text-align: center;
+      padding: 0 15px; /* har block me extra inner padding */
+    }
+  
+    .value-proposition-title {
+      font-size: 36px;
+      line-height: 1.2;
+      padding: 0 10px; /* title ke sides se bhi gap */
+    }
+  
+    .value-proposition-block h2 {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+  
+    .value-proposition-block p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+  
+  /* Chhoti mobile (max-width: 576px) ke liye aur tight layout */
+  @media (max-width: 576px) {
+    .value-proposition-section {
+      padding: 30px 15px;
+    }
+  
+    .value-proposition-title {
+      font-size: 28px;
+    }
+  
+    .value-proposition-block h2 {
+      font-size: 22px;
+    }
+  
+    .value-proposition-block p {
+      font-size: 15px;
+    }
+  }
+  
