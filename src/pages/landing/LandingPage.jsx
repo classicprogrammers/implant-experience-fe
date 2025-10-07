@@ -3,6 +3,16 @@ import '../../App.css';
 import '../../assets/css/landing.css';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
+import Testimonials from '../../components/Testimonials';
+import { testimonialsData } from '../../data/testimonialsData';
+import MarqueeSlider from '../../components/MarqueeSlider';
+import { marqueeData } from '../../data/marqueeData';
+import '../../components/MarqueeSlider.css';
+import CoreServices from '../../components/CoreServices';
+import { coreServicesData } from '../../data/coreServicesData';
+import Newsletter from '../../components/Newsletter';
+import Episodes from '../../components/Episodes';
+import { episodesData } from '../../data/episodesData';
 // import logo from '../../assets/images/implant-logo.png';
 import badge from '../../assets/images/landingHero.png';
 import marqueeLogo from '../../assets/images/marqueeLogo.png'
@@ -27,6 +37,23 @@ function LandingPage() {
       title: 'Real-Time Alerts',
       subtitle: 'Every Second Counts',
       description: 'While the average recall notification takes 3-6 months to reach patients, our system delivers alerts in real-time. The difference could save your life.'
+    }
+  ]
+  const coreServices = [
+    {
+      title: 'Device Sync Alerts with Implant Intel',
+      subtitle: "Know Your Device's Every Move",
+      description: "Never wonder about your implant's status again. Our proprietary monitoring system tracks when your device experiences changes."
+    },
+    {
+      title: 'Data Access Notifications',
+      subtitle: 'Transparency You Deserve',
+      description: "Just as documentaries like the 'The Bleeding Edge' exposed how patients were kept in the dark about device problems, we shine a light on medical data"
+    },
+    {
+      title: 'Security Updates',
+      subtitle: 'FDA Recall Alerts',
+      description: 'While its common to see patients learn years after the fact about device recalls, our system delivers FDA safety communications instantly.'
     }
   ]
 
@@ -73,36 +100,13 @@ function LandingPage() {
           </div>
         </div>
       </section>
-      {/*  */}
-      <div className="overflow-hidden bg-[#00ACB2] py-[5px]">
-        <div className="flex animate-marquee whitespace-nowrap">
-          <div className="flex items-center gap-[50px] text-white mx-[40px]">
-            <h1 className="text-lg font-bold">Trusted Care</h1>
-            <img src={marqueeLogo} alt="" className="w-5 h-5" />
-          </div>
-          <div className="flex items-center gap-[50px] text-white mx-[40px]">
-            <h1 className="text-lg font-semibold">Affordable Access</h1>
-            <img src={marqueeLogo} alt="" className="w-5 h-5" />
-          </div>
-          <div className="flex items-center gap-[50px] text-white mx-[40px]">
-            <h1 className="text-lg font-semibold">Real-Time Alerts</h1>
-            <img src={marqueeLogo} alt="" className="w-5 h-5" />
-          </div>
-          {/* Duplicate content for seamless loop */}
-          <div className="flex items-center gap-[50px] text-white mx-[40px]">
-            <h1 className="text-lg font-semibold">Trusted Care</h1>
-            <img src={marqueeLogo} alt="" className="w-5 h-5" />
-          </div>
-          <div className="flex items-center gap-[50px] text-white mx-[40px]">
-            <h1 className="text-lg font-semibold">Affordable Access</h1>
-            <img src={marqueeLogo} alt="" className="w-5 h-5" />
-          </div>
-          <div className="flex items-center gap-[50px] text-white mx-[40px]">
-            <h1 className="text-lg font-semibold">Real-Time Alerts</h1>
-            <img src={marqueeLogo} alt="" className="w-5 h-5" />
-          </div>
-        </div>
-      </div>
+      {/* Marquee Slider Component */}
+      <MarqueeSlider
+        items={marqueeData}
+        logo={marqueeLogo}
+        backgroundColor="#00ACB2"
+        textColor="white"
+      />
       {/* Section 2 - Mission Statement */}
       <section className="bg-[#133C75] text-white">
         <div className="grid grid-cols-12 gap-6 bg-[#0A3C78] items-center">
@@ -205,8 +209,14 @@ function LandingPage() {
         </div>
 
       </section>
-
-
+      {/* Core Services Component */}
+      <CoreServices services={coreServicesData} />
+      {/* Episodes */}
+      <Episodes episodes={episodesData} />
+      {/* Testimonials */}
+      <Testimonials testimonials={testimonialsData} />
+      {/* Newsletter */}
+      <Newsletter />
       <Footer />
     </div >
   )

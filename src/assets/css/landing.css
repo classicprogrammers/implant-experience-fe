@@ -541,113 +541,118 @@
 
 /* Tablet aur usse chhoti screens ke liye */
 @media (max-width: 991px) {
-  .your-section-class {
-    padding: 40px 20px; /* left-right gap */
-  }
+    .your-section-class {
+        padding: 40px 20px;
+        /* left-right gap */
+    }
 
-  .your-section-class .container {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
+    .your-section-class .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
 
-  .your-section-class .block {
-    width: 100%;
-    max-width: 500px;
-    text-align: center;
-    padding: 0 15px;
-  }
+    .your-section-class .block {
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+        padding: 0 15px;
+    }
 
-  .your-section-class h2 {
-    font-size: 28px;
-    line-height: 1.2;
-  }
+    .your-section-class h2 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
 
-  .your-section-class p {
-    font-size: 16px;
-    line-height: 1.5;
-  }
+    .your-section-class p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
 }
 
 /* Mobile screens ke liye */
 @media (max-width: 576px) {
-  .your-section-class {
-    padding: 30px 15px;
-  }
+    .your-section-class {
+        padding: 30px 15px;
+    }
 
-  .your-section-class h2 {
-    font-size: 22px;
-  }
+    .your-section-class h2 {
+        font-size: 22px;
+    }
 
-  .your-section-class p {
-    font-size: 15px;
-  }
+    .your-section-class p {
+        font-size: 15px;
+    }
 }
+
 /* Tablet aur usse chhoti screens ke liye */
 @media (max-width: 991px) {
     .value-proposition-section {
-      padding: 40px 20px;
+        padding: 40px 20px;
     }
-  
+
     .value-proposition-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 30px;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
     }
-  
+
     .value-proposition-block {
-      width: 100%;
-      max-width: 500px;
-      text-align: center;
-      padding: 0 15px;
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+        padding: 0 15px;
     }
-  
+
     .value-proposition-block img {
-      width: 120px;   /* image chhoti */
-      height: auto;   /* proportion maintain */
-      margin-bottom: 15px;
+        width: 120px;
+        /* image chhoti */
+        height: auto;
+        /* proportion maintain */
+        margin-bottom: 15px;
     }
-  
+
     .value-proposition-title {
-      font-size: 36px;
-      line-height: 1.2;
-      padding: 0 10px;
+        font-size: 36px;
+        line-height: 1.2;
+        padding: 0 10px;
     }
-  
+
     .value-proposition-block h2 {
-      font-size: 28px;
-      line-height: 1.2;
+        font-size: 28px;
+        line-height: 1.2;
     }
-  
+
     .value-proposition-block p {
-      font-size: 16px;
-      line-height: 1.5;
+        font-size: 16px;
+        line-height: 1.5;
     }
-  }
-  
-  /* Mobile screens (576px se niche) */
-  @media (max-width: 576px) {
+}
+
+/* Mobile screens (576px se niche) */
+@media (max-width: 576px) {
     .value-proposition-section {
-      padding: 30px 15px;
+        padding: 30px 15px;
     }
-  
+
     .value-proposition-title {
-      font-size: 28px;
+        font-size: 28px;
     }
-  
+
     .value-proposition-block img {
-      width: 90px; /* aur chhoti image */
+        width: 90px;
+        /* aur chhoti image */
     }
-  
+
     .value-proposition-block h2 {
-      font-size: 22px;
+        font-size: 22px;
     }
-  
+
     .value-proposition-block p {
-      font-size: 15px;
+        font-size: 15px;
     }
-  }
-  
+}
+
 
 /* Implant Experience Section */
 .implant-experience-section {
@@ -768,9 +773,10 @@
     gap: 50px;
 }
 
-.value-proposition-section div , .value-proposition-section h2{
-   position: relative;
-   z-index: 1;
+.value-proposition-section div,
+.value-proposition-section h2 {
+    position: relative;
+    z-index: 1;
 }
 
 .value-proposition-section::before {
@@ -1834,86 +1840,96 @@
     }
 
 }
+
 /* Tablet aur usse chhoti screens ke liye */
 @media (max-width: 991px) {
-  .value-proposition-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px; /* blocks ke beech spacing */
-  }
-
-  .value-proposition-block {
-    width: 90%;  /* full width ke close tak */
-    text-align: center;
-  }
-
-  .value-proposition-title {
-    font-size: 36px; /* heading chhoti ho jae */
-    line-height: 1.2;
-  }
-
-  .value-proposition-block h2 {
-    font-size: 28px;
-    line-height: 1.2;
-  }
-
-  .value-proposition-block p {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-}
-/* Tablet aur usse chhoti screens ke liye */
-@media (max-width: 991px) {
-    .value-proposition-section {
-      padding: 40px 20px; /* top-bottom 40px, left-right 20px */
-    }
-  
     .value-proposition-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 30px; /* blocks ke beech spacing */
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        /* blocks ke beech spacing */
     }
-  
+
     .value-proposition-block {
-      width: 100%;   /* full width use kare */
-      max-width: 500px; /* readability ke liye max width */
-      text-align: center;
-      padding: 0 15px; /* har block me extra inner padding */
+        width: 90%;
+        /* full width ke close tak */
+        text-align: center;
     }
-  
+
     .value-proposition-title {
-      font-size: 36px;
-      line-height: 1.2;
-      padding: 0 10px; /* title ke sides se bhi gap */
+        font-size: 36px;
+        /* heading chhoti ho jae */
+        line-height: 1.2;
     }
-  
+
     .value-proposition-block h2 {
-      font-size: 28px;
-      line-height: 1.2;
+        font-size: 28px;
+        line-height: 1.2;
     }
-  
+
     .value-proposition-block p {
-      font-size: 16px;
-      line-height: 1.5;
+        font-size: 16px;
+        line-height: 1.5;
     }
-  }
-  
-  /* Chhoti mobile (max-width: 576px) ke liye aur tight layout */
-  @media (max-width: 576px) {
+}
+
+/* Tablet aur usse chhoti screens ke liye */
+@media (max-width: 991px) {
     .value-proposition-section {
-      padding: 30px 15px;
+        padding: 40px 20px;
+        /* top-bottom 40px, left-right 20px */
     }
-  
+
+    .value-proposition-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        /* blocks ke beech spacing */
+    }
+
+    .value-proposition-block {
+        width: 100%;
+        /* full width use kare */
+        max-width: 500px;
+        /* readability ke liye max width */
+        text-align: center;
+        padding: 0 15px;
+        /* har block me extra inner padding */
+    }
+
     .value-proposition-title {
-      font-size: 28px;
+        font-size: 36px;
+        line-height: 1.2;
+        padding: 0 10px;
+        /* title ke sides se bhi gap */
     }
-  
+
     .value-proposition-block h2 {
-      font-size: 22px;
+        font-size: 28px;
+        line-height: 1.2;
     }
-  
+
     .value-proposition-block p {
-      font-size: 15px;
+        font-size: 16px;
+        line-height: 1.5;
     }
-  }
-  
+}
+
+/* Chhoti mobile (max-width: 576px) ke liye aur tight layout */
+@media (max-width: 576px) {
+    .value-proposition-section {
+        padding: 30px 15px;
+    }
+
+    .value-proposition-title {
+        font-size: 28px;
+    }
+
+    .value-proposition-block h2 {
+        font-size: 22px;
+    }
+
+    .value-proposition-block p {
+        font-size: 15px;
+    }
+}

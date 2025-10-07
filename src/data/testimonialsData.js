@@ -1,0 +1,24 @@
+export const testimonialsData = [
+  {
+    role: "Hip Implant Recipient",
+    text: "After watching friends suffer through metal poisoning from their hip implants, I was terrified about my own device. The Implant Experience gave me back control. When my device manufacturer issued a safety notice, I knew within minutes – not months. This service is what the FDA should have provided decades ago",
+    name: "Sarah Mitchell",
+    avatar:
+      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+  },
+  {
+    role: "Essure Survivor",
+    text: "I lived through the Essure nightmare that destroyed so many lives. Now with my new implant, The Implant Experience helps me track everything. Every symptom, every update, every piece of data. We shouldn't have to fight for this information – it should be our right.",
+    name: "Maria Rodriguez",
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+  },
+  {
+    role: "Orthopedic Surgeon & Patient",
+    text: "As both a surgeon and someone with an implanted device, I've seen both sides of this crisis. The lack of proper tracking has been medicine's dirty secret. This platform finally gives patients the tools we physicians have always wanted them to have.",
+    name: "Robert Chen, MD",
+    avatar:
+      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=150&h=150&fit=crop&crop=face",
+  },
+];
+

@@ -1,0 +1,26 @@
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 15s linear infinite;
+}
+
+.marquee-container {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.marquee-img {
+    max-height: 40px;
+    width: auto;
+}
