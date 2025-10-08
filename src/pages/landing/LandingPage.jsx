@@ -210,13 +210,13 @@ function LandingPage() {
 
       </section>
       {/* Core Services Component */}
-      <CoreServices services={coreServicesData} />
+      {/* <CoreServices services={coreServicesData} /> */}
       {/* Episodes */}
-      <Episodes episodes={episodesData} />
+      {/* <Episodes episodes={episodesData} /> */}
       {/* Testimonials */}
-      <Testimonials testimonials={testimonialsData} />
+      {/* <Testimonials testimonials={testimonialsData} /> */}
       {/* Newsletter */}
-      <Newsletter />
+      {/* <Newsletter /> */}
       <Footer />
     </div >
   )
