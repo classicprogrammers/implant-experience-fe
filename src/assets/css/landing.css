@@ -490,6 +490,7 @@
     border-radius: 0;
     overflow: visible;
     width: 500px;
+    max-width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -670,9 +671,6 @@
 
 .implant-experience-container {
     width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
@@ -682,8 +680,6 @@
 
 .implant-experience-left {
     z-index: 2;
-    padding-right: 50px;
-    max-width: 560px;
 }
 
 .implant-experience-title {
@@ -731,7 +727,7 @@
     flex-direction: column;
     gap: 20px;
     z-index: 2;
-    padding-left: 180px;
+    align-items: end;
 }
 
 .implant-experience-block {
@@ -903,7 +899,9 @@
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-
+.portrait-container-width{
+    max-width: 450px;
+}
 
 /* Responsive Design */
 
@@ -955,12 +953,6 @@
     /* Implant Experience Section Responsive */
     .implant-experience-section {
         padding: 50px 0;
-    }
-
-    .implant-experience-container {
-        max-width: 1200px;
-        padding: 0 2rem;
-        gap: 15px;
     }
 
     .implant-experience-left {
@@ -1040,12 +1032,6 @@
     /* Implant Experience Section Responsive */
     .implant-experience-section {
         padding: 35px 0 45px 0;
-    }
-
-    .implant-experience-container {
-        max-width: 1000px;
-        padding: 0 1.5rem;
-        gap: 10px;
     }
 
     .implant-experience-left {
@@ -1182,7 +1168,12 @@
     }
 
     .john-owens-portrait {
-        top: 30%;
+        top: 15%;
+    }
+
+    .portrait-container-width{
+        max-width: 100%;
+        margin: 0 20px;
     }
 
     .john-portrait-img {
@@ -1208,13 +1199,7 @@
     .implant-experience-section {
         padding: 30px 0 40px 0;
     }
-
-    .implant-experience-container {
-        max-width: 800px;
-        gap: 8px;
-        padding: 0 1rem;
-    }
-
+    
     .implant-experience-left {
         padding-right: 50px;
         max-width: 380px;
@@ -1412,10 +1397,7 @@
     }
 
     .implant-experience-container {
-        max-width: 600px;
         grid-template-columns: 1fr;
-        gap: 25px;
-        padding: 0 1rem;
     }
 
     .implant-experience-left {
@@ -1617,12 +1599,6 @@
         padding: 20px 0 30px 0;
     }
 
-    .implant-experience-container {
-        max-width: 500px;
-        gap: 20px;
-        padding: 0 0.5rem;
-    }
-
     .implant-experience-left {
         max-width: 100%;
         margin-bottom: 10px;
@@ -1757,12 +1733,6 @@
     /* Implant Experience Section Mobile Extra Small */
     .implant-experience-section {
         padding: 15px 0 25px 0;
-    }
-
-    .implant-experience-container {
-        max-width: 400px;
-        gap: 15px;
-        padding: 0 0.25rem;
     }
 
     .implant-experience-left {

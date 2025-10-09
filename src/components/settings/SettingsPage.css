@@ -8,7 +8,6 @@
 }
 
 .settings-container {
-    max-width: 1000px;
     width: 100%;
     background: white;
     border-radius: 16px;
@@ -145,11 +144,6 @@
     }
 }
 
-@media (min-width: 1280px) {
-    .settings-container {
-        max-width: 1200
-    }
-}
 
 /* Mobile Responsive */
 @media (max-width: 639px) {

@@ -109,43 +109,44 @@ function LandingPage() {
       />
       {/* Section 2 - Mission Statement */}
       <section className="bg-[#133C75] text-white">
-        <div className="grid grid-cols-12 gap-6 bg-[#0A3C78] items-center">
-          {/* Left side image */}
-          <div className="col-span-12 md:col-span-5 lg:col-span-4 p-4">
-            <img
-              src={stethoscope}
-              alt="stethoscope"
-              className="w-full h-auto max-h-[700px]"
-            />
-          </div>
+        <div className="container">
+          <div className="grid grid-cols-12 gap-6 bg-[#0A3C78] items-center">
+            {/* Left side image */}
+            <div className="col-span-12 md:col-span-5 lg:col-span-4 p-4">
+              <img
+                src={stethoscope}
+                alt="stethoscope"
+                className="w-full h-auto max-h-[700px]"
+              />
+            </div>
 
-          {/* Right side content */}
-          <div className="col-span-12 md:col-span-7 lg:col-span-8 p-6 p-[50px] text-white leading-relaxed">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#82EBED] mb-[20px]">
-              Mission Statement – <br className="hidden md:block" /> The Ethical Obligation
-            </h2>
+            {/* Right side content */}
+            <div className="col-span-12 md:col-span-7 lg:col-span-8 p-6 p-[50px] text-white leading-relaxed">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#82EBED] mb-[20px]">
+                Mission Statement – <br className="hidden md:block" /> The Ethical Obligation
+              </h2>
 
-            <p className="text-base leading-relaxed text-white mb-[20px]">
-              Born from the urgent need exposed by countless device failures and regulatory gaps,
-              The Implant Experience is more than a tracking service – it’s a movement toward
-              patient empowerment and device accountability.
-            </p>
+              <p className="text-base leading-relaxed text-white mb-[20px]">
+                Born from the urgent need exposed by countless device failures and regulatory gaps,
+                The Implant Experience is more than a tracking service – it’s a movement toward
+                patient empowerment and device accountability.
+              </p>
 
-            <p className="text-base leading-relaxed text-white mb-[20px]">
-              With 32 million Americans living with implanted medical devices and a history of systemic
-              failures in device and implant monitoring, we are building the safety net that should have
-              existed all along. It’s our ethical obligation to do so. Our platform bridges the dangerous
-              gap between device manufacturers, healthcare providers, and the patients whose lives depend
-              on these technologies.
-            </p>
+              <p className="text-base leading-relaxed text-white mb-[20px]">
+                With 32 million Americans living with implanted medical devices and a history of systemic
+                failures in device and implant monitoring, we are building the safety net that should have
+                existed all along. It’s our ethical obligation to do so. Our platform bridges the dangerous
+                gap between device manufacturers, healthcare providers, and the patients whose lives depend
+                on these technologies.
+              </p>
 
-            <button className="bg-[#82EBED] text-[18px] text-[#133C75] font-bold px-5 py-2 rounded-[8px] shadow-md hover:bg-[#6bd9da] transition">
-              <Link to="/signup" className='text-[#133C75]'>Become a Member</Link>
-            </button>
+              <button className="bg-[#82EBED] text-[18px] text-[#133C75] font-bold px-5 py-2 rounded-[8px] shadow-md hover:bg-[#6bd9da] transition">
+                <Link to="/signup" className='text-[#133C75]'>Become a Member</Link>
+              </button>
 
+            </div>
           </div>
         </div>
-
 
       </section>
       {/* Meet John P. Owens Section */}
@@ -166,51 +167,58 @@ function LandingPage() {
 
       {/* The Implant Experience Section */}
       <section className="implant-experience-section">
-        <div className="john-owens-portrait">
-          <img src={johnOwens} alt="John P. Owens" className="john-portrait-img" />
-        </div>
-        <div className="implant-experience-container">
-          <div className="implant-experience-left">
-            <h2 className="implant-experience-title">During My Years Working With Hospitals,</h2>
-            <p className="implant-experience-description">
-              I Saw The Human Cost Of Poor Device Oversight. Patients Like Angie Firmalino, Dr. Stephen Tower, And Thousands Of Others Suffered Because Our System Prioritizes Speed To Market Over Safety.
-            </p>
-            <button className="implant-experience-btn">
-              <Link to="/signup">See more</Link>
-            </button>
+        <div className="container">
+          <div className="john-owens-portrait">
+            <img src={johnOwens} alt="John P. Owens" className="john-portrait-img" />
           </div>
-
-          <div className="implant-experience-right">
-            <div className="implant-experience-block">
-              <h3 className="implant-experience-subtitle">The Implant Experience is</h3>
-              <p className="implant-experience-text">our answer to a broken system that has left patients in the dark for too long.</p>
+          <div className="implant-experience-container">
+            <div className="implant-experience-left">
+              <div className='portrait-container-width'>
+                <h2 className="implant-experience-title">During My Years Working With Hospitals,</h2>
+                <p className="implant-experience-description">
+                  I Saw The Human Cost Of Poor Device Oversight. Patients Like Angie Firmalino, Dr. Stephen Tower, And Thousands Of Others Suffered Because Our System Prioritizes Speed To Market Over Safety.
+                </p>
+                <button className="implant-experience-btn">
+                  <Link to="/signup">See more</Link>
+                </button>
+              </div>
             </div>
 
-            <div className="implant-experience-block">
-              <h3 className="implant-experience-subtitle">His Mission:</h3>
-              <p className="implant-experience-text">Transform device tracking from a regulatory afterthought into a patient-centered right.</p>
+            <div className="implant-experience-right">
+              <div className='portrait-container-width'>
+                <div className="implant-experience-block">
+                  <h3 className="implant-experience-subtitle">The Implant Experience is</h3>
+                  <p className="implant-experience-text">our answer to a broken system that has left patients in the dark for too long.</p>
+                </div>
+
+                <div className="implant-experience-block">
+                  <h3 className="implant-experience-subtitle">His Mission:</h3>
+                  <p className="implant-experience-text">Transform device tracking from a regulatory afterthought into a patient-centered right.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
       {/* Value Proposition Section */}
       <section className="value-proposition-section">
-        <h2 className="value-proposition-title">Value Proposition</h2>
-        <div className="value-proposition-container ">
+        <div className="container">
+          <h2 className="value-proposition-title">Value Proposition</h2>
+          <div className="value-proposition-container ">
 
-          {valueProposition.map((item, index) => (
-            <div className="value-proposition-block" key={index}>
-              <h2>{item.title}</h2>
-              <h3>{item.subtitle}</h3>
-              <p>{item.description}</p>
-            </div>
-          ))}
+            {valueProposition.map((item, index) => (
+              <div className="value-proposition-block" key={index}>
+                <h2>{item.title}</h2>
+                <h3>{item.subtitle}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))}
 
+          </div>
         </div>
-
       </section>
       {/* Core Services Component */}
-      {/* <CoreServices services={coreServicesData} /> */}
+      <CoreServices services={coreServicesData} />
       {/* Episodes */}
       {/* <Episodes episodes={episodesData} /> */}
       {/* Testimonials */}

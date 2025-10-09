@@ -20,7 +20,7 @@ const CoreServices = ({ services = [] }) => {
                 </div>
 
                 {/* Services Cards */}
-                <div className="flex justify-around lg:flex-row sm:flex-col gap-3  mb-[20px]">
+                <div className="flex flex-wrap justify-around lg:flex-row sm:flex-col gap-3  mb-[20px]">
                     {services.map((service, index) => (
                         <div
                             key={index}
