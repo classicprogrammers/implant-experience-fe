@@ -1,0 +1,131 @@
+.pricing-page {
+    background: #fff;
+    min-height: 100vh;
+    padding: 0 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .pricing-header {
+    text-align: center;
+    padding: 60px 20px 20px 20px;
+  }
+  .pricing-header h1 {
+    font-size: 80px;
+    color: #00325C;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .pricing-header p {
+    color: #757783;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5rem;
+  }
+
+  /* Cards container */
+  .pricing-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    padding: 0 20px;
+    margin-top: 30px;
+  }
+
+  /* Each Card */
+  .pricing-card {
+    border-radius: 22px;
+    box-shadow: 0 8px 5px rgba(0,0,0,0.10);
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px;
+    border-radius: 32px;
+    gap: 40px;
+  }
+  .free-plan { background: #00b1b7; color: #fff; }
+  .starter-plan { background: #fff; color: #0a3556; }
+
+  /* Price Box */
+  .plan-price { text-align: center; min-width: 140px; }
+  .plan-price h3 { font-weight: 600; font-size: 1.1rem; margin-bottom: 8px; }
+  .plan-price .amount { font-size: 2.4rem; font-weight: 700; margin: 4px 0; }
+  .plan-price .duration { font-size: 0.95rem; color: #6c7a89; }
+
+  /* Features Columns */
+  .plan-features { flex: 1; display: flex; flex-direction: column; gap: 16px; margin-left: 40px; }
+
+  /* Buttons */
+  .btn-outline, .btn-filled {
+    border: none;
+    border-radius: 16px;
+    padding: 15px 70px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    /* box-shadow: 0 3px 10px rgba(0,0,0,0.08); */
+    transition: all 0.3s ease;
+  }
+  .btn-outline { background: #fff; color: #00b1b7; }
+  .btn-outline:hover { background: #f4f4f4; }
+  .btn-filled { background: #00b1b7; color: #fff; }
+  .btn-filled:hover { background: #00939a; }
+
+ /* Footer */
+.pricing-footer {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 40px;
+padding: 20px 40px;
+font-size: 0.95rem;
+color: #6c7a89;
+flex-wrap: wrap; /* responsive ke liye */
+gap: 20px;
+}
+
+.footer-left,
+.footer-right {
+display: flex;
+flex-direction: row; /* ✅ force ek line */
+align-items: center;
+gap: 18px;
+}
+
+.footer-left a,
+.footer-right a {
+color: #0a3556;
+text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+.pricing-footer {
+flex-direction: column;
+text-align: center;
+gap: 12px;
+}
+
+.footer-left,
+.footer-right {
+justify-content: center; /* ✅ center on mobile */
+}
+}
+
+
+  /* ✅ Responsive */
+  @media (max-width: 900px) {
+    .pricing-card { flex-direction: column; text-align: center; padding: 25px; }
+    .plan-features { margin-left: 0; align-items: center; }
+    .btn-outline, .btn-filled { width: 100%; padding: 14px; }
+    .pricing-footer { flex-direction: column; text-align: center; }
+  }
+  @media (max-width: 480px) {
+    .pricing-header h1 { font-size: 2rem; }
+    .plan-price .amount { font-size: 2rem; }
+    .btn-outline, .btn-filled { font-size: 1rem; padding: 10px; }
+  }
