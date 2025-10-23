@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-teal: #00B5C7;
+    --primary-dark-blue: #00325C;
+    --primary-white: #FFF;
+    --neutral-50: #FAFAFA;
+    --neutral-500: #0C1312;
+    --text-gray: #556171;
+    --text-dark: #0B1030;
+    --star-blue: #1B2E7D;
+    --link-purple: #4753BF;
+    --highlight-cyan: #82EBED;
+    --primary-cyan: #00ACB2;
+}
+
+/* Typography */
+.newletter-page {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.hero-Section {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(rgba(75, 103, 106, 0.9), rgba(75, 103, 106, 0.9)), url('../images/stayinform.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 50px 0 50px 0;
+    gap: 30px;
+}
+
+.hero-Section h1 {
+    max-width: 800px;
+    font-size: 85px;
+
+}
