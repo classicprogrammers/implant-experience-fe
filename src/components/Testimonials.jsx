@@ -2,14 +2,14 @@ import React from 'react';
 
 const Testimonials = ({ testimonials = [] }) => {
     return (
-        <section className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <section className="bg-white py-[16px] px-[4px] sm:px-[6px] lg:px-[8px]">
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
-                <div className="text-center mb-12">
-                    <p className="text-[#00BCD4] text-sm font-medium mb-6">
+                <div className="text-center mb-[12px]">
+                    <p className="text-[#00BCD4] text-sm font-medium mb-[6px]">
                         Testimonials
                     </p>
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#003878] leading-tight mb-6">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#003878] leading-tight mb-[6px]">
                         Patient Stories Of Care And Recovery
                     </h2>
                     <p className="text-gray-600 text-base max-w-3xl mx-auto leading-relaxed">
@@ -18,14 +18,15 @@ const Testimonials = ({ testimonials = [] }) => {
                 </div>
 
                 {/* Testimonial Cards */}
-                <div className="flex justify-around lg:flex-row sm:flex-col gap-3  mb-[20px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-[10px]" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
                     {testimonials.map((testimonial, index) => (
                         <div
                             key={index}
-                            className="bg-white rounded-xl shadow-lg p-6 lg:p-8 flex flex-col h-full"
+                            className="bg-white rounded-[24px] p-[24px] flex flex-col h-full"
+                            style={{ border: '1px solid #55617124' }}
                         >
                             {/* Stars */}
-                            <div className="flex mb-4">
+                            <div className="flex mb-[16px]">
                                 {[...Array(5)].map((_, i) => (
                                     <svg
                                         key={i}
@@ -38,26 +39,29 @@ const Testimonials = ({ testimonials = [] }) => {
                             </div>
 
                             {/* Role/Title */}
-                            <h3 className="text-lg font-bold text-[#003878] mb-4">
+                            <h3 className="text-lg font-bold text-[#003878] mb-[16px]">
                                 {testimonial.role}
                             </h3>
 
                             {/* Testimonial Text */}
-                            <p className="text-gray-600 text-sm leading-relaxed flex-grow mb-6">
+                            <p className="text-gray-600 text-base leading-relaxed flex-grow mb-[16px]">
                                 {testimonial.text}
                             </p>
 
+                            {/* Separator Line */}
+                            <div className="border-t border-gray-200 mb-[16px]"></div>
+
                             {/* Author Information */}
                             <div className="flex items-center">
-                                <div className="w-12 h-12 rounded-full bg-yellow-400 flex items-center justify-center mr-4 flex-shrink-0">
+                                <div className="w-12 h-12 rounded-full overflow-hidden mr-[12px] flex-shrink-0">
                                     <img
                                         src={testimonial.avatar}
                                         alt={testimonial.name}
-                                        className="w-10 h-10 rounded-full object-cover"
+                                        className="w-full h-full object-cover"
                                     />
                                 </div>
                                 <div>
-                                    <p className="font-bold text-[#003878] text-sm">
+                                    <p className="font-bold text-[#003878] text-base">
                                         {testimonial.name}
                                     </p>
                                 </div>

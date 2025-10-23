@@ -19,7 +19,7 @@ import marqueeLogo from '../../assets/images/marqueeLogo.png'
 import stethoscope from '../../assets/images/stethoscope.png'
 import meetjohnSec from '../../assets/images/meetjohnSec.png';
 import johnOwens from '../../assets/images/JohnOwens.png';
-import workHospital from '../../assets/images/workHospital.png';
+// import workHospital from '../../assets/images/workHospital.png';
 
 function LandingPage() {
   const valueProposition = [
@@ -146,13 +146,13 @@ function LandingPage() {
 
             </div>
           </div>
-
+        </div>
       </section>
       {/* Meet John P. Owens Section */}
       <section className="john-owens-hero-section">
         <div className="meet-john-section-image">
           <img src={meetjohnSec} alt="Meet John Section" className="meet-john-img" />
-              </div>
+        </div>
         <div className="john-owens-hero-container">
           <div className="john-owens-content">
             <h1 className="john-owens-title">Meet John P. Owens</h1>
@@ -160,8 +160,8 @@ function LandingPage() {
             <p className="john-owens-description">
               John brings two decades of executive experience in medical device implant management and witnessed firsthand the devastating impact of inadequate device tracking systems. After seeing countless patients struggle with device complications — from Essure birth control failures to metal-on-metal hip disasters — John recognized that the 510(k) clearance process and fragmented surveillance systems were failing millions of Americans.
             </p>
-              </div>
-            </div>
+          </div>
+        </div>
       </section>
 
       {/* The Implant Experience Section */}
@@ -218,12 +218,12 @@ function LandingPage() {
       </section>
       {/* Core Services Component */}
       <CoreServices services={coreServicesData} />
-      {/* Episodes */}
-      {/* <Episodes episodes={episodesData} /> */}
       {/* Testimonials */}
-      {/* <Testimonials testimonials={testimonialsData} /> */}
+      <Testimonials testimonials={testimonialsData} />
+      {/* Episodes */}
+      <Episodes episodes={episodesData} />
       {/* Newsletter */}
-      {/* <Newsletter /> */}
+      <Newsletter />
       <Footer />
     </div >
   )
