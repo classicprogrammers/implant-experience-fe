@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate } from 'react-router-dom';
 import './Header.css';
 import logo from '../../assets/images/implant-logo.png';
 import avatarImage from '../../assets/images/avatar.jpg';
@@ -8,21 +8,22 @@ const Header = ({ variant = 'landing' }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('Home');
   const mobileMenuRef = useRef(null);
+  const navigate = useNavigate(); // 👈 Hook for navigation
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
     closeMobileMenu();
+
+    // Add navigation ///
+    if (tabName === 'Home') navigate('/');
+    else if  (tabName === 'Resource') navigate('/resource');
+  else if(tabName === 'Newsletter') navigate('/newsletter');
+    else if (tabName === 'About') navigate('/about');
   };
 
-  // Handle click outside to close mobile menu
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
@@ -32,10 +33,8 @@ const Header = ({ variant = 'landing' }) => {
 
     if (isMobileMenuOpen) {
       document.addEventListener('mousedown', handleClickOutside);
-      // Prevent body scroll when menu is open
       document.body.style.overflow = 'hidden';
     } else {
-      // Restore body scroll when menu is closed
       document.body.style.overflow = 'unset';
     }
 

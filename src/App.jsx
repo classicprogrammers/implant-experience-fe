@@ -6,6 +6,8 @@ import SignupPage from './pages/auth/SignupPage'
 import ForgotPasswordPage from './pages/auth/ForgotPasswordPage'
 import ContactPage from './pages/landing/ContactPage'
 import TermsPage from './pages/landing/TermsPage'
+import LandingResource from './pages/landing/Resources'
+import LandingNewsLetter from './pages/landing/Newsletter'
 import OCRPage from './pages/ocr/OCRPage'
 import PricingPage from './pages/pricing/PricingPage'
 import DashboardRoutes from './layouts/DashboardRoutes'
@@ -19,6 +21,8 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/landing" element={<LandingPage />} />
+            <Route path="/resource" element={<LandingResource />} />
+            <Route path="/newsletter" element={<LandingNewsLetter />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />

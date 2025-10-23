@@ -1,8 +1,11 @@
 import React from 'react'
-
+import Header from '../../components/header/Header'
 function NewsLetter() {
     return (
-        <div>NewsLetter</div>
+          <div >
+      {/* Header Component */}
+      <Header variant="landing" />
+      </div>
     )
 }
 
