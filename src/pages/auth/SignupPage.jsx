@@ -10,7 +10,8 @@ function SignUpPage() {
     name: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    organizationName: ''
   })
   const [isLoading, setIsLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
@@ -42,6 +43,11 @@ function SignUpPage() {
       errors.email = 'Email is required'
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       errors.email = 'Please enter a valid email address'
+    }
+
+    // Organization name validation
+    if (!formData.organizationName.trim()) {
+      errors.organizationName = 'Organization name is required'
     }
 
     // Password validation
@@ -111,7 +117,8 @@ function SignUpPage() {
         email: formData.email.trim(),
         password: formData.password,
         fullName: formData.name.trim(),
-        role: 'patient' // Default role for new signups
+        role: 'patient', // Default role for new signups
+        organizationName: formData.organizationName.trim()
       }
 
       // Call the registration API
@@ -236,6 +243,30 @@ function SignUpPage() {
                     display: 'block'
                   }}>
                     {validationErrors.email}
+                  </span>
+                )}
+              </div>
+
+              <div className="form-group-new">
+                <label htmlFor="organizationName">Organization Name</label>
+                <input
+                  type="text"
+                  id="organizationName"
+                  name="organizationName"
+                  value={formData.organizationName}
+                  onChange={handleChange}
+                  required
+                  placeholder="input your organization name in here"
+                  className={validationErrors.organizationName ? 'error' : ''}
+                />
+                {validationErrors.organizationName && (
+                  <span className="field-error" style={{
+                    color: '#ef4444',
+                    fontSize: '12px',
+                    marginTop: '4px',
+                    display: 'block'
+                  }}>
+                    {validationErrors.organizationName}
                   </span>
                 )}
               </div>

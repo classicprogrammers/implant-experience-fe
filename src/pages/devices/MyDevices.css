@@ -1,6 +1,9 @@
 /* My Devices Page Styles - Scoped under parent class */
 .my-devices-page {
     /* Parent container styles if needed */
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
 }
 
 .my-devices-page .my-devices-content {

@@ -111,8 +111,8 @@
 }
 
 .notification-page .card-icon {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -137,6 +137,8 @@
 
 .notification-page .card-content {
     flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .notification-page .card-title {

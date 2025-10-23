@@ -1,68 +1,48 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './resources.css'
+import { api } from '../../utils/api'
 
 function ResourcesPage() {
-    const [openFaq, setOpenFaq] = useState(null)
+    const [openFaq, setOpenFaq] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [faqData, setFaqData] = useState([]);
 
     const toggleFaq = (index) => {
         setOpenFaq(openFaq === index ? null : index)
     }
 
-    // FAQ data array
-    const faqData = [
-        {
-            id: 0,
-            question: "Lorem Ipsum is simply dummy text of the printing a",
-            answer: "Data encryption converts readable information into unreadable code. Only authorized users with the correct key can access it. It protects sensitive data during transfer and storage.",
-            padding: "20px"
-        },
-        {
-            id: 1,
-            question: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            answer: "Use strong, unique passwords for each account. A password manager can help store them safely. Enable two-factor authentication for extra protection.",
-            padding: "20px"
-        },
-        {
-            id: 2,
-            question: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            answer: "Disconnect affected devices from the network immediately. Change your passwords and notify your IT or security team. Monitor accounts and activity for unusual behavior.",
-            padding: "20px"
-        },
-        {
-            id: 3,
-            question: "Lorem Ipsum is simply dummy text of the printing",
-            answer: "Updates often include patches for newly discovered vulnerabilities. Running outdated software leaves your system exposed. Enable automatic updates whenever possible...",
-            padding: "20px"
-        },
-        {
-            id: 4,
-            question: "Lorem Ipsum is simply dummy text of the printing",
-            answer: "Updates often include patches for newly discovered vulnerabilities. Running outdated software leaves your system exposed. Enable automatic updates whenever possible...",
-            padding: "20px"
-        },
-        {
-            id: 5,
-            question: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            answer: "Updates often include patches for newly discovered vulnerabilities. Running outdated software leaves your system exposed. Enable automatic updates whenever possible...",
-            padding: "20px"
+    const fetchFaq = async () => {
+        setLoading(true)
+        try {
+            const response = await api.get('/faq')
+            setFaqData(response.data.data)
+        } catch (error) {
+            console.error('Error fetching FAQ:', error)
+        } finally {
+            setLoading(false)
         }
-    ]
+    }
+
+    useEffect(() => {
+        fetchFaq()
+    }, [])
+
 
     return (
         <div className="flex min-h-[50vh] h-[90vh] items-center justify-center p-[20px]">
             <div className="space-y-4 custom-faq-section max-w-[1280px] mx-auto">
                 <div className="mb-12 space-y-0 max-w-[510px]">
-                    <h1 className="mx-auto text-start mb-4" style={{ fontSize: '48px', fontWeight: '800', color: '#00325C' }}>
+                    <h1 className="mx-auto text-start mb-3" style={{ fontSize: '48px', fontWeight: '800', color: '#00325C' }}>
                         Frequently Asked <br />
                         Questions
                     </h1>
                     <p style={{ fontSize: '16px', fontWeight: '400', color: '#00325C', lineHeight: '1.3' }}>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                        Get answers to common questions about your implants, reports, and account settings here.
                     </p>
                     <div className="w-16 h-1 bg-[#00325C] rounded mt-2"></div>
                 </div>
                 <div>
-                    {faqData.map((faq) => (
+                    {loading ? <div className='flex justify-center items-center h-full'>Loading...</div> : faqData.map((faq) => (
                         <div
                             key={faq.id}
                             style={{
@@ -78,7 +58,7 @@ function ResourcesPage() {
                                     display: 'flex',
                                     width: '100%',
                                     justifyContent: 'space-between',
-                                    padding: faq.padding,
+                                    padding: '20px',
                                     background: 'transparent',
                                     border: 'none',
                                     cursor: 'pointer'
@@ -116,7 +96,8 @@ function ResourcesPage() {
                                         color: '#00325C',
                                         fontSize: '16px',
                                         fontWeight: '400',
-                                        lineHeight: '1.5'
+                                        lineHeight: '1.5',
+                                        paddingTop: '20px'
                                     }}>
                                         {faq.answer}
                                     </p>

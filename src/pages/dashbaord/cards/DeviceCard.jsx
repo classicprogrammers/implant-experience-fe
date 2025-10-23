@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import deviceImage from '../../../assets/images/Device.png'
-// import { api } from '../../../utils/api' // Commented out for development
+import { api } from '../../../utils/api'
 
 const DeviceCard = () => {
     // Dummy data for development - matching the image data
@@ -53,37 +53,36 @@ const DeviceCard = () => {
     ]
 
     const [devices, setDevices] = useState(dummyDevices)
-    const [loading] = useState(false) // Set to false since we're using dummy data
-    const [error] = useState(null)
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
     const [searchTerm, setSearchTerm] = useState('')
     const [statusFilter, setStatusFilter] = useState('all')
 
-    // COMMENTED OUT API CODE FOR DEVELOPMENT
     // Fetch devices from API
-    // const fetchDevices = async () => {
-    //     try {
-    //         setLoading(true)
-    //         setError(null)
-    //         const response = await api.get('/devices')
-    //         
-    //         if (response.data.success && Array.isArray(response.data.data.devices)) {
-    //             setDevices(response.data.data.devices)
-    //         } else {
-    //             setError('Failed to fetch devices')
-    //             setDevices([]) // Ensure devices is always an array
-    //         }
-    //     } catch (err) {
-    //         console.error('Error fetching devices:', err)
-    //         setError('Failed to load devices. Please try again.')
-    //         setDevices([]) // Ensure devices is always an array
-    //     } finally {
-    //         setLoading(false)
-    //     }
-    // }
+    const fetchDevices = async () => {
+        try {
+            setLoading(true)
+            setError(null)
+            const response = await api.get('/devices')
+            
+            if (response.data.success && Array.isArray(response.data.data.devices)) {
+                setDevices(response.data.data.devices)
+            } else {
+                setError('Failed to fetch devices')
+                setDevices([]) // Ensure devices is always an array
+            }
+        } catch (err) {
+            console.error('Error fetching devices:', err)
+            setError('Failed to load devices. Please try again.')
+            setDevices([]) // Ensure devices is always an array
+        } finally {
+            setLoading(false)
+        }
+    }
 
-    // useEffect(() => {
-    //     fetchDevices()
-    // }, [])
+    useEffect(() => {
+        fetchDevices()
+    }, [])
 
     // Filter devices based on search term and status
     const filteredDevices = Array.isArray(devices) ? devices.filter(device => {
@@ -162,7 +161,7 @@ const DeviceCard = () => {
                 </div>
                 <div className="error-container">
                     <p className="error-message">{error}</p>
-                    <button onClick={() => setDevices(dummyDevices)} className="retry-button">
+                    <button onClick={fetchDevices} className="retry-button">
                         Try Again
                     </button>
                 </div>

@@ -37,37 +37,37 @@ function LoginPage() {
 
     try {
       // Call the login API
-      // const response = await api.post('/auth/login', formData)
+      const response = await api.post('/auth/login', formData)
 
-      // if (response.data.success) {
-      //   // Store auth data in localStorage
-      //   setAuthData(response.data.data)
+      if (response.data.success) {
+        // Store auth data in localStorage
+        setAuthData(response.data.data)
 
-      //   console.log('Login successful:', response.data.data)
-      //   setSuccess(response.data.message || 'Login successful!')
+        console.log('Login successful:', response.data.data)
+        setSuccess(response.data.message || 'Login successful!')
 
-      // Navigate to OCR page after a short delay to show success message
-      setTimeout(() => {
-        navigate('/ocr')
-      }, 1000)
-      // } else {
-      //   setError(response.data.message || 'Login failed')
-      // }
+        // Navigate to OCR page after a short delay to show success message
+        setTimeout(() => {
+          navigate('/ocr')
+        }, 1000)
+      } else {
+        setError(response.data.message || 'Login failed')
+      }
     } catch (error) {
       console.error('Login error:', error)
 
-      // // Extract error message from response
-      // let errorMessage = 'An error occurred during login'
+      // Extract error message from response
+      let errorMessage = 'An error occurred during login'
 
-      // if (error.response?.data?.message) {
-      //   errorMessage = error.response.data.message
-      // } else if (error.response?.data?.error) {
-      //   errorMessage = error.response.data.error
-      // } else if (error.message) {
-      //   errorMessage = error.message
-      // }
+      if (error.response?.data?.message) {
+        errorMessage = error.response.data.message
+      } else if (error.response?.data?.error) {
+        errorMessage = error.response.data.error
+      } else if (error.message) {
+        errorMessage = error.message
+      }
 
-      // setError(errorMessage)
+      setError(errorMessage)
     } finally {
       setIsLoading(false)
     }

@@ -21,7 +21,6 @@
 .ocr-page-wrapper .ocr-card {
     background: white;
     border-radius: 8px;
-    box-shadow: 0px 29px 28.1px 0px #0000000D;
     padding: 2rem;
     width: 100%;
     border: none;
@@ -31,8 +30,8 @@
 /* Close Button */
 .ocr-page-wrapper .close-button {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 2rem;
+    right: 2rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -58,36 +57,30 @@
     padding-bottom: 0.5rem;
 }
 
-.ocr-page-wrapper .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: #00ACB2;
-    border-radius: 2px;
+.manual-form-section .section-title {
+    margin: 0 0 .5rem 0;
 }
+
 
 /* OCR Upload Section */
 .ocr-page-wrapper .ocr-upload-section {
-    margin-bottom: 2rem;
+    margin-bottom: 25px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .ocr-page-wrapper .upload-area {
-    border: 2px dashed #00ACB2;
-    border-radius: 8px;
+    border: 1px dashed #D5D8E2;
+    border-radius: 12px;
     padding: 2rem;
     text-align: center;
     margin-bottom: 1.5rem;
     transition: all 0.3s ease;
     cursor: pointer;
-    background: #FAFCFE;
 }
 
 .ocr-page-wrapper .upload-area:hover {
-    border-color: #00BFA5;
-    background: #F0FDFA;
     transform: translateY(-2px);
 }
 
@@ -139,12 +132,14 @@
     color: white;
     border: none;
     border-radius: 8px;
-    padding: 0.75rem 2rem;
+    padding: 0.6rem 2rem;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
 }
 
 .ocr-page-wrapper .verify-button:hover {
@@ -153,11 +148,6 @@
     box-shadow: 0 4px 12px rgba(26, 54, 93, 0.3);
 }
 
-/* Manual Form Section */
-.ocr-page-wrapper .manual-form-section {
-    border-top: 1px solid #E5E7EB;
-    padding-top: 2rem;
-}
 
 .ocr-page-wrapper .ocr-form {
     display: flex;
@@ -180,14 +170,14 @@
 }
 
 .ocr-page-wrapper .form-group-new input {
-    padding: 0.75rem 1.5rem;
-    border: 1px solid #00ACB2 !important;
-    border-radius: 8px;
+    padding: 0.65rem 1.5rem;
+    border: 1px solid #ECEDF2 !important;
+    border-radius: 12px;
     font-size: 1rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     outline: none;
     width: 100%;
-    height: 56px;
+    height: 44px;
     box-sizing: border-box;
     background: white;
 }
@@ -217,13 +207,15 @@
     color: white;
     border: none;
     border-radius: 8px;
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem;
     font-size: 1.125rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 1rem;
     width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
 }
 
 .ocr-page-wrapper .register-button:hover:not(:disabled) {
