@@ -1,55 +1,265 @@
+/* ========== RESET ========== */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+/* ========== ROOT COLORS ========== */
 :root {
-    --primary-teal: #00B5C7;
-    --primary-dark-blue: #00325C;
-    --primary-white: #FFF;
-    --neutral-50: #FAFAFA;
-    --neutral-500: #0C1312;
-    --text-gray: #556171;
-    --text-dark: #0B1030;
-    --star-blue: #1B2E7D;
-    --link-purple: #4753BF;
-    --highlight-cyan: #82EBED;
-    --primary-cyan: #00ACB2;
+    --primary-teal: #00b5c7;
+    --primary-dark-blue: #00325c;
+    --primary-white: #ffffff;
+    --text-light: #ffffff;
+    --text-gray: #9ca3af;
+    --text-dark: #111827;
 }
 
-/* Typography */
-.newsletter-page {
-    width: 100%;
-    min-height: 100vh;
-}
-
+/* ========== SECTION BASE ========== */
 .newsletter-hero-Section {
     width: 100%;
-    min-height: 100vh;
-    background: linear-gradient(rgba(0, 51, 92, 0.918) , rgba(0, 51, 92, 0.897)), url('../images/stayinform.jpg');
+    min-height: 80vh;
+    background: linear-gradient(rgba(0, 51, 92, 0.92), rgba(0, 51, 92, 0.9)),
+        url("../images/stayinform.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 50px 0 50px 0;
+
+    padding: 60px 20px;
     gap: 30px;
 }
 
+/* ========== HEADING TEXT ========== */
 .news-heading h1 {
-    max-width: 770px;
+    color: var(--text-light);
     font-size: 85px;
     font-weight: 600;
-    padding-top: 5px;
-
+    line-height: 1.1;
+    max-width: 770px;
+    margin: 0 auto;
 }
+
 .news-heading p {
-   max-width: 700px;
-   text-align: center;
-   font-size: 18px;
-   padding: 0 35px 0 30px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 18px;
+    max-width: 700px;
+    margin: 20px auto 0;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* ========== PROFILE SECTION ========== */
+.profile-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.profile-row img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+}
+
+.profile-row p {
+    color: var(--text-light);
+    font-size: 16px;
+    font-weight: 500;
+    max-width: 220px;
+    text-align: left;
+}
+
+/* ========== EMAIL FORM ========== */
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background: #ffffff;
+    border-radius: 9999px;
+    overflow: hidden;
+    max-width: 600px;
+    width: 100%;
+    margin-top: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 16px 24px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #555;
+    min-width: 200px;
+}
+
+.newsletter-form button {
+    background: var(--primary-teal);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 16px 80px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    white-space: nowrap;
+}
+
+.newsletter-form button:hover {
+    background: #099e9a;
+}
+
+/* ========== BOTTOM TEXT ========== */
+.bottom-text {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.bottom-text p {
+    color: var(--primary-teal);
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.bottom-text p span {
+    color: #fff;
+}
+
+.bottom-text h2 {
+    color: var(--primary-teal);
+    font-weight: 800;
+    font-size: 64px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Large Tablet */
+@media (max-width: 1024px) {
+    .news-heading h1 {
+        font-size: 65px;
+    }
+
+    .bottom-text h2 {
+        font-size: 50px;
+    }
+
+    .newsletter {
+        padding: 16px 60px;
+
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .newsletter-hero-Section {
+        padding: 50px 20px;
+        gap: 25px;
+    }
+
+    .news-heading h1 {
+        font-size: 48px;
+    }
+
+    .news-heading p {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+
+    .newsletter-form {
+        max-width: 60%;
+        border-radius: 20px;
+    }
+
+    .newsletter-form button {
+        border-radius: 40px 0 20px 40px;
+        width: 50%;
+        padding: 12px 50px;
+    }
+
+    .profile-row p {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .bottom-text h2 {
+        font-size: 42px;
+    }
+
+    .pofile {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .newsletter {
+        padding: 16px 60px;
+
+    }
+
+    .header h1 {
+        font-size: 40px;
+    }
+
+    .news-letter-topic-col {
+        flex-direction: column;
+        align-items: start;
+        gap: 10px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 425px) {
+    .news-heading h1 {
+        font-size: 34px;
+        line-height: 1.2;
+    }
+
+    .news-heading p {
+        font-size: 14px;
+    }
+
+    .newsletter-form {
+        max-width: 90%;
+    }
+
+    .newsletter-form input {
+        font-size: 14px;
+        padding: 12px 48px;
+    }
+
+    .newsletter-form button {
+        font-size: 14px;
+        padding: 12px 20px;
+        /* border-radius: 60px; */
+    }
+
+    .bottom-text h2 {
+        font-size: 34px;
+    }
+
+    .pofile {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .newsletter {
+        padding: 16px 60px;
+
+    }
+
+    .header h1 {
+        font-size: 40px;
+    }
 }

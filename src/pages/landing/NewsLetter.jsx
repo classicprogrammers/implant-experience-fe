@@ -55,7 +55,7 @@ function NewsLetter() {
         </div>
 
         {/* Profile + Text */}
-        <div className="flex items-center justify-center gap-4 mt-8">
+        <div className="pofile flex items-center justify-center gap-4 mt-8">
           <div className="flex items-center">
             <div className="flex -space-x-3">
               <img
@@ -65,19 +65,19 @@ function NewsLetter() {
               />
             </div>
           </div>
-          <p className="text-white text-base sm:text-lg font-medium max-w-xs text-left">
+          <p className="text-white text-base sm:text-lg font-medium max-w-[200px] text-left">
             Users value our caring, quality care!
           </p>
         </div>
 
         {/* Email Subscribe Form */}
-        <div className="flex items-center bg-white rounded-full mt-10 overflow-hidden w-full max-w-lg shadow-md">
+        <div className="newsletter-form flex items-center bg-white rounded-full mt-10 overflow-hidden w-full max-w-lg shadow-md">
           <input
             type="email"
             placeholder="Your email ..."
-            className="flex-1 px-[20px] py-[18px] text-gray-600 text-lg outline-none"
+            className="flex-1 px-[20px] py-[14px] text-gray-600 text-lg outline-none"
           />
-          <button className="bg-[#0ABAB5] hover:bg-[#099e9a] text-white px-[58px] py-[18px] text-lg font-semibold rounded-full flex items-center gap-2 transition-all">
+          <button className="bg-[#0ABAB5] hover:bg-[#099e9a] text-white px-[58px] py-[14px] text-lg font-semibold rounded-full flex items-center gap-2 transition-all">
             Subscribe <span className="text-xl">→</span>
           </button>
         </div>
@@ -94,11 +94,11 @@ function NewsLetter() {
       </section>
 
 
-      <section className="newsletter w-full flex justify-center py-20 px-4 bg-white">
+      <section className="newsletter w-full flex justify-center py-[30px] px-4 bg-white">
         <div className="max-w-4xl w-full">
           {/* === Header === */}
-          <div className="border-b border-gray-200 pb-[20px] pt-[20px] text-center display-flex flex-col items-center ">
-            <h1 className="text-[58px] font-extrabold text-black leading-tight">
+          <div className="header border-b border-gray-200 pb-[20px] pt-[20px] text-center display-flex flex-col items-center ">
+            <h1 className="text-[58px] font-extrabold  leading-tight text-[#121212">
               Topics Include
             </h1>
             <p className="text-gray-500 text-[14px] mt-2 text-center">
@@ -108,7 +108,7 @@ function NewsLetter() {
           </div>
 
           {/* === Topics List === */}
-          <div className="mt-10 divide-y divide-gray-200">
+          <div className="topic-list mt-10 divide-y divide-gray-200">
             {topics.map((topic, index) => (
               <div key={index} className="py-5">
                 <div
@@ -117,7 +117,7 @@ function NewsLetter() {
                   }
                   className="flex justify-between items-center cursor-pointer py-[20px]"
                 >
-                  <div className="flex items-center gap-10">
+                  <div className="flex items-center gap-10 news-letter-topic-col">
                     <span className="text-gray-800 text-[15px] w-[90px]">
                       {topic.date}
                     </span>
@@ -137,7 +137,7 @@ function NewsLetter() {
 
                 {/* === Dropdown === */}
                 {openIndex === index && (
-                  <div className="mt-3 ml-[105px] text-gray-600 text-[15px] leading-relaxed">
+                  <div className="mb-3 ml-[130px] text-gray-600 text-[15px] leading-relaxed">
                     {topic.content}
                   </div>
                 )}

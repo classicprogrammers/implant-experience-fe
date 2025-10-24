@@ -38,7 +38,7 @@ function Resources() {
     },
   ];
   return (
-    <div className="resources-page">
+    <div className="resources-page bg-[#fff]">
 
       {/* Hero Section */}
       <section className="hero-Section flex justify-center items-center">
@@ -47,7 +47,7 @@ function Resources() {
 
       {/* Popular Topics Section */}
       <section className="popular-topics container flex justify-center items-center py-10">
-        <div className="flex flex-col items-center justify-center gap-4">
+        <div className="flex flex-col items-center justify-center gap-4 w-full">
           <h1>Popular Topics</h1>
           <div className="image-container">
             <img src={Popular} alt="Popular Topic" className="image" />
