@@ -3,7 +3,7 @@ import '../../assets/css/newsLetter.css'
 import stayuser from '../../assets/images/stayuser.png'
 import { FaPlus, FaMinus } from "react-icons/fa6";
 
-function NewsLetter() {
+function LandingNewsLetter() {
   const topics = [
     {
       date: "5-02-2025",
@@ -150,4 +150,4 @@ function NewsLetter() {
   )
 }
 
-export default NewsLetter
+export default LandingNewsLetter
