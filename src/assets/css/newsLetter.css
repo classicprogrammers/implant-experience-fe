@@ -19,15 +19,15 @@
 }
 
 /* Typography */
-.newletter-page {
+.newsletter-page {
     width: 100%;
     min-height: 100vh;
 }
 
-.hero-Section {
+.newsletter-hero-Section {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(rgba(75, 103, 106, 0.9), rgba(75, 103, 106, 0.9)), url('../images/stayinform.jpg');
+    background: linear-gradient(rgba(0, 51, 92, 0.918) , rgba(0, 51, 92, 0.897)), url('../images/stayinform.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -40,8 +40,16 @@
     gap: 30px;
 }
 
-.hero-Section h1 {
-    max-width: 800px;
+.news-heading h1 {
+    max-width: 770px;
     font-size: 85px;
+    font-weight: 600;
+    padding-top: 5px;
 
+}
+.news-heading p {
+   max-width: 700px;
+   text-align: center;
+   font-size: 18px;
+   padding: 0 35px 0 30px;
 }
