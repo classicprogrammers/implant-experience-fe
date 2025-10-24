@@ -1361,3 +1361,13 @@ button:focus {
   font-size: 14px;
   font-weight: 500;
 }
+
+.custom-flex-col {
+  flex-direction: row;
+}
+
+@media screen and (max-width: 800px) {
+  .custom-flex-col {
+    flex-direction: column;
+  }
+}

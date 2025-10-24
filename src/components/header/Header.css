@@ -465,6 +465,7 @@
   animation: implant-slideInFromRight 0.3s ease forwards;
   position: relative;
   border-radius: 0;
+  
 }
 
 @keyframes implant-slideInFromRight {
@@ -512,6 +513,7 @@
   margin: 0;
   cursor: pointer;
   position: relative;
+  width: 100%;
 }
 
 .implant-header-nav.implant-mobile-open .implant-nav-item:last-of-type {

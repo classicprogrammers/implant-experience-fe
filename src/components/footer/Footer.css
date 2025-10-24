@@ -238,9 +238,6 @@
 }
 
 .footer-bottom-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -327,10 +324,6 @@
 
 @media (max-width: 480px) {
   .footer-content {
-    padding: 0 15px;
-  }
-
-  .footer-bottom-content {
     padding: 0 15px;
   }
 

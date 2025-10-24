@@ -46,7 +46,7 @@ function Resources() {
       </section>
 
       {/* Popular Topics Section */}
-      <section className="popular-topics container flex justify-center items-center py-10">
+      <section className="popular-topics max-w-7xl mx-auto flex justify-center items-center py-10">
         <div className="flex flex-col items-center justify-center gap-4 w-full">
           <h1>Popular Topics</h1>
           <div className="image-container">
@@ -81,7 +81,7 @@ function Resources() {
 
       </section>
       {/* topics */}
-      <section className="Topics container">
+      <section className="Topics max-w-7xl mx-auto">
         <h1>Topics</h1>
         <div className="topics-container">
           <div className="topics-grid">
@@ -94,7 +94,7 @@ function Resources() {
         </div>
       </section>
       {/* Health Maintain Cards */}
-      <section className="health-maintain container">
+      <section className="health-maintain max-w-7xl mx-auto">
         {healthArticles.map((article, index) => (
           <div key={index} className="health-container">
             <span className="health-date-badge">{article.date}</span>

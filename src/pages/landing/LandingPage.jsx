@@ -8,7 +8,6 @@ import { marqueeData } from '../../data/marqueeData';
 import '../../components/MarqueeSlider.css';
 import CoreServices from '../../components/CoreServices';
 import { coreServicesData } from '../../data/coreServicesData';
-import Newsletter from '../../components/Newsletter';
 import Episodes from '../../components/Episodes';
 import { episodesData } from '../../data/episodesData';
 // import logo from '../../assets/images/implant-logo.png';
@@ -42,7 +41,7 @@ function LandingPage() {
     <div className="landing-page">
 
       <section className="landing-hero-section">
-        <div className="landing-hero-container container">
+        <div className="landing-hero-container max-w-7xl mx-auto">
           <div className="landing-hero-badge">
             <img src={badge} alt="Badge" className="landing-badge-img" />
           </div>
@@ -89,13 +88,13 @@ function LandingPage() {
       {/* Section 2 - Mission Statement */}
       <section className="bg-[#133C75] text-white">
         <div className="px-4 sm:px-6 ">
-          <div className="flex md:flex-col lg:flex-row gap-6 bg-[#0A3C78] items-center">
+          <div className="flex gap-6 bg-[#0A3C78] items-center custom-flex-col">
             {/* Left side image */}
             <div className="w-full lg:w-5/12">
               <img
                 src={stethoscope}
                 alt="stethoscope"
-                className="w-full h-auto max-h-[700px] object-cover"
+                className="w-full h-auto object-cover max-h-[700px]"
               />
             </div>
 
@@ -147,7 +146,7 @@ function LandingPage() {
 
       {/* The Implant Experience Section */}
       <section className="implant-experience-section">
-        <div className="container">
+        <div className="max-w-7xl mx-auto px-[15px]">
           <div className="john-owens-portrait">
             <img src={johnOwens} alt="John P. Owens" className="john-portrait-img" />
           </div>
@@ -182,7 +181,7 @@ function LandingPage() {
       </section>
       {/* Value Proposition Section */}
       <section className="value-proposition-section">
-        <div className="container py-[40px]">
+        <div className="max-w-7xl mx-auto py-[40px]">
           <h2 className="value-proposition-title">Value Proposition</h2>
           <div className="value-proposition-container ">
 
@@ -203,7 +202,7 @@ function LandingPage() {
       <Testimonials testimonials={testimonialsData} />
       {/* Episodes */}
       <Episodes episodes={episodesData} />
-    </div >
+    </div >    
   )
 }
 

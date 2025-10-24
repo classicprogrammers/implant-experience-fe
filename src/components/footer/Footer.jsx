@@ -56,7 +56,7 @@ const Footer = () => {
         <hr style={{ border: '0.5px solid #ededed3b', margin: '0px 0 40px' }} />
 
         {/* Main Content */}
-        <div className="footer-content">
+        <div className="max-w-7xl mx-auto px-[15px]">
           <div className="footer-columns">
             {/* Left Column */}
             <div className="footer-left flex-col">
@@ -127,7 +127,7 @@ const Footer = () => {
 
         {/* Bottom Footer Bar */}
         <div className="footer-bottom">
-          <div className="footer-bottom-content">
+          <div className="footer-bottom-content max-w-7xl mx-auto">
             <div className="footer-bottom-left">
               <span>Copyright © 2025 All Rights Reserved.</span>
             </div>
