@@ -2,7 +2,7 @@ import React from 'react';
 
 const Testimonials = ({ testimonials = [] }) => {
     return (
-        <section className="bg-white py-[16px] px-[4px] sm:px-[6px] lg:px-[8px]">
+        <section className="bg-white py-[40px] px-[4px] sm:px-[6px] lg:px-[8px]">
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <div className="text-center mb-[12px]">
@@ -18,11 +18,11 @@ const Testimonials = ({ testimonials = [] }) => {
                 </div>
 
                 {/* Testimonial Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-[10px]" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
+                <div className="grid grid-cols-12 gap-6 px-[10px]">
                     {testimonials.map((testimonial, index) => (
                         <div
                             key={index}
-                            className="bg-white rounded-[24px] p-[24px] flex flex-col h-full"
+                            className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-4 bg-white rounded-[24px] p-[24px] flex flex-col h-full max-w-[500px] mx-auto"
                             style={{ border: '1px solid #55617124' }}
                         >
                             {/* Stars */}

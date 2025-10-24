@@ -36,7 +36,6 @@
 .auth-footer-left a,
 .auth-footer-right a {
     color: #2563EB;
-    text-decoration: underline;
     font-size: 0.875rem;
     font-weight: 400;
     transition: color 0.2s;
@@ -63,7 +62,6 @@
 
 @media (max-width: 480px) {
     .auth-footer-right {
-        flex-direction: column;
         gap: 0.5rem;
     }
 }

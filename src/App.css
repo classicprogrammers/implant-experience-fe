@@ -3,6 +3,7 @@
    ======================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 
 * {
@@ -337,7 +338,6 @@ button:focus {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
 }
 
 .text-center {
@@ -449,6 +449,37 @@ button:focus {
   white-space: nowrap;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-block;
+}
+
+/* Responsive design for page-title */
+@media (max-width: 1024px) {
+  .page-title {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 45px;
+    white-space: normal;
+    line-height: 110%;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 32px;
+    white-space: normal;
+    line-height: 115%;
+  }
+}
+
+@media (max-width: 320px) {
+  .page-title {
+    font-size: 28px;
+    white-space: normal;
+    line-height: 120%;
+  }
 }
 
 .page-title.changing {

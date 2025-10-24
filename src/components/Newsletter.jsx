@@ -2,28 +2,28 @@ import React from 'react';
 
 const Newsletter = () => {
     return (
-        <section className="relative">
+        <section className="relative" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
             {/* Teal Block */}
-            <div className="bg-[#00BCD4] py-[40px] px-[4px] sm:px-[6px] lg:px-[8px]">
+            <div className="bg-[#00ACB2] py-[40px] px-[4px] sm:px-[6px] lg:px-[8px]">
                 <div className="max-w-7xl mx-auto">
-                    <div className="flex flex-col lg:flex-row items-center justify-between gap-[32px]">
+                    <div className="flex sm:flex-col lg:flex-row items-center justify-between gap-[32px]" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
                         {/* Left Content Block */}
-                        <div className="text-center lg:text-left">
+                        <div className="text-center lg:text-left w-[400px] max-w-full" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
                             {/* Top Line Text */}
-                            <p className="text-sm font-bold mb-[8px]">
-                                <span className="text-[#003878]">SUBSCRIBE NOW</span>
+                            <p className="text-2xl font-bold mb-[8px]" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+                                <span className="text-[#1D2939]">SUBSCRIBE NOW</span>
                                 <span className="text-white"> TO OUR NEWSLETTER</span>
                             </p>
 
                             {/* Main Heading */}
-                            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#003878] uppercase leading-tight">
+                            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-[#1D2939] uppercase leading-tight" style={{ fontFamily: 'Bebas Neue, sans-serif' , lineHeight: '1' }}>
                                 STAY IN TOUCH
                             </h2>
                         </div>
 
                         {/* Right Content Block - Subscription Form */}
                         <div className="w-full lg:w-auto flex justify-center">
-                            <div className="flex bg-white rounded-[24px] overflow-hidden shadow-lg w-[500px] max-w-full">
+                            <div className="flex bg-white rounded-[24px] overflow-hidden shadow-lg w-full max-w-[500px] lg:w-[500px]">
                                 {/* Email Input Field */}
                                 <input
                                     type="email"
@@ -42,15 +42,6 @@ const Newsletter = () => {
                 </div>
             </div>
 
-            {/* Dark Navy Blue Block */}
-            <div className="bg-[#003878] py-[16px] px-[4px] sm:px-[6px] lg:px-[8px]">
-                <div className="max-w-7xl mx-auto">
-                    <div className="flex justify-center">
-                        {/* Small white circle indicator */}
-                        <div className="w-[8px] h-[8px] bg-white rounded-full"></div>
-                    </div>
-                </div>
-            </div>
         </section>
     );
 };

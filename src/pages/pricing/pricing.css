@@ -88,20 +88,6 @@ flex-wrap: wrap; /* responsive ke liye */
 gap: 20px;
 }
 
-.footer-left,
-.footer-right {
-display: flex;
-flex-direction: row; /* ✅ force ek line */
-align-items: center;
-gap: 18px;
-}
-
-.footer-left a,
-.footer-right a {
-color: #0a3556;
-text-decoration: underline;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
 .pricing-footer {
@@ -110,10 +96,6 @@ text-align: center;
 gap: 12px;
 }
 
-.footer-left,
-.footer-right {
-justify-content: center; /* ✅ center on mobile */
-}
 }
 
 

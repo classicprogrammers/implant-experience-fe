@@ -2,11 +2,11 @@ import React from 'react';
 
 const Episodes = ({ episodes = [] }) => {
     return (
-        <section className="bg-gray-100 py-[16px] px-[4px] sm:px-[6px] lg:px-[8px]">
+        <section className="bg-gray-100 py-[40px] px-[4px] sm:px-[6px] lg:px-[8px]">
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <div className="text-center mb-[48px]">
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#003878] mb-[24px]">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#003878] mb-[15px]">
                         Episodes To Learn More
                     </h2>
                     <p className="text-gray-600 text-base sm:text-lg max-w-4xl mx-auto leading-relaxed">
@@ -16,11 +16,11 @@ const Episodes = ({ episodes = [] }) => {
 
                 {/* Episodes Grid - 3-2 Layout */}
                 <div className="relative">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-[24px] px-[10px]" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
+                    <div className="grid grid-cols-12 px-[10px]" style={{ gap: '25px' }}>
                         {episodes.map((episode, index) => (
                             <div
                                 key={index}
-                                className="rounded-[12px] overflow-hidden"
+                                className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-4 rounded-[12px] overflow-hidden max-w-[500px] mx-auto"
                             >
                                 {/* Episode Image */}
                                 <div className="relative">
@@ -32,9 +32,9 @@ const Episodes = ({ episodes = [] }) => {
                                 </div>
 
                                 {/* Episode Content */}
-                                <div className="p-[24px]">
+                                <div className="py-[24px] pe-[24px]">
                                     {/* Episode Number & Date */}
-                                    <div className="flex justify-between items-center mb-[16px]">
+                                    <div className="flex gap-4 items-center mb-[16px]">
                                         <span className="text-sm text-gray-500 font-medium">
                                             Ep: {episode.episodeNumber}
                                         </span>
@@ -44,19 +44,19 @@ const Episodes = ({ episodes = [] }) => {
                                     </div>
 
                                     {/* Episode Title */}
-                                    <h3 className="text-lg font-bold text-[#003878] mb-[12px] leading-tight">
+                                    <h3 className="font-bold text-[#0B1030] text-2xl mb-[12px] leading-tight lg:min-h-[55px]" >
                                         {episode.title}
                                     </h3>
 
                                     {/* Episode Description */}
-                                    <p className="text-sm text-gray-600 leading-relaxed mb-[16px]">
+                                    <p className="text-sm text-gray-600 leading-relaxed mb-[16px]" style={{ lineHeight: '1.2rem' }}>
                                         {episode.description}
                                     </p>
 
                                     {/* Read More Link */}
                                     <a
                                         href={episode.link}
-                                        className="text-sm font-medium text-[#00BCD4] hover:text-[#0097A7] transition-colors"
+                                        className="text-sm font-medium text-[#4753BF] hover:text-[#0024ff] transition-colors"
                                     >
                                         Read more →
                                     </a>
@@ -65,12 +65,6 @@ const Episodes = ({ episodes = [] }) => {
                         ))}
                     </div>
 
-                    {/* Newsletter Prompt - Bottom Right */}
-                    <div className="flex justify-end">
-                        <p className="text-sm text-gray-500">
-                            Want to receive news and updates?
-                        </p>
-                    </div>
                 </div>
             </div>
         </section>

@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../../components/header/Header'
 import '../../assets/css/resources.css'
 import Popular from "../../assets/images/popularTopic.jpg";
 import { FaPlay } from "react-icons/fa";
@@ -40,8 +39,6 @@ function Resources() {
   ];
   return (
     <div className="resources-page">
-      {/* Header Component */}
-      <Header variant="landing" />
 
       {/* Hero Section */}
       <section className="hero-Section flex justify-center items-center">

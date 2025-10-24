@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { IoIosArrowBack } from "react-icons/io";
 import { api } from '../../utils/api'
 import '../../App.css'
+import AuthFooter from '../../components/auth/AuthFooter';
 
 function ForgotPasswordPage() {
   const [formData, setFormData] = useState({
@@ -100,7 +101,7 @@ function ForgotPasswordPage() {
         <div className="auth-container-new">
           <div className="auth-card py-[35px]">
             <div className="forgot-password-header flex items-center gap-[10px] justify-center relative mb-2">
-              <Link to="/login" className="back-arrow absolute left-[15px]" style={{ border: '1px solid #E1E1E1', borderRadius: '8px', padding: '8px 10px 0px 10px' }}>
+              <Link to="/login" className="back-arrow absolute left-[15px]" style={{ border: '1px solid #E1E1E1', borderRadius: '8px', padding: '10px' }}>
                 <IoIosArrowBack style={{ fontSize: '24px', color: '#9A9AB0' }} />
               </Link>
               <h1 className="forgot-password-title">Forgot Password</h1>
@@ -208,18 +209,8 @@ function ForgotPasswordPage() {
           </div>
         </div>
       </div>
-      <footer className="auth-footer-new">
-        <div className="container">
-          <div className="footer-left">
-            <span>© 2025 yourapp.com</span>
-            <Link to="/contact">Contact Us</Link>
-          </div>
-          <div className="footer-right">
-            <Link to="/terms">Terms & Conditions</Link>
-            <Link to="/privacy">Privacy Policy</Link>
-          </div>
-        </div>
-      </footer>
+      {/* AuthFooter */}
+      <AuthFooter />
     </>
   )
 }

@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom'
 import '../../App.css';
 import '../../assets/css/landing.css';
-import Header from '../../components/header/Header';
-import Footer from '../../components/footer/Footer';
 import Testimonials from '../../components/Testimonials';
 import { testimonialsData } from '../../data/testimonialsData';
 import MarqueeSlider from '../../components/MarqueeSlider';
@@ -39,28 +37,9 @@ function LandingPage() {
       description: 'While the average recall notification takes 3-6 months to reach patients, our system delivers alerts in real-time. The difference could save your life.'
     }
   ]
-  const coreServices = [
-    {
-      title: 'Device Sync Alerts with Implant Intel',
-      subtitle: "Know Your Device's Every Move",
-      description: "Never wonder about your implant's status again. Our proprietary monitoring system tracks when your device experiences changes."
-    },
-    {
-      title: 'Data Access Notifications',
-      subtitle: 'Transparency You Deserve',
-      description: "Just as documentaries like the 'The Bleeding Edge' exposed how patients were kept in the dark about device problems, we shine a light on medical data"
-    },
-    {
-      title: 'Security Updates',
-      subtitle: 'FDA Recall Alerts',
-      description: 'While its common to see patients learn years after the fact about device recalls, our system delivers FDA safety communications instantly.'
-    }
-  ]
 
   return (
     <div className="landing-page">
-      {/* Header Component */}
-      <Header variant="landing" />
 
       <section className="landing-hero-section">
         <div className="landing-hero-container container">
@@ -109,41 +88,43 @@ function LandingPage() {
       />
       {/* Section 2 - Mission Statement */}
       <section className="bg-[#133C75] text-white">
-        <div className="container">
-          <div className="grid grid-cols-12 gap-6 bg-[#0A3C78] items-center">
+        <div className="px-4 sm:px-6 ">
+          <div className="flex md:flex-col lg:flex-row gap-6 bg-[#0A3C78] items-center">
             {/* Left side image */}
-            <div className="col-span-12 md:col-span-5 lg:col-span-4 p-4">
+            <div className="w-full lg:w-5/12">
               <img
                 src={stethoscope}
                 alt="stethoscope"
-                className="w-full h-auto max-h-[700px]"
+                className="w-full h-auto max-h-[700px] object-cover"
               />
             </div>
 
             {/* Right side content */}
-            <div className="col-span-12 md:col-span-7 lg:col-span-8 p-6 p-[50px] text-white leading-relaxed">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#82EBED] mb-[20px]">
-                Mission Statement – <br className="hidden md:block" /> The Ethical Obligation
-              </h2>
+            <div className="w-full lg:w-7/12 p-6 p-[50px] text-white leading-relaxed">
+              <div className=''>
+                <h2 className="text-6xl md:text-4xl font-bold text-[#82EBED] mb-[20px]">
+                  Mission Statement – <br className="hidden md:block" /> The Ethical Obligation
+                </h2>
 
-              <p className="text-base leading-relaxed text-white mb-[20px]">
-                Born from the urgent need exposed by countless device failures and regulatory gaps,
-                The Implant Experience is more than a tracking service – it’s a movement toward
-                patient empowerment and device accountability.
-              </p>
+                <p className="text-base leading-relaxed text-white mb-[20px]">
+                  Born from the urgent need exposed by countless device failures and regulatory gaps,
+                  The Implant Experience is more than a tracking service – it’s a movement toward
+                  patient empowerment and device accountability.
+                </p>
 
-              <p className="text-base leading-relaxed text-white mb-[20px]">
-                With 32 million Americans living with implanted medical devices and a history of systemic
-                failures in device and implant monitoring, we are building the safety net that should have
-                existed all along. It’s our ethical obligation to do so. Our platform bridges the dangerous
-                gap between device manufacturers, healthcare providers, and the patients whose lives depend
-                on these technologies.
-              </p>
+                <p className="text-base leading-relaxed text-white mb-[20px]">
+                  With 32 million Americans living with implanted medical devices and a history of systemic
+                  failures in device and implant monitoring, we are building the safety net that should have
+                  existed all along. It’s our ethical obligation to do so. Our platform bridges the dangerous
+                  gap between device manufacturers, healthcare providers, and the patients whose lives depend
+                  on these technologies.
+                </p>
 
-              <button className="bg-[#82EBED] text-[18px] text-[#133C75] font-bold px-5 py-2 rounded-[8px] shadow-md hover:bg-[#6bd9da] transition">
-                <Link to="/signup" className='text-[#133C75]'>Become a Member</Link>
-              </button>
+                <button className="bg-[#82EBED] text-[18px] text-[#133C75] font-bold px-5 py-2 rounded-[8px] shadow-md hover:bg-[#6bd9da] transition">
+                  <Link to="/signup" className='text-[#133C75]'>Become a Member</Link>
+                </button>
 
+              </div>
             </div>
           </div>
         </div>
@@ -201,7 +182,7 @@ function LandingPage() {
       </section>
       {/* Value Proposition Section */}
       <section className="value-proposition-section">
-        <div className="container">
+        <div className="container py-[40px]">
           <h2 className="value-proposition-title">Value Proposition</h2>
           <div className="value-proposition-container ">
 
@@ -209,7 +190,7 @@ function LandingPage() {
               <div className="value-proposition-block" key={index}>
                 <h2>{item.title}</h2>
                 <h3>{item.subtitle}</h3>
-                <p>{item.description}</p>
+                <p style={{ lineHeight: '1.5rem', fontWeight: '300', fontSize: '16px', color: '#FFF' }}>{item.description}</p>
               </div>
             ))}
 
@@ -222,9 +203,6 @@ function LandingPage() {
       <Testimonials testimonials={testimonialsData} />
       {/* Episodes */}
       <Episodes episodes={episodesData} />
-      {/* Newsletter */}
-      <Newsletter />
-      <Footer />
     </div >
   )
 }
