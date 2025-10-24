@@ -10,7 +10,7 @@ import ForgotPasswordPage from './pages/auth/ForgotPasswordPage'
 import ContactPage from './pages/landing/ContactPage'
 import TermsPage from './pages/landing/TermsPage'
 import LandingResource from './pages/landing/Resources'
-import LandingNewsLetter from './pages/landing/Newsletter'
+import NewsLetter from './pages/landing/Newsletter'
 import OCRPage from './pages/ocr/OCRPage'
 import PricingPage from './pages/pricing/PricingPage'
 import DashboardRoutes from './layouts/DashboardRoutes'
@@ -56,7 +56,7 @@ function App() {
             } />
             <Route path="/newsletter" element={
               <LandingLayout>
-                <LandingNewsLetter />
+                <NewsLetter />
               </LandingLayout>
             } />
             <Route path="/contact" element={
