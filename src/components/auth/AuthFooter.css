@@ -3,7 +3,7 @@
     width: 100%;
     padding: 1rem 0;
     margin-top: auto;
-    background: white;
+    /* background: white; */
     border-top: none;
 }
 
@@ -19,6 +19,7 @@
 .auth-footer-left {
     display: flex;
     align-items: center;
+    gap: 1.5rem;
 }
 
 .auth-footer-left span {
@@ -35,10 +36,11 @@
 
 .auth-footer-left a,
 .auth-footer-right a {
-    color: #2563EB;
+    color: #00325C;
     font-size: 0.875rem;
     font-weight: 400;
     transition: color 0.2s;
+    text-decoration: underline;
 }
 
 .auth-footer-left a:hover,
