@@ -25,7 +25,7 @@ const TodayStats = () => {
         </div>
 
         {/* Monitor Card - Inactive */}
-        <div className="card monitor-card">
+        {/* <div className="card monitor-card">
           <div className="card-icon">
             <img src={monitorImage} alt="Monitor" width="20" height="20" />
           </div>
@@ -37,7 +37,7 @@ const TodayStats = () => {
           <div className="card-arrow">
             <img src={arrowImage} alt="Arrow" width="16" height="16" />
           </div>
-        </div>
+        </div> */}
 
         {/* Actions Card - Inactive */}
         <div className="card actions-card">

@@ -10,7 +10,7 @@ import ForgotPasswordPage from './pages/auth/ForgotPasswordPage'
 import ContactPage from './pages/landing/ContactPage'
 import TermsPage from './pages/landing/TermsPage'
 import LandingResource from './pages/landing/Resources'
-import NewsLetter from './pages/landing/Newsletter'
+import NewsLetter from './pages/landing/NewsLetter'
 import OCRPage from './pages/ocr/OCRPage'
 import PricingPage from './pages/pricing/PricingPage'
 import DashboardRoutes from './layouts/DashboardRoutes'
@@ -69,13 +69,10 @@ function App() {
                 <TermsPage />
               </LandingLayout>
             } />
-            <Route path="/pricing" element={
-              <LandingLayout>
-                <PricingPage />
-              </LandingLayout>
-            } />
+
 
             {/* Auth pages without header/footer */}
+            <Route path="/pricing" element={<PricingPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />

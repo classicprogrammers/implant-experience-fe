@@ -1,7 +1,7 @@
 import React from "react";
-import coremonitoring from "../assets/images/coremonitoring.png";
-import corenotification from "../assets/images/corenotification.png";
-import coresecure from "../assets/images/coresecure.png";
+import coremonitoring from "../assets/images/coreMonitoring.png";
+import corenotification from "../assets/images/coreNotification.png";
+import coresecure from "../assets/images/coreSecure.png";
 
 const CoreServices = ({ services = [] }) => {
     const icons = [coremonitoring, corenotification, coresecure];

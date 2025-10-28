@@ -1,3 +1,7 @@
+import episode01 from "../assets/images/episode01.jpg";
+import episode02 from "../assets/images/episode02.jpg";
+import episode03 from "../assets/images/episode03.jpg";
+
 export const episodesData = [
   {
     episodeNumber: "01",
@@ -6,7 +10,7 @@ export const episodesData = [
     description:
       "Discover how medical devices reach your body through a regulatory shortcut that former FDA officials call 'fundamentally flawed.' Learn how devices approved based on 40-year-old predicates are implanted in patients today.",
     link: "#",
-    image: "/src/assets/images/episode01.jpg",
+    image: episode01,
   },
   {
     episodeNumber: "02",
@@ -15,7 +19,7 @@ export const episodesData = [
     description:
       "Hear directly from patients whose lives were forever changed by device failures. Understand the warning signs that were missed and how proper tracking could have prevented years of suffering.",
     link: "#",
-    image: "/src/assets/images/episode02.jpg",
+    image: episode02,
   },
   {
     episodeNumber: "03",
@@ -24,7 +28,7 @@ export const episodesData = [
     description:
       "Most patients don't know they have the right to their device's serial number, manufacturer information, and full adverse event history. We break down exactly what you're entitled to and how to get it.",
     link: "#",
-    image: "/src/assets/images/episode03.jpg",
+    image: episode03,
   },
   {
     episodeNumber: "04",
@@ -33,7 +37,7 @@ export const episodesData = [
     description:
       "Dr. Stephen Tower's story of cobalt poisoning from his hip implant isn't unique. Learn about the thousands of patients experiencing similar symptoms and how real-time monitoring could detect problems years earlier.",
     link: "#",
-    image: "/src/assets/images/episode01.jpg",
+    image: episode01,
   },
   {
     episodeNumber: "05",
@@ -42,7 +46,6 @@ export const episodesData = [
     description:
       "Connect with support groups, legal resources, and patient advocates. Discover how collective action by informed patients is driving industry change.",
     link: "#",
-    image: "/src/assets/images/episode02.jpg",
+    image: episode02,
   },
 ];
-
