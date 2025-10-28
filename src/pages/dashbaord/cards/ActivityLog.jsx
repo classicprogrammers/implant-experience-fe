@@ -135,7 +135,7 @@ const ActivityLog = () => {
 
     return (
         <div className="activity-log-container">
-            <div className="flex justify-between items-center mb-4">
+            {/* <div className="flex justify-between items-center mb-4">
                 <h3 className="activity-log-title">Activity Log</h3>
                 <div className="flex items-center gap-2">
                     <div className="pending-badge">
@@ -144,8 +144,8 @@ const ActivityLog = () => {
                     </div>
                 </div>
             </div>
-            {console.log(activityLogs)}
-            <div className="activity-list">
+            {console.log(activityLogs)} */}
+            {/* <div className="activity-list">
                 {!Array.isArray(activityLogs) || activityLogs.length === 0 ? (
                     <div className="no-activity">
                         <p>No activity logs found</p>
@@ -177,7 +177,7 @@ const ActivityLog = () => {
             </div>
             <button className="view-more-button">
                 View More
-            </button>
+            </button> */}
 
             <div className="device-alerts-section">
                 <div className="flex justify-between items-center">
@@ -195,6 +195,20 @@ const ActivityLog = () => {
                             <p className="device-alert-desc">Deleted 2 Item from Group Prime</p>
                         </div>
                         <span className="device-alert-time">Just now</span>
+                    </div>
+                    <div className="device-alert-item">
+                        <div>
+                            <p className="device-alert-title">Device Alerts</p>
+                            <p className="device-alert-desc">Added 2 Item to Group Prime</p>
+                        </div>
+                        <span className="device-alert-time">15 mins ago</span>
+                    </div>
+                    <div className="device-alert-item">
+                        <div>
+                            <p className="device-alert-title">Device Alerts</p>
+                            <p className="device-alert-desc">Added 2 Item to Group Prime</p>
+                        </div>
+                        <span className="device-alert-time">15 mins ago</span>
                     </div>
                     <div className="device-alert-item">
                         <div>

@@ -4,14 +4,15 @@ import './OCRPage.css'
 import { api } from '../../utils/api'
 import OcrIcon from '../../assets/images/OcrIcon.png'
 import UploadIcon from '../../assets/images/PaperUpload.png'
+import Footer from '../../components/auth/AuthFooter'
 function OCRPage() {
-     const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
         udi_di: '',
         brand: '',
         model: '',
         implant_date: '',
         body_site: '',
-        laterality: '' 
+        laterality: ''
     })
     // Step 1 form data (Manual)
     const [step1FormData, setStep1FormData] = useState({
@@ -393,6 +394,20 @@ function OCRPage() {
                                     </div>
                                 )}
 
+                                {/* Browse button under the box (outside) */}
+                                <div className="browse-button-wrapper">
+                                    <button
+                                        type="button"
+                                        className="browse-button"
+                                        onClick={() => {
+                                            const el = document.getElementById('file-upload');
+                                            if (el) el.click();
+                                        }}
+                                    >
+                                        Browse
+                                    </button>
+                                </div>
+
                                 {/* Show extracted data after verification */}
                                 {ocrSuccess && (
                                     <div className="upload-area manual-form-section step3-form-border" style={{ marginTop: '1.5rem' }}>
@@ -680,6 +695,7 @@ function OCRPage() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

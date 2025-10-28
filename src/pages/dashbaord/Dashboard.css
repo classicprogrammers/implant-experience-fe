@@ -221,8 +221,9 @@
 .activity-log-container {
     background: #FFFFFF;
     border-radius: 15px;
+    height: 100%;
     padding: 16px 16px 24px 16px;
-    margin-bottom: 32px;
+    /* margin-bottom: 32px; */
 }
 
 /* Device Alerts Container */
@@ -559,7 +560,6 @@
     background: #FFFFFF;
     border-radius: 15px;
     padding: 20px;
-    margin-bottom: 32px;
 }
 
 /* Responsive Grid Layout */

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './SettingsPage.css'
 import { api } from '../../utils/api'
+import avatarDefault from '../../assets/images/avatar.jpg'
+import outlineIcon from '../../assets/images/Outline.png'
 
 function SettingsPage() {
     const [showNewPassword, setShowNewPassword] = useState(false)
@@ -157,7 +159,23 @@ function SettingsPage() {
 
     return (
         <div className="settings-page">
+
             <div className="settings-container">
+                {/*  Profile section */}
+                <div className="profile-section">
+                    <h2 className="section-title">Profile Picture</h2>
+                    <div className="profile-row">
+                        <div className="profile-avatar">
+                            <img src={user?.avatar || avatarDefault} alt={user?.fullName || 'Profile'} />
+                        </div>
+                        <div className="profile-meta">
+                            <h3 className="profile-name">{user?.fullName || 'User Name'}</h3>
+                            <p className="profile-role">{user?.role || 'Consumer'}</p>
+                        </div>
+                        <button type="button" className="edit-picture-btn"><img src={outlineIcon} alt="" /><span>Edit Picture</span></button>
+                    </div>
+                    <button className="save-primary-btn" onClick={updateUser} disabled={loading}>{loading ? 'Saving...' : 'Save Change'}</button>
+                </div>
                 {/* Account Section */}
                 <div className="settings-section">
                     {success && <div className="success-message">{success}</div>}

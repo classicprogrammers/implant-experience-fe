@@ -1,5 +1,7 @@
 import React from "react";
 import './pricing.css'
+import Footer from '../../components/auth/AuthFooter'
+
 
 export default function PricingPage() {
   const plans = [
@@ -63,18 +65,9 @@ export default function PricingPage() {
           ))}
         </div>
 
-        {/* Footer */}
-        <div className="pricing-footer ">
-          <div className="footer-left ">
-            <span>© 2025 yourapp.com</span>
-            <a href="#">Contact Us</a>
-          </div>
-          <div className="footer-right">
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Privacy Policy</a>
-          </div>
-        </div>
+        
       </div>
+      <Footer />
     </>
   );
 }

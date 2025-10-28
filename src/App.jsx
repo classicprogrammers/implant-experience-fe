@@ -69,13 +69,10 @@ function App() {
                 <TermsPage />
               </LandingLayout>
             } />
-            <Route path="/pricing" element={
-              <LandingLayout>
-                <PricingPage />
-              </LandingLayout>
-            } />
+
 
             {/* Auth pages without header/footer */}
+            <Route path="/pricing" element={<PricingPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
