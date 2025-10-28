@@ -1,16 +1,19 @@
 import axios from 'axios'
 
-// Temporarily force all API requests to use HTTP (will revert to HTTPS on production SSL)
+// Base URL selection:
+// - On HTTPS origins (e.g., Vercel), use same-origin serverless proxy at `/api` to avoid mixed content.
+// - On non-HTTPS (local/dev), force HTTP to talk directly to the target backend.
 const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:9090/api'
 
 const API_BASE_URL = (() => {
+    if (typeof window !== 'undefined' && window.location.protocol === 'https:') {
+        return '/api'
+    }
     try {
         const url = new URL(configuredBaseUrl)
         url.protocol = 'http:'
-        console.log("API_BASE_URL", url.toString().replace(/\/$/, ''), url.toString())
         return url.toString().replace(/\/$/, '')
     } catch {
-        // Fallback: naive replace if URL constructor fails
         return configuredBaseUrl.replace(/^https:/i, 'http:')
     }
 })()
@@ -22,6 +25,17 @@ const apiClient = axios.create({
         'Content-Type': 'application/json',
     },
 })
+
+// Deployment marker: remove after verification
+if (typeof window !== 'undefined') {
+    console.log('[FE DEPLOY] api.js loaded', {
+        ts: new Date().toISOString(),
+        location: window.location.origin,
+        protocol: window.location.protocol,
+        baseURL: API_BASE_URL,
+        envBase: import.meta.env.VITE_API_BASE_URL || null,
+    })
+}
 
 // Request interceptor to add auth token
 apiClient.interceptors.request.use(
