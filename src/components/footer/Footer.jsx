@@ -127,7 +127,7 @@ const Footer = () => {
 
         {/* Bottom Footer Bar */}
         <div className="footer-bottom">
-          <div className="footer-bottom-content max-w-7xl mx-auto">
+          <div className="footer-bottom-content max-w-7xl mx-auto px-[15px]">
             <div className="footer-bottom-left">
               <span>Copyright © 2025 All Rights Reserved.</span>
             </div>

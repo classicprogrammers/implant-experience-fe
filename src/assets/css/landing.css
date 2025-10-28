@@ -49,9 +49,7 @@
 
 .landing-hero-container {
     width: 100%;
-    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
 }
 
 .landing-hero-section-content {
@@ -77,7 +75,7 @@
 }
 
 .landing-hero-subtitle {
-    font-size: 24px;
+    font-size: clamp(16px, 2.2vw, 24px);
     font-weight: 800;
     line-height: normal;
     color: var(--primary-white);
@@ -85,7 +83,7 @@
 }
 
 .landing-hero-title {
-    font-size: 70px;
+    font-size: clamp(32px, 6vw, 90px);
     font-weight: 800;
     line-height: normal;
     color: var(--primary-white);
@@ -99,11 +97,12 @@
 }
 
 .landing-hero-description {
-    font-size: 24px;
+    font-size: clamp(14px, 1.6vw, 24px);
     font-weight: 700;
     line-height: normal;
     color: var(--primary-white);
-    width: 636px;
+    width: 100%;
+    max-width: 636px;
     margin-bottom: 20px;
 }
 
@@ -686,10 +685,11 @@
     line-height: 1.1;
     color: var(--primary-white);
     margin-bottom: 20px;
+    padding: 0;
 }
 
 .implant-experience-description {
-    font-size: 18px !important;
+    font-size: 18px;
     font-weight: 400;
     line-height: 1.4;
     color: var(--primary-white);
@@ -906,20 +906,8 @@
 
 /* Large Desktop */
 @media (max-width: 1440px) {
-
-    .landing-hero-container {
-        max-width: 1200px;
-        padding: 0 1.5rem;
-    }
-
-    .landing-hero-title {
-        font-size: 60px;
-    }
-
-    .landing-hero-description {
-        font-size: 22px;
-        width: 580px;
-    }
+    .landing-hero-title { font-size: clamp(32px, 6vw, 90px); }
+    .landing-hero-description { font-size: clamp(14px, 1.5vw, 22px); max-width: 580px; }
 
     /* Meet John Section Responsive */
     .john-owens-hero-section {
@@ -965,6 +953,7 @@
 
     .implant-experience-title {
         font-size: 40px;
+        padding: 0;
     }
 
     .implant-experience-description {
@@ -987,18 +976,8 @@
 
 /* Desktop */
 @media (max-width: 1200px) {
-    .landing-hero-container {
-        max-width: 960px;
-    }
-
-    .landing-hero-title {
-        font-size: 55px;
-    }
-
-    .landing-hero-description {
-        font-size: 20px;
-        width: 520px;
-    }
+    .landing-hero-title { font-size: clamp(30px, 5vw, 64px); }
+    .landing-hero-description { font-size: clamp(14px, 1.5vw, 20px); max-width: 600px; }
 
     /* Meet John Section Responsive */
     .john-owens-hero-section {
@@ -1097,11 +1076,7 @@
 
 
 
-    .landing-hero-title {
-
-        font-size: 48px;
-
-    }
+    .landing-hero-title { font-size: clamp(28px, 6vw, 48px); }
 
 
     .landing-hero-subtitle {
@@ -1109,13 +1084,7 @@
     }
 
 
-    .landing-hero-description {
-
-        font-size: 18px;
-        width: 100%;
-
-        max-width: 500px;
-    }
+    .landing-hero-description { font-size: clamp(13px, 2.2vw, 18px); width: 100%; max-width: 500px; }
 
     .landing-nav-menu {
         display: none;
@@ -1258,10 +1227,7 @@
         padding: 0 1rem;
     }
 
-    .landing-hero-title {
-        font-size: 42px;
-        line-height: 1.1;
-    }
+    .landing-hero-title { font-size: clamp(24px, 7vw, 42px); line-height: 1.1; }
 
     .landing-hero-subtitle {
         font-size: 18px;
@@ -1270,11 +1236,7 @@
 
 
 
-    .landing-hero-description {
-        font-size: 16px;
-        width: 100%;
-        margin-bottom: 30px;
-    }
+    .landing-hero-description { font-size: clamp(12px, 2.5vw, 16px); width: 100%; margin-bottom: 30px; }
 
     .landing-hero-badge {
         width: 150px;

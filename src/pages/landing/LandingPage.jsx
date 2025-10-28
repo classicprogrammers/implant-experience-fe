@@ -41,7 +41,7 @@ function LandingPage() {
     <div className="landing-page">
 
       <section className="landing-hero-section">
-        <div className="landing-hero-container max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-[15px] w-full">
           <div className="landing-hero-badge">
             <img src={badge} alt="Badge" className="landing-badge-img" />
           </div>

@@ -17,7 +17,6 @@
   width: 100%;
   position: relative;
   z-index: 1000;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   animation: implant-slideDown 0.3s ease-out;
 }
 
@@ -69,9 +68,7 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
 }
 
 .implant-header-logo {
@@ -83,7 +80,7 @@
 }
 
 .implant-logo-img {
-  max-height: 65px;
+  max-height: 68px;
   width: auto;
 }
 
@@ -127,6 +124,7 @@
   border: 1px solid #8F929226;
   border-radius: 25px;
   outline: none;
+  background-color: #FAFAFA;
 }
 
 .implant-nav-dot {
@@ -166,12 +164,11 @@
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 160%;
   transition: all 0.3s ease;
-  width: 200px;
+  width: 175px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -605,13 +602,8 @@
     padding: 6px 12px 6px 16px;
   }
 
-  .implant-header-container {
-    max-width: 1200px;
-    padding: 0 1.5rem;
-  }
-
   .implant-logo-img {
-    max-height: 55px;
+    max-height: 68px;
   }
 }
 
@@ -630,10 +622,6 @@
 
   .implant-user-section {
     gap: 12px;
-  }
-
-  .implant-header-container {
-    max-width: 960px;
   }
 
   .implant-header-nav {
@@ -678,10 +666,6 @@
     max-height: 50px;
   }
 
-  .implant-header-container {
-    max-width: 720px;
-    padding: 0 1rem;
-  }
 }
 
 /* Mobile Large */
@@ -700,8 +684,6 @@
 
   .implant-header-container {
     gap: 10px;
-    max-width: 100%;
-    padding: 0 1rem;
   }
 
   .implant-header-logo {
@@ -790,7 +772,6 @@
 
   .implant-header-container {
     gap: 8px;
-    padding: 0 0.75rem;
   }
 
   .implant-logo-img {
@@ -851,7 +832,6 @@
   }
 
   .implant-header-container {
-    padding: 0 0.5rem;
     gap: 6px;
   }
 
@@ -873,7 +853,6 @@
   }
 
   .implant-header-container {
-    padding: 0 0.3rem;
     gap: 4px;
   }
 

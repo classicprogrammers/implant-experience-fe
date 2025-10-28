@@ -106,7 +106,7 @@
 } */
 
 .footer-logo-image {
-  width: 500px;
+  width: min(90%, 500px);
   height: auto;
   object-fit: contain;
 }
@@ -320,6 +320,10 @@
   .footer {
     padding: 40px 0 0 0;
   }
+
+  .footer-logo-image {
+    width: min(95%, 380px);
+  }
 }
 
 @media (max-width: 480px) {
@@ -334,4 +338,6 @@
   .contact-item {
     font-size: 13px;
   }
+
+  .footer-logo-image { width: min(95%, 300px); }
 }

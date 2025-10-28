@@ -111,7 +111,7 @@ const Header = ({ variant = 'landing' }) => {
 
       {/* Main Header */}
       <div className="implant-header-main">
-        <div className="implant-header-container">
+        <div className="implant-header-container max-w-7xl mx-auto px-[15px]">
           <div className="implant-header-logo">
             <img src={logo} alt="Logo" className="implant-logo-img" />
           </div>
