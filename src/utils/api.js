@@ -1,6 +1,18 @@
 import axios from 'axios'
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:9090/api'
+// Temporarily force all API requests to use HTTP (will revert to HTTPS on production SSL)
+const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:9090/api'
+
+const API_BASE_URL = (() => {
+    try {
+        const url = new URL(configuredBaseUrl)
+        url.protocol = 'http:'
+        return url.toString().replace(/\/$/, '')
+    } catch {
+        // Fallback: naive replace if URL constructor fails
+        return configuredBaseUrl.replace(/^https:/i, 'http:')
+    }
+})()
 
 // Create axios instance
 const apiClient = axios.create({
