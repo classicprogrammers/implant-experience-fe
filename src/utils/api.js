@@ -7,6 +7,7 @@ const API_BASE_URL = (() => {
     try {
         const url = new URL(configuredBaseUrl)
         url.protocol = 'http:'
+        console.log("API_BASE_URL", url.toString().replace(/\/$/, ''), url.toString())
         return url.toString().replace(/\/$/, '')
     } catch {
         // Fallback: naive replace if URL constructor fails
