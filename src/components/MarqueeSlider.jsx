@@ -2,7 +2,7 @@ import React from 'react';
 
 const MarqueeSlider = ({ items = [], logo = null, backgroundColor = "#00ACB2", textColor = "white" }) => {
     return (
-        <div className="overflow-hidden py-[10px]" style={{ backgroundColor }}>
+        <div className="overflow-hidden py-[20px]" style={{ backgroundColor }}>
             <div className="flex animate-marquee whitespace-nowrap">
                 {/* First set of items */}
                 {items.map((item, index) => (

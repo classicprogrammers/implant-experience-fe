@@ -9,20 +9,20 @@ const Testimonials = ({ testimonials = [] }) => {
                     <p className="text-[#00BCD4] text-sm font-medium mb-[6px]">
                         Testimonials
                     </p>
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#003878] leading-tight mb-[6px]">
+                    <h2 className="testimonials-title">
                         Patient Stories Of Care And Recovery
                     </h2>
-                    <p className="text-gray-600 text-base max-w-3xl mx-auto leading-relaxed">
+                    <p className="testimonials-description">
                         Discover inspiring stories of recovery and healing from those we've had the privilege to serve.
                     </p>
                 </div>
 
                 {/* Testimonial Cards */}
-                <div className="grid grid-cols-12 gap-6 px-[10px]">
+                <div className="grid grid-cols-12 gap-5 px-[10px]">
                     {testimonials.map((testimonial, index) => (
                         <div
                             key={index}
-                            className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-4 bg-white rounded-[24px] p-[24px] flex flex-col h-full max-w-[500px] mx-auto"
+                            className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-4 bg-white rounded-[46px] p-[45px] flex flex-col h-full max-w-[500px] mx-auto"
                             style={{ border: '1px solid #55617124' }}
                         >
                             {/* Stars */}
@@ -39,12 +39,12 @@ const Testimonials = ({ testimonials = [] }) => {
                             </div>
 
                             {/* Role/Title */}
-                            <h3 className="text-lg font-bold text-[#003878] mb-[16px]">
+                            <h3 className="text-xl font-[700] text-[#003878] mb-[8px]">
                                 {testimonial.role}
                             </h3>
 
                             {/* Testimonial Text */}
-                            <p className="text-gray-600 text-base leading-relaxed flex-grow mb-[16px]">
+                            <p className="text-gray-600 text-[17px] font-medium leading-relaxed flex-grow mb-[16px]">
                                 {testimonial.text}
                             </p>
 
@@ -52,7 +52,7 @@ const Testimonials = ({ testimonials = [] }) => {
                             <div className="border-t border-gray-200 mb-[16px]"></div>
 
                             {/* Author Information */}
-                            <div className="flex items-center">
+                            <div className="flex items-center pt-[10px]">
                                 <div className="w-12 h-12 rounded-full overflow-hidden mr-[12px] flex-shrink-0">
                                     <img
                                         src={testimonial.avatar}

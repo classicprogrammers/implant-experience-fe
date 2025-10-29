@@ -2,14 +2,14 @@ import React from 'react';
 
 const Episodes = ({ episodes = [] }) => {
     return (
-        <section className="bg-gray-100 py-[40px] px-[4px] sm:px-[6px] lg:px-[8px]">
+        <section className="bg-gray-100 pt-[40px] pb-[10px] px-[4px] sm:px-[6px] lg:px-[8px]">
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <div className="text-center mb-[48px]">
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#003878] mb-[15px]">
+                    <h2 className="episodes-title">
                         Episodes To Learn More
                     </h2>
-                    <p className="text-gray-600 text-base sm:text-lg max-w-4xl mx-auto leading-relaxed">
+                    <p className="episodes-description">
                         Get the latest information on health topics, wellness tips, and advancements in patient care.
                     </p>
                 </div>
@@ -27,14 +27,14 @@ const Episodes = ({ episodes = [] }) => {
                                     <img
                                         src={episode.image}
                                         alt={episode.title}
-                                        className="w-full h-[200px] object-cover rounded-[25px]"
+                                        className="w-full h-[318px] object-cover rounded-[46px]"
                                     />
                                 </div>
 
                                 {/* Episode Content */}
-                                <div className="py-[24px] pe-[24px]">
+                                <div className="py-[24px]">
                                     {/* Episode Number & Date */}
-                                    <div className="flex gap-4 items-center mb-[16px]">
+                                    <div className="flex gap-8 items-center mb-[16px]">
                                         <span className="text-sm text-gray-500 font-medium">
                                             Ep: {episode.episodeNumber}
                                         </span>
@@ -44,19 +44,19 @@ const Episodes = ({ episodes = [] }) => {
                                     </div>
 
                                     {/* Episode Title */}
-                                    <h3 className="font-bold text-[#0B1030] text-2xl mb-[12px] leading-tight lg:min-h-[55px]" >
+                                    <h3 className="font-bold text-[#0B1030] text-[26px] mb-[6px] leading-tight lg:min-h-[55px]" >
                                         {episode.title}
                                     </h3>
 
                                     {/* Episode Description */}
-                                    <p className="text-sm text-gray-600 leading-relaxed mb-[16px]" style={{ lineHeight: '1.2rem' }}>
+                                    <p className="text-[13px] text-gray-600 leading-relaxed mb-[16px]" style={{ lineHeight: '1.2rem' }}>
                                         {episode.description}
                                     </p>
 
                                     {/* Read More Link */}
                                     <a
                                         href={episode.link}
-                                        className="text-sm font-medium text-[#4753BF] hover:text-[#0024ff] transition-colors"
+                                        className="text-[16px] font-medium text-[#4753BF] hover:text-[#0024ff] transition-colors"
                                     >
                                         Read more →
                                     </a>
