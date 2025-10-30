@@ -7,6 +7,7 @@ import MyDevices from '../pages/devices/MyDevices'
 import NotificationPage from '../components/notification/NotificationPage'
 import ResourcesPage from '../components/resources/ResourcesPage'
 import SettingsPage from '../components/settings/SettingsPage'
+import AddUserPage from '../pages/superAdmin/addUser/user'
 
 const DashboardRoutes = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -30,6 +31,7 @@ const DashboardRoutes = () => {
                     <Route path="/notifications" element={<NotificationPage />} />
                     <Route path="/resources" element={<ResourcesPage />} />
                     <Route path="/settings" element={<SettingsPage />} />
+                    <Route path="/admin/add-user" element={<AddUserPage />} />
                 </Routes>
             </div>
         </div>
