@@ -231,9 +231,9 @@
         right: 16px;
     }
 
+    /* Hide logo image but keep space */
     .logo-image {
-        width: 300px;
-        height: auto;
+        display: none;
     }
 
     .nav-item {
@@ -273,9 +273,9 @@
         right: 12px;
     }
 
+    /* Hide logo image but keep space */
     .logo-image {
-        width: 280px;
-        height: auto;
+        display: none;
     }
 
     .nav-item {

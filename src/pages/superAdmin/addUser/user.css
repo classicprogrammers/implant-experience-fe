@@ -1,0 +1,249 @@
+/* Super Admin - Add User page. Scoped, matches dashboard spacing/colors */
+.sa-add-user-page {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 24px 24px 48px 24px;
+    overflow-x: hidden;
+    max-width: 1200px;
+}
+
+.sa-add-user-container {
+    width: 100%;
+    max-width: 760px;
+    /* match visual density from reference */
+    padding: 40px 32px;
+    margin: 5px 24px 0 0px;
+    box-sizing: border-box;
+    min-height: 540px;
+    /* baseline */
+    height: 70vh;
+    /* scale with viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* center inner content vertically */
+    align-items: center;
+    /* center inner content horizontally */
+}
+
+.sa-add-user-title {
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #0B1030;
+    text-align: center;
+    margin: 24px 0 36px 0;
+}
+
+.sa-add-user-form {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sa-field {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sa-label {
+    display: block;
+    color: #282A37;
+    font-size: 12px;
+    margin-left: 50px;
+    margin-bottom: 8px;
+    width: 70%;
+    text-align: left;
+}
+
+.sa-input {
+    width: 70%;
+    height: 46px;
+    border: 1px solid #D0D0D0;
+    border-radius: 16px;
+    padding: 0 25px 0 25px;
+    /* align input text start with label (50px) */
+    font-size: 14px;
+    color: #9A9AB0;
+    outline: none;
+    background: #FFFFFF;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.sa-input:focus {
+    border-color: #00ACB2;
+    box-shadow: 0 0 0 4px rgba(0, 172, 178, 0.12);
+}
+
+.sa-input::placeholder {
+    color: #9A9AB0;
+}
+
+.sa-error-text {
+    margin-top: 6px;
+    color: #DC2626;
+    font-size: 12px;
+    width: 70%;
+    text-align: left;
+}
+
+.sa-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.sa-primary-btn {
+    background: #00ACB2;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    padding: 0 24px;
+    width: 40%;
+    font-weight: 700;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Card styling to match dashboard look */
+.sa-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    /* box-shadow: 0 8px 24px rgba(11, 16, 48, 0.06); */
+}
+
+@media (max-width: 640px) {
+    .sa-add-user-container {
+        padding: 24px 16px;
+        margin: 0 16px;
+    }
+
+    .sa-add-user-title {
+        font-size: 32px;
+    }
+}
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+    .sa-add-user-container {
+        max-width: 640px;
+        margin: 0 24px;
+        /* Allow growth: keep min-height but let content define actual height */
+        min-height: 60vh;
+        height: auto;
+    }
+
+    /* Slightly smaller heading on tablets */
+    .sa-add-user-title {
+        font-size: 36px;
+    }
+}
+
+/* Small laptop / large tablet */
+@media (max-width: 768px) {
+    .sa-add-user-container {
+        max-width: 100%;
+        margin: 0 16px;
+        /* Allow growth: keep min-height but let content define actual height */
+        min-height: 55vh;
+        height: auto;
+    }
+
+    /* Make fields comfortably wide on small screens */
+    .sa-label {
+        width: 90%;
+        margin-left: 12px;
+    }
+
+    .sa-input {
+        width: 90%;
+        padding-left: 6px;
+        /* half of label's 12px left margin */
+    }
+
+    .sa-primary-btn {
+        width: 70%;
+        height: 44px;
+    }
+
+    .sa-add-user-title {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sa-label {
+        width: 100%;
+        margin-left: 8px;
+    }
+
+    .sa-input {
+        width: 100%;
+        padding-left: 4px;
+        /* half of label's 8px left margin */
+    }
+
+    .sa-primary-btn {
+        width: 100%;
+        height: 46px;
+    }
+
+    .sa-add-user-title {
+        font-size: 26px;
+    }
+}
+
+/* Narrow mid-width screens: reduce width a bit to avoid large inner gaps */
+@media (max-width: 900px) and (min-width: 769px) {
+    .sa-add-user-container {
+        max-width: 560px;
+    }
+}
+
+/* Larger screens: scale card wider so it doesn't look too narrow */
+@media (min-width: 1280px) and (max-width: 1439px) {
+    .sa-add-user-container {
+        max-width: 800px;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1599px) {
+    .sa-add-user-container {
+        max-width: 860px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .sa-add-user-container {
+        max-width: 1040px;
+    }
+}
+
+/* Very large desktops */
+@media (min-width: 1920px) {
+    .sa-add-user-container {
+        max-width: 1160px;
+    }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 2560px) {
+    .sa-add-user-container {
+        max-width: 1280px;
+    }
+}

@@ -15,6 +15,7 @@ import resourcesImage2 from '../../assets/images/resourcesActive.png';
 import groupImage from '../../assets/images/Group.png';
 import settingImage from '../../assets/images/setting.png';
 import setting2Image from '../../assets/images/setting-2.png';
+import plusIcon from '../../assets/images/plusIcon.png';
 
 const Sidebar = ({ isOpen, onClose }) => {
     const [notifications] = useState(0);
@@ -120,9 +121,21 @@ const Sidebar = ({ isOpen, onClose }) => {
                             </div>
                         )}
                     </div>
-
+                    {location.pathname.includes('/admin') && (
+                        <div className={`nav-item ${location.pathname === '/admin/add-user' ? 'active' : ''}`} onClick={() => navigate('/admin/add-user')}>
+                            <div className="nav-icon">
+                                <img src={location.pathname === '/admin/add-user' ? plusIcon : plusIcon} alt="Setting" width="16" height="16" />
+                            </div>
+                            <span className="nav-text">Add User</span>
+                            {resources > 0 && (
+                                <div className="notification-badge">
+                                    {resources}
+                                </div>
+                            )}
+                        </div>
+                    )}
                     <div className='nav-item'>
-                    <hr style={{border: '1px solid #EDEDED', width: '100%'}}/>
+                        <hr style={{ border: '1px solid #EDEDED', width: '100%' }} />
                     </div>
 
                     <div className={`nav-item ${location.pathname === '/settings' ? 'active' : ''}`} onClick={() => navigate('/settings')}>
