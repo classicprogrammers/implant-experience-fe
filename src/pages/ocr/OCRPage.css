@@ -1,0 +1,602 @@
+/* OCR Page Styles - Scoped under parent class */
+
+.ocr-page-wrapper .ocr-page {
+    min-height: 100vh;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+}
+
+.ocr-page-wrapper .ocr-container {
+    width: 100%;
+    max-width: 620px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ocr-page-wrapper .ocr-card {
+    border-radius: 8px;
+    padding: 2rem;
+    width: 100%;
+    border: none;
+    position: relative;
+}
+
+/* Close Button */
+.ocr-page-wrapper .close-button {
+
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #282A37;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.ocr-page-wrapper .close-button:hover {
+    color: #071933;
+    background: #F7FAFC;
+}
+
+/* Smaller close icon size only on OCR page */
+.ocr-page-wrapper .close-button svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Progress Bar */
+.ocr-page-wrapper .progress-bar-container {
+    width: 100%;
+    max-width: 440px;
+    height: 2px;
+    background: #E2E8F0;
+    border-radius: 2px;
+    margin-bottom: 0.75rem;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: visible;
+}
+
+/* Step 3 Header */
+.ocr-page-wrapper .step3-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+    width: 100%;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ocr-page-wrapper .ocr-heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1A365D;
+    margin: 0;
+}
+
+.ocr-page-wrapper .progress-bar-fill {
+    height: 100%;
+    background: #1A365D;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    position: absolute;
+    top: 0;
+}
+
+/* Close Icon for Steps 1 and 2 */
+.ocr-page-wrapper .step-close-icon-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Top Icon */
+.ocr-page-wrapper .top-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.ocr-page-wrapper .top-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+/* Step Heading */
+.ocr-page-wrapper .step-heading {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.ocr-page-wrapper .step-heading h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #00ACB2;
+    margin: 0;
+}
+
+.ocr-page-wrapper .step-heading span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #00325C;
+    margin: 0;
+}
+
+/* Tab Toggle */
+.ocr-page-wrapper .tab-toggle {
+    display: flex;
+    gap: 0;
+    margin-bottom: 2rem;
+    background: #E2E8F0;
+    border-radius: 12px;
+    padding: 4px;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ocr-page-wrapper .tab-button {
+    flex: 1;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: transparent;
+    color: #64748B;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.ocr-page-wrapper .tab-button.active {
+    background: #1A365D;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ocr-page-wrapper .tab-button:not(.active):hover {
+    color: #1A365D;
+    background: rgba(26, 54, 93, 0.05);
+}
+
+/* Section Titles */
+.ocr-page-wrapper .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1A365D;
+    margin: 0 0 1.5rem 0;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.manual-form-section .section-title {
+    margin: 0 0 .5rem 0;
+}
+
+
+/* OCR Upload Section */
+.ocr-page-wrapper .ocr-upload-section {
+    margin-bottom: 25px;
+    width: 100%;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.ocr-page-wrapper .ocr-upload-section .section-title {
+    display: none;
+}
+
+.upload-area {
+    border: 1px dashed #D5D8E2;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: 100%;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.upload-area.no-border {
+    border: none;
+    padding: 0;
+}
+
+.ocr-page-wrapper .upload-area:hover {
+    transform: translateY(-2px);
+}
+
+.ocr-page-wrapper .file-input {
+    display: none;
+}
+
+.ocr-page-wrapper .upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.ocr-page-wrapper .upload-icon {
+    color: #00ACB2;
+    transition: all 0.3s ease;
+}
+
+.ocr-page-wrapper .upload-area:hover .upload-icon {
+    color: #00BFA5;
+    transform: scale(1.1);
+}
+
+.ocr-page-wrapper .upload-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.ocr-page-wrapper .upload-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1A365D;
+    margin: 0;
+}
+
+.ocr-page-wrapper .upload-formats {
+    font-size: 0.875rem;
+    color: #64748B;
+    margin: 0;
+}
+
+/* Verify Button */
+.ocr-page-wrapper .verify-button {
+    background: #1A365D;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.ocr-page-wrapper .verify-button:hover {
+    background: #2D4A6B;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 54, 93, 0.3);
+}
+
+/* Browse button under upload box */
+.browse-button-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.browse-button {
+    background: #072f52;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.9rem 2rem;
+    font-weight: 700;
+}
+
+
+.ocr-page-wrapper .ocr-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* Form Groups - Using Auth Styles */
+.ocr-page-wrapper .form-group-new {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ocr-page-wrapper .form-group-new label {
+    font-weight: 700;
+    color: #11142D;
+    font-size: 0.9rem;
+    margin-left: 16px;
+}
+
+.ocr-page-wrapper .form-group-new {
+    width: 100%;
+    max-width: 480px;
+}
+
+.ocr-page-wrapper .form-group-new input {
+    padding: 0.65rem 1.5rem;
+    border: 1px solid #D0D0D0 !important;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    width: 100%;
+    height: 44px;
+    box-sizing: border-box;
+    /* background: white; */
+}
+
+.ocr-page-wrapper .form-group-new input:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 3px rgba(0, 172, 178, 0.1);
+    border-color: #00ACB2;
+}
+
+.ocr-page-wrapper .form-group-new input::placeholder {
+    color: #282A37;
+}
+
+.ocr-page-wrapper .form-group-new input[type="date"] {
+    color: #11142D;
+}
+
+.ocr-page-wrapper .form-group-new input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #00ACB2;
+    cursor: pointer;
+}
+
+/* Register Button */
+.ocr-page-wrapper .register-button {
+    background: #00ACB2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.ocr-page-wrapper .register-button:hover:not(:disabled) {
+    background: #00BFA5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 172, 178, 0.3);
+}
+
+.ocr-page-wrapper .register-button:disabled {
+    background: #A0AEC0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* File Upload States */
+.ocr-page-wrapper .upload-area.has-file {
+    border-color: #00BFA5;
+    background: #F0FDFA;
+    border-style: solid;
+}
+
+.ocr-page-wrapper .upload-area.has-file .upload-icon {
+    color: #00BFA5;
+}
+
+.ocr-page-wrapper .upload-area.has-file .upload-title {
+    color: #00BFA5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ocr-page-wrapper .ocr-page {
+        padding: 1rem;
+    }
+
+    .ocr-page-wrapper .ocr-card {
+        padding: 1.5rem;
+    }
+
+    .ocr-page-wrapper .tab-toggle {
+        max-width: 100%;
+    }
+
+    .ocr-page-wrapper .tab-button {
+        font-size: 0.875rem;
+        padding: 0.625rem 1rem;
+    }
+
+    .ocr-page-wrapper .step-heading h1 {
+        font-size: 1.25rem;
+    }
+
+    .ocr-page-wrapper .upload-area {
+        padding: 1.5rem;
+    }
+
+    .ocr-page-wrapper .upload-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .ocr-page-wrapper .upload-title {
+        font-size: 1rem;
+    }
+
+    .ocr-page-wrapper .section-title {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .ocr-page-wrapper .ocr-page {
+        padding: 0.5rem;
+    }
+
+    .ocr-page-wrapper .ocr-card {
+        padding: 1rem;
+    }
+
+    .ocr-page-wrapper .upload-area {
+        padding: 1rem;
+    }
+
+    .ocr-page-wrapper .form-group-new input {
+        height: 48px;
+        font-size: 0.9rem;
+    }
+
+    .ocr-page-wrapper .verify-button,
+    .ocr-page-wrapper .register-button {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .ocr-page-wrapper .ocr-action-button {
+        width: 100%;
+        min-width: auto;
+        padding: 0.65rem 2rem;
+        font-size: 0.9rem;
+    }
+
+    .ocr-page-wrapper .top-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .ocr-page-wrapper .step-heading {
+        margin-bottom: 1.5rem;
+    }
+
+    .ocr-page-wrapper .step-actions {
+        flex-direction: column;
+    }
+
+    .ocr-page-wrapper .progress-bar-container {
+        margin-bottom: 1rem;
+        margin-top: 2.5rem;
+    }
+}
+
+/* Animation for form interactions */
+.ocr-page-wrapper .form-group-new input.changing {
+    animation: inputChange 0.4s ease;
+}
+
+@keyframes inputChange {
+    0% {
+        transform: scale(1);
+        border-color: #00ACB2;
+    }
+
+    50% {
+        transform: scale(1.02);
+        border-color: #00BFA5;
+    }
+
+    100% {
+        transform: scale(1);
+        border-color: #00ACB2;
+    }
+}
+
+/* Loading state for register button */
+.ocr-page-wrapper .register-button.loading {
+    position: relative;
+    color: transparent;
+}
+
+.ocr-page-wrapper .register-button.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Submit Button Wrapper */
+.ocr-page-wrapper .submit-button-wrapper {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Step Actions */
+.ocr-page-wrapper .step-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+/* Unified Action Button - Used for Next, Save Later, and Submit */
+.ocr-page-wrapper .ocr-action-button {
+    background: #00ACB2;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 150px;
+}
+
+.ocr-page-wrapper .ocr-action-button:hover:not(:disabled) {
+    background: #00BFA5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 172, 178, 0.3);
+}
+
+.ocr-page-wrapper .ocr-action-button:disabled {
+    background: #A0AEC0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}

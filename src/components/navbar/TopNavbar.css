@@ -1,0 +1,469 @@
+/* Top Navbar Styles - 100% Figma Match */
+.top-navbar {
+    width: calc(100vw - 281px);
+    height: 80px;
+    left: 281px;
+    opacity: 1;
+    background: #FFFFFF;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    border-bottom: 1px solid #F1F5F9;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-button {
+    display: none;
+    width: 40px;
+    height: 40px;
+    background: #F8FAFC;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #6B7280;
+    margin-right: 16px;
+}
+
+.mobile-menu-button:hover {
+    background: #F1F5F9;
+    color: #374151;
+}
+
+/* Search Container */
+.search-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 400px;
+    max-width: 537px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid #E1E4F7;
+    border-radius: 12px;
+    padding: 8px 16px 8px 20px;
+    gap: 8px;
+    box-sizing: border-box;
+    flex-shrink: 1;
+    position: relative;
+}
+
+.search-icon {
+    width: 16px !important;
+    height: 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #BCBDC1 !important;
+    flex-shrink: 0 !important;
+    margin-right: 8px !important;
+    order: 1 !important;
+    float: left !important;
+    position: relative !important;
+}
+
+.search-input {
+    flex: 1 !important;
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #374151 !important;
+    line-height: 20px !important;
+    order: 2 !important;
+}
+
+.search-input::placeholder {
+    color: #9CA3AF;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+/* User Section */
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Notification Bell */
+.notification-bell {
+    width: 36px;
+    height: 36px;
+    background: #F8FAFC;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #6B7280;
+}
+
+.notification-bell:hover {
+    background: #F1F5F9;
+    color: #374151;
+}
+
+/* User Avatar */
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.user-avatar:hover {
+    transform: scale(1.05);
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* User Info */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.user-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    line-height: 20px;
+}
+
+.user-role {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #6B7280;
+    line-height: 16px;
+}
+
+/* Dropdown Arrow */
+.dropdown-arrow {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #6B7280;
+}
+
+.dropdown-arrow:hover {
+    color: #374151;
+    transform: translateY(1px);
+}
+
+/* Add at the end of TopNavbar.css */
+.notification-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    min-height: 100vh;
+    /* Add this line */
+
+}
+
+.notification-modal {
+    background: #fff;
+    border-radius: 16px;
+    max-width: 700px;
+    width: 90vw;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 16px;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    background: #F6F6F6;
+    padding: 0px 6px;
+}
+
+.modal-close-btn span {
+    /* background: #F6F6F6; */
+    border: none;
+    font-size: 1.6rem;
+    color: #00325C;
+    /* line-height: 15px; */
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-warning-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.modal-description {
+    font-size: 13px;
+    color: #000000;
+}
+
+.modal-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+}
+
+.modal-step {
+    border: 1px solid #EFEFEF;
+    background: #FDFDFD;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 0.98rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.modal-btn {
+    width: 100%;
+    max-width: 200px;
+    padding: 8px auto;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.modal-btn.acknowledge {
+    background: #00ACB2;
+    color: #fff;
+}
+
+.modal-btn.contact {
+    background: #00325C;
+    color: #FFFFFF;
+}
+
+@media (max-width: 500px) {
+    .notification-modal {
+        max-width: 95vw;
+        padding: 16px 8px 12px 8px;
+    }
+
+    .modal-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .modal-step {
+        font-size: 0.92rem;
+        padding: 8px;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1440px) {
+    .top-navbar {
+        width: calc(100vw - 281px);
+        left: 281px;
+    }
+
+    .search-container {
+        width: 300px;
+        max-width: 350px;
+        padding: 6px 12px 6px 16px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .top-navbar {
+        width: calc(100vw - 280px);
+        left: 280px;
+        padding: 0 24px;
+    }
+
+    .search-container {
+        width: 350px;
+        height: 44px;
+    }
+
+    .user-section {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-navbar {
+        width: 100vw;
+        left: 0;
+        padding: 0 16px;
+        height: 70px;
+        box-sizing: border-box;
+    }
+
+    .mobile-menu-button {
+        display: flex;
+        flex-shrink: 0;
+    }
+
+    .search-container {
+        width: 200px;
+        height: 36px;
+        padding: 6px 10px 6px 14px;
+        flex-shrink: 1;
+        min-width: 0;
+        gap: 6px;
+    }
+
+    .user-section {
+        flex-shrink: 0;
+        gap: 8px;
+    }
+
+    .user-info {
+        display: none;
+    }
+
+    .search-input {
+        font-size: 13px;
+    }
+
+    .user-name {
+        font-size: 13px;
+    }
+
+    .user-role {
+        font-size: 11px;
+    }
+
+    .notification-bell,
+    .user-avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .dropdown-arrow {
+        width: 20px;
+        height: 20px;
+    }
+
+    .modal-warning-icon {
+        width: 20px;
+        height: 20px;
+
+    }
+}
+
+@media (max-width: 480px) {
+    .top-navbar {
+        padding: 0 12px;
+        height: 60px;
+        box-sizing: border-box;
+    }
+
+    .search-container {
+        width: 150px;
+        height: 32px;
+        padding: 4px 8px 4px 12px;
+        flex-shrink: 1;
+        min-width: 0;
+        gap: 4px;
+    }
+
+    .user-section {
+        gap: 6px;
+    }
+
+    .search-input {
+        font-size: 12px;
+    }
+
+    .user-section {
+        gap: 8px;
+    }
+
+    .user-name {
+        font-size: 12px;
+    }
+
+    .user-role {
+        font-size: 10px;
+    }
+
+    .notification-bell,
+    .user-avatar {
+        width: 28px;
+        height: 28px;
+    }
+
+    .dropdown-arrow {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Animation for smooth transitions */
+.top-navbar {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,1052 @@
+/* Dashboard Layout */
+.dashboard-layout {
+    display: flex;
+    min-height: 10vh;
+    background: #f6f6f7;
+    position: relative;
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 281px;
+    margin-top: 80px;
+    padding: 20px;
+    background: #f6f6f7;
+    min-height: calc(100vh - 80px);
+    transition: margin-left 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .main-content {
+        margin-left: 280px;
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        margin-top: 70px;
+        padding: 24px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        margin-top: 70px;
+        padding: 16px 12px;
+    }
+}
+
+/* Dashboard Content Styles */
+.dashboard-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Today Section */
+.today-section {
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 16px 16px 24px 16px;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1A365D;
+    margin: 0 0 20px 0;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 100%;
+}
+
+/* Card Styles */
+.card {
+    background: #FAFCFE;
+    border-radius: 15px;
+    padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    min-height: 120px;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Safe Card - Active (Teal Background) */
+.safe-card.active {
+    background: #00ACB2;
+    border-color: #00ACB2;
+}
+
+.safe-card.active .card-icon {
+    color: #FFFFFF;
+    background: #00325C;
+}
+
+.safe-card.active .card-text {
+    color: #FFFFFF;
+}
+
+.safe-card.active .card-number {
+    color: #FFFFFF;
+}
+
+.safe-card.active .card-subtitle {
+    color: #FFFFFF;
+}
+
+/* Monitor and Actions Cards - Inactive (Light Blue Background) */
+.monitor-card,
+.actions-card {
+    background: #FAFCFE;
+}
+
+.monitor-card .card-icon,
+.actions-card .card-icon {
+    color: #6B7280;
+    background: #F3F4F6;
+}
+
+.monitor-card .card-text,
+.actions-card .card-text {
+    color: #374151;
+}
+
+.monitor-card .card-subtitle,
+.actions-card .card-subtitle {
+    color: #00325C;
+}
+
+.monitor-card .card-number,
+.actions-card .card-number {
+    color: #00325C;
+}
+
+/* Card Icon */
+.card-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0;
+    background: #1E40AF;
+    border-radius: 8px;
+}
+
+.card-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    image-rendering: auto;
+}
+
+/* Card Content */
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    margin-top: 0;
+}
+
+.card-text {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0;
+    color: #FFFFFF;
+}
+
+.card-subtitle {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0;
+    color: #FFFFFF;
+    opacity: 0.8;
+}
+
+.card-number {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+
+    position: absolute;
+    bottom: 10px;
+    left: 16px;
+}
+
+.card-arrow {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border-radius: 50%;
+}
+
+.card-arrow img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    image-rendering: auto;
+}
+
+/* Activity Log Container */
+.activity-log-container {
+    background: #FFFFFF;
+    border-radius: 15px;
+    height: 100%;
+    padding: 16px 16px 24px 16px;
+    /* margin-bottom: 32px; */
+}
+
+/* Device Alerts Container */
+
+/* Activity Cards */
+.activity-card {
+    padding: 16px;
+    border-radius: 12px;
+    border: none;
+}
+
+.activity-card-pink {
+    background-color: #FFEBF4;
+}
+
+.activity-card-white {
+    background-color: #FAFCFE;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.notification-icon {
+    width: 16px;
+    height: 16px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.notification-icon svg {
+    width: 12px;
+    height: 12px;
+}
+
+.activity-card .text-xs {
+    font-size: 10px !important;
+    color: #7B7B7B !important;
+}
+
+/* Pending Badge */
+.pending-badge {
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    border-radius: 70px;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.activity-log-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1F2937;
+    margin: 0;
+}
+
+.pending-text {
+    color: #646A7A;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.pending-count {
+    background-color: #D8D4FA;
+    color: #374151;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.view-more-button {
+    width: 200px;
+    margin: 16px auto 0 auto;
+    display: block;
+    background-color: #00ACB2;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.view-more-button:hover {
+    background-color: #0099A0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 172, 178, 0.3);
+}
+
+/* Device Alerts Section */
+.device-alerts-section {
+    margin-top: 24px;
+}
+
+.device-alerts-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1F2937;
+    margin: 0;
+}
+
+.device-alerts-section .flex {
+    margin-bottom: 16px;
+}
+
+.three-dots-icon {
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.three-dots-icon:hover {
+    background-color: #F3F4F6;
+}
+
+.device-alerts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.device-alert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid #EDEDED;
+}
+
+.device-alert-item:last-child {
+    border-bottom: none;
+}
+
+.device-alert-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin: 0 0 4px 0;
+}
+
+.device-alert-desc {
+    font-size: 12px;
+    color: #6B7280;
+    margin: 0;
+}
+
+.device-alert-time {
+    font-size: 12px;
+    color: #9CA3AF;
+}
+
+
+/* Responsive Design for Cards */
+@media (max-width: 768px) {
+    .dashboard-content {
+        width: 95%;
+        padding: 0 16px;
+    }
+
+    .today-section {
+        height: auto;
+    }
+
+    .card {
+        min-height: 85px;
+        padding: 10px;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .card-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .card-number {
+        bottom: 10px;
+        left: 12px;
+        font-size: 28px;
+    }
+
+    .card-arrow {
+        width: 18px;
+        height: 18px;
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        margin-bottom: 16px;
+    }
+
+    .card {
+        gap: 12px;
+    }
+
+    .card-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+}
+
+@media (max-width: 1200px) {
+    .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+}
+
+@media (max-width: 992px) {
+    .dashboard-content {
+        padding: 0 20px;
+    }
+
+    .cards-container {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .search-container-dashboard {
+        width: 100%;
+    }
+
+    .dashboard-content {
+        padding: 0 12px;
+    }
+
+    .today-section {
+        margin-bottom: 20px;
+    }
+
+    .section-title {
+        margin-bottom: 12px;
+    }
+
+    .card-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .card-icon img {
+        width: 14px;
+        height: 14px;
+    }
+
+    .card-arrow img {
+        width: 8px;
+        height: 8px;
+    }
+
+    .activity-card {
+        padding: 10px;
+    }
+
+    .notification-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .notification-icon svg {
+        width: 8px;
+        height: 8px;
+    }
+
+    .device-alert-item {
+        padding: 8px 0;
+    }
+
+    .device-alerts-section {
+        margin-top: 16px;
+    }
+
+    .device-alerts-section .flex {
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-content {
+        padding: 0 8px;
+    }
+
+
+    .section-title {
+        margin-bottom: 10px;
+    }
+
+    .card-number {
+        bottom: 4px;
+        left: 3px;
+    }
+
+    .activity-card {
+        padding: 8px;
+    }
+
+    .pending-badge {
+        padding: 2px 4px;
+        gap: 2px;
+    }
+
+    .pending-count {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+/* My Devices Section */
+.devices-card {
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* Responsive Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+}
+
+/* Small screens (default) - both columns full width */
+.sm\:col-span-12 {
+    grid-column: span 12;
+}
+
+/* Medium screens - both columns full width */
+@media (min-width: 768px) {
+    .md\:col-span-12 {
+        grid-column: span 12;
+    }
+}
+
+/* Large screens - 8 and 4 columns */
+@media (min-width: 1024px) {
+    .lg\:col-span-8 {
+        grid-column: span 8;
+    }
+
+    .lg\:col-span-4 {
+        grid-column: span 4;
+    }
+}
+
+.devices-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.devices-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1A365D;
+    margin: 0;
+}
+
+.devices-controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.filter-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #F5F5F5;
+    border: 1px solid #E0E0E0;
+    border-radius: 89px;
+    padding: 5px 16px;
+    color: #636363;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-pill span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.filter-pill:hover {
+    background: #EEEEEE;
+}
+
+.filter-pill svg {
+    color: #636363;
+    width: 16px;
+    height: 16px;
+}
+
+.search-container-dashboard {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-field {
+    background: #F5F5F5;
+    border: 1px solid #E0E0E0;
+    border-radius: 89px;
+    padding: 8px 16px 8px 16px;
+    color: #636363;
+    font-size: 14px;
+    font-weight: 400;
+    /* width: 200px; */
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.search-field::placeholder {
+    color: #636363;
+    opacity: 0.7;
+}
+
+.search-field:focus {
+    border-color: #2B6CB0;
+    box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.1);
+}
+
+.search-icon-dashboard {
+    position: absolute;
+    right: 12px;
+    color: #BCBDC1 !important;
+    pointer-events: none;
+}
+
+.devices-table {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid #E5E7EB;
+    margin-bottom: 16px;
+    min-width: 600px;
+}
+
+.header-cell {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6B7280;
+    text-align: left;
+    min-width: 100px;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid #F3F4F6;
+    align-items: center;
+    min-width: 600px;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-cell {
+    display: flex;
+    align-items: center;
+    min-width: 100px;
+}
+
+.device-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.device-icon {
+    width: 32px;
+    height: 32px;
+    background: #F3F4F6 !important;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.device-icon img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.device-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #EBF8FF;
+    color: #2B6CB0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #2B6CB0;
+    border-radius: 50%;
+}
+
+/* Responsive Design for My Devices Table */
+@media (max-width: 768px) {
+    .devices-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .devices-controls {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .filter-pill {
+        padding: 6px 12px;
+    }
+
+    .search-field {
+        width: 100%;
+        min-width: 200px;
+    }
+
+    .table-header,
+    .table-row {
+        min-width: 500px;
+        gap: 12px;
+    }
+
+    .device-info {
+        gap: 8px;
+    }
+
+    .device-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .device-icon img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .status-dot {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .devices-card {
+        padding: 16px;
+        margin-bottom: 24px;
+    }
+
+    .devices-controls {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .filter-pill {
+        width: 100%;
+        justify-content: center;
+        padding: 8px 16px;
+    }
+
+    .search-field {
+        width: 100%;
+    }
+
+    .table-header,
+    .table-row {
+        min-width: 400px;
+        gap: 8px;
+        padding: 12px 0;
+    }
+
+    .device-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .device-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .device-icon img {
+        width: 14px;
+        height: 14px;
+    }
+
+    .status-dot {
+        width: 5px;
+        height: 5px;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* Device Card API Integration Styles */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #4fc3f7;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-container p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.retry-button {
+    background-color: #4fc3f7;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.retry-button:hover {
+    background-color: #29b6f6;
+}
+
+.no-devices {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.no-devices p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Status Badge Styles */
+.status-safe {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-monitor {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-recall {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Status Dot Styles */
+.status-dot-safe {
+    background-color: #28a745;
+}
+
+.status-dot-monitor {
+    background-color: #ffc107;
+}
+
+.status-dot-recall {
+    background-color: #dc3545;
+}
+
+/* Filter Select Styles */
+.filter-select {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 20px;
+}
+
+.filter-select:focus {
+    outline: none;
+}
+
+/* Capitalize utility class */
+.capitalize {
+    text-transform: capitalize;
+}
+
+/* Device Card Link Styling */
+.devices-title-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.devices-title-link:hover {
+    color: #4fc3f7;
+}
+
+.devices-title-link:hover .devices-title {
+    color: #4fc3f7;
+}
+
+/* Activity Log API Integration Styles */
+.no-activity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.no-activity p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Activity Card Severity Styles */
+.activity-card-red {
+    background-color: #fef2f2;
+    border-left: 4px solid #ef4444;
+}
+
+.activity-card-yellow {
+    background-color: #fffbeb;
+    border-left: 4px solid #f59e0b;
+}
+
+.activity-card-white {
+    background-color: #ffffff;
+    border-left: 4px solid #e5e7eb;
+}

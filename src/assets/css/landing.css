@@ -1,0 +1,2151 @@
+:root {
+    --primary-teal: #00B5C7;
+    --primary-dark-blue: #00325C;
+    --primary-white: #FFF;
+    --neutral-50: #FAFAFA;
+    --neutral-500: #0C1312;
+    --text-gray: #556171;
+    --text-dark: #0B1030;
+    --star-blue: #1B2E7D;
+    --link-purple: #4753BF;
+    --highlight-cyan: #82EBED;
+}
+
+/* Typography */
+.landing-page {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Top Banner */
+.landing-top-banner {
+    width: 100%;
+    height: 48px;
+    background: var(--primary-teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-banner-text {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 18px;
+    color: var(--primary-white);
+    letter-spacing: 1px;
+}
+
+/* Hero Section */
+.landing-hero-section {
+    width: 100%;
+    height: 85vh;
+    min-height: 750px;
+    background: linear-gradient(270deg, rgba(9, 50, 36, 0.00) 0%, var(--primary-teal) 91.23%),
+        url('../../assets/images/landingBgHero.png') center/cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.landing-hero-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.landing-hero-section-content {
+    width: 100%;
+}
+
+
+.landing-hero-badge {
+    width: 186px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 50, 92, 0.20);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.landing-badge-img {
+    width: 149px;
+    height: 44px;
+}
+
+.landing-hero-subtitle {
+    font-size: clamp(16px, 2.2vw, 32px);
+    font-weight: 800;
+    line-height: normal;
+    color: var(--primary-white);
+    margin-bottom: 20px;
+}
+
+.landing-hero-title {
+    font-size: clamp(32px, 6vw, 90px);
+    font-weight: 800;
+    line-height: normal;
+    color: var(--primary-white);
+}
+
+.landing-highlight-underline {
+    color: var(--highlight-cyan);
+    text-decoration: underline;
+    text-decoration-color: var(--highlight-cyan);
+}
+
+.landing-hero-description {
+    font-size: clamp(14px, 1.6vw, 24px);
+    font-weight: 700;
+    line-height: normal;
+    color: var(--primary-white);
+    width: 100%;
+    max-width: 636px;
+    margin-bottom: 30px;
+}
+
+.landing-hero-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+}
+
+.landing-cta-button {
+    background: var(--primary-dark-blue);
+    border: none;
+    border-radius: 8px;
+    color: var(--primary-white);
+    font-size: 28px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    width: 335px;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.landing-cta-button:hover {
+    background: #002A4A;
+    color: var(--primary-white);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 50, 92, 0.3);
+}
+
+.landing-navigation-arrows {
+    display: flex;
+    gap: 21px;
+}
+
+.landing-nav-arrow {
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Features Banner */
+.landing-features-banner {
+    width: 100%;
+    height: 101px;
+    background: var(--primary-teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+    overflow: hidden;
+}
+
+.landing-banner-content {
+    display: flex;
+    align-items: center;
+    gap: 150px;
+    animation: scroll-banner 30s linear infinite;
+}
+
+
+/* Footer */
+.landing-footer {
+    width: 100%;
+    background: var(--primary-dark-blue);
+    padding: 87px 270px 50px;
+    color: var(--primary-white);
+}
+
+.landing-footer-container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.landing-footer-brand {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+}
+
+.landing-footer-implant {
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #EEF1F2;
+}
+
+.landing-footer-experience {
+    font-size: 128px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #EEF1F2;
+    margin-top: 20px;
+}
+
+.landing-footer-contact {
+    margin-bottom: 60px;
+}
+
+.landing-footer-contact-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: -0.4px;
+    color: var(--primary-white);
+    margin-bottom: 30px;
+}
+
+.landing-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.landing-contact-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(71, 83, 191, 0.24);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-contact-item span {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25.6px;
+    color: var(--primary-white);
+}
+
+.landing-footer-social {
+    margin-bottom: 60px;
+}
+
+.landing-social-icons {
+    display: flex;
+    gap: 24px;
+}
+
+.landing-social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(71, 83, 191, 0.24);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.landing-social-icon span {
+    font-size: 18px;
+    color: var(--primary-white);
+}
+
+.landing-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.landing-footer-links span {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25.6px;
+    color: var(--primary-white);
+}
+
+.landing-footer-legal {
+    display: flex;
+    gap: 30px;
+}
+
+.landing-footer-legal a {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25.6px;
+    color: var(--primary-white);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Menu Toggle */
+.landing-mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.landing-mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary-dark-blue);
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+.landing-mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.landing-mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.landing-mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+/* Mobile Menu Styles */
+.landing-nav-menu.mobile-open {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: flex-end;
+    padding: 0;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.landing-nav-menu.mobile-open .mobile-menu-content {
+    background: var(--primary-white);
+    width: 280px;
+    height: 100%;
+    padding: 80px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    animation: slideInFromRight 0.3s ease forwards;
+}
+
+@keyframes slideInFromRight {
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 15s linear infinite;
+}
+
+
+.landing-nav-menu.mobile-open .landing-nav-item {
+    padding: 16px 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.landing-nav-menu.mobile-open .landing-nav-item.active {
+    background: var(--neutral-50);
+    color: var(--primary-teal);
+}
+
+.landing-nav-menu.mobile-open .landing-nav-item:hover {
+    background: var(--neutral-50);
+}
+
+/* Marquee Styles */
+.landing-marquee-container {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.landing-marquee-img {
+    max-height: 40px;
+    width: auto;
+}
+
+/* Mission Statement Section */
+.mission-statement-section {
+    display: flex;
+    align-items: center;
+}
+
+.mission-statement-image {
+    width: 40%;
+}
+
+.mission-statement-image img {
+    width: 100%;
+    height: 701.9px;
+    opacity: 1;
+
+}
+
+.mission-statement-content {
+    width: 60%;
+    height: 701.9px;
+    opacity: 1;
+    background: #133C75;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mission-statement-title {
+    font-weight: 700;
+    font-style: Bold;
+    font-size: clamp(28px, 6vw, 64px);
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #82EBED;
+    margin-bottom: 10px;
+}
+
+.mission-statement-para {
+    font-size: 21px;
+    color: #FFF;
+}
+
+.mission-statement-hr {
+    width: 100%;
+    height: 1px;
+    border-top: 0.8px solid #ffffff55;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    margin: 30px 0;
+}
+
+.mission-statement-btn {
+    width: 294px;
+    height: 58px;
+    opacity: 1;
+    border-radius: 8px;
+    background: #82EBED;
+    font-style: Extrabold;
+    font-size: 28px;
+    text-align: center;
+    padding: 0;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.mission-statement-btn a {
+    color: #133C75;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+/* Mission Statement: Responsive */
+@media (max-width: 1024px) {
+    .mission-statement-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .mission-statement-image,
+    .mission-statement-content {
+        width: 100%;
+    }
+
+    .mission-statement-image img {
+        height: 420px;
+        /* reduce from fixed 701.9px on tablet */
+        object-fit: cover;
+    }
+
+    .mission-statement-content {
+        height: auto;
+        padding: 32px;
+    }
+
+    .mission-statement-title {
+        font-size: 40px;
+        line-height: 110%;
+    }
+
+    .mission-statement-para {
+        font-size: 18px;
+    }
+
+    .mission-statement-btn {
+        width: 100%;
+        max-width: 280px;
+        height: 52px;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 600px) {
+    .mission-statement-image img {
+        height: 240px;
+        /* phone */
+    }
+
+    .mission-statement-content {
+        padding: 24px;
+    }
+
+    .mission-statement-title {
+        font-size: 32px;
+    }
+
+    .mission-statement-para {
+        font-size: 16px;
+    }
+
+    .mission-statement-btn {
+        max-width: none;
+        height: 48px;
+        font-size: 18px;
+    }
+}
+
+/* John Owens Hero Section */
+.john-owens-hero-section {
+    width: 100%;
+    min-height: 50vh;
+    background: linear-gradient(rgba(75, 103, 106, 0.9), rgba(75, 103, 106, 0.9)), url('../../assets/images/Rectangle7.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 50px 0 110px 0;
+}
+
+.john-owens-hero-container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 25px;
+}
+
+.john-owens-content {
+    width: 100%;
+    z-index: 2;
+    text-align: center;
+}
+
+.john-owens-title {
+    font-size: 96px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--primary-white);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.john-owens-subtitle {
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 32px;
+    color: var(--primary-white);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.john-owens-description {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0;
+    color: var(--primary-white);
+    text-align: center;
+    margin: 0 auto;
+}
+
+.john-owens-portrait {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    border-radius: 0;
+    overflow: visible;
+    width: 500px;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .john-owens-portrait {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin: 20px auto !important;
+        display: block !important;
+        z-index: 1 !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .john-owens-portrait {
+        bottom: 0%;
+        left: 35%;
+        margin: 15px auto !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .john-owens-portrait {
+        margin: 10px auto !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .john-owens-portrait {
+        margin: 8px auto !important;
+    }
+}
+
+.meet-john-section-image {
+    position: absolute;
+    top: 0px;
+    left: -50px;
+    z-index: 4;
+    width: 170px;
+    height: 80px;
+}
+
+/* John Owens Hero: Responsive */
+@media (max-width: 1024px) {
+    .john-owens-hero-section {
+        padding: 40px 0 90px 0;
+    }
+
+    .john-owens-title {
+        font-size: 72px;
+        line-height: 1.05;
+    }
+
+    .john-owens-subtitle {
+        font-size: 22px;
+        line-height: 28px;
+    }
+
+    .john-owens-description {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .meet-john-section-image {
+        left: -20px;
+        width: 150px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    .john-owens-hero-section {
+        padding: 32px 0 72px 0;
+    }
+
+    .john-owens-hero-container {
+        padding: 0 20px;
+    }
+
+    .john-owens-title {
+        font-size: 48px;
+    }
+
+    .john-owens-subtitle {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    .john-owens-description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .meet-john-section-image {
+        top: 8px;
+        left: 8px;
+        width: 130px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 576px) {
+    .john-owens-hero-section {
+        padding: 28px 0 60px 0;
+    }
+
+    .john-owens-hero-container {
+        padding: 0 16px;
+    }
+
+    .john-owens-title {
+        font-size: 38px;
+    }
+
+    .john-owens-subtitle {
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 14px;
+    }
+
+    .john-owens-description {
+        font-size: 15px;
+        line-height: 22px;
+    }
+
+    .john-owens-portrait {
+        width: 320px;
+        max-width: 90%;
+    }
+
+    .meet-john-section-image {
+        top: 6px;
+        left: 6px;
+        width: 120px;
+        height: 54px;
+    }
+}
+
+@media (max-width: 360px) {
+    .john-owens-title {
+        font-size: 32px;
+    }
+
+    .john-owens-subtitle {
+        font-size: 16px;
+    }
+
+    .john-owens-description {
+        font-size: 14px;
+    }
+
+    .meet-john-section-image {
+        width: 100px;
+        height: 48px;
+    }
+}
+
+/* Tablet aur usse chhoti screens ke liye */
+@media (max-width: 991px) {
+    .your-section-class {
+        padding: 40px 20px;
+        /* left-right gap */
+    }
+
+    .your-section-class .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .your-section-class .block {
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .your-section-class h2 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .your-section-class p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+
+/* Mobile screens ke liye */
+@media (max-width: 576px) {
+    .your-section-class {
+        padding: 30px 15px;
+    }
+
+    .your-section-class h2 {
+        font-size: 22px;
+    }
+
+    .your-section-class p {
+        font-size: 15px;
+    }
+}
+
+/* Tablet aur usse chhoti screens ke liye */
+@media (max-width: 991px) {
+    .value-proposition-section {
+        padding: 40px 20px;
+    }
+
+    .value-proposition-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .value-proposition-block {
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .value-proposition-block img {
+        width: 120px;
+        /* image chhoti */
+        height: auto;
+        /* proportion maintain */
+        margin-bottom: 15px;
+    }
+
+    .value-proposition-title {
+        font-size: 36px;
+        line-height: 1.2;
+        padding: 0 10px;
+    }
+
+    .value-proposition-block h2 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .value-proposition-block p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+
+/* Mobile screens (576px se niche) */
+@media (max-width: 576px) {
+    .value-proposition-section {
+        padding: 30px 15px;
+    }
+
+    .value-proposition-title {
+        font-size: 28px;
+    }
+
+    .value-proposition-block img {
+        width: 90px;
+        /* aur chhoti image */
+    }
+
+    .value-proposition-block h2 {
+        font-size: 22px;
+    }
+
+    .value-proposition-block p {
+        font-size: 15px;
+    }
+}
+
+/* Implant Experience Section */
+.implant-experience-section {
+    /* width: 100%; */
+    min-height: 385px;
+    background-color: #003878;
+    /* Solid blue background color */
+    background-image: url('../../assets/images/workHospital.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px;
+    position: relative;
+}
+
+.implant-experience-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: start;
+    position: relative;
+}
+
+.implant-experience-left {
+    z-index: 2;
+    width: 505px;
+}
+
+.implant-experience-title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--primary-white);
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.implant-experience-title.about-page {
+    font-family: Bebas Neue;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 85px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    text-transform: capitalize;
+    position: absolute;
+    width: 518px;
+    top: 50%;
+    left: 20px;
+}
+
+.implant-experience-description {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 24px;
+    color: var(--primary-white);
+    margin-bottom: 50px;
+}
+
+.implant-experience-btn {
+    max-width: 294px;
+    width: 100%;
+    height: 58px;
+    background: #00ACB2;
+    color: var(--primary-white);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    padding: 0;
+}
+
+.implant-experience-btn a {
+    font-weight: 800;
+    font-size: clamp(16px, 5.2vw, 28px);
+}
+
+.implant-experience-btn:hover {
+    background: #0099a6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 172, 178, 0.3);
+}
+
+.implant-experience-btn a {
+    color: var(--primary-white);
+    text-decoration: none;
+}
+
+.implant-experience-right {
+    width: 465px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 2;
+}
+
+.implant-experience-block {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.implant-experience-subtitle {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--primary-white);
+}
+
+.implant-experience-text {
+    font-size: 21px;
+    font-weight: 300;
+    line-height: 1.3;
+    color: var(--primary-white);
+}
+
+/* Value Proposition Section */
+.value-proposition-section {
+    width: 100%;
+    min-height: 385px;
+    background-color: #003878;
+    background-image: url('../../assets/images/valueProposition.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+.value-proposition-section div,
+.value-proposition-section h2 {
+    position: relative;
+    z-index: 1;
+}
+
+.value-proposition-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgb(0 50 92 / 90%);
+    z-index: 1;
+}
+
+.value-proposition-title {
+    font-size: clamp(28px, 6vw, 64px);
+    font-weight: 700;
+    line-height: 0.5;
+    color: #FFF;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.value-proposition-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: #FFF;
+
+}
+
+.value-proposition-block {
+    width: 30%;
+    text-align: center;
+    /* line-height: 1.5; */
+}
+
+.value-proposition-block h2 {
+    font-size: clamp(22px, 4.2vw, 48px);
+    font-weight: 700;
+    line-height: 0.5;
+    color: #82EBED;
+}
+
+.value-proposition-block h3 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 3;
+    color: #FFF;
+}
+
+.value-proposition-block p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #FFF;
+}
+
+.landing-footer-links span {
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    line-height: 25.6px;
+
+    color: var(--primary-white);
+
+}
+
+
+
+.landing-footer-legal {
+
+    display: flex;
+
+    gap: 30px;
+
+}
+
+
+
+.landing-footer-legal a {
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    line-height: 25.6px;
+
+    color: var(--primary-white);
+
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+
+}
+
+
+/* Mobile Menu Toggle */
+.landing-mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.landing-mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary-dark-blue);
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+.landing-mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.landing-mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.landing-mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* core-services */
+
+.core-services-title {
+    font-weight: 700;
+    font-size: clamp(28px, 6vw, 64px);
+    color: #fff;
+    line-height: 32px;
+    margin-bottom: 40px;
+}
+
+/* testimonials */
+
+.testimonials-title {
+    font-size: clamp(28px, 5.5vw, 64px);
+    color: #00325C;
+    font-weight: 800;
+    max-width: 700px;
+    margin: auto;
+    line-height: 70px;
+}
+
+.testimonials-description {
+    font-size: clamp(14px, 2.4vw, 18px);
+    color: #556171;
+    font-weight: 400;
+    max-width: 650px;
+    margin: auto;
+    line-height: 28px;
+    margin-bottom: 40px;
+}
+
+/* episodes */
+
+.episodes-title {
+    font-size: clamp(28px, 5.5vw, 64px);
+    color: #00325C;
+    font-weight: 800;
+    line-height: 70px;
+    margin-bottom: 15px;
+}
+
+.episodes-description {
+    font-size: clamp(14px, 2.4vw, 18px);
+    color: #556171;
+    font-weight: 400;
+    max-width: 650px;
+    margin: auto;
+    line-height: 28px;
+}
+
+/* footer */
+.stay-in-touch-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 100px;
+}
+
+.stay-in-touch-content {
+    width: 450px;
+    max-width: 100%;
+    text-align: center;
+}
+
+.stay-in-touch-subtitle {
+    font-size: clamp(20px, 4.5vw, 38px);
+    font-weight: 700;
+    line-height: 30px;
+    color: #1D2939;
+    white-space: nowrap;
+    margin-bottom: 8px;
+}
+
+.stay-in-touch-title {
+    font-size: clamp(36px, 10vw, 96px);
+    color: #1D2939;
+    font-weight: 700;
+    line-height: 70px;
+    white-space: nowrap;
+}
+
+@media (max-width : 991px) {
+    .stay-in-touch-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .custom-justify-start {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .stay-in-touch-subtitle {
+        white-space: normal;
+        line-height: 1.3;
+    }
+
+    .stay-in-touch-title {
+        white-space: normal;
+        line-height: 1.1;
+    }
+}
+
+/* Boost typography on small screens */
+@media (max-width: 576px) {
+    .core-services-title {
+        font-size: clamp(32px, 8vw, 64px);
+        line-height: 1.2;
+    }
+
+    .testimonials-title {
+        font-size: clamp(32px, 7.5vw, 64px);
+        line-height: 1.2;
+    }
+
+    .testimonials-description {
+        font-size: clamp(16px, 3vw, 20px);
+        line-height: 1.6;
+    }
+
+    .episodes-title {
+        font-size: clamp(32px, 7.5vw, 64px);
+        line-height: 1.2;
+    }
+
+    .episodes-description {
+        font-size: clamp(16px, 3vw, 20px);
+        line-height: 1.6;
+    }
+
+    .value-proposition-title {
+        font-size: clamp(32px, 8vw, 64px);
+        line-height: 1.2;
+    }
+
+    .value-proposition-block h2 {
+        font-size: clamp(26px, 6vw, 48px);
+        line-height: 1.15;
+    }
+
+    .implant-experience-btn a {
+        font-size: clamp(18px, 6vw, 28px);
+        line-height: 1.3;
+    }
+}
+
+/* Large Desktop */
+@media (max-width: 1440px) {
+    .landing-hero-title {
+        font-size: clamp(32px, 6vw, 90px);
+    }
+
+    .landing-hero-description {
+        font-size: clamp(14px, 1.5vw, 22px);
+        max-width: 580px;
+    }
+
+    /* Meet John Section Responsive */
+    .john-owens-hero-section {
+        padding: 35px 0 100px 0;
+    }
+
+    /* Implant Experience Section Responsive */
+    .implant-experience-section {
+        padding: 50px 0;
+    }
+
+    .implant-experience-left {
+        max-width: 480px;
+    }
+
+    .implant-experience-title {
+        font-size: 40px;
+        padding: 0;
+    }
+
+    .implant-experience-description {
+        font-size: 16px;
+    }
+
+    .implant-experience-subtitle {
+        font-size: 20px;
+    }
+
+    .implant-experience-text {
+        font-size: 14px;
+    }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+    .landing-hero-title {
+        font-size: clamp(30px, 5vw, 64px);
+    }
+
+    .landing-hero-description {
+        font-size: clamp(14px, 1.5vw, 20px);
+        max-width: 600px;
+    }
+
+    /* Meet John Section Responsive */
+    .john-owens-hero-section {
+        padding: 35px 0 100px 0;
+    }
+
+    .john-owens-title {
+        font-size: 42px;
+    }
+
+    .john-owens-subtitle {
+        font-size: 18px;
+    }
+
+
+    .meet-john-section-image {
+        width: 120px;
+        height: 65px;
+    }
+
+    /* Implant Experience Section Responsive */
+    .implant-experience-section {
+        padding: 35px 0 45px 0;
+    }
+
+    .implant-experience-left {
+        max-width: 420px;
+    }
+
+    .implant-experience-title {
+        font-size: 34px;
+    }
+
+    .implant-experience-description {
+        font-size: 15px;
+    }
+
+    .landing-nav-menu {
+
+        gap: 30px;
+        padding: 7px 25px 7px 12px;
+    }
+
+    .landing-btn-login,
+    .landing-btn-member {
+        width: 160px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1300px) {
+    .john-owens-portrait {
+        width: 600px;
+    }
+
+    .implant-experience-section {
+        min-height: 460px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .landing-hero-container {
+        max-width: 720px;
+        padding: 0 1rem;
+    }
+
+
+
+    .landing-hero-title {
+        font-size: clamp(28px, 6vw, 48px);
+    }
+
+
+    .landing-hero-subtitle {
+        font-size: 20px;
+    }
+
+
+    .landing-hero-description {
+        font-size: clamp(13px, 2.2vw, 18px);
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .landing-nav-menu {
+        display: none;
+    }
+
+    .landing-mobile-menu-toggle {
+        display: flex;
+    }
+
+    .landing-auth-buttons {
+        gap: 8px;
+    }
+
+    .landing-btn-login,
+    .landing-btn-member {
+        width: 120px;
+        font-size: 12px;
+        height: 40px;
+    }
+
+    .landing-marquee-img {
+        max-height: 35px;
+    }
+
+    /* Meet John Section Tablet */
+    .john-owens-hero-section {
+        min-height: 45vh;
+        padding: 30px 0 80px 0;
+    }
+
+    .john-owens-title {
+        font-size: 38px;
+        margin-bottom: 8px;
+    }
+
+    .john-owens-subtitle {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .john-owens-portrait {
+        top: 15%;
+    }
+
+    .portrait-container-width {
+        max-width: 100%;
+        margin: 0 20px;
+    }
+
+    .meet-john-section-image {
+        width: 110px;
+        height: 60px;
+        top: 15px;
+        left: 15px;
+    }
+
+    .meet-john-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* Implant Experience Section Tablet */
+
+    .john-owens-portrait {
+        display: none !important;
+    }
+
+    .implant-experience-title.about-page {
+        position: relative;
+    }
+
+    .implant-experience-container {
+        flex-direction: column;
+        align-items: center !important;
+        text-align: center;
+        gap: 5px;
+        margin-top: 20px;
+    }
+
+    .implant-experience-section {
+        padding: 30px 0 40px 0;
+    }
+
+    .implant-experience-left {
+        max-width: 380px;
+    }
+
+    .implant-experience-title {
+        font-size: 32px;
+    }
+
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+    .landing-top-banner {
+        height: 40px;
+    }
+
+    .landing-banner-text {
+        font-size: 18px;
+    }
+
+    .landing-header {
+        height: 80px;
+    }
+
+    .landing-logo-img {
+        max-height: 40px;
+    }
+
+    .landing-hero-section {
+        height: 50vh;
+        padding: 2rem 0;
+    }
+
+    .landing-hero-container {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .landing-hero-title {
+        font-size: clamp(26px, 8vw, 46px);
+        line-height: 1.1;
+    }
+
+    .landing-hero-subtitle {
+        font-size: 20px;
+
+    }
+
+    .landing-hero-description {
+        font-size: clamp(13px, 2.8vw, 18px);
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .landing-hero-badge {
+        width: 150px;
+        height: 50px;
+        margin-bottom: 15px;
+    }
+
+    .landing-badge-img {
+        width: 120px;
+        height: 35px;
+    }
+
+    .landing-cta-button {
+        font-size: 20px;
+        padding: 12px 25px;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .landing-navigation-arrows {
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .landing-nav-arrow {
+        width: 45px;
+        height: 45px;
+    }
+
+    .landing-auth-buttons {
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+    .landing-btn-login,
+    .landing-btn-member {
+        width: 100px;
+        font-size: 11px;
+        height: 36px;
+    }
+
+    .landing-marquee-img {
+        max-height: 30px;
+    }
+
+    /* Meet John Section Mobile Large */
+    .john-owens-hero-section {
+        min-height: 40vh;
+        padding: 25px 0 50px 0;
+    }
+
+    .john-owens-title {
+        font-size: 32px;
+        margin-bottom: 6px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .john-owens-subtitle {
+        font-size: 14px;
+        margin-bottom: 12px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .john-owens-portrait {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 20px auto;
+        display: block;
+        z-index: 1;
+    }
+
+    .meet-john-section-image {
+        width: 70px;
+        height: 40px;
+        top: 10px;
+        left: 10px;
+        z-index: 2;
+    }
+
+    .meet-john-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .john-owens-portrait {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+    }
+
+    /* Implant Experience Section Mobile Large */
+    .implant-experience-section {
+        padding: 25px 0 35px 0;
+    }
+
+    .implant-experience-title {
+        margin-bottom: 0px;
+    }
+
+    .implant-experience-left {
+        padding-right: 0;
+        max-width: 520px;
+        width: 100%;
+        order: 1;
+        margin-bottom: 15px;
+    }
+
+    .implant-experience-right {
+        padding-left: 0;
+        align-items: center;
+        width: 100%;
+        max-width: 520px;
+        order: 2;
+    }
+
+    .implant-experience-title {
+        font-size: 30px;
+    }
+
+    .implant-experience-block {
+        padding: 0;
+    }
+
+    .implant-experience-btn a {
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+}
+
+/* Mobile Medium */
+@media (max-width: 576px) {
+    .landing-hero-title {
+        font-size: 48px;
+    }
+
+    .landing-hero-subtitle {
+        font-size: 22px;
+    }
+
+    .landing-hero-description {
+        font-size: 17px;
+    }
+
+    .landing-cta-button {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+
+    .landing-hero-badge {
+        width: 130px;
+        height: 45px;
+    }
+
+    .landing-badge-img {
+        width: 100px;
+        height: 30px;
+    }
+
+    .landing-nav-container {
+        padding: 0 0.75rem;
+    }
+
+    .landing-logo-img {
+        max-height: 45px;
+    }
+
+    .landing-btn-login,
+    .landing-btn-member {
+        width: 90px;
+        font-size: 10px;
+        height: 32px;
+    }
+
+    .landing-marquee-img {
+        max-height: 28px;
+    }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+    .landing-hero-title {
+        font-size: 40px;
+    }
+
+    .landing-hero-subtitle {
+        font-size: 18px;
+    }
+
+    .landing-hero-description {
+        font-size: 15px;
+    }
+
+
+
+    .landing-cta-button {
+
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    .landing-hero-badge {
+        width: 120px;
+        height: 40px;
+    }
+
+    .landing-badge-img {
+        width: 90px;
+        height: 28px;
+    }
+
+    .landing-nav-container {
+        padding: 0 0.5rem;
+    }
+
+    .landing-marquee-container {
+        padding: 10px 0;
+    }
+
+    .landing-marquee-img {
+        max-height: 25px;
+    }
+
+    /* Meet John Section Mobile Medium */
+    .john-owens-hero-section {
+        padding: 20px 0 40px 0;
+    }
+
+    .john-owens-title {
+        font-size: 28px;
+        margin-bottom: 5px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .john-owens-subtitle {
+        font-size: 12px;
+        margin-bottom: 10px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .john-owens-portrait {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 15px auto;
+        display: block;
+        z-index: 1;
+    }
+
+    .john-portrait-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .meet-john-section-image {
+        width: 60px;
+        height: 35px;
+        top: 8px;
+        left: 8px;
+        z-index: 2;
+    }
+
+    .meet-john-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* Implant Experience Section Mobile Medium */
+    .implant-experience-section {
+        padding: 20px 0 30px 0;
+    }
+
+    .implant-experience-left {
+        width: 100%;
+        max-width: 520px;
+        margin-bottom: 10px;
+    }
+
+    .implant-experience-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .implant-experience-title {
+        font-size: 28px;
+    }
+
+    .implant-experience-right {
+        width: 100%;
+        max-width: 520px;
+        align-items: center;
+    }
+
+    .landing-footer {
+
+        padding: 40px 15px 30px;
+    }
+
+    .landing-footer-experience {
+        font-size: 80px;
+    }
+
+    .landing-footer-implant {
+        font-size: 28px;
+    }
+}
+
+/* Mobile Extra Small */
+@media (max-width: 360px) {
+    .landing-hero-title {
+        font-size: 28px;
+    }
+
+    .landing-hero-subtitle {
+        font-size: 14px;
+    }
+
+    .landing-hero-description {
+        font-size: 12px;
+    }
+
+    .landing-cta-button {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+
+    .landing-hero-badge {
+        width: 110px;
+        height: 35px;
+    }
+
+    .landing-badge-img {
+        width: 80px;
+        height: 25px;
+    }
+
+    /* Meet John Section Mobile Extra Small */
+    .john-owens-hero-section {
+        padding: 15px 0 30px 0;
+    }
+
+    .john-owens-title {
+        font-size: 24px;
+        margin-bottom: 4px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .john-owens-subtitle {
+        font-size: 10px;
+        margin-bottom: 8px;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .john-owens-portrait {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 8px auto;
+        display: block;
+        z-index: 1;
+    }
+
+    .meet-john-section-image {
+        width: 40px;
+        height: 25px;
+        top: 5px;
+        left: 5px;
+        z-index: 2;
+    }
+
+    .meet-john-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* Implant Experience Section Mobile Extra Small */
+    .implant-experience-section {
+        padding: 15px 0 25px 0;
+    }
+
+    .implant-experience-left {
+        max-width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .implant-experience-title {
+        font-size: 18px;
+    }
+
+    .john-owens-portrait {
+        position: relative;
+        transform: none;
+        margin: 20px auto;
+    }
+
+    /* Implant Experience Section Mobile */
+    .implant-experience-section {
+        padding: 40px 0;
+    }
+
+    .implant-experience-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .implant-experience-title {
+        font-size: 20px;
+    }
+
+    .implant-experience-text {
+        font-size: 14px;
+    }
+
+    .implant-experience-block {
+        padding: 20px;
+    }
+
+    .meet-john-section-image {
+        width: 80px;
+        height: 40px;
+        top: 8px;
+        left: 8px;
+    }
+
+}
+
+/* Tablet aur usse chhoti screens ke liye */
+@media (max-width: 991px) {
+    .value-proposition-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        /* blocks ke beech spacing */
+    }
+
+    .value-proposition-block {
+        width: 90%;
+        /* full width ke close tak */
+        text-align: center;
+    }
+
+    .value-proposition-title {
+        font-size: 36px;
+        /* heading chhoti ho jae */
+        line-height: 1.2;
+    }
+
+    .value-proposition-block h2 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .value-proposition-block p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+
+/* Tablet aur usse chhoti screens ke liye */
+@media (max-width: 991px) {
+    .value-proposition-section {
+        padding: 40px 20px;
+        /* top-bottom 40px, left-right 20px */
+    }
+
+    .value-proposition-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        /* blocks ke beech spacing */
+    }
+
+    .value-proposition-block {
+        width: 100%;
+        /* full width use kare */
+        max-width: 500px;
+        /* readability ke liye max width */
+        text-align: center;
+        padding: 0 15px;
+        /* har block me extra inner padding */
+    }
+
+    .value-proposition-title {
+        font-size: 36px;
+        line-height: 1.2;
+        padding: 0 10px;
+        /* title ke sides se bhi gap */
+    }
+
+    .value-proposition-block h2 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .value-proposition-block p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+
+/* Chhoti mobile (max-width: 576px) ke liye aur tight layout */
+@media (max-width: 576px) {
+    .value-proposition-section {
+        padding: 30px 15px;
+    }
+
+    .value-proposition-title {
+        font-size: 28px;
+    }
+
+    .value-proposition-block h2 {
+        font-size: 22px;
+    }
+
+    .value-proposition-block p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 800px) {
+    .years-of-experience-section {
+        display: none;
+    }
+}
+
+.about-page-heading {
+    font-weight: 500;
+    font-size: 96px;
+    line-height: 85px;
+    letter-spacing: -0.8px;
+    vertical-align: middle;
+    color: #00ACB2;
+    margin-bottom: 40px;
+}
+
+.about-page-para {
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 38px;
+    letter-spacing: 0%;
+    margin-bottom: 30px;
+}

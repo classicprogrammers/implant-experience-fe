@@ -1,0 +1,247 @@
+/* Notification Page Styles */
+.notification-page {
+    background: #f6f6f7;
+    min-height: calc(100vh - 80px);
+    padding: 20px;
+}
+
+.notification-page .notification-container {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 32px;
+    min-height: calc(100vh - 144px);
+}
+
+/* Header Section */
+.notification-page .notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.notification-page .notification-title-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.notification-page .notification-icon {
+    width: 21px;
+    height: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.notification-page .notification-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.notification-page .notification-text h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1A365D;
+    margin: 0 0 4px 0;
+    line-height: 1.2;
+}
+
+.notification-page .notification-subtitle {
+    font-size: 16px;
+    color: #6B7280;
+    margin: 0;
+    font-weight: 400;
+}
+
+.notification-page .mark-completed-btn {
+    background: #F0FDFA;
+    color: #00ACB2;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.notification-page .mark-completed-btn:hover {
+    background: #E6F7F8;
+    transform: translateY(-1px);
+}
+
+/* Notification Sections */
+.notification-page .notification-section {
+    margin-bottom: 32px;
+}
+
+.notification-page .section-heading {
+    font-size: 18px;
+    font-weight: 600;
+    color: #6B7280;
+    margin: 0 0 16px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.notification-page .notification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Notification Cards */
+.notification-page .notification-card {
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    border: 1px solid #F3F4F6;
+    transition: all 0.2s ease;
+}
+
+.notification-page .notification-card:hover {
+    transform: translateY(-2px);
+}
+
+.notification-page .card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.notification-page .check-icon {
+    background: #E6F7F8;
+    color: #00ACB2;
+}
+
+.notification-page .wrench-icon {
+    background: #E6F7F8;
+    color: #00ACB2;
+}
+
+.notification-page .exclamation-icon {
+    background: #E6F7F8;
+    color: #00ACB2;
+}
+
+.notification-page .card-content {
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.notification-page .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1A365D;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+}
+
+.notification-page .card-description {
+    font-size: 14px;
+    color: #6B7280;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .notification-page {
+        padding: 20px 16px;
+    }
+
+    .notification-page .notification-header {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .notification-page .notification-title-section {
+        gap: 12px;
+    }
+
+    .notification-page .notification-icon {
+        width: 18px;
+        height: 20px;
+    }
+
+    .notification-page .notification-text h1 {
+        font-size: 24px;
+    }
+
+    .notification-page .notification-subtitle {
+        font-size: 14px;
+    }
+
+    .notification-page .mark-completed-btn {
+        width: 100%;
+        padding: 14px 24px;
+        font-size: 16px;
+    }
+
+    .notification-page .notification-card {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .notification-page .card-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .notification-page .card-title {
+        font-size: 15px;
+    }
+
+    .notification-page .card-description {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .notification-page {
+        padding: 16px 12px;
+    }
+
+    .notification-page .notification-text h1 {
+        font-size: 20px;
+    }
+
+    .notification-page .notification-subtitle {
+        font-size: 13px;
+    }
+
+    .notification-page .section-heading {
+        font-size: 16px;
+    }
+
+    .notification-page .notification-card {
+        padding: 14px;
+        gap: 10px;
+    }
+
+    .notification-page .card-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .notification-page .card-title {
+        font-size: 14px;
+    }
+
+    .notification-page .card-description {
+        font-size: 12px;
+    }
+}

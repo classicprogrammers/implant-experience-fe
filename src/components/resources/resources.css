@@ -1,0 +1,97 @@
+.custom-faq-section{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 20px;
+}
+
+/* FAQ Animation Styles */
+.faq-answer {
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: white;
+}
+
+.faq-answer-closed {
+    max-height: 0;
+    opacity: 0;
+    padding: 0 20px;
+    transform: translateY(-10px);
+}
+
+.faq-answer-open {
+    max-height: 200px;
+    opacity: 1;
+    padding: 0 20px 16px 20px;
+    transform: translateY(0);
+    animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-answer-content {
+    animation: fadeInUp 0.3s ease-out 0.1s both;
+}
+
+/* Keyframe Animations */
+@keyframes slideDown {
+    0% {
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        max-height: 200px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered animation delays for multiple FAQs */
+.faq-answer:nth-child(1) .faq-answer-content {
+    animation-delay: 0.1s;
+}
+
+.faq-answer:nth-child(2) .faq-answer-content {
+    animation-delay: 0.15s;
+}
+
+.faq-answer:nth-child(3) .faq-answer-content {
+    animation-delay: 0.2s;
+}
+
+.faq-answer:nth-child(4) .faq-answer-content {
+    animation-delay: 0.25s;
+}
+
+.faq-answer:nth-child(5) .faq-answer-content {
+    animation-delay: 0.3s;
+}
+
+.faq-answer:nth-child(6) .faq-answer-content {
+    animation-delay: 0.35s;
+}
+
+/* Smooth icon rotation */
+.faq-button svg {
+    transition: transform 0.3s ease;
+}
+
+.faq-button[aria-expanded="true"] svg {
+    transform: rotate(45deg);
+}
+
+@media (max-width: 1080px) {
+    .custom-faq-section{
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
