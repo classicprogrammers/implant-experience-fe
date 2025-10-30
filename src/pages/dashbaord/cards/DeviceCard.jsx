@@ -57,6 +57,8 @@ const DeviceCard = () => {
     const [error, setError] = useState(null)
     const [searchTerm, setSearchTerm] = useState('')
     const [statusFilter, setStatusFilter] = useState('all')
+    const [currentPage, setCurrentPage] = useState(1)
+    const pageSize = 5
 
     // Fetch devices from API
     const fetchDevices = async () => {
@@ -64,9 +66,12 @@ const DeviceCard = () => {
             setLoading(true)
             setError(null)
             const response = await api.get('/devices')
-            
-            if (response.data.success && Array.isArray(response.data.data.devices)) {
-                setDevices(response.data.data.devices)
+
+            if (response.data?.success) {
+                // Accept both shapes: { data: { devices: [] }} or { data: [] }
+                const payload = response.data.data?.devices ?? response.data.data ?? []
+                const list = Array.isArray(payload) ? payload : []
+                setDevices(list)
             } else {
                 setError('Failed to fetch devices')
                 setDevices([]) // Ensure devices is always an array
@@ -95,6 +100,12 @@ const DeviceCard = () => {
 
         return matchesSearch && matchesStatus
     }) : []
+
+    // Pagination
+    const totalPages = Math.max(1, Math.ceil(filteredDevices.length / pageSize))
+    const safePage = Math.min(currentPage, totalPages)
+    const startIdx = (safePage - 1) * pageSize
+    const paginatedDevices = filteredDevices.slice(startIdx, startIdx + pageSize)
 
     // Format date for display
     const formatDate = (dateString) => {
@@ -176,28 +187,27 @@ const DeviceCard = () => {
                     <h2 className="devices-title">My Devices</h2>
                 </Link>
                 <div className="devices-controls">
-                    <div className="filter-pill">
+                    <div className="filter-pill" title="Filter by device status">
                         <select
                             value={statusFilter}
                             onChange={(e) => setStatusFilter(e.target.value)}
                             className="filter-select"
+                            aria-label="Filter by Status"
+                            style={{ paddingRight: '1.75rem', borderRadius: 12 }}
                         >
                             <option value="all">All Status</option>
-                            <option value="active">Active</option>
-                            <option value="safe">Safe</option>
-                            <option value="monitor">Monitor</option>
-                            <option value="recall">Recall</option>
+                            <optgroup label="Statuses">
+                                <option value="safe">Safe</option>
+                                <option value="monitor">Monitor</option>
+                                <option value="recall">Recall</option>
+                                <option value="active">Active</option>
+                            </optgroup>
                         </select>
-                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
                             <path d="M5 8l5 5 5-5H5z" />
                         </svg>
                     </div>
-                    <div className="filter-pill">
-                        <span>All Priority</span>
-                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M5 8l5 5 5-5H5z" />
-                        </svg>
-                    </div>
+                    {/* Priority filter hidden as requested */}
                     <div className="search-container-dashboard">
                         <input
                             type="text"
@@ -224,7 +234,7 @@ const DeviceCard = () => {
                         <p>No devices found</p>
                     </div>
                 ) : (
-                    filteredDevices.map((device) => (
+                    paginatedDevices.map((device) => (
                         <div key={device.id} className="table-row">
                             <div className="table-cell">
                                 <div className="device-info">
@@ -250,6 +260,42 @@ const DeviceCard = () => {
                     ))
                 )}
             </div>
+            {/* Pagination Controls */}
+            {filteredDevices.length > pageSize && (
+                <div className="pagination-controls" style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '16px', flexWrap: 'wrap' }}>
+                    <button
+                        className="ocr-action-button"
+                        style={{ width: 'auto', padding: '0.35rem 0.9rem' }}
+                        onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                        disabled={safePage === 1}
+                    >
+                        Prev
+                    </button>
+                    {Array.from({ length: totalPages }).map((_, i) => (
+                        <button
+                            key={i}
+                            onClick={() => setCurrentPage(i + 1)}
+                            className="ocr-action-button"
+                            style={{
+                                width: 'auto',
+                                padding: '0.35rem 0.9rem',
+                                background: safePage === i + 1 ? '#00ACB2' : '#E2E8F0',
+                                color: safePage === i + 1 ? '#fff' : '#11142D'
+                            }}
+                        >
+                            {i + 1}
+                        </button>
+                    ))}
+                    <button
+                        className="ocr-action-button"
+                        style={{ width: 'auto', padding: '0.35rem 0.9rem' }}
+                        onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                        disabled={safePage === totalPages}
+                    >
+                        Next
+                    </button>
+                </div>
+            )}
         </div>
     )
 }

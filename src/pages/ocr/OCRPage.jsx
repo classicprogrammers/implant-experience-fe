@@ -21,6 +21,7 @@ function OCRPage() {
         part_description: ''
     })
     const [uploadedFile, setUploadedFile] = useState(null)
+    const [previewUrl, setPreviewUrl] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
@@ -41,8 +42,8 @@ function OCRPage() {
     }
 
     const isStep2Complete = () => {
-        const { manufacturer, catalog_no, udi_pi_lot, part_description } = manualData
-        return [manufacturer, catalog_no, udi_pi_lot, part_description].every((v) => v && String(v).trim())
+        const { manufacturer, catalog_no, udi_pi_lot, part_description, udi_di } = manualData
+        return [manufacturer, catalog_no, udi_pi_lot, part_description, udi_di].every((v) => v && String(v).trim())
     }
 
     const handleNext = () => {
@@ -79,6 +80,10 @@ function OCRPage() {
         const file = e.target.files[0]
         if (file) {
             setUploadedFile(file)
+            try {
+                const url = URL.createObjectURL(file)
+                setPreviewUrl(url)
+            } catch { /* ignore */ }
         }
     }
 
@@ -162,9 +167,10 @@ function OCRPage() {
             if (!manualData.catalog_no) newErrors.catalog_no = 'Catalog number is required'
             if (!manualData.udi_pi_lot) newErrors.udi_pi_lot = 'Lot number is required'
             if (!manualData.part_description) newErrors.part_description = 'Part description is required'
+            if (!manualData.udi_di) newErrors.udi_di = 'UDI-DI is required'
         }
         // Field-specific rules
-        if (manualData.udi_di && !/^\d{14}$/.test(manualData.udi_di)) {
+        if (!manualData.udi_di || !/^\d{14}$/.test(manualData.udi_di)) {
             newErrors.udi_di = 'UDI-DI must be exactly 14 digits'
         }
         if (manualData.implant_date && isNaN(Date.parse(manualData.implant_date))) {
@@ -178,10 +184,6 @@ function OCRPage() {
 
         try {
             const submitData = { ...manualData }
-            // Do not send optional UDI-DI if left empty, to avoid backend validation
-            if (!manualData.udi_di) {
-                delete submitData.udi_di
-            }
             console.log('[OCR] Registering implant with data (payload to /devices):', submitData)
 
             // Call the /devices API to create the device
@@ -292,27 +294,27 @@ function OCRPage() {
                         </div>
 
                         {getCurrentStepNumber() !== 3 && (
-                        <div className="tab-toggle">
-                            <button
-                                className={`tab-button ${activeTab === 'manual' ? 'active' : ''}`}
-                                onClick={() => {
-                                    setActiveTab('manual')
-                                    setCurrentStep(1)
-                                }}
-                            >
-                                Manual
-                            </button>
-                            <button
-                                className={`tab-button ${activeTab === 'ocr' ? 'active' : ''}`}
-                                onClick={() => {
-                                    setActiveTab('ocr')
-                                    setCurrentStep(3)
-                                }}
-                            >
-                                OCR Upload
-                            </button>
-                        </div>
-                         )} 
+                            <div className="tab-toggle">
+                                <button
+                                    className={`tab-button ${activeTab === 'manual' ? 'active' : ''}`}
+                                    onClick={() => {
+                                        setActiveTab('manual')
+                                        setCurrentStep(1)
+                                    }}
+                                >
+                                    Manual
+                                </button>
+                                <button
+                                    className={`tab-button ${activeTab === 'ocr' ? 'active' : ''}`}
+                                    onClick={() => {
+                                        setActiveTab('ocr')
+                                        setCurrentStep(3)
+                                    }}
+                                >
+                                    OCR Upload
+                                </button>
+                            </div>
+                        )}
 
                         {/* Step Heading - Only show for Steps 1 and 2 */}
                         {getCurrentStepNumber() !== 3 && (
@@ -330,14 +332,22 @@ function OCRPage() {
                                 {uploadedFile ? (
                                     <div className="upload-area">
                                         <div className='flex justify-between items-center'>
-                                            <div className="uploaded-file-info">
-                                                <p><strong>Selected File:</strong> {uploadedFile.name}</p>
+                                            <div className="uploaded-file-info" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                                {uploadedFile && uploadedFile.type && uploadedFile.type.startsWith('image/') && previewUrl ? (
+                                                    <img src={previewUrl} alt="Preview" style={{ width: '120px', height: '80px', objectFit: 'cover', borderRadius: '8px', border: '1px solid #e5e7eb' }} />
+                                                ) : (
+                                                    <p><strong>Selected File:</strong> {uploadedFile?.name}</p>
+                                                )}
                                             </div>
                                             <button
                                                 type="button"
                                                 className="remove-file-button bg-transparent text-[red] p-4"
                                                 onClick={() => {
                                                     setUploadedFile(null)
+                                                    if (previewUrl) {
+                                                        try { URL.revokeObjectURL(previewUrl) } catch { /* ignore */ }
+                                                        setPreviewUrl(null)
+                                                    }
                                                 }}
                                                 title="Remove file"
                                             >
@@ -586,8 +596,9 @@ function OCRPage() {
                                                     name="udi_di"
                                                     value={manualData.udi_di}
                                                     onChange={handleManualChange}
-                                                    placeholder="UDI :"
-                                                    maxlength="14"
+                                                    placeholder="UDI (14 digits) :"
+                                                    maxLength="14"
+                                                    required
                                                 />
                                                 {validationErrors.udi_di && (
                                                     <div style={{ color: '#ef4444', fontSize: '12px', marginTop: '6px' }}>{validationErrors.udi_di}</div>
@@ -649,7 +660,19 @@ function OCRPage() {
 
                         {/* Submit Button - Only show on OCR tab */}
                         {activeTab === 'ocr' && (
-                            <div className="submit-button-wrapper">
+                            <div className="flex justify-center items-center gap-[10px]">
+                                <button
+                                    type="button"
+                                    className="ocr-action-button"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        setActiveTab('manual')
+                                        setCurrentStep(1)
+                                    }}
+                                >
+                                    Skip
+                                </button>
+
                                 <button
                                     type="button"
                                     className="ocr-action-button"

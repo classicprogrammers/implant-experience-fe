@@ -76,7 +76,7 @@
     margin-left: auto;
     margin-right: auto;
     /* Reserve consistent header space across steps */
-    height: 40px;
+    height: 20px;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
 }
@@ -202,8 +202,8 @@
 
 /* OCR Upload Section */
 .ocr-page-wrapper .ocr-upload-section {
-    margin-bottom: 0;
-    /* avoid extra gap before submit to align with steps 1-2 */
+    margin-bottom: 1.5rem;
+    /* match the gap before buttons like steps 1-2 */
     width: 100%;
     max-width: 680px;
     margin-left: auto;
@@ -217,9 +217,16 @@
 }
 
 .upload-area {
-    border: 1px dashed #D5D8E2;
+    /* border: 5px solid transparent;
+    border-image-source: repeating-linear-gradient(
+      to right,
+      #A5A5A5 0 10px,
+      transparent 10px 20px
+    ); */
+    border: 1.5px dashed #A5A5A5;
+    border-image-slice: 1;
     border-radius: 12px;
-    padding: 3rem;
+    padding: 2.5rem;
     text-align: center;
     margin-bottom: 1.5rem;
     transition: all 0.3s ease;
@@ -247,7 +254,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.45rem;
     cursor: pointer;
     width: 100%;
 }
@@ -265,7 +272,7 @@
 .ocr-page-wrapper .upload-text {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.10rem;
 }
 
 .ocr-page-wrapper .upload-title {
@@ -307,7 +314,7 @@
 .browse-button-wrapper {
     display: flex;
     justify-content: center;
-    margin-top: 1.95rem;
+    margin-top: 1.75rem;
     /* add a little space below the upload text */
 }
 
@@ -316,8 +323,8 @@
     color: #ffffff;
     border: none;
     border-radius: 8px;
-    padding: 0.4rem 2rem;
-    width: 170px;
+    padding: 0.3rem 2rem;
+    width: 250px;
     font-weight: 700;
 }
 
@@ -447,6 +454,23 @@
         padding: 0.625rem 1rem;
     }
 
+    /* Stack action buttons vertically on tablet and below */
+    .ocr-page-wrapper .step-actions,
+    .ocr-page-wrapper .submit-button-wrapper {
+        flex-direction: column !important;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .ocr-page-wrapper .submit-button-wrapper>* {
+        width: 100%;
+    }
+
+    .ocr-page-wrapper .ocr-action-button {
+        width: 100%;
+        min-width: auto;
+    }
+
     .ocr-page-wrapper .step-heading h1 {
         font-size: 1.25rem;
     }
@@ -466,6 +490,13 @@
 
     .ocr-page-wrapper .section-title {
         font-size: 1.25rem;
+    }
+
+    /* Smaller Browse button on tablet */
+    .browse-button {
+        width: 140px;
+        padding: 0.35rem 1rem;
+        font-size: 0.95rem;
     }
 }
 
@@ -517,6 +548,13 @@
     .ocr-page-wrapper .progress-bar-container {
         margin-bottom: 1rem;
         margin-top: 2.5rem;
+    }
+
+    /* Even smaller Browse button on mobile */
+    .browse-button {
+        width: 120px;
+        padding: 0.3rem 0.9rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -574,7 +612,7 @@
 
 /* Submit Button Wrapper */
 .ocr-page-wrapper .submit-button-wrapper {
-    margin-top: 3rem;
+    margin-top: 5.5rem;
     margin-bottom: 20px;
     /* align with step actions spacing */
     display: flex;
@@ -587,6 +625,7 @@
     display: flex;
     gap: 1rem;
     margin-top: 4.5rem;
+    margin-bottom: 20px;
     justify-content: center;
 }
 
