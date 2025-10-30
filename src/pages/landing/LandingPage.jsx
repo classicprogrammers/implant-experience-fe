@@ -47,26 +47,27 @@ function LandingPage() {
           </div>
 
           <div className="landing-hero-section-content">
-            <h2 className="landing-hero-subtitle">Stay Informed. Stay Protected.</h2>
             <h1 className="landing-hero-title">
               Your <span className="landing-highlight-underline">Devices.</span><br />
               Your Data.
             </h1>
+            <h2 className="landing-hero-subtitle">Your Peace of Mind.</h2>
             <p className="landing-hero-description">
-              Get real-time updates about your device status, data access, and health compliance — all in one place.
+              Take control of your medical device implant journey. Your life may depend on it. Get real-time updates about your device status, instant recall notifications, and transparent unbiased access to information related to your implant data.
             </p>
 
             <div className="landing-hero-cta">
               <Link to="/signup" className="landing-cta-button">Become a Member</Link>
+              <p className="landing-hero-description" style={{ marginBottom: '0px' }}>Join 50,000+ Empowered Patients</p>
               <div className="landing-navigation-arrows">
-                <button className="landing-nav-arrow prev">
+                <button className="landing-nav-arrow prev" style={{ padding: '0' }}>
                   <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
                     <path d="M44 0.5H6C2.96243 0.5 0.5 2.96243 0.5 6V44C0.5 47.0376 2.96243 49.5 6 49.5H44C47.0376 49.5 49.5 47.0376 49.5 44V6C49.5 2.96243 47.0376 0.5 44 0.5Z" stroke="white" strokeOpacity="0.12" />
                     <path d="M32 24.9996H20" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     <path d="M25 19L19 25L25 31" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
-                <button className="landing-nav-arrow next">
+                <button className="landing-nav-arrow next" style={{ padding: '0' }}>
                   <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
                     <path d="M44 0H6C2.68629 0 0 2.68629 0 6V44C0 47.3137 2.68629 50 6 50H44C47.3137 50 50 47.3137 50 44V6C50 2.68629 47.3137 0 44 0Z" fill="white" fillOpacity="0.2" />
                     <path d="M19 25.0004H31" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -86,46 +87,40 @@ function LandingPage() {
         textColor="white"
       />
       {/* Section 2 - Mission Statement */}
-      <section className="bg-[#133C75] text-white">
-        <div className="px-4 sm:px-6 ">
-          <div className="flex gap-6 bg-[#0A3C78] items-center custom-flex-col">
-            {/* Left side image */}
-            <div className="w-full lg:w-5/12">
-              <img
-                src={stethoscope}
-                alt="stethoscope"
-                className="w-full h-auto object-cover max-h-[700px]"
-              />
-            </div>
+      <section className="bg-[#133C75] text-white mission-statement-section">
+        {/* Left side image */}
+        <div className="mission-statement-image">
+          <img
+            src={stethoscope}
+            alt="stethoscope"
+            className="w-full"
+          />
+        </div>
 
-            {/* Right side content */}
-            <div className="w-full lg:w-7/12 p-6 p-[50px] text-white leading-relaxed">
-              <div className=''>
-                <h2 className="text-6xl md:text-4xl font-bold text-[#82EBED] mb-[20px]">
-                  Mission Statement – <br className="hidden md:block" /> The Ethical Obligation
-                </h2>
+        {/* Right side content */}
+        <div className="mission-statement-content">
+          <h2 className="mission-statement-title">
+            Mission Statement – <br className="hidden md:block" /> The Ethical Obligation
+          </h2>
 
-                <p className="text-base leading-relaxed text-white mb-[20px]">
-                  Born from the urgent need exposed by countless device failures and regulatory gaps,
-                  The Implant Experience is more than a tracking service – it’s a movement toward
-                  patient empowerment and device accountability.
-                </p>
+          <p className="mission-statement-para">
+            Born from the urgent need exposed by countless device failures and regulatory gaps,
+            The Implant Experience is more than a tracking service – it’s a movement toward
+            patient empowerment and device accountability.
+          </p>
+          <hr className="mission-statement-hr" />
 
-                <p className="text-base leading-relaxed text-white mb-[20px]">
-                  With 32 million Americans living with implanted medical devices and a history of systemic
-                  failures in device and implant monitoring, we are building the safety net that should have
-                  existed all along. It’s our ethical obligation to do so. Our platform bridges the dangerous
-                  gap between device manufacturers, healthcare providers, and the patients whose lives depend
-                  on these technologies.
-                </p>
+          <p className="mission-statement-para">
+            With 32 million Americans living with implanted medical devices and a history of systemic
+            failures in device and implant monitoring, we are building the safety net that should have
+            existed all along. It’s our ethical obligation to do so. Our platform bridges the dangerous
+            gap between device manufacturers, healthcare providers, and the patients whose lives depend
+            on these technologies.
+          </p>
 
-                <button className="bg-[#82EBED] text-[18px] text-[#133C75] font-bold px-5 py-2 rounded-[8px] shadow-md hover:bg-[#6bd9da] transition">
-                  <Link to="/signup" className='text-[#133C75]'>Become a Member</Link>
-                </button>
-
-              </div>
-            </div>
-          </div>
+          <button className="mission-statement-btn transition">
+            <Link to="/signup" className='text-[#133C75]'>Become a Member</Link>
+          </button>
         </div>
       </section>
       {/* Meet John P. Owens Section */}
@@ -133,7 +128,7 @@ function LandingPage() {
         <div className="meet-john-section-image">
           <img src={meetjohnSec} alt="Meet John Section" className="meet-john-img" />
         </div>
-        <div className="john-owens-hero-container">
+        <div className="john-owens-hero-container max-w-7xl mx-auto px-[15px]">
           <div className="john-owens-content">
             <h1 className="john-owens-title">Meet John P. Owens</h1>
             <h2 className="john-owens-subtitle">John Owens - Founder & CEO</h2>
@@ -152,28 +147,24 @@ function LandingPage() {
           </div>
           <div className="implant-experience-container">
             <div className="implant-experience-left">
-              <div className='portrait-container-width'>
-                <h2 className="implant-experience-title">During My Years Working With Hospitals,</h2>
-                <p className="implant-experience-description">
-                  I Saw The Human Cost Of Poor Device Oversight. Patients Like Angie Firmalino, Dr. Stephen Tower, And Thousands Of Others Suffered Because Our System Prioritizes Speed To Market Over Safety.
-                </p>
-                <button className="implant-experience-btn">
-                  <Link to="/signup">See more</Link>
-                </button>
-              </div>
+              <h2 className="implant-experience-title">During My Years Working With Hospitals,</h2>
+              <p className="implant-experience-description">
+                I saw the human cost of poor device oversight. Patients like Angie Firmalino, Dr. Stephen Tower, and thousands of others suffered because our system prioritizes speed to market over safety.
+              </p>
+              <button className="implant-experience-btn">
+                <Link to="/signup">See more</Link>
+              </button>
             </div>
 
             <div className="implant-experience-right">
-              <div className='portrait-container-width'>
-                <div className="implant-experience-block">
-                  <h3 className="implant-experience-subtitle">The Implant Experience is</h3>
-                  <p className="implant-experience-text">our answer to a broken system that has left patients in the dark for too long.</p>
-                </div>
+              <div className="implant-experience-block">
+                <h3 className="implant-experience-subtitle">The Implant Experience is</h3>
+                <p className="implant-experience-text">our answer to a broken system that has left patients in the dark for too long.</p>
+              </div>
 
-                <div className="implant-experience-block">
-                  <h3 className="implant-experience-subtitle">His Mission:</h3>
-                  <p className="implant-experience-text">Transform device tracking from a regulatory afterthought into a patient-centered right.</p>
-                </div>
+              <div className="implant-experience-block">
+                <h3 className="implant-experience-subtitle">His Mission:</h3>
+                <p className="implant-experience-text">Transform device tracking from a regulatory afterthought into a patient-centered right.</p>
               </div>
             </div>
           </div>
@@ -202,7 +193,7 @@ function LandingPage() {
       <Testimonials testimonials={testimonialsData} />
       {/* Episodes */}
       <Episodes episodes={episodesData} />
-    </div >    
+    </div >
   )
 }
 

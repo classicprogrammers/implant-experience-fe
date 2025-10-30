@@ -44,8 +44,8 @@ function NewsLetter() {
       <section className='newsletter-hero-Section'
       >
         {/* Heading */}
-        <div className="news-heading max-w-3xl">
-          <h1 className="text-white  sm:text-6xl md:text-7xl leading-tight">
+        <div className="news-heading">
+          <h1 className="news-heading-title">
             Stay Informed. Stay Protected.
           </h1>
           <p className="text-white/80 text-md sm:text-xl mt-5 leading-relaxed">
@@ -83,11 +83,15 @@ function NewsLetter() {
         </div>
 
         {/* Bottom Text */}
-        <div className="mt-10 text-center">
-          <p className="text-[#0ABAB5] font-semibold text-lg">
-            SUBSCRIBE NOW <span className="text-white">TO OUR NEWSLETTER</span>
+        <div className="stay-in-touch-content" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+          {/* Top Line Text */}
+          <p className="stay-in-touch-subtitle" style={{ fontFamily: 'Bebas Neue, sans-serif' }}>
+            <span className="text-[#10D0DC]">SUBSCRIBE NOW</span>
+            <span className="text-white"> TO OUR NEWSLETTER</span>
           </p>
-          <h2 className="text-[#0ABAB5] font-extrabold text-5xl sm:text-6xl mt-2 tracking-wide">
+
+          {/* Main Heading */}
+          <h2 className="stay-in-touch-title" style={{ fontFamily: 'Bebas Neue, sans-serif', lineHeight: '1', color: '#10D0DC' }}>
             STAY IN TOUCH
           </h2>
         </div>
@@ -95,13 +99,13 @@ function NewsLetter() {
 
 
       <section className="newsletter w-full flex justify-center py-[30px] px-4 bg-white">
-        <div className="max-w-4xl w-full">
+        <div className="max-w-5xl w-full">
           {/* === Header === */}
-          <div className="header border-b border-gray-200 pb-[20px] pt-[20px] text-center display-flex flex-col items-center ">
-            <h1 className="text-[58px] font-extrabold  leading-tight text-[#121212">
+          <div className="header pb-[40px] pt-[20px] text-center display-flex flex-col items-center ">
+            <h1 className="news-letter-topic-title">
               Topics Include
             </h1>
-            <p className="text-gray-500 text-[14px] mt-2 text-center">
+            <p className="text-[#555555] text-[16px] mt-2 text-center font-[600]">
               Arolax is a beacon of best innovation and the dynamic parent a
               company of wealcoder and many other subsidiaries.
             </p>
@@ -117,30 +121,33 @@ function NewsLetter() {
                   }
                   className="flex justify-between items-center cursor-pointer py-[20px]"
                 >
-                  <div className="flex items-center gap-10 news-letter-topic-col">
-                    <span className="text-gray-800 text-[15px] w-[90px]">
+                  <div className="flex gap-10 news-letter-topic-col">
+                    <span className="text-[#121212] text-[24px] font-medium w-[200px]">
                       {topic.date}
                     </span>
-                    <span className="text-black text-[17px] font-medium tracking-tight">
-                      {topic.title}
-                    </span>
+                    <div>
+                      <span className="text-[#121212] text-[24px] font-medium tracking-tight">
+                        {topic.title}
+                      </span>
+                      {openIndex === index && (
+                        <div className="mt-1 text-gray-600 text-[15px] leading-relaxed">
+                          {topic.content}
+                        </div>
+                      )}
+                    </div>
                   </div>
 
-                  <div className="text-gray-800">
+                  <div className="text-[#121212]">
                     {openIndex === index ? (
-                      <FaMinus size={12} />
+                      <FaMinus size={16} />
                     ) : (
-                      <FaPlus size={12} />
+                      <FaPlus size={16} />
                     )}
                   </div>
                 </div>
 
                 {/* === Dropdown === */}
-                {openIndex === index && (
-                  <div className="mb-3 ml-[130px] text-gray-600 text-[15px] leading-relaxed">
-                    {topic.content}
-                  </div>
-                )}
+
               </div>
             ))}
           </div>

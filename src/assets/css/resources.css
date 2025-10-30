@@ -16,7 +16,7 @@
 
 .hero-Section {
   width: 100%;
-  min-height: 50vh;
+  min-height: 460px;
   background: linear-gradient(rgba(0, 51, 92, 0.945), rgba(0, 51, 92, 0.932)), url('../images/resourseTopicBg.jpg');
   background-size: cover;
   background-position: center;
@@ -28,8 +28,7 @@
 }
 
 .hero-Section h1 {
-  max-width: 1000px;
-  font-size: 85px;
+  font-size: 128px;
 
 }
 
@@ -38,7 +37,7 @@
   min-height: 60vh;
   background-size: cover;
   align-items: center;
-  padding: 80px 0 0 0;
+  padding: 100px 0 0 0;
 }
 
 .popular-topics h1 {
@@ -51,13 +50,14 @@
 
 .image-container {
   position: relative;
-  width: 80%;
+  width: 100%;
+  max-width: 909px;
   margin: 0 auto;
 }
 
 .image {
   width: 100%;
-  max-height: 50vh;
+  max-height: 535px;
   border-radius: 20px;
   object-fit: cover;
 }
@@ -92,14 +92,15 @@
 }
 
 .image-details {
-  width: 80%;
+  width: 100%;
+  max-width: 909px;
   margin: 20px auto 0;
   color: #0C1312;
   padding-bottom: 20px;
 }
 
 .comment-line {
-  border-bottom: 2px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
 
 }
 
@@ -127,10 +128,10 @@
 }
 
 .blog-title {
-  font-size: 26px;
+  font-size: 32px;
   font-weight: 700;
   color: #232323;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 5px;
   /* border-bottom: 2px solid #0B1030; */
   display: inline-block;
@@ -141,9 +142,8 @@
 .blog-text {
   font-size: 16px;
   color: #444444;
-  max-width: 800px;
-  line-height: 1.6;
-  font-weight: 500;
+  line-height: 30px;
+  font-weight: 400;
 }
 
 .plus-sign {
@@ -183,7 +183,9 @@
 }
 
 .topics-container {
-  width: 80% !important;
+  width: 100% !important;
+  max-width: 909px;
+  margin: 0 auto;
   min-height: 60vh;
   background: linear-gradient(rgba(75, 103, 106, 0.9), rgba(75, 103, 106, 0.9)),
     url("../images/topics.jpg");
@@ -237,7 +239,9 @@
 /* Each card */
 .health-container {
   position: relative;
-  width: 80%;
+  width: 100%;
+  max-width: 870px;
+  margin: 0 auto;
   background: #fff;
   border: 1px solid rgba(224, 224, 224, 1);
   border-radius: 20px;
@@ -256,9 +260,9 @@
   top: -15px;
   left: 40px;
   background: #D8EDF0;
-  color: var(--primary-dark-blue);
-  font-weight: 600;
-  font-size: 0.9rem;
+  color: #133C75;
+  font-weight: 700;
+  font-size: 14px;
   padding: 4px 12px;
   border-radius: 9999px;
 }
@@ -295,9 +299,9 @@
 }
 
 .health-comments {
-  color: var(--primary-dark-blue);
-  font-size: 15px;
-  font-weight: 500;
+  color: #133C75;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 /* Divider line */
@@ -309,7 +313,7 @@
 
 /* Title */
 .health-title {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 700;
   color: var(--text-dark);
   text-decoration: underline;
@@ -318,10 +322,11 @@
 
 /* Paragraph */
 .health-text {
-  color: var(--text-gray);
-  font-size: 15.5px;
-  line-height: 1.7;
+  color: #444444;
+  font-size: 16px;
+  line-height: 30px;
   margin-bottom: 10px;
+  font-weight: 400;
 }
 
 /* Plus sign */
@@ -341,7 +346,8 @@
 /* Laptop */
 @media (max-width: 1200px) {
   .health-container {
-    width: 75%;
+    width: 100%;
+    max-width: 909px;
     padding: 40px;
   }
 }
@@ -349,7 +355,8 @@
 /* Tablet */
 @media (max-width: 900px) {
   .health-container {
-    width: 85%;
+    width: 100%;
+    max-width: 909px;
     padding: 30px;
   }
 
@@ -365,7 +372,8 @@
 /* Mobile */
 @media (max-width: 600px) {
   .health-container {
-    width: 90%;
+    width: 100%;
+    max-width: 909px;
     padding: 25px 20px;
   }
 
@@ -403,12 +411,6 @@
     /* thoda bada heading for desktop */
   }
 
-  .blog-text {
-    font-size: 28px;
-    /* readable paragraph */
-    line-height: 1.8;
-  }
-
   .blog-meta span.comments {
     width: 40%;
     font-size: 20px;
@@ -421,8 +423,8 @@
   }
 
   .topics-container {
-    width: 55%;
-    /* thoda narrow taake center aur appealing lage */
+    width: 100% !important;
+    max-width: 909px;
   }
 }
 
@@ -452,7 +454,8 @@
 
   .image-container,
   .image-details {
-    width: 80%;
+    width: 100%;
+    max-width: 909px;
   }
 
   .blog-meta {
@@ -470,7 +473,8 @@
   }
 
   .topics-container {
-    width: 85%;
+    width: 100% !important;
+    max-width: 909px;
     padding: 30px 0;
   }
 
@@ -508,7 +512,8 @@
 
   .image-container,
   .image-details {
-    width: 95%;
+    width: 100%;
+    max-width: 909px;
   }
 
   .blog-meta {
@@ -527,7 +532,8 @@
   }
 
   .topics-container {
-    width: 95%;
+    width: 100% !important;
+    max-width: 909px;
     padding: 20px;
     border-radius: 12px;
   }

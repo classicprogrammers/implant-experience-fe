@@ -106,7 +106,7 @@
 } */
 
 .footer-logo-image {
-  width: min(90%, 500px);
+  width: min(90%, 550px);
   height: auto;
   object-fit: contain;
 }
@@ -140,19 +140,20 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  margin-bottom: 40px;
 }
 
 /* Left Column */
 .footer-left {
   display: flex;
   gap: 30px;
+  max-width: 520px;
 }
 
 /* Right Column */
 .footer-right {
   display: flex;
   gap: 30px;
+  max-width: 520px;
 }
 
 /* Footer Sections */
@@ -216,14 +217,16 @@
   /* Teal background */
   color: white;
   border: none;
-  padding: 10px 30px;
-  font-size: 14px;
+  padding: 0;
+  font-size: 18px;
   font-weight: 800;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   width: fit-content;
   letter-spacing: 0.5px;
+  width: 232px;
+  height: 58px;
 }
 
 .claim-button:hover {
@@ -245,7 +248,7 @@
 
 .footer-bottom-left,
 .footer-bottom-right {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .footer-bottom-center {
@@ -296,6 +299,13 @@
     gap: 40px;
   }
 
+  .footer-left,
+  .footer-right {
+    flex-direction: column;
+    max-width: 100%;
+    gap: 20px;
+  }
+
   .footer-bottom-content {
     flex-direction: column;
     gap: 20px;
@@ -316,11 +326,7 @@
     gap: 10px;
     text-align: center;
   }
-
-  .footer {
-    padding: 40px 0 0 0;
-  }
-
+  
   .footer-logo-image {
     width: min(95%, 380px);
   }
@@ -329,6 +335,12 @@
 @media (max-width: 480px) {
   .footer-content {
     padding: 0 15px;
+  }
+
+  .footer-left,
+  .footer-right {
+    gap: 16px;
+    align-items: flex-start;
   }
 
   .section-text {

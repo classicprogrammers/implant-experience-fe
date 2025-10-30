@@ -14,7 +14,7 @@ const CoreServices = ({ services = [] }) => {
                     <p className="text-white text-sm font-medium mb-4 uppercase">
                         Trusted By Many
                     </p>
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white uppercase">
+                    <h2 className="core-services-title">
                         Core Services
                     </h2>
                 </div>
@@ -24,7 +24,7 @@ const CoreServices = ({ services = [] }) => {
                     {services.map((service, index) => (
                         <div
                             key={index}
-                            className="col-span-12 lg:col-span-4 bg-[#FFFFFF26] rounded-[24px] p-[30px] relative max-w-[500px] mx-auto "
+                            className="col-span-12 lg:col-span-4 bg-[#FFFFFF26] rounded-[24px] p-[30px] relative max-w-[500px] mx-auto h-[max-content]"
                             style={{
                                 boxShadow: '0 4px 20px rgba(26, 156, 149, 0.3), 0 2px 10px rgba(26, 156, 149, 0.2)'
                             }}
@@ -47,7 +47,7 @@ const CoreServices = ({ services = [] }) => {
                             </div>
 
                             {/* Service Icon and Title */}
-                            <div className="flex items-start gap-3 mb-[12px]">
+                            <div className="flex items-center gap-4 mb-[12px]">
                                 <img
                                     src={icons[index]}
                                     alt={service.title}
@@ -75,13 +75,13 @@ const CoreServices = ({ services = [] }) => {
 
                             {/* Service Subtitle */}
                             {service.subtitle && (
-                                <h4 className="text-lg font-bold text-white mb-[0px]">
+                                <h4 className="text-[20px] font-bold text-white mb-[0px]">
                                     {service.subtitle}
                                 </h4>
                             )}
 
                             {/* Service Description */}
-                            <p className="text-md text-white leading-relaxed" style={{ lineHeight: '1.5rem' }}>
+                            <p className="text-[17px] text-white leading-relaxed" style={{ lineHeight: '1.5rem' }}>
                                 {service.description}
                             </p>
                         </div>
@@ -90,7 +90,7 @@ const CoreServices = ({ services = [] }) => {
 
                 {/* Call to Action Button */}
                 <div className="text-center mt-[20px]">
-                    <button className="bg-[#003878] text-white font-bold px-[24px] py-[6px] rounded-md uppercase hover:bg-[#002850] transition-colors duration-200">
+                    <button className="bg-[#003878] text-white font-bold px-[30px] py-[10px] rounded-md hover:bg-[#002850] transition-colors duration-200">
                         <span className="text-2xl">Become a Member</span>
                     </button>
                 </div>
