@@ -2,10 +2,11 @@ import React from "react";
 import coremonitoring from "../assets/images/coreMonitoring.png";
 import corenotification from "../assets/images/coreNotification.png";
 import coresecure from "../assets/images/coreSecure.png";
+import { useNavigate } from "react-router-dom";
 
 const CoreServices = ({ services = [] }) => {
     const icons = [coremonitoring, corenotification, coresecure];
-
+    const navigate = useNavigate();
     return (
         <section className="bg-[#00ACB2] py-[30px] px-[4px] sm:px-[6px] lg:px-[8px]">
             <div className="max-w-7xl mx-auto">
@@ -91,7 +92,7 @@ const CoreServices = ({ services = [] }) => {
                 {/* Call to Action Button */}
                 <div className="text-center mt-[20px]">
                     <button className="bg-[#003878] text-white font-bold px-[30px] py-[10px] rounded-md hover:bg-[#002850] transition-colors duration-200">
-                        <span className="text-2xl">Become a Member</span>
+                        <span  onClick={() => navigate('/signup')} className="text-2xl cursor-pointer"> Become a Member</span>
                     </button>
                 </div>
             </div>

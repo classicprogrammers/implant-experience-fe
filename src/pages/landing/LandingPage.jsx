@@ -174,7 +174,7 @@ function LandingPage() {
       <section className="value-proposition-section">
         <div className="max-w-7xl mx-auto py-[40px]">
           <h2 className="value-proposition-title">Value Proposition</h2>
-          <div className="value-proposition-container ">
+          <div className="value-proposition-container">
 
             {valueProposition.map((item, index) => (
               <div className="value-proposition-block" key={index}>
