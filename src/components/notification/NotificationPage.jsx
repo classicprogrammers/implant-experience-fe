@@ -7,6 +7,9 @@ function NotificationPage() {
     const [notifications, setNotifications] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const [showAll, setShowAll] = useState(false);
+    const [page, setPage] = useState(1);
+    const pageSize = 6;
 
     useEffect(() => {
         fetchNotifications();
@@ -55,6 +58,12 @@ function NotificationPage() {
 
     const { todayNotifications, yesterdayNotifications, olderNotifications } = groupNotificationsByDate(notifications);
 
+    const allNotifications = [...todayNotifications, ...yesterdayNotifications, ...olderNotifications];
+    const totalPages = Math.max(1, Math.ceil(allNotifications.length / pageSize));
+    const safePage = Math.min(page, totalPages);
+    const start = (safePage - 1) * pageSize;
+    const pageItems = allNotifications.slice(start, start + pageSize);
+
 
     const handleMarkcomplete = async () => {
         setLoading(true);
@@ -98,48 +107,80 @@ function NotificationPage() {
 
                 {!loading && !error && (
                     <>
-                        {/* TODAY */}
-                        {todayNotifications.length > 0 && (
-                            <div className="notification-section">
-                                <h2 className="section-heading">Today</h2>
-                                <div className="notification-list">
-                                    {todayNotifications.map((n) => (
-                                        <NotificationCard key={n.id} data={n} />
-                                    ))}
-                                </div>
-                            </div>
-                        )}
+                        {!showAll ? (
+                            <>
+                                {/* TODAY (show max 2) */}
+                                {todayNotifications.length > 0 && (
+                                    <div className="notification-section">
+                                        <h2 className="section-heading">Today</h2>
+                                        <div className="notification-list">
+                                            {todayNotifications.slice(0, 2).map((n) => (
+                                                <NotificationCard key={n.id} data={n} />
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
 
-                        {/* YESTERDAY */}
-                        {yesterdayNotifications.length > 0 && (
-                            <div className="notification-section">
-                                <h2 className="section-heading">Yesterday</h2>
-                                <div className="notification-list">
-                                    {yesterdayNotifications.map((n) => (
-                                        <NotificationCard key={n.id} data={n} />
-                                    ))}
-                                </div>
-                            </div>
-                        )}
+                                {/* YESTERDAY (show max 2 if any) */}
+                                {yesterdayNotifications.length > 0 && (
+                                    <div className="notification-section">
+                                        <h2 className="section-heading">Yesterday</h2>
+                                        <div className="notification-list">
+                                            {yesterdayNotifications.slice(0, 2).map((n) => (
+                                                <NotificationCard key={n.id} data={n} />
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
 
-                        {/* OLDER / PREVIOUS NOTIFICATIONS */}
-                        {olderNotifications.length > 0 && (
-                            <div className="notification-section">
-                                <h2 className="section-heading">Previous Notifications</h2>
-                                <div className="notification-list">
-                                    {olderNotifications.map((n) => (
-                                        <NotificationCard key={n.id} data={n} />
-                                    ))}
-                                </div>
-                            </div>
-                        )}
+                                {/* See more button (if there are more than shown) */}
+                                {(todayNotifications.length > 2 || yesterdayNotifications.length > 2 || olderNotifications.length > 0) && (
+                                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: 12 }}>
+                                        <button
+                                            className="mark-completed-btn"
+                                            onClick={() => { setShowAll(true); setPage(1); }}
+                                        >
+                                            See more
+                                        </button>
+                                    </div>
+                                )}
 
-                        {/* NO NOTIFICATIONS */}
-                        {todayNotifications.length === 0 &&
-                            yesterdayNotifications.length === 0 &&
-                            olderNotifications.length === 0 && (
-                                <p className="no-notifications-text">You have no recent notifications.</p>
-                            )}
+                                {/* No notifications at all */}
+                                {todayNotifications.length === 0 && yesterdayNotifications.length === 0 && olderNotifications.length === 0 && (
+                                    <p className="no-notifications-text">You have no recent notifications.</p>
+                                )}
+                            </>
+                        ) : (
+                            <>
+                                <div className="notification-section">
+                                    <h2 className="section-heading">All notifications</h2>
+                                    <div className="notification-list">
+                                        {pageItems.map((n) => (
+                                            <NotificationCard key={n.id} data={n} />
+                                        ))}
+                                    </div>
+                                    {allNotifications.length > pageSize && (
+                                        <div className="pagination-controls" style={{ display: 'flex', justifyContent: 'center', gap: 8, marginTop: 12, flexWrap: 'wrap' }}>
+                                            <button className="ocr-action-button" style={{ width: 'auto', padding: '0.35rem 0.9rem' }} onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={safePage === 1}>Prev</button>
+                                            {Array.from({ length: totalPages }).map((_, i) => (
+                                                <button
+                                                    key={i}
+                                                    onClick={() => setPage(i + 1)}
+                                                    className="ocr-action-button"
+                                                    style={{ width: 'auto', padding: '0.35rem 0.9rem', background: safePage === i + 1 ? '#00ACB2' : '#E2E8F0', color: safePage === i + 1 ? '#fff' : '#11142D' }}
+                                                >
+                                                    {i + 1}
+                                                </button>
+                                            ))}
+                                            <button className="ocr-action-button" style={{ width: 'auto', padding: '0.35rem 0.9rem' }} onClick={() => setPage((p) => Math.min(totalPages, p + 1))} disabled={safePage === totalPages}>Next</button>
+                                        </div>
+                                    )}
+                                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: 12 }}>
+                                        <button className="mark-completed-btn" onClick={() => setShowAll(false)}>Show less</button>
+                                    </div>
+                                </div>
+                            </>
+                        )}
                     </>
                 )}
             </div>

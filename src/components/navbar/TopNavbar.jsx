@@ -5,6 +5,17 @@ import avatarImage from '../../assets/images/avatar.jpg';
 
 const TopNavbar = ({ onMenuToggle }) => {
     const [showModal, setShowModal] = useState(false);
+    // Read user details from localStorage to display in navbar
+    const storedUser = (() => {
+        try {
+            const raw = localStorage.getItem('user');
+            return raw ? JSON.parse(raw) : null;
+        } catch {
+            return null;
+        }
+    })();
+    const displayName = storedUser?.fullName || storedUser?.name || storedUser?.username || 'User';
+    const displayRole = storedUser?.role || 'User';
 
     const handleBellClick = () => setShowModal(true);
     const handleClose = () => setShowModal(false);
@@ -48,8 +59,8 @@ const TopNavbar = ({ onMenuToggle }) => {
 
                 {/* User Info */}
                 <div className="user-info">
-                    <div className="user-name">Franklin Astiy</div>
-                    <div className="user-role">Receptionist</div>
+                    <div className="user-name">{displayName}</div>
+                    <div className="user-role">{displayRole}</div>
                 </div>
 
                 {/* Dropdown Arrow */}

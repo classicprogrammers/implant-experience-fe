@@ -84,7 +84,7 @@
     font-weight: 600;
     color: #6B7280;
     margin: 0 0 16px 0;
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: 0.5px;
 }
 

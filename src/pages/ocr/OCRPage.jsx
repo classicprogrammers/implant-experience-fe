@@ -28,17 +28,13 @@ function OCRPage() {
     const [validationErrors, setValidationErrors] = useState({})
     const [activeTab, setActiveTab] = useState('ocr') // 'manual' or 'ocr'
     const [currentStep, setCurrentStep] = useState(3) // 1, 2, or 3
+    const [isPreviewOpen, setIsPreviewOpen] = useState(false)
     const navigate = useNavigate()
 
     const handleManualChange = (e) => {
         const { name, value } = e.target
         setManualData((prev) => ({ ...prev, [name]: value }))
         if (error) setError('')
-    }
-
-    const isStep1Complete = () => {
-        const { title, facility_name, procedure_type, implant_date, provider_name } = manualData
-        return [title, facility_name, procedure_type, implant_date, provider_name].every((v) => v && String(v).trim())
     }
 
     const isStep2Complete = () => {
@@ -49,10 +45,7 @@ function OCRPage() {
     const handleNext = () => {
         if (activeTab === 'manual') {
             if (currentStep === 1) {
-                if (!isStep1Complete()) {
-                    setError('Please fill all Step 1 fields before proceeding.')
-                    return
-                }
+                // No validation on Step 1 → go straight to Step 2
                 setError('')
                 setCurrentStep(2)
             } else if (currentStep === 2) {
@@ -147,28 +140,28 @@ function OCRPage() {
         }
     }
 
+    const closePreview = () => {
+        setIsPreviewOpen(false)
+    }
+
     const handleRegister = async (e) => {
         e.preventDefault()
         setIsLoading(true)
         setError('')
         setSuccess('')
 
-        // Client-side validation for manual keys
+        // Client-side validation for manual keys (validate both steps on submit only)
         const newErrors = {}
-        if (!(isStep1Complete() && isStep2Complete())) {
-            setError('Please complete Steps 1 and 2 before submitting')
-            // Mark required groups quickly
-            if (!manualData.title) newErrors.title = 'Title is required'
-            if (!manualData.facility_name) newErrors.facility_name = 'Facility is required'
-            if (!manualData.procedure_type) newErrors.procedure_type = 'Procedure type is required'
-            if (!manualData.implant_date) newErrors.implant_date = 'Implant date is required'
-            if (!manualData.provider_name) newErrors.provider_name = 'Physician is required'
-            if (!manualData.manufacturer) newErrors.manufacturer = 'Manufacturer is required'
-            if (!manualData.catalog_no) newErrors.catalog_no = 'Catalog number is required'
-            if (!manualData.udi_pi_lot) newErrors.udi_pi_lot = 'Lot number is required'
-            if (!manualData.part_description) newErrors.part_description = 'Part description is required'
-            if (!manualData.udi_di) newErrors.udi_di = 'UDI-DI is required'
-        }
+        if (!manualData.title) newErrors.title = 'Please fill this field'
+        if (!manualData.facility_name) newErrors.facility_name = 'Please fill this field'
+        if (!manualData.procedure_type) newErrors.procedure_type = 'Please fill this field'
+        if (!manualData.implant_date) newErrors.implant_date = 'Please fill this field'
+        if (!manualData.provider_name) newErrors.provider_name = 'Please fill this field'
+        if (!manualData.manufacturer) newErrors.manufacturer = 'Please fill this field'
+        if (!manualData.catalog_no) newErrors.catalog_no = 'Please fill this field'
+        if (!manualData.udi_pi_lot) newErrors.udi_pi_lot = 'Please fill this field'
+        if (!manualData.part_description) newErrors.part_description = 'Please fill this field'
+        if (!manualData.udi_di) newErrors.udi_di = 'Please fill this field'
         // Field-specific rules
         if (!manualData.udi_di || !/^\d{14}$/.test(manualData.udi_di)) {
             newErrors.udi_di = 'UDI-DI must be exactly 14 digits'
@@ -177,6 +170,13 @@ function OCRPage() {
             newErrors.implant_date = 'Implant date must be a valid date'
         }
         if (Object.keys(newErrors).length > 0) {
+            const missingCount = Object.values(newErrors).filter((msg) => msg === 'Please fill this field').length
+            if (missingCount > 1) {
+                setValidationErrors({})
+                setError('Please fill all fields')
+                setIsLoading(false)
+                return
+            }
             setValidationErrors(newErrors)
             setIsLoading(false)
             return
@@ -334,7 +334,12 @@ function OCRPage() {
                                         <div className='flex justify-between items-center'>
                                             <div className="uploaded-file-info" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                                                 {uploadedFile && uploadedFile.type && uploadedFile.type.startsWith('image/') && previewUrl ? (
-                                                    <img src={previewUrl} alt="Preview" style={{ width: '120px', height: '80px', objectFit: 'cover', borderRadius: '8px', border: '1px solid #e5e7eb' }} />
+                                                    <img
+                                                        src={previewUrl}
+                                                        alt="Preview"
+                                                        style={{ width: '120px', height: '80px', objectFit: 'cover', borderRadius: '8px', border: '1px solid #e5e7eb', cursor: 'pointer' }}
+                                                        onClick={() => setIsPreviewOpen(true)}
+                                                    />
                                                 ) : (
                                                     <p><strong>Selected File:</strong> {uploadedFile?.name}</p>
                                                 )}
@@ -424,13 +429,32 @@ function OCRPage() {
                                 width: '100%',
                                 maxWidth: '480px'
                             }}>
-                                <ul style={{ margin: 0, paddingLeft: '18px' }}>
-                                    {Object.entries(validationErrors).map(([field, msg]) => (
-                                        <li key={field}>
-                                            <strong>{field}</strong>: {msg}
-                                        </li>
-                                    ))}
-                                </ul>
+                                {(() => {
+                                    const fieldLabel = (key) => {
+                                        const map = {
+                                            title: 'Title',
+                                            facility_name: 'Facility name',
+                                            procedure_type: 'Procedure type',
+                                            implant_date: 'Implant date',
+                                            provider_name: 'Physician',
+                                            manufacturer: 'Manufacturer',
+                                            catalog_no: 'Catalog number',
+                                            udi_pi_lot: 'Lot number',
+                                            part_description: 'Part description',
+                                            udi_di: 'UDI (14 digits)'
+                                        }
+                                        return map[key] || key
+                                    }
+                                    return (
+                                        <ul style={{ margin: 0, paddingLeft: '18px' }}>
+                                            {Object.entries(validationErrors).map(([field, msg]) => (
+                                                <li key={field}>
+                                                    <strong>{fieldLabel(field)}</strong>: {msg}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )
+                                })()}
                             </div>
                         )}
 
@@ -447,6 +471,56 @@ function OCRPage() {
                                 maxWidth: '480px'
                             }}>
                                 {success}
+                            </div>
+                        )}
+
+                        {/* Image Preview Modal */}
+                        {isPreviewOpen && previewUrl && (
+                            <div
+                                className="notification-modal-overlay"
+                                onClick={closePreview}
+                                style={{
+                                    position: 'fixed',
+                                    inset: 0,
+                                    backgroundColor: 'rgba(0,0,0,0.7)',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    zIndex: 9999
+                                }}
+                            >
+                                <div
+                                    onClick={(e) => e.stopPropagation()}
+                                    style={{ position: 'relative', maxWidth: '90vw', maxHeight: '90vh' }}
+                                >
+                                    <button
+                                        onClick={closePreview}
+                                        className='modal-close-btn'
+                                        style={{
+                                            position: 'absolute',
+                                            top: '-40px',
+                                            right: '0',
+                                            background: 'transparent',
+                                            color: '#fff',
+                                            fontSize: '28px',
+                                            cursor: 'pointer'
+                                        }}
+                                        aria-label="Close preview"
+                                    >
+                                        ×
+                                    </button>
+                                    <img
+                                        src={previewUrl}
+                                        alt="Full Preview"
+                                        style={{
+                                            maxWidth: '90vw',
+                                            maxHeight: '90vh',
+                                            objectFit: 'contain',
+                                            borderRadius: '8px',
+                                            background: '#111'
+                                        }}
+                                    />
+                                </div>
                             </div>
                         )}
 
@@ -528,10 +602,10 @@ function OCRPage() {
                                         </form>
 
                                         <div className="step-actions">
-                                            <button className="ocr-action-button" onClick={(e) => { e.preventDefault(); handleClose(); }}>
+                                            <button type="button" className="ocr-action-button" onClick={(e) => { e.preventDefault(); handleClose(); }}>
                                                 Close
                                             </button>
-                                            <button className="ocr-action-button" onClick={(e) => { e.preventDefault(); handleNext(); }}>
+                                            <button type="button" className="ocr-action-button" onClick={(e) => { e.preventDefault(); handleNext(); }}>
                                                 Next
                                             </button>
                                         </div>
@@ -624,6 +698,7 @@ function OCRPage() {
 
                                         <div className="step-actions">
                                             <button
+                                                type="button"
                                                 className="ocr-action-button"
                                                 onClick={(e) => {
                                                     e.preventDefault();
@@ -634,17 +709,10 @@ function OCRPage() {
                                                 Back
                                             </button>
                                             <button
+                                                type="button"
                                                 className="ocr-action-button"
                                                 onClick={(e) => {
                                                     e.preventDefault();
-                                                    if (!isStep1Complete()) {
-                                                        setError('Please fill all Step 1 fields before submitting.');
-                                                        return;
-                                                    }
-                                                    if (!isStep2Complete()) {
-                                                        setError('Please fill all Step 2 fields before submitting.');
-                                                        return;
-                                                    }
                                                     setError('');
                                                     handleRegister(e, 'manual');
                                                 }}
@@ -682,7 +750,7 @@ function OCRPage() {
                                     }}
                                     disabled={isLoading || !uploadedFile}
                                 >
-                                    {isLoading ? 'Submitting...' : 'Submit'}
+                                    {isLoading ? 'Uploading...' : 'Upload'}
                                 </button>
                             </div>
                         )}

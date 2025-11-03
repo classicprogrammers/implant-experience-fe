@@ -61,7 +61,7 @@ function SettingsPage() {
         setError('');
         setSuccess('');
 
-        if (!user?.fullName || !user?.email || !user?.phone_e164) {
+        if (!user?.fullName || !user?.email || !user?.username) {
             setError('Please fill in all fields');
             setLoading(false);
             return;
@@ -187,12 +187,16 @@ function SettingsPage() {
                             <input type="text" className="form-input" placeholder="First Name" name="fullName" value={user?.fullName} onChange={handleChange} />
                         </div>
                         <div className="form-group">
+                            <label className="form-label">Last Name</label>
+                            <input type="text" className="form-input" placeholder="Last Name" name="lastName" value={user?.lastName || ''} onChange={handleChange} />
+                        </div>
+                        <div className="form-group">
                             <label className="form-label">Email</label>
                             <input type="email" className="form-input" placeholder="Email" name="email" value={user?.email} onChange={handleChange} />
                         </div>
                         <div className="form-group">
-                            <label className="form-label">Phone</label>
-                            <input type="tel" className="form-input" placeholder="Phone" name="phone_e164" value={user?.phone_e164} onChange={handleChange} />
+                            <label className="form-label">Username</label>
+                            <input type="text" className="form-input" placeholder="Username" name="username" value={user?.username || ''} onChange={handleChange} />
                         </div>
                     </div>
                     <button className="save-btn" onClick={updateUser} disabled={loading}>{loading ? 'Saving...' : 'Save Changes'}</button>

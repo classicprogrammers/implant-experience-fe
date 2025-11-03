@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import DeviceImage from '../../assets/images/Device-2.png'
 import Implanted from '../../assets/images/DeviceBlack.png'
 import Followup from '../../assets/images/Followup.png'
@@ -15,6 +15,63 @@ import './MyDevices.css'
 
 const MyDevices = () => {
     const [activeTab, setActiveTab] = useState('history')
+    const location = useLocation()
+    const selectedDevice = location.state?.device || location.state?.selectedDevice || null
+
+    const formatDisplayDate = (dateString) => {
+        if (!dateString) return 'N/A'
+
+        const parsed = new Date(dateString)
+        if (Number.isNaN(parsed.getTime())) {
+            return dateString
+        }
+
+        return parsed.toLocaleDateString('en-US', {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric'
+        })
+    }
+
+    const statusToken = (selectedDevice?.status || '').toLowerCase()
+    const statusStyleMap = {
+        active: { dot: '#00ACB2', text: '#00ACB2' },
+        safe: { dot: '#10B981', text: '#10B981' },
+        monitor: { dot: '#D97706', text: '#D97706' },
+        recall: { dot: '#DC2626', text: '#DC2626' }
+    }
+    const statusAppearance = statusStyleMap[statusToken] || { dot: '#94A3B8', text: '#475569' }
+    const formattedStatus = statusToken ? `${statusToken.charAt(0).toUpperCase()}${statusToken.slice(1)}` : 'Unknown'
+
+    const selectedDeviceManufacturer = selectedDevice?.device_master?.manufacturer || selectedDevice?.manufacturer || 'Unknown Manufacturer'
+    const selectedDeviceUDI = selectedDevice?.udi_di || selectedDevice?.device_master?.udi || selectedDevice?.udi || 'Unavailable'
+    const selectedDeviceImplantDate = formatDisplayDate(selectedDevice?.implant_date)
+    const selectedDeviceProvider = selectedDevice?.provider_name || selectedDevice?.implant_physician || 'Not specified'
+    const selectedDeviceSafetyCheck = (() => {
+        const formatted = formatDisplayDate(selectedDevice?.last_safety_check)
+        if (!selectedDevice?.last_safety_check || formatted === 'N/A') {
+            return 'January 05, 2025'
+        }
+        return formatted
+    })()
+
+    const formatValue = (value, fallback = 'Not available') => {
+        if (value === null || value === undefined) return fallback
+        if (typeof value === 'string' && value.trim() === '') return fallback
+        return value
+    }
+
+    const leftColumnDetails = [
+        { label: 'Manufacturer', value: selectedDeviceManufacturer },
+        { label: 'Status', value: formattedStatus, type: 'status' },
+        { label: 'Device ID UDI', value: selectedDeviceUDI }
+    ]
+
+    const rightColumnDetails = [
+        { label: 'Implant Date', value: selectedDeviceImplantDate },
+        { label: 'Health Provider', value: selectedDeviceProvider },
+        { label: 'Last Safety Check', value: selectedDeviceSafetyCheck }
+    ]
 
     const timelineEvents = [
         {
@@ -106,54 +163,47 @@ const MyDevices = () => {
                     <div className="left-column">
                         {/* Device Information Card */}
                         <div className="device-info-card">
-
-
-                            <div className="device-info-content">
-                                <div className="device-details-left">
-                                    <div className="device-info-header">
-                                        <div className="device-icon bg-[#00ACB2]">
-                                            <div className="rocket-icon">
-                                                {/* <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="#20b2aa" />
-                                            <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" stroke="white" strokeWidth="1" />
-                                        </svg> */}
-                                                <img src={DeviceImage} alt="" />
+                            {selectedDevice ? (
+                                <div className="device-info-content">
+                                    <div className="device-details-left">
+                                        <div className="device-info-header">
+                                            <div className="device-icon bg-[#00ACB2]">
+                                                <div className="rocket-icon">
+                                                    <img src={DeviceImage} alt="" />
+                                                </div>
                                             </div>
+                                            <h2 className="device-info-title">Device Information</h2>
                                         </div>
-                                        <h2 className="device-info-title">Device Information</h2>
+                                        {leftColumnDetails.map((detail) => (
+                                            <div key={detail.label} className="info-item bg-white rounded-lg">
+                                                <span className="info-label">{detail.label}</span>
+                                                {detail.type === 'status' ? (
+                                                    <div className="status-container">
+                                                        <div className="status-dot" style={{ background: statusAppearance.dot }}></div>
+                                                        <span className="status-text" style={{ color: statusAppearance.text }}>{formattedStatus}</span>
+                                                    </div>
+                                                ) : (
+                                                    <span className="info-value-text text-[#2E2C34]">{formatValue(detail.value)}</span>
+                                                )}
+                                            </div>
+                                        ))}
                                     </div>
-                                    <div className="info-item bg-white  rounded-lg">
-                                        <span className="info-label text-[#2E2C34]">Model</span>
-                                        <span className="info-value-text text-[#2E2C34]">Boston Scientific Precision Plus</span>
-                                    </div>
-                                    <div className="info-item bg-white text-[#2E2C34] rounded-lg flex items-between py-[10px] ">
-                                        <span className="info-label">Status</span>
-                                        <div className="status-container">
-                                            <div className="status-dot"></div>
-                                            <span className="status-text">Active</span>
-                                        </div>
-                                    </div>
-                                    <div className="info-item bg-white rounded-lg">
-                                        <span className="info-label">Device ID UDI</span>
-                                        <span className="info-value-text">S2021*****983242</span>
-                                    </div>
-                                </div>
 
-                                <div className="device-details-right">
-                                    <div className="info-item-right">
-                                        <span className="info-label-right">Implant Date</span>
-                                        <span className="info-value-right">September 21, 2024</span>
-                                    </div>
-                                    <div className="info-item-right">
-                                        <span className="info-label-right">Heath Provider</span>
-                                        <span className="info-value-right">Dr. Jennifer</span>
-                                    </div>
-                                    <div className="info-item-right">
-                                        <span className="info-label-right">Last Safety Check</span>
-                                        <span className="info-value-right">January 05, 2025</span>
+                                    <div className="device-details-right">
+                                        {rightColumnDetails.map((detail) => (
+                                            <div key={detail.label} className="info-item-right">
+                                                <span className="info-label-right">{detail.label}</span>
+                                                <span className="info-value-right">{formatValue(detail.value)}</span>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
-                            </div>
+                            ) : (
+                                <div className="device-info-empty">
+                                    <h2 className="device-info-title">Select a device to view details</h2>
+                                    <p className="device-info-subtitle">No device selected yet. Click a device from the dashboard to view its information here.</p>
+                                </div>
+                            )}
                         </div>
 
                         {/* Device Timeline */}
@@ -172,12 +222,12 @@ const MyDevices = () => {
                                 >
                                     Alerts
                                 </button>
-                                <button
+                                {/* <button
                                     className={`timeline-tab ${activeTab === 'resource' ? 'active' : ''}`}
                                     onClick={() => setActiveTab('resource')}
                                 >
                                     Resource
-                                </button>
+                                </button> */}
                             </div>
 
                             <h3 className="timeline-title">Device Timeline</h3>
@@ -228,7 +278,7 @@ const MyDevices = () => {
                         </div>
 
                         {/* Quick Actions Card */}
-                        <div className="quick-actions-card">
+                        {/* <div className="quick-actions-card">
                             <h3 className="quick-actions-title">Quick Actions</h3>
                             <div className="quick-actions-list">
                                 {quickActions.map((action) => (
@@ -238,7 +288,7 @@ const MyDevices = () => {
                                     </button>
                                 ))}
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

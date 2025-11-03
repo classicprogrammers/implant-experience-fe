@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import deviceImage from '../../../assets/images/Device.png'
 import { api } from '../../../utils/api'
 
-const DeviceCard = () => {
+const DeviceCard = ({
+    onDeviceClick,
+    onDevicesLoaded,
+    selectedDeviceId,
+    disableLink = false
+}) => {
     // Dummy data for development - matching the image data
     const dummyDevices = [
         {
@@ -59,6 +64,32 @@ const DeviceCard = () => {
     const [statusFilter, setStatusFilter] = useState('all')
     const [currentPage, setCurrentPage] = useState(1)
     const pageSize = 5
+    const statusSelectRef = useRef(null)
+    const [isStatusOpen, setIsStatusOpen] = useState(false)
+    const [hoveredRowId, setHoveredRowId] = useState(null)
+
+    const toggleStatusDropdown = () => {
+        const el = statusSelectRef.current
+        if (!el) return
+        if (isStatusOpen) {
+            try { el.blur() } catch { /* ignore */ }
+            setIsStatusOpen(false)
+            return
+        }
+        try {
+            if (typeof el.showPicker === 'function') {
+                el.showPicker()
+                setIsStatusOpen(true)
+                return
+            }
+        } catch { void 0 }
+        el.focus()
+        try {
+            const evt = new KeyboardEvent('keydown', { key: 'ArrowDown', altKey: true, bubbles: true })
+            el.dispatchEvent(evt)
+        } catch { void 0 }
+        try { el.click(); setIsStatusOpen(true) } catch { void 0 }
+    }
 
     // Fetch devices from API
     const fetchDevices = async () => {
@@ -89,8 +120,42 @@ const DeviceCard = () => {
         fetchDevices()
     }, [])
 
+    useEffect(() => {
+        onDevicesLoaded?.(devices)
+    }, [devices, onDevicesLoaded])
+
+    // Sort devices by latest first using available timestamps, fallback to id
+    const getDeviceTimestamp = (device) => {
+        const candidates = [
+            device?.createdAt,
+            device?.created_at,
+            device?.updatedAt,
+            device?.updated_at,
+            device?.implant_date,
+            device?.device_master?.createdAt,
+            device?.device_master?.created_at
+        ]
+        for (const dt of candidates) {
+            if (!dt) continue
+            const parsed = new Date(dt)
+            const ms = parsed.getTime()
+            if (!Number.isNaN(ms)) return ms
+        }
+        return 0
+    }
+
+    const sortedDevices = Array.isArray(devices)
+        ? [...devices].sort((a, b) => {
+            const diff = getDeviceTimestamp(b) - getDeviceTimestamp(a)
+            if (diff !== 0) return diff
+            const aId = typeof a?.id === 'number' ? a.id : 0
+            const bId = typeof b?.id === 'number' ? b.id : 0
+            return bId - aId
+        })
+        : []
+
     // Filter devices based on search term and status
-    const filteredDevices = Array.isArray(devices) ? devices.filter(device => {
+    const filteredDevices = Array.isArray(sortedDevices) ? sortedDevices.filter(device => {
         const matchesSearch =
             device.device_master?.brand?.toLowerCase().includes(searchTerm.toLowerCase()) ||
             device.device_master?.model?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -183,14 +248,21 @@ const DeviceCard = () => {
     return (
         <div className="devices-card md:me-[20px]">
             <div className="devices-header">
-                <Link to="/my-devices" className="devices-title-link">
+                {disableLink ? (
                     <h2 className="devices-title">My Devices</h2>
-                </Link>
+                ) : (
+                    <Link to="/my-devices" className="devices-title-link">
+                        <h2 className="devices-title">My Devices</h2>
+                    </Link>
+                )}
                 <div className="devices-controls">
                     <div className="filter-pill" title="Filter by device status">
                         <select
+                            ref={statusSelectRef}
                             value={statusFilter}
                             onChange={(e) => setStatusFilter(e.target.value)}
+                            onFocus={() => setIsStatusOpen(true)}
+                            onBlur={() => setIsStatusOpen(false)}
                             className="filter-select"
                             aria-label="Filter by Status"
                             style={{ paddingRight: '1.75rem', borderRadius: 12 }}
@@ -203,7 +275,7 @@ const DeviceCard = () => {
                                 <option value="active">Active</option>
                             </optgroup>
                         </select>
-                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                        <svg onClick={toggleStatusDropdown} style={{ cursor: 'pointer' }} className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
                             <path d="M5 8l5 5 5-5H5z" />
                         </svg>
                     </div>
@@ -225,7 +297,7 @@ const DeviceCard = () => {
             <div className="devices-table">
                 <div className="table-header">
                     <div className="header-cell">Name</div>
-                    <div className="header-cell">Model</div>
+                    <div className="header-cell">Manufacturer</div>
                     <div className="header-cell">Implant Date</div>
                     <div className="header-cell">Status</div>
                 </div>
@@ -234,30 +306,103 @@ const DeviceCard = () => {
                         <p>No devices found</p>
                     </div>
                 ) : (
-                    paginatedDevices.map((device) => (
-                        <div key={device.id} className="table-row">
-                            <div className="table-cell">
-                                <div className="device-info">
-                                    <div className="device-icon bg-[#F6F7F9]">
-                                        <img src={deviceImage} alt="Device" width="20" height="20" />
+                    paginatedDevices.map((device) => {
+                        const isInteractive = typeof onDeviceClick === 'function'
+                        const isSelected = device.id === selectedDeviceId
+                        const shouldNavigate = !isInteractive && !disableLink
+
+                        const rowClassNames = [
+                            'table-row',
+                            (isInteractive || shouldNavigate) ? 'table-row--interactive' : '',
+                            isInteractive && isSelected ? 'table-row--selected' : '',
+                            shouldNavigate ? 'table-row-link' : ''
+                        ]
+                            .filter(Boolean)
+                            .join(' ')
+
+                        const isHovered = hoveredRowId === device.id
+                        const hoverStyle = isHovered ? { fontWeight: 700, textDecoration: 'underline' } : undefined
+                        const nameStyle = (isSelected || isHovered) ? { fontWeight: 700, textDecoration: 'underline' } : undefined
+
+                        const rowContent = (
+                            <>
+                                <div className="table-cell">
+                                    <div className="device-info">
+                                        <div className="device-icon bg-[#F6F7F9]">
+                                            <img src={deviceImage} alt="Device" width="20" height="20" />
+                                        </div>
+                                        <span style={nameStyle}>{device.device_master?.brand || device.manufacturer || 'Unknown Device'}</span>
                                     </div>
-                                    <span>{device.device_master?.brand || device.manufacturer || 'Unknown Device'}</span>
                                 </div>
-                            </div>
-                            <div className="table-cell">
-                                {device.device_master?.model || device.model || 'N/A'}
-                            </div>
-                            <div className="table-cell">
-                                {formatDate(device.implant_date)}
-                            </div>
-                            <div className="table-cell">
-                                <div className={getStatusBadgeClass(device.status)}>
-                                    <div className={getStatusDotClass(device.status)}></div>
-                                    <span className="capitalize">{device.status || 'Unknown'}</span>
+                                <div className="table-cell" style={hoverStyle}>
+                                    {device.manufacturer || device.device_master?.manufacturer || 'N/A'}
                                 </div>
+                                <div className="table-cell" style={hoverStyle}>
+                                    {formatDate(device.implant_date)}
+                                </div>
+                                <div className="table-cell" style={hoverStyle}>
+                                    <div className={getStatusBadgeClass(device.status)}>
+                                        <div className={getStatusDotClass(device.status)}></div>
+                                        <span className="capitalize">{device.status || 'Unknown'}</span>
+                                    </div>
+                                </div>
+                            </>
+                        )
+
+                        if (isInteractive) {
+                            const handleRowClick = () => {
+                                onDeviceClick(device)
+                            }
+
+                            const handleKeyDown = (event) => {
+                                if (event.key === 'Enter' || event.key === ' ') {
+                                    event.preventDefault()
+                                    onDeviceClick(device)
+                                }
+                            }
+
+                            return (
+                                <div
+                                    key={device.id}
+                                    className={rowClassNames}
+                                    onClick={handleRowClick}
+                                    onMouseEnter={() => setHoveredRowId(device.id)}
+                                    onMouseLeave={() => setHoveredRowId(null)}
+                                    role="button"
+                                    tabIndex={0}
+                                    onKeyDown={handleKeyDown}
+                                >
+                                    {rowContent}
+                                </div>
+                            )
+                        }
+
+                        if (shouldNavigate) {
+                            return (
+                                <Link
+                                    key={device.id}
+                                    to="/my-devices"
+                                    state={{ device }}
+                                    className={rowClassNames}
+                                    onMouseEnter={() => setHoveredRowId(device.id)}
+                                    onMouseLeave={() => setHoveredRowId(null)}
+                                >
+                                    {rowContent}
+                                </Link>
+                            )
+                        }
+
+                        return (
+                            <div
+                                key={device.id}
+                                className={rowClassNames}
+                                onMouseEnter={() => setHoveredRowId(device.id)}
+                                onMouseLeave={() => setHoveredRowId(null)}
+                            >
+                                {rowContent}
                             </div>
-                        </div>
-                    ))
+                        )
+                    })
                 )}
             </div>
             {/* Pagination Controls */}

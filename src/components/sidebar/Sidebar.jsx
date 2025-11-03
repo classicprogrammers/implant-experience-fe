@@ -103,9 +103,9 @@ const Sidebar = ({ isOpen, onClose }) => {
                         )}
                     </div>
 
-                    <div className={`nav-item ${location.pathname === '/my-devices' ? 'active' : ''}`} onClick={() => navigate('/my-devices')}>
+                    <div className={`nav-item ${location.pathname.startsWith('/my-devices') ? 'active' : ''}`} onClick={() => navigate('/my-devices')}>
                         <div className="nav-icon">
-                            <img src={location.pathname === '/my-devices' ? deviceImage2 : deviceImage} alt="My Devices" width="16" height="16" />
+                            <img src={location.pathname.startsWith('/my-devices') ? deviceImage2 : deviceImage} alt="My Devices" width="16" height="16" />
                         </div>
                         <span className="nav-text">My Devices</span>
                     </div>

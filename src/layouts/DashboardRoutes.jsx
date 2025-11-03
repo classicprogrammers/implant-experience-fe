@@ -4,6 +4,7 @@ import Sidebar from '../components/sidebar/Sidebar'
 import TopNavbar from '../components/navbar/TopNavbar'
 import Dashboard from '../pages/dashbaord/Dashboard'
 import MyDevices from '../pages/devices/MyDevices'
+import DevicesList from '../pages/devices/DevicesList'
 import NotificationPage from '../components/notification/NotificationPage'
 import ResourcesPage from '../components/resources/ResourcesPage'
 import SettingsPage from '../components/settings/SettingsPage'
@@ -27,7 +28,8 @@ const DashboardRoutes = () => {
             <div className="main-content">
                 <Routes>
                     <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/my-devices" element={<MyDevices />} />
+                    <Route path="/my-devices" element={<DevicesList />} />
+                    <Route path="/my-devices/detail" element={<MyDevices />} />
                     <Route path="/notifications" element={<NotificationPage />} />
                     <Route path="/resources" element={<ResourcesPage />} />
                     <Route path="/settings" element={<SettingsPage />} />

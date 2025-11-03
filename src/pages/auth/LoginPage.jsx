@@ -46,9 +46,9 @@ function LoginPage() {
         console.log('Login successful:', response.data.data)
         setSuccess(response.data.message || 'Login successful!')
 
-        // Navigate to OCR page after a short delay to show success message
+        // Navigate to Dashboard after a short delay to show success message
         setTimeout(() => {
-          navigate('/ocr')
+          navigate('/dashboard')
         }, 1000)
       } else {
         setError(response.data.message || 'Login failed')
