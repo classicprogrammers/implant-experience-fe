@@ -589,3 +589,40 @@
         gap: 16px;
     }
 }
+
+/* Print styles - only print My Devices content */
+@media print {
+
+    .sidebar,
+    .top-navbar,
+    .notification-modal-overlay {
+        display: none !important;
+    }
+
+    .dashboard-layout,
+    .main-content {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .main-content {
+        width: 100% !important;
+    }
+
+    body * {
+        visibility: hidden;
+    }
+
+    .my-devices-page,
+    .my-devices-page * {
+        visibility: visible;
+    }
+
+    .my-devices-page {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: #fff !important;
+    }
+}

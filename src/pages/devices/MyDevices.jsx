@@ -152,7 +152,7 @@ const MyDevices = () => {
                         <button className="action-button contact-provider">
                             Contact Provider
                         </button>
-                        <button className="action-button download-report">
+                        <button className="action-button download-report" onClick={() => window.print()}>
                             Download Report
                         </button>
                     </div>

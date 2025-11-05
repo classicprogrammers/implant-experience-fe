@@ -6,7 +6,7 @@ const Testimonials = ({ testimonials = [] }) => {
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <div className="text-center mb-[12px]">
-                    <p className="text-[#00BCD4] text-sm font-medium mb-[6px]">
+                    <p className="text-[#00BCD4] text-bold text-[32px] font-medium mb-[6px]">
                         Testimonials
                     </p>
                     <h2 className="testimonials-title">
@@ -44,7 +44,7 @@ const Testimonials = ({ testimonials = [] }) => {
                             </h3>
 
                             {/* Testimonial Text */}
-                            <p className="text-gray-600 text-[17px] font-medium leading-relaxed flex-grow mb-[16px]">
+                            <p className="text-[#556171] text-bold text-[19px] font-medium leading-relaxed flex-grow mb-[16px]">
                                 {testimonial.text}
                             </p>
 
@@ -52,7 +52,7 @@ const Testimonials = ({ testimonials = [] }) => {
                             <div className="border-t border-gray-200 mb-[16px]"></div>
 
                             {/* Author Information */}
-                            <div className="flex items-center pt-[10px]">
+                            <div className="flex items-center pt-[5px]">
                                 <div className="w-12 h-12 rounded-full overflow-hidden mr-[12px] flex-shrink-0">
                                     <img
                                         src={testimonial.avatar}

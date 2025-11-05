@@ -46,9 +46,14 @@ function LoginPage() {
         console.log('Login successful:', response.data.data)
         setSuccess(response.data.message || 'Login successful!')
 
-        // Navigate to Dashboard after a short delay to show success message
+        // Role-based redirect after a short delay
         setTimeout(() => {
-          navigate('/dashboard')
+          const role = response?.data?.data?.user?.role
+          if (role === 'admin' || role === 'superadmin' || role === 'superAdmin') {
+            navigate('/admin/add-user')
+          } else {
+            navigate('/dashboard')
+          }
         }, 1000)
       } else {
         setError(response.data.message || 'Login failed')

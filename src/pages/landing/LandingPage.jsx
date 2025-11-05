@@ -22,12 +22,12 @@ function LandingPage() {
   const valueProposition = [
     {
       title: 'Trusted Care',
-      subtitle: "Safety Shouldn't Be a Luxury",
+      subtitle: 'Built by Patients, For Patients ',
       description: 'We\'re not funded by device manufacturers or insurance companies. Our loyalty is to you — the millions living with implanted devices who deserve better than the status quo.'
     },
     {
       title: 'Affordable Access',
-      subtitle: 'Built by Patients, For Patients ',
+      subtitle: "Safety Shouldn't Be a Luxury",
       description: "At just $9.99/month, we're making device safety accessible to everyone. Because whether you have a $50,000 heart device or a $500 mesh implant, you deserve the same level of protection."
     },
     {
@@ -152,7 +152,7 @@ function LandingPage() {
                 I saw the human cost of poor device oversight. Patients like Angie Firmalino, Dr. Stephen Tower, and thousands of others suffered because our system prioritizes speed to market over safety.
               </p>
               <button className="implant-experience-btn">
-                <Link to="/signup">See more</Link>
+                <Link to="/signup">BECOME A MEMBER</Link>
               </button>
             </div>
 
@@ -180,7 +180,7 @@ function LandingPage() {
               <div className="value-proposition-block" key={index}>
                 <h2>{item.title}</h2>
                 <h3>{item.subtitle}</h3>
-                <p style={{ lineHeight: '1.5rem', fontWeight: '300', fontSize: '16px', color: '#FFF' }}>{item.description}</p>
+                <p style={{ lineHeight: '1.5rem', fontWeight: 600, fontSize: '16px', color: '#FFF' }}>{item.description}</p>
               </div>
             ))}
 

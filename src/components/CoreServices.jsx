@@ -12,7 +12,7 @@ const CoreServices = ({ services = [] }) => {
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-[24px]">
-                    <p className="text-white text-sm font-medium mb-4 uppercase">
+                    <p className="text-white text-[32px] text-bold font-medium mb-4 uppercase">
                         Trusted By Many
                     </p>
                     <h2 className="core-services-title">

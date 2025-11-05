@@ -446,13 +446,13 @@ function OCRPage() {
                                         return map[key] || key
                                     }
                                     return (
-                                        <ul style={{ margin: 0, paddingLeft: '18px' }}>
-                                            {Object.entries(validationErrors).map(([field, msg]) => (
-                                                <li key={field}>
+                                <ul style={{ margin: 0, paddingLeft: '18px' }}>
+                                    {Object.entries(validationErrors).map(([field, msg]) => (
+                                        <li key={field}>
                                                     <strong>{fieldLabel(field)}</strong>: {msg}
-                                                </li>
-                                            ))}
-                                        </ul>
+                                        </li>
+                                    ))}
+                                </ul>
                                     )
                                 })()}
                             </div>

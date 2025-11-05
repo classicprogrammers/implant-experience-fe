@@ -1,20 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import warningIcon from '../../assets/images/warningIcon.png';
 import './TopNavbar.css';
 import avatarImage from '../../assets/images/avatar.jpg';
 
 const TopNavbar = ({ onMenuToggle }) => {
     const [showModal, setShowModal] = useState(false);
-    // Read user details from localStorage to display in navbar
-    const storedUser = (() => {
+    const [storedUser, setStoredUser] = useState(() => {
         try {
             const raw = localStorage.getItem('user');
             return raw ? JSON.parse(raw) : null;
         } catch {
             return null;
         }
-    })();
-    const displayName = storedUser?.fullName || storedUser?.name || storedUser?.username || 'User';
+    });
+
+    useEffect(() => {
+        const refreshUser = () => {
+            try {
+                const raw = localStorage.getItem('user');
+                setStoredUser(raw ? JSON.parse(raw) : null);
+            } catch {
+                setStoredUser(null);
+            }
+        };
+        window.addEventListener('storage', refreshUser);
+        window.addEventListener('user-updated', refreshUser);
+        return () => {
+            window.removeEventListener('storage', refreshUser);
+            window.removeEventListener('user-updated', refreshUser);
+        };
+    }, []);
+
+    const displayName = ([storedUser?.fullName, storedUser?.lastName].filter(Boolean).join(' ') || storedUser?.name || storedUser?.username || 'User');
     const displayRole = storedUser?.role || 'User';
 
     const handleBellClick = () => setShowModal(true);
@@ -51,10 +68,9 @@ const TopNavbar = ({ onMenuToggle }) => {
                         <path d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </div>
-
                 {/* User Avatar */}
                 <div className="user-avatar">
-                    <img src={avatarImage} alt="User Avatar" className="avatar-image" />
+                    <img src={storedUser?.profile || avatarImage} alt="User Avatar" className="avatar-image" />
                 </div>
 
                 {/* User Info */}

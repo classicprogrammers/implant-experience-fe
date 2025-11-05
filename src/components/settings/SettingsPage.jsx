@@ -14,6 +14,16 @@ function SettingsPage() {
     const [confirmPassword, setConfirmPassword] = useState('')
     const [success, setSuccess] = useState('')
     const [error, setError] = useState('')
+    const [selectedAvatarFile, setSelectedAvatarFile] = useState(null)
+    const [avatarPreviewUrl, setAvatarPreviewUrl] = useState(null)
+
+    const splitFirstAndLast = (name) => {
+        if (!name || typeof name !== 'string') return { first: '', last: '' }
+        const normalized = name.trim().replace(/\s+/g, ' ')
+        if (!normalized.includes(' ')) return { first: normalized, last: '' }
+        const [first, ...rest] = normalized.split(' ')
+        return { first, last: rest.join(' ') }
+    }
 
     const toggleNewPassword = () => {
         setShowNewPassword(!showNewPassword)
@@ -27,7 +37,18 @@ function SettingsPage() {
         setLoading(true)
         try {
             const response = await api.get('/auth/profile')
-            setUser(response.data.data.user)
+            const fetched = response.data.data.user
+            const needsSplit = fetched && !fetched.lastName && fetched.fullName
+            const nextUser = needsSplit
+                ? { ...fetched, fullName: splitFirstAndLast(fetched.fullName).first, lastName: splitFirstAndLast(fetched.fullName).last }
+                : fetched
+            setUser(nextUser)
+            try {
+                localStorage.setItem('user', JSON.stringify(nextUser))
+                if (typeof window !== 'undefined') {
+                    window.dispatchEvent(new Event('user-updated'))
+                }
+            } catch { /* ignore */ }
         } catch (error) {
             console.error('Error fetching user:', error)
         } finally {
@@ -56,19 +77,51 @@ function SettingsPage() {
         if (name === 'confirmPassword') setConfirmPassword(value);
     };
 
+    const handleAvatarPick = (e) => {
+        const file = e.target.files && e.target.files[0]
+        if (!file) return
+        setSelectedAvatarFile(file)
+        try {
+            const url = URL.createObjectURL(file)
+            setAvatarPreviewUrl(url)
+        } catch { /* ignore */ }
+    }
+
+    const handleFirstNameBlur = () => {
+        if (!user) return
+        const { first, last } = splitFirstAndLast(user.fullName)
+        setUser((prev) => ({ ...prev, fullName: first, lastName: prev?.lastName || last }))
+    }
+
     const updateUser = async () => {
         setLoading(true);
         setError('');
         setSuccess('');
 
-        if (!user?.fullName || !user?.email || !user?.username) {
-            setError('Please fill in all fields');
-            setLoading(false);
-            return;
-        }
+        // Removed strict required-field validation to allow partial updates
 
         try {
-            const response = await api.put('/auth/profile', user);
+            let response
+            if (selectedAvatarFile) {
+                const form = new FormData()
+                form.append('avatar', selectedAvatarFile)
+                // include the basic fields alongside avatar so backend can update all at once
+                const split = splitFirstAndLast(user.fullName)
+                const mergedFullName = `${split.first || ''} ${user.lastName || split.last || ''}`.trim()
+                form.append('fullName', mergedFullName)
+                form.append('lastName', user.lastName || split.last || '')
+                form.append('email', user.email || '')
+                form.append('username', user.username || '')
+
+                response = await api.put('/auth/profile', form, {
+                    headers: { 'Content-Type': 'multipart/form-data' }
+                })
+            } else {
+                const split = splitFirstAndLast(user.fullName)
+                const mergedFullName = `${split.first || ''} ${user.lastName || split.last || ''}`.trim()
+                const payload = { ...user, fullName: mergedFullName }
+                response = await api.put('/auth/profile', payload)
+            }
 
             console.log(response.data);
             fetchUser()
@@ -166,13 +219,29 @@ function SettingsPage() {
                     <h2 className="section-title">Profile Picture</h2>
                     <div className="profile-row">
                         <div className="profile-avatar">
-                            <img src={user?.avatar || avatarDefault} alt={user?.fullName || 'Profile'} />
+                            <img src={avatarPreviewUrl || user?.profile || avatarDefault} alt={user?.fullName || 'Profile'} />
                         </div>
                         <div className="profile-meta">
-                            <h3 className="profile-name">{user?.fullName || 'User Name'}</h3>
-                            <p className="profile-role">{user?.role || 'Consumer'}</p>
+                            <h3 className="profile-name">{`${user?.fullName || ''} ${user?.lastName || ''}`.trim() || 'User Name'}</h3>
+                            <p className="profile-role">{user?.role || user?.userOrgRoles?.[0]?.role || 'Consumer'}</p>
                         </div>
-                        <button type="button" className="edit-picture-btn"><img src={outlineIcon} alt="" /><span>Edit Picture</span></button>
+                        <input
+                            type="file"
+                            id="avatar-file-input"
+                            accept="image/*"
+                            style={{ display: 'none' }}
+                            onChange={handleAvatarPick}
+                        />
+                        <button
+                            type="button"
+                            className="edit-picture-btn"
+                            onClick={() => {
+                                const el = document.getElementById('avatar-file-input')
+                                if (el) el.click()
+                            }}
+                        >
+                            <img src={outlineIcon} alt="" /><span>Edit Picture</span>
+                        </button>
                     </div>
                     <button className="save-primary-btn" onClick={updateUser} disabled={loading}>{loading ? 'Saving...' : 'Save Change'}</button>
                 </div>
@@ -184,19 +253,19 @@ function SettingsPage() {
                     <div className="form-grid">
                         <div className="form-group">
                             <label className="form-label">First Name</label>
-                            <input type="text" className="form-input" placeholder="First Name" name="fullName" value={user?.fullName} onChange={handleChange} />
+                            <input type="text" className="form-input" placeholder="First Name" name="fullName" value={user?.fullName} onChange={handleChange} onBlur={handleFirstNameBlur} />
                         </div>
                         <div className="form-group">
                             <label className="form-label">Last Name</label>
                             <input type="text" className="form-input" placeholder="Last Name" name="lastName" value={user?.lastName || ''} onChange={handleChange} />
                         </div>
                         <div className="form-group">
-                            <label className="form-label">Email</label>
-                            <input type="email" className="form-input" placeholder="Email" name="email" value={user?.email} onChange={handleChange} />
-                        </div>
-                        <div className="form-group">
                             <label className="form-label">Username</label>
                             <input type="text" className="form-input" placeholder="Username" name="username" value={user?.username || ''} onChange={handleChange} />
+                        </div>
+                        <div className="form-group">
+                            <label className="form-label">Email</label>
+                            <input type="email" className="form-input" placeholder="Email" name="email" value={user?.email} onChange={handleChange} />
                         </div>
                     </div>
                     <button className="save-btn" onClick={updateUser} disabled={loading}>{loading ? 'Saving...' : 'Save Changes'}</button>
