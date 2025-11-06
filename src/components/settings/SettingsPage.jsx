@@ -259,10 +259,10 @@ function SettingsPage() {
                             <label className="form-label">Last Name</label>
                             <input type="text" className="form-input" placeholder="Last Name" name="lastName" value={user?.lastName || ''} onChange={handleChange} />
                         </div>
-                        <div className="form-group">
+                        {/* <div className="form-group">
                             <label className="form-label">Username</label>
                             <input type="text" className="form-input" placeholder="Username" name="username" value={user?.username || ''} onChange={handleChange} />
-                        </div>
+                        </div> */}
                         <div className="form-group">
                             <label className="form-label">Email</label>
                             <input type="email" className="form-input" placeholder="Email" name="email" value={user?.email} onChange={handleChange} />
