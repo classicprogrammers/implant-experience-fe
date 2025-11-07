@@ -38,10 +38,11 @@ function SettingsPage() {
         try {
             const response = await api.get('/auth/profile')
             const fetched = response.data.data.user
-            const needsSplit = fetched && !fetched.lastName && fetched.fullName
-            const nextUser = needsSplit
-                ? { ...fetched, fullName: splitFirstAndLast(fetched.fullName).first, lastName: splitFirstAndLast(fetched.fullName).last }
-                : fetched
+            // Combine fullName and lastName into a single fullName field
+            const combinedFullName = fetched 
+                ? `${fetched.fullName || ''} ${fetched.lastName || ''}`.trim() || fetched.fullName || ''
+                : ''
+            const nextUser = { ...fetched, fullName: combinedFullName }
             setUser(nextUser)
             try {
                 localStorage.setItem('user', JSON.stringify(nextUser))
@@ -87,11 +88,6 @@ function SettingsPage() {
         } catch { /* ignore */ }
     }
 
-    const handleFirstNameBlur = () => {
-        if (!user) return
-        const { first, last } = splitFirstAndLast(user.fullName)
-        setUser((prev) => ({ ...prev, fullName: first, lastName: prev?.lastName || last }))
-    }
 
     const updateUser = async () => {
         setLoading(true);
@@ -105,11 +101,7 @@ function SettingsPage() {
             if (selectedAvatarFile) {
                 const form = new FormData()
                 form.append('avatar', selectedAvatarFile)
-                // include the basic fields alongside avatar so backend can update all at once
-                const split = splitFirstAndLast(user.fullName)
-                const mergedFullName = `${split.first || ''} ${user.lastName || split.last || ''}`.trim()
-                form.append('fullName', mergedFullName)
-                form.append('lastName', user.lastName || split.last || '')
+                form.append('fullName', user.fullName || '')
                 form.append('email', user.email || '')
                 form.append('username', user.username || '')
 
@@ -117,9 +109,7 @@ function SettingsPage() {
                     headers: { 'Content-Type': 'multipart/form-data' }
                 })
             } else {
-                const split = splitFirstAndLast(user.fullName)
-                const mergedFullName = `${split.first || ''} ${user.lastName || split.last || ''}`.trim()
-                const payload = { ...user, fullName: mergedFullName }
+                const payload = { ...user, fullName: user.fullName || '' }
                 response = await api.put('/auth/profile', payload)
             }
 
@@ -222,7 +212,7 @@ function SettingsPage() {
                             <img src={avatarPreviewUrl || user?.profile || avatarDefault} alt={user?.fullName || 'Profile'} />
                         </div>
                         <div className="profile-meta">
-                            <h3 className="profile-name">{`${user?.fullName || ''} ${user?.lastName || ''}`.trim() || 'User Name'}</h3>
+                            <h3 className="profile-name">{user?.fullName || 'User Name'}</h3>
                             <p className="profile-role">{user?.role || user?.userOrgRoles?.[0]?.role || 'Consumer'}</p>
                         </div>
                         <input
@@ -252,12 +242,8 @@ function SettingsPage() {
                     <h2 className="section-title">Account</h2>
                     <div className="form-grid">
                         <div className="form-group">
-                            <label className="form-label">First Name</label>
-                            <input type="text" className="form-input" placeholder="First Name" name="fullName" value={user?.fullName} onChange={handleChange} onBlur={handleFirstNameBlur} />
-                        </div>
-                        <div className="form-group">
-                            <label className="form-label">Last Name</label>
-                            <input type="text" className="form-input" placeholder="Last Name" name="lastName" value={user?.lastName || ''} onChange={handleChange} />
+                            <label className="form-label">Full Name</label>
+                            <input type="text" className="form-input" placeholder="Full Name" name="fullName" value={user?.fullName || ''} onChange={handleChange} />
                         </div>
                         {/* <div className="form-group">
                             <label className="form-label">Username</label>
