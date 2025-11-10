@@ -58,7 +58,7 @@ function LandingPage() {
 
             <div className="landing-hero-cta">
               <Link to="/signup" className="landing-cta-button">Become a Member</Link>
-              <p className="landing-hero-description" style={{ marginBottom: '0px' }}>Join 50,000+ Empowered Patients</p>
+              <p className="landing-hero-description" style={{ marginBottom: '0px', fontWeight: '700',maxWidth: '600px',fontSize: '32px'}}>Join 50,000+ Empowered Patients</p>
               <div className="landing-navigation-arrows">
                 <button className="landing-nav-arrow prev" style={{ padding: '0' }}>
                   <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
@@ -119,7 +119,7 @@ function LandingPage() {
           </p>
 
           <button className="mission-statement-btn transition">
-            <Link to="/signup" className='text-[#133C75]'>Become a Member</Link>
+            <Link to="/signup" className='text-[#FFFFFF !important]'>BECOME A MEMBER</Link>
           </button>
         </div>
       </section>

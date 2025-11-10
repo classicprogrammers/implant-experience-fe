@@ -97,7 +97,7 @@
 
 .landing-hero-description {
     font-size: clamp(14px, 1.6vw, 24px);
-    font-weight: 700;
+    font-weight: 400;
     line-height: normal;
     color: var(--primary-white);
     width: 100%;
@@ -463,6 +463,7 @@
 .mission-statement-para {
     font-size: 21px;
     color: #FFF;
+    font-weight: 500;
 }
 
 .mission-statement-hr {
@@ -480,17 +481,17 @@
     height: 58px;
     opacity: 1;
     border-radius: 8px;
-    background: #82EBED;
+    background: #03ADB3;
     font-style: Extrabold;
-    font-size: 28px;
+    font-size: 26px;
     text-align: center;
-    padding: 0;
+    padding: 10px 0 10px 0;
     cursor: pointer;
     margin-top: 30px;
 }
 
 .mission-statement-btn a {
-    color: #133C75;
+    color: #FFFFFF;
     text-decoration: none;
     font-weight: 800;
 }
@@ -610,7 +611,7 @@
 }
 
 .john-owens-description {
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 32px;
     letter-spacing: 0;
@@ -907,7 +908,7 @@
 /* Implant Experience Section */
 .implant-experience-section {
     /* width: 100%; */
-    min-height: 385px;
+    min-height: 450px;
     background-color: #003878;
     /* Solid blue background color */
     background-image: url('../../assets/images/workHospital.png');
@@ -957,9 +958,9 @@
 }
 
 .implant-experience-description {
-    font-size: 20px;
+    font-size: 22px !important;
     font-weight: 600;
-    line-height: 24px;
+    line-height: 1.3;
     color: var(--primary-white);
     margin-bottom: 50px;
 }
@@ -1007,20 +1008,23 @@
     padding: 0;
     border-radius: 0;
     border: none;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
+    /* margin-left: 80px; */
 }
 
 .implant-experience-subtitle {
-    font-size: 38px;
+    font-size: 40px !important;
     font-weight: 700;
     line-height: 1.1;
+    max-width: 240px;
     color: var(--primary-white);
 }
 
 .implant-experience-text {
-    font-size: 21px;
+    font-size: 18px !important;
     font-weight: 600;
     line-height: 1.3;
+    max-width: 340px;
     color: var(--primary-white);
 }
 
@@ -1398,7 +1402,7 @@
     }
 
     .implant-experience-left {
-        max-width: 420px;
+        max-width: 380px;
     }
 
     .implant-experience-title {
@@ -1407,6 +1411,12 @@
 
     .implant-experience-description {
         font-size: 15px;
+    }
+    .implant-experience-btn{
+        max-width: 280px;
+        font-size: 14px !important;
+        padding: 20px;
+        font-weight: 500 !important;
     }
 
     .landing-nav-menu {
