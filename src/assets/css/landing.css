@@ -452,7 +452,7 @@
 .mission-statement-title {
     font-weight: 700;
     font-style: Bold;
-    font-size: clamp(28px, 6vw, 64px);
+    font-size: clamp(18px, 6vw, 56px);
     line-height: 100%;
     letter-spacing: 0%;
     vertical-align: middle;
@@ -497,6 +497,80 @@
 }
 
 /* Mission Statement: Responsive */
+@media (max-width: 1024px) {
+
+    /* Implant Experience Section - adjust padding so image touches bottom */
+    .implant-experience-section {
+        padding: 20px 0 0 0;
+    }
+
+    /* Implant Experience - Keep two-column layout with centered image */
+    .implant-experience-container {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        gap: 20px;
+        justify-content: space-between;
+        padding: 0 24px;
+    }
+
+    .implant-experience-left {
+        width: 420px;
+        max-width: 420px;
+        padding-left: 32px;
+        padding-right: 24px;
+        z-index: 3;
+        position: relative;
+        align-self: flex-start;
+    }
+
+    .implant-experience-right {
+        width: 420px !important;
+        max-width: 420px;
+        padding-left: 54px !important;
+        padding-right: 32px !important;
+        padding-top: 0;
+        margin-top: 0;
+        z-index: 2;
+        align-self: flex-start;
+    }
+
+    .implant-experience-btn {
+        margin: 0;
+        max-width: 190px !important;
+        width: auto;
+        height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 10px !important;
+        position: relative;
+        z-index: 4;
+    }
+
+    .implant-experience-btn a {
+        font-size: 18px !important;
+        white-space: nowrap;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .implant-experience-subtitle {
+        margin-top: 0;
+    }
+
+    .john-owens-portrait {
+        position: absolute;
+        bottom: 0;
+        left: 50% !important;
+        transform: translateX(-50%);
+        width: 500px !important;
+        max-width: 80vw;
+        z-index: 1;
+    }
+}
+
 @media (max-width: 1024px) {
     .mission-statement-section {
         flex-direction: column;
@@ -603,7 +677,7 @@
 
 .john-owens-subtitle {
     font-size: 27px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 32px;
     color: var(--primary-white);
     margin-bottom: 20px;
@@ -612,7 +686,7 @@
 
 .john-owens-description {
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 32px;
     letter-spacing: 0;
     color: var(--primary-white);
@@ -908,14 +982,14 @@
 /* Implant Experience Section */
 .implant-experience-section {
     /* width: 100%; */
-    min-height: 480px;
+    min-height: 550px;
     background-color: #003878;
     /* Solid blue background color */
     background-image: url('../../assets/images/workHospital.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 50px;
+    padding: 15px 0;
     position: relative;
 }
 
@@ -924,22 +998,27 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    align-items: start;
+    align-items: center;
     position: relative;
+    min-height: 450px;
 }
 
 .implant-experience-left {
     z-index: 2;
     width: 505px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .implant-experience-title {
-    font-size: 48px;
-    font-weight: 700;
+    font-size: 58px;
+    font-weight: 800;
     line-height: 1.1;
     color: var(--primary-white);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     padding: 0;
+    max-width: 350px;
 }
 
 .implant-experience-title.about-page {
@@ -963,6 +1042,7 @@
     line-height: 1.3;
     color: var(--primary-white);
     margin-bottom: 50px;
+    max-width: 420px;
 }
 
 .implant-experience-btn {
@@ -1000,6 +1080,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    justify-content: center;
     z-index: 2;
 }
 
@@ -1009,7 +1090,6 @@
     border-radius: 0;
     border: none;
     margin-bottom: 0px;
-    margin-left: 40px;
 }
 
 .implant-experience-subtitle {
@@ -1331,7 +1411,7 @@
 
     .landing-hero-description {
         font-size: clamp(14px, 1.5vw, 22px);
-        max-width: 580px;
+        /* max-width: 580px; */
     }
 
     /* Meet John Section Responsive */
@@ -1341,11 +1421,24 @@
 
     /* Implant Experience Section Responsive */
     .implant-experience-section {
-        padding: 50px 0;
+        padding: 60px 0 0 0;
+    }
+
+    .implant-experience-container {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        text-align: left;
+        gap: 24px;
+        padding: 0 24px;
     }
 
     .implant-experience-left {
         max-width: 480px;
+        padding-left: 32px;
+        padding-right: 24px;
+        z-index: 3;
+        position: relative;
     }
 
     .implant-experience-title {
@@ -1356,15 +1449,39 @@
     .implant-experience-description {
         font-size: 16px;
     }
-    ..implant-experience-block{
-        margin-left: 80px;
-    }
+
     .implant-experience-subtitle {
         font-size: 20px;
     }
 
     .implant-experience-text {
         font-size: 14px;
+    }
+
+    .implant-experience-right {
+        padding-left: 24px;
+        padding-right: 32px;
+        align-self: flex-start;
+        z-index: 2;
+    }
+
+    .implant-experience-btn {
+        /* max-width: 240px; */
+    }
+    
+    .implant-experience-btn a{
+        font-size: 18px !important;
+    }
+
+
+    .john-owens-portrait {
+        position: absolute;
+        top: 60px !important;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        z-index: 1;
     }
 }
 
@@ -1400,27 +1517,60 @@
 
     /* Implant Experience Section Responsive */
     .implant-experience-section {
-        padding: 35px 0 45px 0;
+        padding: 28px 0 40px 0;
+    }
+
+    .implant-experience-container {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        text-align: left;
+        gap: 20px;
+        padding: 0 24px;
     }
 
     .implant-experience-left {
-        max-width: 380px;
+        max-width: 380px !important;
+        position: relative;
+        z-index: 3;
+        padding-left: 32px;
+        padding-right: 24px;
     }
 
     .implant-experience-title {
         font-size: 34px;
     }
-    .implant-experience-block{
-        margin-left: 80px;
-    }
+
     .implant-experience-description {
         font-size: 15px;
     }
-    .implant-experience-btn{
-        max-width: 280px;
+
+    .implant-experience-subtitle {
+        margin-top: 0;
+    }
+
+    .implant-experience-right {
+        padding-left: 24px;
+        padding-right: 32px;
+        align-self: flex-start;
+        z-index: 2;
+    }
+
+    .implant-experience-btn {
+        max-width: 240px;
         font-size: 14px !important;
-        padding: 20px;
-        font-weight: 500 !important;
+        padding: 12px;
+        font-weight: 600 !important;
+        position: relative;
+        z-index: 4;
+    }
+
+    .john-owens-portrait {
+        position: absolute;
+        left: 58%;
+        transform: translateX(-50%);
+        width: 360px;
+        z-index: 1;
     }
 
     .landing-nav-menu {
@@ -1443,6 +1593,48 @@
 
     .implant-experience-section {
         min-height: 460px;
+    }
+}
+
+/* Extra Large Desktop - keep columns aligned and reduce wrapping */
+@media (min-width: 1441px) {
+    .implant-experience-container {
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 40px;
+        padding: 0 40px;
+        text-align: left;
+    }
+
+    .implant-experience-left {
+        width: 560px;
+        max-width: 560px;
+        padding-left: 0;
+        padding-right: 0;
+        align-self: flex-start;
+    }
+
+    .implant-experience-title {
+        max-width: 560px;
+        margin-bottom: 20px;
+    }
+
+    .implant-experience-right {
+        width: 560px;
+        max-width: 437px;
+        margin-top: 0;
+        align-self: flex-start;
+    }
+
+    .implant-experience-subtitle {
+        margin-top: 0;
+    }
+
+    .john-owens-portrait {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 620px;
+        z-index: 1;
     }
 }
 
@@ -1552,7 +1744,7 @@
     }
 
     .implant-experience-section {
-        padding: 30px 0 40px 0;
+        padding: 24px 0 36px 0;
     }
 
     .implant-experience-left {
@@ -1676,13 +1868,13 @@
     }
 
     .john-owens-portrait {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        margin: 20px auto;
-        display: block;
-        z-index: 1;
+        display: none !important;
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin: 0 auto !important;
+        z-index: 1 !important;
     }
 
     .meet-john-section-image {
@@ -1708,36 +1900,88 @@
 
     /* Implant Experience Section Mobile Large */
     .implant-experience-section {
-        padding: 25px 0 35px 0;
+        padding: 22px 0 32px 0;
+    }
+
+    .implant-experience-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .implant-experience-title,
+    .implant-experience-description,
+    .implant-experience-subtitle,
+    .implant-experience-text {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center !important;
+        width: 100%;
     }
 
     .implant-experience-title {
         margin-bottom: 0px;
+        text-align: center !important;
     }
 
     .implant-experience-left {
         padding-right: 0;
+        padding-left: 0;
         max-width: 520px;
         width: 100%;
         order: 1;
         margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .implant-experience-right {
         padding-left: 0;
+        padding-right: 0;
         align-items: center;
         width: 100%;
         max-width: 520px;
         order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .implant-experience-btn {
+        margin: 0 auto !important;
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .implant-experience-description {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center !important;
     }
 
     .implant-experience-title {
         font-size: 30px;
+        text-align: center !important;
     }
 
     .implant-experience-block {
         padding: 0;
-        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
     }
 
     .implant-experience-btn a {
@@ -1892,13 +2136,21 @@
 
     /* Implant Experience Section Mobile Medium */
     .implant-experience-section {
-        padding: 20px 0 30px 0;
+        padding: 18px 0 28px 0;
     }
 
     .implant-experience-left {
         width: 100%;
         max-width: 520px;
         margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .implant-experience-container {
@@ -1906,16 +2158,50 @@
         align-items: center;
         text-align: center;
         gap: 12px;
+        justify-content: center;
     }
 
     .implant-experience-title {
         font-size: 28px;
+        text-align: center !important;
     }
 
     .implant-experience-right {
         width: 100%;
         max-width: 520px;
         align-items: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .implant-experience-btn {
+        margin: 0 auto !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .implant-experience-title,
+    .implant-experience-description,
+    .implant-experience-subtitle,
+    .implant-experience-text {
+        text-align: center !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .implant-experience-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
     }
 
     .landing-footer {
@@ -2006,16 +2292,69 @@
 
     /* Implant Experience Section Mobile Extra Small */
     .implant-experience-section {
-        padding: 15px 0 25px 0;
+        padding: 14px 0 24px 0;
     }
 
     .implant-experience-left {
         max-width: 100%;
         margin-bottom: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .implant-experience-title {
         font-size: 18px;
+        text-align: center !important;
+    }
+
+    .implant-experience-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .implant-experience-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .implant-experience-btn {
+        margin: 0 auto !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .implant-experience-title,
+    .implant-experience-description,
+    .implant-experience-subtitle,
+    .implant-experience-text {
+        text-align: center !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .implant-experience-block {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
     }
 
     .john-owens-portrait {
@@ -2024,30 +2363,8 @@
         margin: 20px auto;
     }
 
-    /* Implant Experience Section Mobile */
-    .implant-experience-section {
-        padding: 40px 0;
-    }
-
-    .implant-experience-container {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .implant-experience-title {
-        font-size: 20px;
-    }
-
-    .implant-experience-text {
-        font-size: 14px;
-    }
-
-    .implant-experience-block {
-        padding: 20px;
-    }
-
     .meet-john-section-image {
-        width: 80px;
+        width: 150px;
         height: 40px;
         top: 8px;
         left: 8px;

@@ -58,7 +58,7 @@ function LandingPage() {
 
             <div className="landing-hero-cta">
               <Link to="/signup" className="landing-cta-button">Become a Member</Link>
-              <p className="landing-hero-description" style={{ marginBottom: '0px', fontWeight: '700',maxWidth: '600px',fontSize: '32px'}}>Join 50,000+ Empowered Patients</p>
+              <p className="landing-hero-description" style={{ marginBottom: '0px', fontWeight: '700', maxWidth: '600px', fontSize: '32px' }}>Join 50,000+ Empowered Patients</p>
               <div className="landing-navigation-arrows">
                 <button className="landing-nav-arrow prev" style={{ padding: '0' }}>
                   <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
@@ -100,7 +100,7 @@ function LandingPage() {
         {/* Right side content */}
         <div className="mission-statement-content">
           <h2 className="mission-statement-title">
-            Mission Statement – <br className="hidden md:block" /> The Ethical Obligation
+            Mission Statement –  The <br className="hidden md:block" />Ethical Obligation
           </h2>
 
           <p className="mission-statement-para">
