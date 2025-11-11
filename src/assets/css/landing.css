@@ -908,7 +908,7 @@
 /* Implant Experience Section */
 .implant-experience-section {
     /* width: 100%; */
-    min-height: 450px;
+    min-height: 480px;
     background-color: #003878;
     /* Solid blue background color */
     background-image: url('../../assets/images/workHospital.png');
@@ -1009,7 +1009,7 @@
     border-radius: 0;
     border: none;
     margin-bottom: 0px;
-    /* margin-left: 80px; */
+    margin-left: 40px;
 }
 
 .implant-experience-subtitle {
@@ -1356,7 +1356,9 @@
     .implant-experience-description {
         font-size: 16px;
     }
-
+    ..implant-experience-block{
+        margin-left: 80px;
+    }
     .implant-experience-subtitle {
         font-size: 20px;
     }
@@ -1408,7 +1410,9 @@
     .implant-experience-title {
         font-size: 34px;
     }
-
+    .implant-experience-block{
+        margin-left: 80px;
+    }
     .implant-experience-description {
         font-size: 15px;
     }
@@ -1733,6 +1737,7 @@
 
     .implant-experience-block {
         padding: 0;
+        
     }
 
     .implant-experience-btn a {

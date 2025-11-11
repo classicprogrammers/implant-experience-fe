@@ -6,7 +6,7 @@ const Testimonials = ({ testimonials = [] }) => {
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <div className="text-center mb-[12px]">
-                    <p className="text-[#00BCD4] text-bold text-[32px] font-medium mb-[6px]">
+                    <p className="text-[#00BCD4] text-[bold] text-[32px] font-bold mb-[6px]">
                         Testimonials
                     </p>
                     <h2 className="testimonials-title">
