@@ -28,7 +28,7 @@ function LandingPage() {
     {
       title: 'Affordable Access',
       subtitle: "Safety Shouldn't Be a Luxury",
-      description: "At just $9.99/month, we're making device safety accessible to everyone. Because whether you have a $50,000 heart device or a $500 mesh implant, you deserve the same level of protection."
+      description: "Just $9.99/month for device-grade protection — whether it’s a $50,000 heart device or a $500 mesh implant, you get the same security."
     },
     {
       title: 'Real-Time Alerts',
@@ -149,7 +149,7 @@ function LandingPage() {
             <div className="implant-experience-left">
               <h2 className="implant-experience-title">During My Years Working With Hospitals,</h2>
               <p className="implant-experience-description">
-                I saw the human cost of poor device oversight. Patients like Angie Firmalino, Dr. Stephen Tower, and thousands of others suffered because our system prioritizes speed to market over safety.
+                I Saw The Human Cost of Poor Device Oversight. Patients Like Angie Firmalino, Dr. Stephen Tower, and Thousands of Others Suffered Because Our System Prioritizes Speed to Market Over Safety.
               </p>
               <button className="implant-experience-btn">
                 <Link to="/signup">BECOME A MEMBER</Link>
@@ -159,12 +159,12 @@ function LandingPage() {
             <div className="implant-experience-right">
               <div className="implant-experience-block">
                 <h3 className="implant-experience-subtitle">The Implant Experience is</h3>
-                <p className="implant-experience-text">our answer to a broken system that has left patients in the dark for too long.</p>
+                <p className="implant-experience-text">Our Answer To A Broken System That Has Left Patients In The Dark For Too Long.</p>
               </div>
 
               <div className="implant-experience-block">
                 <h3 className="implant-experience-subtitle">His Mission:</h3>
-                <p className="implant-experience-text">Transform device tracking from a regulatory afterthought into a patient-centered right.</p>
+                <p className="implant-experience-text">Transform Device Tracking From A Regulatory Afterthought Into A Patient-Centered Right.</p>
               </div>
             </div>
           </div>

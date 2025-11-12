@@ -91,7 +91,7 @@ const CoreServices = ({ services = [] }) => {
 
                 {/* Call to Action Button */}
                 <div className="text-center mt-[20px]">
-                    <button className="bg-[#003878] text-white font-bold px-[30px] py-[10px] rounded-md hover:bg-[#002850] transition-colors duration-200">
+                    <button className="bg-[#003878] text-white font-bold px-[25px] py-[10px] mt-[30px] rounded-md hover:bg-[#002850] transition-colors duration-200">
                         <span  onClick={() => navigate('/signup')} className="text-2xl cursor-pointer"> Become a Member</span>
                     </button>
                 </div>

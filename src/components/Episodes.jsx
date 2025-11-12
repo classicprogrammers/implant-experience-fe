@@ -34,11 +34,11 @@ const Episodes = ({ episodes = [] }) => {
                                 {/* Episode Content */}
                                 <div className="py-[24px]">
                                     {/* Episode Number & Date */}
-                                    <div className="flex gap-8 items-center mb-[16px]">
-                                        <span className="text-sm text-gray-500 font-medium">
+                                    <div className="flex gap-8 items-center justify-between mb-[16px]">
+                                        <span className="text-lg text-gray-500 font-medium">
                                             Ep: {episode.episodeNumber}
                                         </span>
-                                        <span className="text-sm text-gray-500">
+                                        <span className="text-lg text-gray-500">
                                             {episode.date}
                                         </span>
                                     </div>
@@ -49,7 +49,7 @@ const Episodes = ({ episodes = [] }) => {
                                     </h3>
 
                                     {/* Episode Description */}
-                                    <p className="text-[13px] text-gray-600 leading-relaxed mb-[16px]" style={{ lineHeight: '1.2rem' }}>
+                                    <p className="text-[18px] font-medium text-[#556171] leading-relaxed mb-[16px]" style={{ lineHeight: '1.2rem' }}>
                                         {episode.description}
                                     </p>
 
