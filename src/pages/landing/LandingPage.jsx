@@ -180,7 +180,7 @@ function LandingPage() {
               <div className="value-proposition-block" key={index}>
                 <h2>{item.title}</h2>
                 <h3>{item.subtitle}</h3>
-                <p style={{ lineHeight: '1.5rem', fontWeight: 600, fontSize: '16px', color: '#FFF' }}>{item.description}</p>
+                <p style={{ lineHeight: '1.7rem', fontWeight: 500, fontSize: '20px !important', color: '#FFF' }}>{item.description}</p>
               </div>
             ))}
 

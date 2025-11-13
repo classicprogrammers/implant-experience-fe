@@ -97,7 +97,7 @@
 }
 
 .landing-hero-description {
-    font-size: clamp(26px, 1.8vw, 36px ) !important;
+    font-size: clamp(26px, 1.8vw, 36px) !important;
     font-weight: 500;
     line-height: 1.3;
     color: var(--primary-white);
@@ -951,7 +951,7 @@
     .value-proposition-block p {
         font-size: 16px;
         line-height: 1.5;
-        font-weight: 600 !important;
+        font-weight: 500 !important;
         color: #FFFFFF;
     }
 }
@@ -1118,7 +1118,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 50px 0;
+    padding: 40px 0 5px 0;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -1174,16 +1174,16 @@
 }
 
 .value-proposition-block h3 {
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 700;
     line-height: 3;
     color: #FFF;
 }
 
 .value-proposition-block p {
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1.2;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    line-height: 1.4;
     color: #FFF;
 }
 
@@ -1486,13 +1486,17 @@
         width: 520px;
         z-index: 1;
     }
-    .value-proposition-block h2{
+
+    .value-proposition-block h2 {
         font-size: 38px !important;
         max-width: 400px;
     }
-    .value-proposition-block p{
+
+    .value-proposition-block p {
         font-size: 20px !important;
         max-width: 400px;
+        font-weight: 500 !important;
+        line-height: 1.6;
     }
 }
 
@@ -1609,6 +1613,15 @@
 
 /* Extra Large Desktop - keep columns aligned and reduce wrapping */
 @media (min-width: 1441px) {
+    .landing-hero-section {
+        height: 95vh;
+        padding: 70px 0 60px 0;
+    }
+
+    .landing-navigation-arrows {
+        /* margin-bottom: 50px; */
+    }
+
     .implant-experience-container {
         align-items: flex-start;
         justify-content: space-between;
@@ -1647,11 +1660,14 @@
         width: 520px;
         z-index: 1;
     }
-    .value-proposition-block p{
+
+    .value-proposition-block p {
         font-size: 22px !important;
+        line-height: 1.6;
+        font-weight: 500 !important;
         /* max-width: 400px; */
     }
-    
+
 }
 
 /* Tablet */
@@ -2054,6 +2070,82 @@
     .landing-marquee-img {
         max-height: 28px;
     }
+
+    /* Implant Experience Section - Responsive for max-width 576px */
+    .implant-experience-section {
+        padding: 20px 16px;
+    }
+
+    .implant-experience-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+    }
+
+    .implant-experience-left {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .implant-experience-title {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+    }
+
+    .implant-experience-description {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+    }
+
+    .implant-experience-btn {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .implant-experience-right {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+    }
+
+    .implant-experience-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .implant-experience-subtitle {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+    }
+
+    .implant-experience-text {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+    }
 }
 
 /* Mobile Small */
@@ -2147,12 +2239,12 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-        margin-left: -35px;
+        margin-left: -70px;
     }
 
     /* Implant Experience Section Mobile Medium */
     .implant-experience-section {
-        padding: 18px 0 28px 0;
+        padding: 18px 16px 28px 16px;
     }
 
     .implant-experience-left {
@@ -2231,6 +2323,86 @@
 
     .landing-footer-implant {
         font-size: 28px;
+    }
+}
+
+/* Mobile Extra Small - max-width 425px */
+@media (max-width: 425px) {
+
+    /* Implant Experience Section - Responsive for max-width 425px */
+    .implant-experience-section {
+        padding: 20px 16px;
+    }
+
+    .implant-experience-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+    }
+
+    .implant-experience-left {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .implant-experience-title {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+    }
+
+    .implant-experience-description {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+    }
+
+    .implant-experience-btn {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .implant-experience-right {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+    }
+
+    .implant-experience-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .implant-experience-subtitle {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+    }
+
+    .implant-experience-text {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
     }
 }
 
