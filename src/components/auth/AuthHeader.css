@@ -1,0 +1,47 @@
+/* Auth header Styles - Dedicated component to avoid conflicts */
+.auth-header {
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.auth-header-container  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.auth-header-container img {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .auth-header-container {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+}
+@media (max-width:768px){
+    .auth-header-container img {
+        width: 175px;
+    }
+}
+@media (max-width:425px){
+    .auth-header-container img {
+        width: 140px;
+    }
+}
+
+
+

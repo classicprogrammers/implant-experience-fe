@@ -1,11 +1,13 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { IoIosArrowBack } from "react-icons/io";
 import { api } from '../../utils/api'
 import '../../App.css'
+import AuthHeader from'../../components/auth/AuthHeader'
 import AuthFooter from '../../components/auth/AuthFooter';
 
 function ForgotPasswordPage() {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     email: ''
   })
@@ -71,7 +73,8 @@ function ForgotPasswordPage() {
 
       if (response.data.success) {
         console.log('Password reset email sent:', response.data)
-        setSuccess('We have sent an email to your account. Please check your inbox and follow the instructions to reset your password.')
+        // Navigate to verify OTP page
+        navigate('/verify-otp')
       } else {
         setError(response.data.message || 'Failed to send password reset email')
       }
@@ -97,6 +100,7 @@ function ForgotPasswordPage() {
 
   return (
     <>
+    <AuthHeader />
       <div className="auth-page-new">
         <div className="auth-container-new">
           <div className="auth-card py-[35px]">

@@ -2328,7 +2328,22 @@
 
 /* Mobile Extra Small - max-width 425px */
 @media (max-width: 425px) {
+.landing-hero-section {
+    height: 100vh !important;
+}
+.landing-hero-description{
+    font-size: 23px !important;
 
+}
+.landing-cta-button{
+    font-size: 18px !important;
+    width: 100% !important;
+    max-width: 70% !important;
+}
+.landing-hero-badge{
+    width: 100px !important;
+    height: 30px !important;
+}
     /* Implant Experience Section - Responsive for max-width 425px */
     .implant-experience-section {
         padding: 20px 16px;

@@ -1,113 +1,266 @@
-.pricing-page {
-    background: #fff;
-    min-height: 100vh;
-    padding: 0 0 20px 0;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-  .pricing-header {
-    text-align: center;
-    padding: 60px 20px 20px 20px;
-  }
-  .pricing-header h1 {
-    font-size: 80px;
-    color: #00325C;
-    margin-bottom: 10px;
-    font-weight: 700;
-  }
-  .pricing-header p {
-    color: #757783;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.5rem;
-  }
+/* Pricing Page Container */
+.pricing-page-container {
+  padding: 40px 20px;
+  min-height: calc(100vh - 200px);
+}
 
-  /* Cards container */
-  .pricing-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    align-items: center;
-    padding: 0 20px;
-    margin-top: 30px;
-  }
+/* Pricing Header */
+.pricing-header-section {
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
 
-  /* Each Card */
-  .pricing-card {
-    border-radius: 22px;
-    box-shadow: 0 8px 5px rgba(0,0,0,0.10);
-    width: 100%;
-    max-width: 1000px;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 40px;
-    border-radius: 32px;
-    gap: 40px;
-  }
-  .free-plan { background: #00b1b7; color: #fff; }
-  .starter-plan { background: #fff; color: #0a3556; }
+.pricing-header-section h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #11142D;
+  margin-bottom: 20px;
+  
+}
 
-  /* Price Box */
-  .plan-price { text-align: center; min-width: 140px; }
-  .plan-price h3 { font-weight: 600; font-size: 1.1rem; margin-bottom: 8px; }
-  .plan-price .amount { font-size: 2.4rem; font-weight: 700; margin: 4px 0; }
-  .plan-price .duration { font-size: 0.95rem; color: #6c7a89; }
+.pricing-header-section p {
+  font-size: 14px;
+  color: #6B7280;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  
+}
 
-  /* Features Columns */
-  .plan-features { flex: 1; display: flex; flex-direction: column; gap: 16px; margin-left: 40px; }
+/* Pricing Cards Container */
+.pricing-cards-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 50px;
+}
 
-  /* Buttons */
-  .btn-outline, .btn-filled {
-    border: none;
-    border-radius: 16px;
-    padding: 15px 70px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    cursor: pointer;
-    /* box-shadow: 0 3px 10px rgba(0,0,0,0.08); */
-    transition: all 0.3s ease;
-  }
-  .btn-outline { background: #fff; color: #00b1b7; }
-  .btn-outline:hover { background: #f4f4f4; }
-  .btn-filled { background: #00b1b7; color: #fff; }
-  .btn-filled:hover { background: #00939a; }
+/* Premium Plan Card */
+.premium-card {
+  background-color: #00ACB2;
+  border-radius: 8px;
+  padding: 40px;
+  width: 400px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0px 4px 12px rgba(0, 172, 178, 0.2);
+}
 
- /* Footer */
-.pricing-footer {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-top: 40px;
-padding: 20px 40px;
-font-size: 0.95rem;
-color: #6c7a89;
-flex-wrap: wrap; /* responsive ke liye */
-gap: 20px;
+/* Free Plan Card */
+.free-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 40px;
+  width: 400px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0px 29px 28.1px 0px #0000000D;
+  border: 1px solid #E1E1E1;
+}
+
+/* Plan Title and Badge Row */
+.plan-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.plan-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  
+}
+
+.plan-title.premium {
+  color: white;
+}
+
+.plan-title.free {
+  color: #11142D;
+}
+
+/* Badges */
+.plan-badge {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  
+}
+
+.badge-most-popular {
+  background-color: white;
+  color: #00ACB2;
+}
+
+.badge-get-pro {
+  background-color: #E0F7FA;
+  color: #00ACB2;
+}
+
+/* Price Section */
+.price-section {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.price-amount {
+  font-size: 48px;
+  font-weight: 700;
+  
+}
+
+.price-amount.premium {
+  color: white;
+}
+
+.price-amount.free {
+  color: #11142D;
+}
+
+.price-duration {
+  font-size: 18px;
+  margin-left: 8px;
+  
+}
+
+.price-duration.premium {
+  color: white;
+}
+
+.price-duration.free {
+  color: #11142D;
+}
+
+/* Description */
+.plan-description {
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  
+}
+
+.plan-description.premium {
+  color: white;
+}
+
+.plan-description.free {
+  color: #11142D;
+}
+
+/* Divider */
+.plan-divider {
+  height: 1px;
+  margin-bottom: 20px;
+}
+
+.divider-premium {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.divider-free {
+  background-color: #E1E1E1;
+}
+
+/* Features Container */
+.features-container {
+  margin-bottom: 30px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.feature-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.feature-icon.premium {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.feature-icon.free {
+  background-color: #F3F4F6;
+}
+
+.feature-text {
+  font-size: 14px;
+  
+}
+
+.feature-text.premium {
+  color: white;
+}
+
+.feature-text.free {
+  color: #11142D;
+}
+
+/* Buttons */
+.plan-button {
+  width: 70%;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.button-premium {
+  background-color: white;
+  color: #00ACB2;
+}
+
+.button-premium:hover {
+  opacity: 0.9;
+}
+
+.button-free {
+  background-color: #00ACB2;
+  color: white;
+}
+
+.button-free:hover {
+  background-color: #008C9E;
 }
 
 /* Responsive */
+@media (min-width: 768px) {
+  .pricing-cards-container {
+    flex-direction: row !important;
+  }
+}
+
 @media (max-width: 768px) {
-.pricing-footer {
-flex-direction: column;
-text-align: center;
-gap: 12px;
-}
-
-}
-
-
-  /* ✅ Responsive */
-  @media (max-width: 900px) {
-    .pricing-card { flex-direction: column; text-align: center; padding: 25px; }
-    .plan-features { margin-left: 0; align-items: center; }
-    .btn-outline, .btn-filled { width: 100%; padding: 14px; }
-    .pricing-footer { flex-direction: column; text-align: center; }
+  .pricing-cards-container>div {
+    width: 100% !important;
+    max-width: 400px !important;
+    height: auto !important;
+    min-height: 600px !important;
   }
-  @media (max-width: 480px) {
-    .pricing-header h1 { font-size: 2rem; }
-    .plan-price .amount { font-size: 2rem; }
-    .btn-outline, .btn-filled { font-size: 1rem; padding: 10px; }
-  }
+}

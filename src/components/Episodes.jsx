@@ -20,7 +20,7 @@ const Episodes = ({ episodes = [] }) => {
                         {episodes.map((episode, index) => (
                             <div
                                 key={index}
-                                className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-4 rounded-[12px] overflow-hidden max-w-[500px] mx-auto"
+                                className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-4 rounded-[12px] overflow-hidden max-w-[500px] mx-auto flex flex-col h-full"
                             >
                                 {/* Episode Image */}
                                 <div className="relative">
@@ -32,27 +32,30 @@ const Episodes = ({ episodes = [] }) => {
                                 </div>
 
                                 {/* Episode Content */}
-                                <div className="py-[24px]">
-                                    {/* Episode Number & Date */}
-                                    <div className="flex gap-8 items-center justify-between mb-[16px]">
-                                        <span className="text-lg text-gray-500 font-medium">
-                                            Ep: {episode.episodeNumber}
-                                        </span>
-                                        <span className="text-lg text-gray-500">
-                                            {episode.date}
-                                        </span>
+                                <div className="py-[24px] flex flex-col flex-grow justify-between"
+                                >
+                                    <div>
+                                        {/* Episode Number & Date */}
+                                        <div className="flex gap-8 items-center justify-between mb-[16px]">
+                                            <span className="text-lg text-gray-500 font-medium">
+                                                Ep: {episode.episodeNumber}
+                                            </span>
+                                            <span className="text-lg text-gray-500">
+                                                {episode.date}
+                                            </span>
+                                        </div>
+
+                                        {/* Episode Title */}
+                                        <h3 className="font-bold text-[#0B1030] text-[26px] mb-[6px] leading-tight lg:min-h-[55px]" >
+                                            {episode.title}
+                                        </h3>
+
+                                        {/* Episode Description */}
+                                        <p className="text-[18px] font-medium text-[#556171] leading-relaxed mb-[16px]" style={{ lineHeight: '1.2rem' }}>
+                                            {episode.description}
+                                        </p>
+
                                     </div>
-
-                                    {/* Episode Title */}
-                                    <h3 className="font-bold text-[#0B1030] text-[26px] mb-[6px] leading-tight lg:min-h-[55px]" >
-                                        {episode.title}
-                                    </h3>
-
-                                    {/* Episode Description */}
-                                    <p className="text-[18px] font-medium text-[#556171] leading-relaxed mb-[16px]" style={{ lineHeight: '1.2rem' }}>
-                                        {episode.description}
-                                    </p>
-
                                     {/* Read More Link */}
                                     <a
                                         href={episode.link}

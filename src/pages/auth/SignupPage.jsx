@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { HiEye, HiEyeOff, HiOutlineEye, HiOutlineEyeOff } from 'react-icons/hi'
 import { api } from '../../utils/api'
+import AuthHeader from'../../components/auth/AuthHeader'
 import AuthFooter from '../../components/auth/AuthFooter'
 import '../../App.css'
 
@@ -160,6 +161,7 @@ function SignUpPage() {
 
   return (
     <>
+    <AuthHeader />
       <div className="auth-page-new">
         <div className="auth-container-new">
           <h1 className="page-title">Sign up to your account</h1>

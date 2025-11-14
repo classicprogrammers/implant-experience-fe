@@ -7,6 +7,8 @@ import LandingAbout from './pages/landing/About'
 import LoginPage from './pages/auth/LoginPage'
 import SignupPage from './pages/auth/SignupPage'
 import ForgotPasswordPage from './pages/auth/ForgotPasswordPage'
+import SetPasswordPage from './pages/auth/SetPassword'
+import VerifyOTP from './pages/auth/VerifyOTP'
 import ContactPage from './pages/landing/ContactPage'
 import TermsPage from './pages/landing/TermsPage'
 import LandingResource from './pages/landing/Resources'
@@ -76,6 +78,8 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="/set-password" element={<SetPasswordPage />} />
+            <Route path="/verify-otp" element={<VerifyOTP />} />
 
             {/* OCR page - accessible after sign-in/sign-up */}
             <Route path="/ocr" element={<OCRPage />} />
