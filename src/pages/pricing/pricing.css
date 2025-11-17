@@ -8,21 +8,20 @@
 .pricing-header-section {
   text-align: center;
   margin-bottom: 50px;
-  margin-top: 20px;
 }
 
 .pricing-header-section h1 {
-  font-size: 32px;
+  font-size: 38px;
   font-weight: 700;
-  color: #11142D;
-  margin-bottom: 20px;
+  color: #00325C;
+  margin-bottom: 10px;
   
 }
 
 .pricing-header-section p {
-  font-size: 14px;
-  color: #6B7280;
-  line-height: 1.6;
+  font-size: 16px;
+  color: #757783;
+  line-height: 1.4;
   max-width: 800px;
   margin: 0 auto;
   
@@ -44,7 +43,7 @@
   border-radius: 8px;
   padding: 40px;
   width: 400px;
-  height: 600px;
+  height: 550px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -57,7 +56,7 @@
   border-radius: 8px;
   padding: 40px;
   width: 400px;
-  height: 600px;
+  height: 550px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -81,16 +80,17 @@
 }
 
 .plan-title.premium {
-  color: white;
+  color: #ffffff;
 }
 
 .plan-title.free {
-  color: #11142D;
+  color: #00325C;
+  font-size: 32px;
 }
 
 /* Badges */
 .plan-badge {
-  padding: 6px 12px;
+  padding: 3px 5px;
   border-radius: 4px;
   font-size: 12px;
   font-weight: 600;
@@ -99,12 +99,13 @@
 
 .badge-most-popular {
   background-color: white;
-  color: #00ACB2;
+  color: #00325C;
 }
 
 .badge-get-pro {
+    padding: 3px 26px;
   background-color: #E0F7FA;
-  color: #00ACB2;
+  color:#00325C ;
 }
 
 /* Price Section */
@@ -146,6 +147,7 @@
   font-size: 14px;
   margin-bottom: 20px;
   line-height: 1.6;
+  text-align: center;
   
 }
 
@@ -164,11 +166,11 @@
 }
 
 .divider-premium {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color:#FFFFFF;
 }
 
 .divider-free {
-  background-color: #E1E1E1;
+  background-color: #00325C;
 }
 
 /* Features Container */
@@ -183,8 +185,8 @@
 }
 
 .feature-icon {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -194,11 +196,12 @@
 }
 
 .feature-icon.premium {
-  background-color: rgba(255, 255, 255, 0.2);
+  border: 1.5px solid #FFFFFF;
 }
 
 .feature-icon.free {
-  background-color: #F3F4F6;
+  /* background-color: #F3F4F6; */
+  border: 1.5px solid #00325C;
 }
 
 .feature-text {

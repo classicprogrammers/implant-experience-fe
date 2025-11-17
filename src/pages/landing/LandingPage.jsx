@@ -57,7 +57,7 @@ function LandingPage() {
             </p>
 
             <div className="landing-hero-cta">
-              <Link to="/signup" className="landing-cta-button">Become a Member</Link>
+              <Link to="/signup" className="landing-cta-button">BECOME A MEMBER</Link>
               <p className="landing-hero-description" style={{ marginBottom: '0px', fontWeight: '700', maxWidth: '600px', fontSize: '32px' }}>Join 50,000+ Empowered Patients</p>
               <div className="landing-navigation-arrows">
                 <button className="landing-nav-arrow prev" style={{ padding: '0' }}>

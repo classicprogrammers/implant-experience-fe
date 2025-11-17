@@ -109,7 +109,7 @@ export default function PricingPage() {
                   <div key={index} className="feature-item">
                     <div className="feature-icon free">
                       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10 3L4.5 8.5L2 6" stroke="#00ACB2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M10 3L4.5 8.5L2 6" stroke="#00325C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </div>
                     <span className="feature-text free">{feature}</span>

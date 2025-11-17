@@ -39,8 +39,8 @@
 
 .implant-header-banner {
   width: 100%;
-  height: 48px;
-  background: var(--implant-primary-teal);
+  height: 50px;
+  background: #00ACB2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,10 +48,10 @@
 
 .implant-banner-text {
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 18px;
   color: var(--implant-primary-white);
-  /* letter-spacing: 1px; */
+    font-family: "Bebas Neue", sans-serif;
 }
 
 .implant-header-main {
@@ -229,8 +229,7 @@
 }
 
 .implant-nav-item span {
-  font-family: 'Manrope', sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 160%;
   color: var(--implant-neutral-500);
@@ -238,7 +237,7 @@
   left: 25px;
 }
 .implant-nav-item-active span {
-  font-weight: 600;
+  font-weight: 700;
   color: #00B5C7 !important;
 }
 
@@ -266,6 +265,7 @@
   justify-content: center;
   text-decoration: none;
   flex-shrink: 0;
+  color: #FFFFFF;
 }
 
 .implant-btn-login {
@@ -724,7 +724,11 @@
     font-size: 13px;
   }
 }
-
+@media (max-width: 1440px) {
+    .implant-header-main {
+        padding: 3rem 3rem;
+    }
+}
 /* Tablet */
 @media (max-width: 992px) {
   .implant-header-main {

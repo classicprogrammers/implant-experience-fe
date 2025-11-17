@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
-import logo from '../../assets/images/implant-logo.png';
+// import logo from '../../assets/images/implant-logo.png';
 import avatarImage from '../../assets/images/avatar.jpg';
 
 const Header = ({ variant = 'landing' }) => {
