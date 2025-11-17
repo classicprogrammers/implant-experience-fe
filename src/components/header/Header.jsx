@@ -112,9 +112,14 @@ const Header = ({ variant = 'landing' }) => {
       {/* Main Header */}
       <div className="implant-header-main">
         <div className="implant-header-container max-w-7xl mx-auto px-[15px]">
-          <div className="implant-header-logo">
-            <img src={logo} alt="Logo" className="implant-logo-img" />
-          </div>
+         <div className="implant-header-logo">
+  <div className="implant-logo-text">
+    <div className="implant-logo-content">
+      <span className="implant-logo-subtitle">THE IMPLANT</span>
+      <span className="implant-logo-title">EXPERIENCE</span>
+    </div>
+  </div>
+</div>
 
           <nav className={`implant-header-nav ${isMobileMenuOpen ? 'implant-mobile-open' : ''}`} ref={mobileMenuRef}>
             <div className="implant-nav-items">
@@ -141,12 +146,13 @@ const Header = ({ variant = 'landing' }) => {
                 <span>About</span>
               </div>
               <div
-                className={`implant-nav-item ${activeTab === 'Resource' ? 'implant-nav-item-active' : ''}`}
-                onClick={() => handleTabClick('Resource')}
-              >
-                {activeTab === 'Resource' && <div className="implant-nav-dot"></div>}
-                <span>Resource</span>
-              </div>
+  className={`implant-nav-item ${activeTab === 'Resource' ? 'implant-nav-item-active' : ''}`}
+  onClick={() => handleTabClick('Resource')}
+>
+  {/* Dot ko remove kar diya */}
+  <span>Resource</span>
+</div>
+
               <div
                 className={`implant-nav-item ${activeTab === 'Newsletter' ? 'implant-nav-item-active' : ''}`}
                 onClick={() => handleTabClick('Newsletter')}
@@ -157,15 +163,15 @@ const Header = ({ variant = 'landing' }) => {
 
               {/* Mobile Auth Buttons */}
               <div className="implant-mobile-auth-buttons">
-                <Link to="/login" className="implant-btn-login" onClick={closeMobileMenu}>Login</Link>
                 <Link to="/signup" className="implant-btn-member" onClick={closeMobileMenu}>Become a Member</Link>
+                <Link to="/login" className="implant-btn-login" onClick={closeMobileMenu}>Login</Link>
               </div>
             </div>
           </nav>
 
           <div className="implant-header-auth-buttons">
-            <Link to="/login" className="implant-btn-login">Login</Link>
             <Link to="/signup" className="implant-btn-member">Become a Member</Link>
+            <Link to="/login" className="implant-btn-login">Login</Link>
           </div>
 
           <div className={`implant-mobile-menu-toggle ${isMobileMenuOpen ? 'implant-active' : ''}`} onClick={toggleMobileMenu}>

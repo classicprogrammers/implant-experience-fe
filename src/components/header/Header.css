@@ -89,10 +89,95 @@
   align-items: center;
   gap: 40px;
   background: var(--implant-primary-white);
-  border: 1px solid rgba(143, 146, 146, 0.15);
+  /* border: 1px solid rgba(143, 146, 146, 0.15); */
   border-radius: 9999px;
   padding: 7px 20px 7px 7px;
   height: 48px;
+}
+.implant-logo-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.implant-logo-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #00B5C7 0%, #00ACB2 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 4px 12px rgba(0, 181, 199, 0.2);
+}
+
+.implant-logo-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  justify-content: center;
+}
+
+.implant-logo-subtitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #00B5C7;
+  letter-spacing: 0px;
+  line-height: 10px;
+  font-family: 'Manrope', sans-serif;
+}
+
+.implant-logo-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #00325C;
+  /* letter-spacing: -0.5px; */
+  line-height: 28px;
+}
+
+@media (max-width: 992px) {
+  .implant-logo-text {
+    gap: 8px;
+  }
+  
+  .implant-logo-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .implant-logo-subtitle {
+    font-size: 13px;
+  }
+  
+  .implant-logo-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .implant-logo-text {
+    gap: 6px;
+  }
+  
+  .implant-logo-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    border-radius: 8px;
+  }
+  
+  .implant-logo-subtitle {
+    font-size: 12px;
+    letter-spacing: 0.2px;
+  }
+  
+  .implant-logo-title {
+    font-size: 22px;
+    line-height: 20px;
+  }
 }
 
 .implant-nav-items {
@@ -115,32 +200,32 @@
   border: none;
 }
 
-.implant-nav-item:active , .implant-nav-item-active:active{
+.implant-nav-item:active,
+.implant-nav-item-active:active {
   border: none;
   outline: none;
 }
 
+/* Active tab ka color */
 .implant-nav-item-active {
-  border: 1px solid #8F929226;
   border-radius: 25px;
   outline: none;
-  background-color: #FAFAFA;
+  color: #00B5C7;
 }
 
-.implant-nav-dot {
+/* Dot style but by default hidden */
+/* .implant-nav-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: var(--implant-primary-teal);
   opacity: 0;
   transition: all 0.3s ease;
-}
+} */
 
+/* Active pr dot hide kar do */
 .implant-nav-item-active .implant-nav-dot {
-  opacity: 1;
-  transform: scale(1.2);
-  position: absolute;
-  left: 10px;
+  display: none !important;
 }
 
 .implant-nav-item span {
@@ -151,6 +236,10 @@
   color: var(--implant-neutral-500);
   position: absolute;
   left: 25px;
+}
+.implant-nav-item-active span {
+  font-weight: 600;
+  color: #00B5C7 !important;
 }
 
 .implant-header-auth-buttons {
@@ -451,7 +540,7 @@
 
 .implant-header-nav.implant-mobile-open .implant-nav-items {
   background: var(--implant-primary-white);
-  width: 350px;
+  width: 320px;
   height: 100%;
   padding: 80px 0 20px;
   display: flex;
