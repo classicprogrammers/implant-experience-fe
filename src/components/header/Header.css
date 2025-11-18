@@ -51,7 +51,7 @@
   font-weight: 700;
   line-height: 18px;
   color: var(--implant-primary-white);
-    font-family: "Bebas Neue", sans-serif;
+  font-family: "Bebas Neue", sans-serif;
 }
 
 .implant-header-main {
@@ -94,6 +94,7 @@
   padding: 7px 20px 7px 7px;
   height: 48px;
 }
+
 .implant-logo-text {
   display: flex;
   align-items: center;
@@ -126,7 +127,7 @@
   color: #00B5C7;
   letter-spacing: 0px;
   line-height: 10px;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 .implant-logo-title {
@@ -134,51 +135,11 @@
   font-weight: 800;
   color: #00325C;
   /* letter-spacing: -0.5px; */
+  font-family: 'Bebas Neue', sans-serif;
   line-height: 28px;
 }
 
-@media (max-width: 992px) {
-  .implant-logo-text {
-    gap: 8px;
-  }
-  
-  .implant-logo-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
-  
-  .implant-logo-subtitle {
-    font-size: 13px;
-  }
-  
-  .implant-logo-title {
-    font-size: 24px;
-  }
-}
-
-@media (max-width: 768px) {
-  .implant-logo-text {
-    gap: 6px;
-  }
-  
-  .implant-logo-icon {
-    width: 35px;
-    height: 35px;
-    font-size: 18px;
-    border-radius: 8px;
-  }
-  
-  .implant-logo-subtitle {
-    font-size: 12px;
-    letter-spacing: 0.2px;
-  }
-  
-  .implant-logo-title {
-    font-size: 22px;
-    line-height: 20px;
-  }
-}
+/* Responsive Media Queries - Logo and Text adjustments */
 
 .implant-nav-items {
   display: flex;
@@ -236,6 +197,7 @@
   position: absolute;
   left: 25px;
 }
+
 .implant-nav-item-active span {
   font-weight: 700;
   color: #00B5C7 !important;
@@ -551,7 +513,7 @@
   animation: implant-slideInFromRight 0.3s ease forwards;
   position: relative;
   border-radius: 0;
-  
+
 }
 
 @keyframes implant-slideInFromRight {
@@ -676,10 +638,37 @@
   box-shadow: 0 4px 12px rgba(0, 50, 92, 0.3);
 }
 
-/* Responsive Design */
+/* Responsive Design - Only 4 Media Queries: 1440px, 1024px, 768px, 425px */
 
-/* Large Desktop */
+/* Above 1440px (Large screens up to 2050px) */
+@media (min-width: 1441px) and (max-width: 2050px) {
+  .implant-logo-subtitle {
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+  .implant-logo-title {
+    font-size: 52px;
+    line-height: 28px;
+  }
+}
+
+/* Max-width: 1440px */
 @media (max-width: 1440px) {
+  .implant-logo-subtitle {
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  .implant-logo-title {
+    font-size: 44px;
+    line-height: 23px;
+  }
+
+  .implant-header-main {
+    padding: 3rem 3rem;
+  }
+
   .implant-header-dashboard {
     width: calc(100vw - 281px);
     left: 281px;
@@ -694,24 +683,6 @@
   .implant-logo-img {
     max-height: 68px;
   }
-}
-
-/* Desktop */
-@media (max-width: 1200px) {
-  .implant-header-dashboard {
-    width: calc(100vw - 280px);
-    left: 280px;
-    padding: 0 24px;
-  }
-
-  .implant-search-container {
-    width: 350px;
-    height: 44px;
-  }
-
-  .implant-user-section {
-    gap: 12px;
-  }
 
   .implant-header-nav {
     gap: 25px;
@@ -724,23 +695,46 @@
     font-size: 13px;
   }
 }
-@media (max-width: 1440px) {
-    .implant-header-main {
-        padding: 3rem 3rem;
-    }
-}
-/* Tablet */
-@media (max-width: 992px) {
+
+/* Max-width: 1024px */
+@media (max-width: 1024px) {
+  .implant-logo-text {
+    gap: 8px;
+  }
+
+  .implant-logo-subtitle {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .implant-logo-title {
+    font-size: 38px;
+    line-height: 20px;
+  }
+
   .implant-header-main {
     height: 80px;
   }
 
+  /* Show full menu, hide burger menu at 1024px */
   .implant-header-nav {
-    display: none;
+    display: flex;
+    gap: 12px;
+    padding: 7px 12px 7px 7px;
   }
 
   .implant-mobile-menu-toggle {
-    display: flex;
+    display: none;
+  }
+
+  /* Adjust nav text size and item size */
+  .implant-nav-item {
+    min-width: 90px;
+    padding: 12px 16px;
+  }
+
+  .implant-nav-item span {
+    font-size: 16px;
   }
 
   .implant-header-auth-buttons {
@@ -759,10 +753,47 @@
     max-height: 50px;
   }
 
+  .implant-header-dashboard {
+    width: calc(100vw - 280px);
+    left: 280px;
+    padding: 0 24px;
+  }
+
+  .implant-search-container {
+    width: 350px;
+    height: 44px;
+  }
+
+  .implant-user-section {
+    gap: 12px;
+  }
 }
 
-/* Mobile Large */
+/* Max-width: 768px */
 @media (max-width: 768px) {
+  .implant-header-nav {
+    display: none;
+  }
+
+  .implant-mobile-menu-toggle {
+    display: flex;
+  }
+
+  .implant-logo-text {
+    gap: 6px;
+  }
+
+  .implant-logo-subtitle {
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.2px;
+  }
+
+  .implant-logo-title {
+    font-size: 34px;
+    line-height: 22px;
+  }
+
   .implant-header-banner {
     height: 40px;
   }
@@ -801,7 +832,6 @@
     display: block;
   }
 
-  /* Dashboard responsive */
   .implant-header-dashboard {
     width: 100vw;
     left: 0;
@@ -857,18 +887,33 @@
   }
 }
 
-/* Mobile Medium */
-@media (max-width: 576px) {
+/* Max-width: 425px */
+@media (max-width: 425px) {
+  .implant-logo-text {
+    gap: 4px;
+  }
+
+  .implant-logo-subtitle {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.2px;
+  }
+
+  .implant-logo-title {
+    font-size: 24px;
+    line-height: 18px;
+  }
+
   .implant-header-main {
-    height: 65px;
+    height: 60px;
   }
 
   .implant-header-container {
-    gap: 8px;
+    gap: 6px;
   }
 
   .implant-logo-img {
-    max-height: 45px;
+    max-height: 32px;
   }
 
   .implant-header-dashboard {
@@ -894,10 +939,6 @@
     font-size: 12px;
   }
 
-  .implant-user-section {
-    gap: 8px;
-  }
-
   .implant-user-name {
     font-size: 12px;
   }
@@ -915,41 +956,5 @@
   .implant-dropdown-arrow {
     width: 20px;
     height: 20px;
-  }
-}
-
-/* Mobile Small */
-@media (max-width: 480px) {
-  .implant-header-main {
-    height: 60px;
-  }
-
-  .implant-header-container {
-    gap: 6px;
-  }
-
-  .implant-logo-img {
-    max-height: 32px;
-  }
-
-  .implant-header-dashboard {
-    padding: 0 12px;
-    height: 60px;
-    box-sizing: border-box;
-  }
-}
-
-/* Mobile Extra Small */
-@media (max-width: 360px) {
-  .implant-header-main {
-    height: 55px;
-  }
-
-  .implant-header-container {
-    gap: 4px;
-  }
-
-  .implant-logo-img {
-    max-height: 28px;
   }
 }
