@@ -10,12 +10,12 @@ import CoreServices from '../../components/CoreServices';
 import { coreServicesData } from '../../data/coreServicesData';
 import Episodes from '../../components/Episodes';
 import { episodesData } from '../../data/episodesData';
+import ImplantExperience from '../../components/implant-experience/ImplantExperience';
 // import logo from '../../assets/images/implant-logo.png';
 import badge from '../../assets/images/landingHero.png';
 import marqueeLogo from '../../assets/images/marqueeLogo.png'
 import stethoscope from '../../assets/images/stethoscope.png'
 import meetjohnSec from '../../assets/images/meetjohnSec.png';
-import johnOwens from '../../assets/images/JohnOwens.png';
 // import workHospital from '../../assets/images/workHospital.png';
 
 function LandingPage() {
@@ -38,7 +38,7 @@ function LandingPage() {
   ]
 
   return (
-    <div className="landing-page">
+    <div className="landing-page ">
 
       <section className="landing-hero-section">
         <div className="max-w-7xl mx-auto px-[15px] w-full">
@@ -58,7 +58,7 @@ function LandingPage() {
 
             <div className="landing-hero-cta">
               <Link to="/signup" className="landing-cta-button">BECOME A MEMBER</Link>
-              <p className="landing-hero-description" style={{ marginBottom: '0px', fontWeight: '700', maxWidth: '600px', fontSize: '32px' }}>Join 50,000+ Empowered Patients</p>
+              <p className="join-500">Join 50,000+ Empowered Patients</p>
               <div className="landing-navigation-arrows">
                 <button className="landing-nav-arrow prev" style={{ padding: '0' }}>
                   <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
@@ -140,36 +140,7 @@ function LandingPage() {
       </section>
 
       {/* The Implant Experience Section */}
-      <section className="implant-experience-section">
-        <div className="max-w-7xl mx-auto px-[15px]">
-          <div className="john-owens-portrait">
-            <img src={johnOwens} alt="John P. Owens" className="john-portrait-img" />
-          </div>
-          <div className="implant-experience-container">
-            <div className="implant-experience-left">
-              <h2 className="implant-experience-title">During My Years Working With Hospitals,</h2>
-              <p className="implant-experience-description">
-                I Saw The Human Cost of Poor Device Oversight. Patients Like Angie Firmalino, Dr. Stephen Tower, and Thousands of Others Suffered Because Our System Prioritizes Speed to Market Over Safety.
-              </p>
-              <button className="implant-experience-btn">
-                <Link to="/signup">BECOME A MEMBER</Link>
-              </button>
-            </div>
-
-            <div className="implant-experience-right">
-              <div className="implant-experience-block">
-                <h3 className="implant-experience-subtitle">The Implant Experience is</h3>
-                <p className="implant-experience-text">Our Answer To A Broken System That Has Left Patients In The Dark For Too Long.</p>
-              </div>
-
-              <div className="implant-experience-block">
-                <h3 className="implant-experience-subtitle">His Mission:</h3>
-                <p className="implant-experience-text">Transform Device Tracking From A Regulatory Afterthought Into A Patient-Centered Right.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ImplantExperience />
       {/* Value Proposition Section */}
       <section className="value-proposition-section">
         <div className="max-w-7xl mx-auto py-[40px]">
