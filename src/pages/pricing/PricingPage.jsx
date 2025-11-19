@@ -1,10 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AuthHeader from '../../components/auth/AuthHeader'
 import AuthFooter from '../../components/auth/AuthFooter'
 import '../../App.css'
 import './pricing.css'
+import { api } from '../../utils/api'
 
 export default function PricingPage() {
+  const [plans, setPlans] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPlans = async () => {
+      try {
+        const response = await api.get('/payments/plans');
+        setPlans(response.data?.data || response.data || []);
+      } catch (error) {
+        console.error('Error fetching plans:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPlans();
+  }, []);
+
+  if (loading) {
+    return (
+      <>
+        <AuthHeader />
+        <div className="auth-page-new pricing-page-container">
+          <div className="auth-container-new">
+            <div className="pricing-header-section">
+              <h1>Pricing Plans</h1>
+              <p>Loading...</p>
+            </div>
+          </div>
+        </div>
+        <AuthFooter />
+      </>
+    );
+  }
+
   return (
     <>
       <AuthHeader />
@@ -20,116 +56,86 @@ export default function PricingPage() {
 
           {/* Pricing Cards */}
           <div className="pricing-cards-container">
-            {/* Premium Plan Card */}
-            <div className="premium-card">
-              {/* Plan Title and Most Popular Badge - Same Line */}
-              <div className="plan-title-row">
-                <h3 className="plan-title premium">Premium</h3>
-                <div className="plan-badge badge-most-popular">Most Popular</div>
-              </div>
+            {plans.map((plan, planIndex) => {
+              const isPremium = planIndex === 0 || plan.isPopular || plan.type === 'premium';
+              const cardClass = isPremium ? 'premium-card' : 'free-card';
+              const titleClass = isPremium ? 'premium' : 'free';
+              const badgeClass = isPremium ? 'badge-most-popular' : 'badge-get-pro';
+              const badgeText = isPremium ? 'Most Popular' : 'Get Pro';
+              const dividerClass = isPremium ? 'divider-premium' : 'divider-free';
+              const buttonClass = isPremium ? 'button-premium' : 'button-free';
+              const iconStroke = isPremium ? 'white' : '#00325C';
 
-              {/* Price */}
-              <div className="price-section">
-                <span className="price-amount premium">$200</span>
-                <span className="price-duration premium">/Monthly</span>
-              </div>
-
-              {/* Description */}
-              <p className="plan-description premium">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam mauris sed ma
-              </p>
-
-              {/* Divider */}
-              <div className="plan-divider divider-premium"></div>
-
-              {/* Features */}
-              <div className="features-container">
-                {[
-                  'Lorem ipsum dolor sit amet consectetur',
-                  'Lorem ipsum dolor sit amet consectetur',
-                  'Lorem ipsum dolor sit amet consectetur',
-                  'Lorem ipsum dolor sit amet consectetur'
-                ].map((feature, index) => (
-                  <div key={index} className="feature-item">
-                    <div className="feature-icon premium">
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10 3L4.5 8.5L2 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
-                    <span className="feature-text premium">{feature}</span>
+              return (
+                <div key={plan.id || planIndex} className={cardClass}>
+                  {/* Plan Title and Badge - Same Line */}
+                  <div className="plan-title-row">
+                    <h3 className={`plan-title ${titleClass}`}>{plan.name || plan.title || 'Plan'}</h3>
+                    {plan.badge && (
+                      <div className={`plan-badge ${badgeClass}`}>{plan.badge}</div>
+                    )}
+                    {!plan.badge && (
+                      <div className={`plan-badge ${badgeClass}`}>{badgeText}</div>
+                    )}
                   </div>
-                ))}
-              </div>
 
-              {/* Button */}
-              <button
-                className="plan-button button-premium"
-                onMouseEnter={(e) => {
-                  e.target.style.opacity = '0.9'
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.opacity = '1'
-                }}
-              >
-                Get Started
-              </button>
-            </div>
-
-            {/* Free Plan Card */}
-            <div className="free-card">
-              {/* Plan Title and Get Pro Badge - Same Line */}
-              <div className="plan-title-row">
-                <h3 className="plan-title free">Free</h3>
-                <div className="plan-badge badge-get-pro">Get Pro</div>
-              </div>
-
-              {/* Price */}
-              <div className="price-section">
-                <span className="price-amount free">$200</span>
-                <span className="price-duration free">/Monthly</span>
-              </div>
-
-              {/* Description */}
-              <p className="plan-description free">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam mauris sed ma
-              </p>
-
-              {/* Divider */}
-              <div className="plan-divider divider-free"></div>
-
-              {/* Features */}
-              <div className="features-container">
-                {[
-                  'Lorem ipsum dolor sit amet consectetur',
-                  'Lorem ipsum dolor sit amet consectetur',
-                  'Lorem ipsum dolor sit amet consectetur',
-                  'Lorem ipsum dolor sit amet consectetur',
-                  'Lorem ipsum dolor sit amet consectetur'
-                ].map((feature, index) => (
-                  <div key={index} className="feature-item">
-                    <div className="feature-icon free">
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10 3L4.5 8.5L2 6" stroke="#00325C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
-                    <span className="feature-text free">{feature}</span>
+                  {/* Price */}
+                  <div className="price-section">
+                    <span className={`price-amount ${titleClass}`}>
+                      ${plan.price || plan.amount || '0'}
+                    </span>
+                    <span className={`price-duration ${titleClass}`}>
+                      /{plan.duration || plan.billingPeriod || 'Monthly'}
+                    </span>
                   </div>
-                ))}
-              </div>
 
-              {/* Button */}
-              <button
-                className="plan-button button-free"
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = '#008C9E'
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = '#00ACB2'
-                }}
-              >
-                Choose Plan
-              </button>
-            </div>
+                  {/* Description */}
+                  <p className={`plan-description ${titleClass}`}>
+                    {plan.description || plan.desc || 'No description available'}
+                  </p>
+
+                  {/* Divider */}
+                  <div className={`plan-divider ${dividerClass}`}></div>
+
+                  {/* Features */}
+                  <div className="features-container">
+                    {(plan.features || plan.benefits || []).map((feature, index) => (
+                      <div key={index} className="feature-item">
+                        <div className={`feature-icon ${titleClass}`}>
+                          <svg width="14" height="14" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 3L4.5 8.5L2 6" stroke={iconStroke} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </div>
+                        <span className={`feature-text ${titleClass}`}>
+                          {typeof feature === 'string' ? feature : feature.name || feature.title || feature}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Button */}
+                  <button
+                    className={`plan-button ${buttonClass}`}
+                    onMouseEnter={(e) => {
+                      if (isPremium) {
+                        e.target.style.opacity = '0.9'
+                      } else {
+                        e.target.style.backgroundColor = '#008C9E'
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (isPremium) {
+                        e.target.style.opacity = '1'
+                      } else {
+                        e.target.style.backgroundColor = '#00ACB2'
+                      }
+                    }}
+                  >
+                    {plan.buttonText || (isPremium ? 'Get Started' : 'Choose Plan')}
+                  </button>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
