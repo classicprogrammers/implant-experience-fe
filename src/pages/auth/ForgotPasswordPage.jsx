@@ -73,7 +73,7 @@ function ForgotPasswordPage() {
 
       if (response.data.success) {
         console.log('Password reset email sent:', response.data)
-        // Navigate to verify OTP page
+        // Navigate to verify otp page
         navigate('/verify-otp')
       } else {
         setError(response.data.message || 'Failed to send password reset email')

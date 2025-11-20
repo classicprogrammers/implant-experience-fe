@@ -1,0 +1,237 @@
+/* ================================
+DEFAULT (DESKTOP FIRST)
+================================ */
+.about-header-section {
+    background: white;
+    min-height: 40px;
+    padding: 35px 0 80px 0;
+    }
+    
+    .about-header-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    }
+    
+    .about-header-title {
+    color: #00325C;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto;
+    line-height: 1.2;
+    }
+    
+    /* ================================
+    ABOUT CARD SECTION
+    ================================ */
+    .about-card-section {
+    width: 100%;
+    background-color: #003878;
+    background-image: linear-gradient(180deg, rgba(9, 50, 36, 0) 0%, #22518638 76.23%),
+    url('../../assets/images/workHospital.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 0;
+    border-radius: 20px;
+    }
+    
+    .about-card {
+    position: relative;
+    min-height: 370px;
+    max-width: 1200px;
+    padding: 50px;
+    margin: 0 auto;
+    display: grid;
+    align-items: center;
+    }
+    
+    .about-card-left-content {
+    position: absolute;
+    left: 50px;
+    top: 42%;
+    transform: translateY(-50%);
+    text-align: left;
+    }
+    
+    .about-card-image-center {
+    position: absolute;
+    left: 30%;
+    top: 45%;
+    transform: translateY(-50%);
+    max-width: 450px;
+    }
+    
+    .about-card-right-content {
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 400px;
+    }
+    
+    .about-card-title {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    max-width: 280px;
+    }
+    
+    .about-card-text {
+        margin-top: 20px;
+    color: white;
+    font-size: 1.2rem;
+    max-width: 80%;
+    }
+    
+    .about-card-badge {
+    margin-top: 30px;
+    margin-left: 90px;
+    }
+    
+    .badge-label {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    }
+    
+    .badge-number {
+    color: white;
+    font-size: 5rem;
+    font-weight: 700;
+    }
+    
+    /* ================================
+    EXPERIENCE SECTION
+    ================================ */
+    .about-experience-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    }
+    
+    .experience-heading {
+    color: #0fa89e;
+    font-size: 4rem;
+    font-weight: 700;
+    }
+    
+    .experience-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    }
+    
+    .experience-para {
+    color: #4a5568;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    }
+    
+    /* ================================
+    BREAKPOINT 1024px
+    ================================ */
+    @media (max-width: 1024px) {
+    
+    
+    .about-card {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        min-height: auto;
+        gap: 30px;
+        padding: 40px 20px;
+    }
+    
+    .about-card-image-center {
+        display: none !important;
+    }
+    
+    .about-card-left-content,
+    .about-card-right-content {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 0;
+    }
+    
+    .about-card-title {
+        font-size: 2.8rem;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    
+    .about-card-text {
+        font-size: 1.05rem;
+        margin: 0 auto;
+        max-width: 100%;
+        padding-left: 0;
+    }
+    
+    .about-card-badge {
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    
+    }
+    
+    /* ================================
+    BREAKPOINT 768px
+    ================================ */
+    @media (max-width: 768px) {
+    
+    
+    .about-header-title {
+        font-size: 2rem;
+    }
+    
+    .about-card-title {
+        font-size: 2.2rem;
+    }
+    
+    .about-card-text {
+        font-size: 1rem;
+    }
+    
+    .badge-number {
+        font-size: 4.2rem;
+    }
+    
+    
+    }
+    
+    /* ================================
+    BREAKPOINT 480px
+    ================================ */
+    @media (max-width: 480px) {
+    
+    
+    .about-header-title {
+        font-size: 1.75rem;
+    }
+    
+    .about-card-title {
+        font-size: 1.8rem;
+    }
+    
+    .about-card-text {
+        font-size: 0.95rem;
+    }
+    
+    .badge-number {
+        font-size: 3.8rem;
+    }
+    
+    
+    }
+    
