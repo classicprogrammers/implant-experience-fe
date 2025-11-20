@@ -53,6 +53,11 @@ function LoginPage() {
           if (role === 'admin' || role === 'superadmin' || role === 'superAdmin') {
             navigate('/admin/add-user')
           } else {
+            try {
+              localStorage.setItem('showNotificationModalOnLogin', 'true')
+            } catch {
+              // Ignore storage errors
+            }
             navigate('/dashboard')
           }
         }, 1000)

@@ -1,7 +1,42 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import warningIcon from '../../assets/images/warningIcon.png';
 import './TopNavbar.css';
 import avatarImage from '../../assets/images/avatar.jpg';
+import { api } from '../../utils/api';
+
+const UNACK_ENDPOINT = '/recalls/unacknowledged';
+const ACK_ENDPOINT_PREFIX = '/recalls/impact';
+
+const normalizeUnacknowledged = (payload = {}) => {
+    const possibleLists = [
+        payload?.data?.impacts,
+        payload?.data?.items,
+        payload?.data?.recalls,
+        payload?.data,
+        payload?.impacts,
+        payload?.items,
+        payload?.recalls,
+        payload,
+    ];
+
+    const list = possibleLists.find((entry) => Array.isArray(entry)) || [];
+    const candidate = list[0] || (typeof payload === 'object' && !Array.isArray(payload) ? payload : null);
+
+    if (!candidate || typeof candidate !== 'object') {
+        return null;
+    }
+
+    return {
+        impactId: candidate.impactId || candidate.impact_id || candidate.id || candidate._id || null,
+        deviceName: candidate.deviceName || candidate.device || candidate.title || 'Your device',
+        description:
+            candidate.description ||
+            candidate.summary ||
+            candidate.reason ||
+            'A recall has been issued for this device due to a potential safety concern.',
+        acknowledged: Boolean(candidate.acknowledged || candidate.isAcknowledged || candidate.status === 'acknowledged'),
+    };
+};
 
 const TopNavbar = ({ onMenuToggle }) => {
     const [showModal, setShowModal] = useState(false);
@@ -13,6 +48,10 @@ const TopNavbar = ({ onMenuToggle }) => {
             return null;
         }
     });
+    const [recallRecord, setRecallRecord] = useState(null);
+    const [recallLoading, setRecallLoading] = useState(false);
+    const [ackLoading, setAckLoading] = useState(false);
+    const [ackError, setAckError] = useState(null);
 
     useEffect(() => {
         const refreshUser = () => {
@@ -31,11 +70,72 @@ const TopNavbar = ({ onMenuToggle }) => {
         };
     }, []);
 
+    const fetchUnacknowledged = useCallback(
+        async ({ autoOpen = false } = {}) => {
+            try {
+                setRecallLoading(true);
+                setAckError(null);
+                const response = await api.get(UNACK_ENDPOINT);
+                const normalized = normalizeUnacknowledged(response?.data) || null;
+                setRecallRecord(normalized);
+
+                if (autoOpen) {
+                    if (normalized && !normalized.acknowledged) {
+                        setShowModal(true);
+                    }
+                    localStorage.removeItem('showNotificationModalOnLogin');
+                }
+
+                return normalized;
+            } catch (err) {
+                console.error('Failed to fetch unacknowledged recalls:', err);
+                setRecallRecord(null);
+                if (autoOpen) {
+                    localStorage.removeItem('showNotificationModalOnLogin');
+                }
+                return null;
+            } finally {
+                setRecallLoading(false);
+            }
+        },
+        []
+    );
+
+    useEffect(() => {
+        const shouldOpenOnLogin = localStorage.getItem('showNotificationModalOnLogin') === 'true';
+        if (shouldOpenOnLogin) {
+            setShowModal(true);
+        }
+        fetchUnacknowledged({ autoOpen: shouldOpenOnLogin });
+    }, [fetchUnacknowledged]);
+
     const displayName = ([storedUser?.fullName, storedUser?.lastName].filter(Boolean).join(' ') || storedUser?.name || storedUser?.username || 'User');
     const displayRole = storedUser?.role || 'User';
 
-    const handleBellClick = () => setShowModal(true);
+    const handleBellClick = () => {
+        fetchUnacknowledged();
+        setShowModal(true);
+    };
     const handleClose = () => setShowModal(false);
+
+    const handleAcknowledge = async () => {
+        if (!recallRecord?.impactId || ackLoading) return;
+        try {
+            setAckLoading(true);
+            setAckError(null);
+            const endpoint = `${ACK_ENDPOINT_PREFIX}/${recallRecord.impactId}/acknowledge`;
+            await api.post(endpoint);
+            setRecallRecord((prev) => (prev ? { ...prev, acknowledged: true } : prev));
+            setShowModal(false);
+        } catch (err) {
+            console.error('Failed to acknowledge recall impact:', err);
+            setAckError(err?.response?.data?.message || err.message || 'Failed to acknowledge.');
+        } finally {
+            setAckLoading(false);
+        }
+    };
+
+    const showAcknowledgeButton = recallRecord && !recallRecord.acknowledged;
     return (
         <div className="top-navbar">
             {/* Mobile Menu Button */}
@@ -111,8 +211,27 @@ const TopNavbar = ({ onMenuToggle }) => {
                             </div>
                         </div>
                         <div className="modal-actions">
-                            <button className="modal-btn acknowledge" onClick={handleClose}>Acknowledge</button>
-                            <button className="modal-btn contact">Contact Providers</button>
+                            {ackError && (
+                                <p style={{ color: '#ef4444', fontSize: '13px', marginBottom: '8px' }}>{ackError}</p>
+                            )}
+                            {recallLoading && (
+                                <p style={{ color: '#4b5563', fontSize: '13px', marginBottom: '8px' }}>
+                                    Checking your recall status…
+                                </p>
+                            )}
+                            {showAcknowledgeButton ? (
+                                <button
+                                    className="modal-btn acknowledge"
+                                    onClick={handleAcknowledge}
+                                    disabled={ackLoading}
+                                >
+                                    {ackLoading ? 'Acknowledging…' : 'Acknowledge'}
+                                </button>
+                            ) : (
+                                <button className="modal-btn acknowledge" disabled>
+                                    {recallRecord ? 'Acknowledged' : 'No alerts'}
+                                </button>
+                            )}
                         </div>
                     </div>
                 </div>
