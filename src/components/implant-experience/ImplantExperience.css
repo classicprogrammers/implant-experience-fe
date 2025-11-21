@@ -15,7 +15,7 @@
 .implant-experience-section {
     /* width: 100%; */
     background-color: #003878;
-    background-image: linear-gradient(270deg, rgba(9, 50, 36, 0) 0%, #003878 76.23%), url('../../assets/images/workHospital.png');
+    background-image: linear-gradient(180deg, rgba(9, 50, 36, 0) 0%, #22518638 76.23%), url('../../assets/images/workHospital.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

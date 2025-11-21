@@ -44,11 +44,12 @@ const LandingAbout = () => {
 
       <section className="about-experience-section">
         <div className="about-experience-container">
-          <h2 className="experience-heading">
-            <div>John brings two decades</div>
-            <div>of executive sales</div>
-            <div>experience</div>
+          
+            <div className="experience-heading"> <h2 >John brings two decades
+           of executive sales
+           experience
           </h2>
+          </div>
 
           <div className="experience-content">
             <p className="experience-para">

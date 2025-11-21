@@ -260,9 +260,9 @@ const ActivityLog = () => {
                 ) : recallError ? (
                     <div className="error-container">
                         <p className="error-message">{recallError}</p>
-                        <button onClick={fetchRecallAlerts} className="retry-button">
+                        {/* <button onClick={fetchRecallAlerts} className="retry-button">
                             Try Again
-                        </button>
+                        </button> */}
                     </div>
                 ) : recallAlerts.length === 0 ? (
                     <div className="no-activity">
