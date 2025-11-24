@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useMemo, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import './resources.css'
 import { api } from '../../utils/api'
+import { blogPosts } from '../../data/blogPosts'
 
 // TODO: Add your icon images here
 // import safetyGuidesIcon from '../../assets/images/safety-guides-icon.png'
@@ -16,27 +17,39 @@ function ResourcesPage() {
     const [openFaq, setOpenFaq] = useState(null)
     const [loading, setLoading] = useState(false)
     const [faqData, setFaqData] = useState([])
+    const [activeBlogId, setActiveBlogId] = useState(null)
+
+    const blogCards = useMemo(() => blogPosts, [])
 
     const toggleSafetyGuides = () => {
         setOpenSafetyGuides(!openSafetyGuides)
-        setOpenBlogs(false) // Close Blogs if open
-        setOpenFaqs(false) // Close FAQs if open
+        setOpenBlogs(false)
+        setOpenFaqs(false)
+        setActiveBlogId(null)
     }
 
     const toggleBlogs = () => {
         setOpenBlogs(!openBlogs)
-        setOpenSafetyGuides(false) // Close Safety Guides if open
-        setOpenFaqs(false) // Close FAQs if open
+        setOpenSafetyGuides(false)
+        setOpenFaqs(false)
+        if (openBlogs) {
+            setActiveBlogId(null)
+        }
     }
 
     const toggleFaqs = () => {
         setOpenFaqs(!openFaqs)
-        setOpenSafetyGuides(false) // Close Safety Guides if open
-        setOpenBlogs(false) // Close Blogs if open
+        setOpenSafetyGuides(false)
+        setOpenBlogs(false)
+        setActiveBlogId(null)
     }
 
     const toggleFaq = (index) => {
         setOpenFaq(openFaq === index ? null : index)
+    }
+
+    const handleBlogSelect = (blogId) => {
+        setActiveBlogId((prev) => (prev === blogId ? null : blogId))
     }
 
     const fetchFaq = async () => {
@@ -76,8 +89,9 @@ function ResourcesPage() {
                 <div className="resource-section-card">
                     <div className="resource-section-header" onClick={toggleSafetyGuides}>
                         <div className="resource-section-left">
-                            {/* TODO: Replace with your Safety Guides icon image */}
-                            <img src="/path-to-safety-guides-icon.png" alt="Safety Guides" className="resource-icon" />
+                            <div className="resource-icon resource-icon--safety">
+                                <img src="/src/assets/images/magicpen.png" alt="Safety Guides" />
+                            </div>
                             <div className="resource-section-info">
                                 <h3>Safety Guides</h3>
                                 {openSafetyGuides && <p className="header-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>}
@@ -125,8 +139,9 @@ function ResourcesPage() {
                 <div className="resource-section-card blogs-card">
                     <div className="resource-section-header" onClick={toggleBlogs}>
                         <div className="resource-section-left">
-                            {/* TODO: Replace with your Blogs icon image */}
-                            <img src="/path-to-blogs-icon.png" alt="Blogs" className="resource-icon" />
+                            <div className="resource-icon resource-icon--blogs">
+                                <img src="/src/assets/images/discount-shape.png" alt="Blogs" />
+                            </div>
                             <div className="resource-section-info">
                                 <h3>Blogs</h3>
                                 {openBlogs && <p className="header-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>}
@@ -146,69 +161,79 @@ function ResourcesPage() {
                     {openBlogs && (
                         <div className="blogs-dropdown-container">
                             <div className="blog-posts-list">
-                                {/* Blog Post 1 */}
-                                <div className="blog-post-card">
-                                    <div className="blog-image">
-                                        {/* TODO: Replace with actual blog image */}
-                                        <img src="/path-to-blog-image-1.jpg" alt="Blog post" />
-                                    </div>
-                                    <div className="blog-content">
-                                        <div className="blog-meta">
-                                            <span className="blog-date">July 2, 2025</span>
-                                        </div>
-                                        <h4 className="blog-title">How to Maintain Healthy Lungs for Life</h4>
-                                        <p className="blog-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        <div className="blog-read-more-wrapper">
-                                            <a href="#" className="blog-read-more">Read more
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                                    <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                                {blogCards.map((blog) => {
+                                    const tips = blog.tips || []
+                                    const [primaryTip, ...secondaryTips] = tips
 
-                                {/* Blog Post 2 */}
-                                <div className="blog-post-card">
-                                    <div className="blog-image">
-                                        {/* TODO: Replace with actual blog image */}
-                                        <img src="/path-to-blog-image-2.jpg" alt="Blog post" />
-                                    </div>
-                                    <div className="blog-content">
-                                        <div className="blog-meta">
-                                            <span className="blog-date">July 2, 2025</span>
+                                    return (
+                                        <div key={blog.id} className="blog-post-wrapper">
+                                            <div className="blog-post-card" onClick={() => handleBlogSelect(blog.id)}>
+                                                <div className="blog-image">
+                                                    <img src={blog.heroImage} alt={blog.title} />
+                                                </div>
+                                                <div className="blog-content">
+                                                    <div className="blog-meta">
+                                                        <span className="blog-date">{blog.date}</span>
+                                                        <Link to={`/resources/blog/${blog.id}`} className="blog-read-more">
+                                                            Read more
+                                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                                                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                                            </svg>
+                                                        </Link>
+                                                    </div>
+                                                    <h4 className="blog-title">{blog.title}</h4>
+                                                    <p className="blog-description">{blog.excerpt}</p>
+                                                </div>
+                                            </div>
+                                            {activeBlogId === blog.id && (
+                                                <div className="blog-detail-preview">
+                                                    <div className="blog-detail-main">
+                                                        <div className="blog-detail-image">
+                                                            <img src={blog.heroImage} alt={blog.title} />
+                                                        </div>
+                                                        <div className="blog-detail-content">
+                                                            <span className="blog-pill">{blog.date}</span>
+                                                            <h3>{blog.title}</h3>
+                                                            <p className="blog-detail-description">{blog.content}</p>
+                                                            {primaryTip && (
+                                                                <div className="blog-tip-item">
+                                                                    <p className="blog-tip-title">{primaryTip.title}</p>
+                                                                    {Array.isArray(primaryTip.body) ? (
+                                                                        <ul>
+                                                                            {primaryTip.body.map((item, idx) => (
+                                                                                <li key={idx}>{item}</li>
+                                                                            ))}
+                                                                        </ul>
+                                                                    ) : (
+                                                                        <p>{primaryTip.body}</p>
+                                                                    )}
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                    {secondaryTips.length > 0 && (
+                                                        <div className="blog-tip-list">
+                                                            {secondaryTips.map((tip, index) => (
+                                                                <div key={index} className="blog-tip-item">
+                                                                    <p className="blog-tip-title">{tip.title}</p>
+                                                                    {Array.isArray(tip.body) ? (
+                                                                        <ul>
+                                                                            {tip.body.map((item, idx) => (
+                                                                                <li key={idx}>{item}</li>
+                                                                            ))}
+                                                                        </ul>
+                                                                    ) : (
+                                                                        <p>{tip.body}</p>
+                                                                    )}
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            )}
                                         </div>
-                                        <h4 className="blog-title">How to Maintain Healthy Lungs for Life</h4>
-                                        <p className="blog-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        <div className="blog-read-more-wrapper">
-                                            <a href="#" className="blog-read-more">Read more
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                                    <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Blog Post 3 */}
-                                <div className="blog-post-card">
-                                    <div className="blog-image">
-                                        {/* TODO: Replace with actual blog image */}
-                                        <img src="/path-to-blog-image-3.jpg" alt="Blog post" />
-                                    </div>
-                                    <div className="blog-content">
-                                        <div className="blog-meta">
-                                            <span className="blog-date">December 4, 2024</span>
-                                            <a href="#" className="blog-read-more">Read more
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                                    <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                                </svg>
-                                            </a>
-                                        </div>
-                                        <h4 className="blog-title">How to Maintain Healthy Lungs for Life</h4>
-                                        <p className="blog-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </div>
-                                </div>
+                                    )
+                                })}
                             </div>
                         </div>
                     )}
@@ -218,8 +243,9 @@ function ResourcesPage() {
                 <div className="resource-section-card">
                     <div className="resource-section-header" onClick={toggleFaqs}>
                         <div className="resource-section-left">
-                            {/* TODO: Replace with your FAQs icon image */}
-                            <img src="/path-to-faqs-icon.png" alt="FAQs" className="resource-icon" />
+                            <div className="resource-icon resource-icon--faq">
+                                <img src="/src/assets/images/magicpen.png" alt="FAQs" />
+                            </div>
                             <div className="resource-section-info">
                                 <h3>FAQs</h3>
                                 {openFaqs && <p className="header-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>}

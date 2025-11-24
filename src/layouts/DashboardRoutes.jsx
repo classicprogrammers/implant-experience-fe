@@ -7,6 +7,7 @@ import MyDevices from '../pages/devices/MyDevices'
 import DevicesList from '../pages/devices/DevicesList'
 import NotificationPage from '../components/notification/NotificationPage'
 import ResourcesPage from '../components/resources/ResourcesPage'
+import BlogDetailPage from '../pages/resources/BlogDetailPage'
 import SettingsPage from '../components/settings/SettingsPage'
 import AddUserPage from '../pages/superAdmin/addUser/user'
 
@@ -32,6 +33,7 @@ const DashboardRoutes = () => {
                     <Route path="/my-devices/detail" element={<MyDevices />} />
                     <Route path="/notifications" element={<NotificationPage />} />
                     <Route path="/resources" element={<ResourcesPage />} />
+                    <Route path="/resources/blog/:blogId" element={<BlogDetailPage />} />
                     <Route path="/settings" element={<SettingsPage />} />
                     <Route path="/admin/add-user" element={<AddUserPage />} />
                 </Routes>

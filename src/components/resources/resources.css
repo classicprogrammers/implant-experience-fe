@@ -93,9 +93,31 @@
 }
 
 .resource-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 4px;
+    background: #E8F6F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.resource-icon img {
     width: 24px;
     height: 24px;
     object-fit: contain;
+}
+
+.resource-icon--safety {
+    background-color: #DEF7F7;
+}
+
+.resource-icon--blogs {
+    background-color: #DEF7F7;
+}
+
+.resource-icon--faq {
+    background-color: #DEF7F7;
 }
 
 .resource-section-info {
@@ -144,6 +166,12 @@
     gap: 16px;
 }
 
+.blog-post-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 .blog-post-card {
     background-color: #fff;
     border: 1px solid #EAEAEA;
@@ -151,8 +179,8 @@
     padding: 16px;
     display: flex;
     gap: 16px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     transition: all 0.3s;
+    cursor: pointer;
 }
 
 .blog-post-card:hover {
@@ -160,9 +188,9 @@
 }
 
 .blog-image {
-    width: 120px;
+    width: 160px;
     height: 120px;
-    border-radius: 8px;
+    border-radius: 11px;
     overflow: hidden;
     flex-shrink: 0;
 }
@@ -181,20 +209,17 @@
 }
 
 .blog-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 4px;
+    width: 100%;
 }
 
 .blog-date {
     font-size: 12px;
     color: #666;
     font-weight: 400;
-}
-
-.blog-read-more-wrapper {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: auto;
-    padding-top: 8px;
 }
 
 .blog-read-more {
@@ -206,6 +231,7 @@
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s;
+    margin-left: auto;
 }
 
 .blog-read-more:hover {
@@ -232,6 +258,90 @@
     color: #666;
     line-height: 1.5;
     margin: 0;
+}
+
+.blog-detail-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid #EAEAEA;
+    border-radius: 16px;
+    padding: 20px;
+    background: #FDFEFF;
+}
+
+.blog-detail-main {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.blog-detail-image {
+    width: 260px;
+    border-radius: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+    align-self: stretch;
+}
+
+.blog-detail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.blog-detail-content h3 {
+    font-size: 20px;
+    color: #0F3662;
+    margin: 8px 0 12px 0;
+}
+
+.blog-pill {
+    display: inline-flex;
+    padding: 4px 14px;
+    background: #E2F2FF;
+    color: #0F4C81;
+    border-radius: 999px;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.blog-detail-description {
+    color: #4A5568;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.blog-tip-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.blog-tip-item {
+    margin-bottom: 0;
+}
+
+.blog-tip-title {
+    font-weight: 600;
+    color: #0F3662;
+    margin-bottom: 6px;
+}
+
+.blog-tip-item ul {
+    padding-left: 18px;
+    color: #4A5568;
+}
+
+@media (max-width: 768px) {
+    .blog-detail-main {
+        flex-direction: column;
+    }
+
+    .blog-detail-image {
+        width: 100%;
+    }
 }
 
 /* Safety Guides Dropdown */
