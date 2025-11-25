@@ -1,8 +1,9 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './resources.css'
-import { api } from '../../utils/api'
-import { blogPosts } from '../../data/blogPosts'
+import arrowLeft from '../../assets/images/ArrowLeft.png'
+import readMoreIcon from '../../assets/images/readMore.png'
+import { getBlogs, getFaqResources, getSafetyGuides } from './resourcesApis'
 
 // TODO: Add your icon images here
 // import safetyGuidesIcon from '../../assets/images/safety-guides-icon.png'
@@ -15,11 +16,13 @@ function ResourcesPage() {
     const [openBlogs, setOpenBlogs] = useState(false)
     const [openFaqs, setOpenFaqs] = useState(false)
     const [openFaq, setOpenFaq] = useState(null)
-    const [loading, setLoading] = useState(false)
+    const [faqLoading, setFaqLoading] = useState(false)
+    const [blogsLoading, setBlogsLoading] = useState(false)
+    const [safetyLoading, setSafetyLoading] = useState(false)
     const [faqData, setFaqData] = useState([])
+    const [blogCards, setBlogCards] = useState([])
+    const [safetyGuides, setSafetyGuides] = useState([])
     const [activeBlogId, setActiveBlogId] = useState(null)
-
-    const blogCards = useMemo(() => blogPosts, [])
 
     const toggleSafetyGuides = () => {
         setOpenSafetyGuides(!openSafetyGuides)
@@ -53,19 +56,45 @@ function ResourcesPage() {
     }
 
     const fetchFaq = async () => {
-        setLoading(true)
+        setFaqLoading(true)
         try {
-            const response = await api.get('/faq')
-            setFaqData(response.data.data)
+            const faq = await getFaqResources()
+            setFaqData(faq)
         } catch (error) {
             console.error('Error fetching FAQ:', error)
         } finally {
-            setLoading(false)
+            setFaqLoading(false)
+        }
+    }
+
+    const fetchBlogs = async () => {
+        setBlogsLoading(true)
+        try {
+            const blogs = await getBlogs()
+            setBlogCards(blogs)
+        } catch (error) {
+            console.error('Error fetching blogs:', error)
+        } finally {
+            setBlogsLoading(false)
+        }
+    }
+
+    const fetchSafetyGuides = async () => {
+        setSafetyLoading(true)
+        try {
+            const guides = await getSafetyGuides()
+            setSafetyGuides(guides)
+        } catch (error) {
+            console.error('Error fetching safety guides:', error)
+        } finally {
+            setSafetyLoading(false)
         }
     }
 
     useEffect(() => {
         fetchFaq()
+        fetchBlogs()
+        fetchSafetyGuides()
     }, [])
 
     return (
@@ -73,9 +102,7 @@ function ResourcesPage() {
             {/* Header Section */}
             <div className="resources-header">
                 <button className="back-arrow-btn" onClick={() => navigate(-1)}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
+                    <img src={arrowLeft} alt="Back" />
                 </button>
                 <div className="resources-header-text">
                     <h1>Resources</h1>
@@ -110,27 +137,23 @@ function ResourcesPage() {
 
                     {openSafetyGuides && (
                         <div className="resource-section-dropdown">
-                            <div className="safety-guide-item">
-                                <span className="guide-number">1.</span>
-                                <div className="guide-content">
-                                    <span className="guide-text">Safety Measure</span>
-                                    <span className="guide-description">Safety Text goes here</span>
-                                </div>
-                            </div>
-                            <div className="safety-guide-item">
-                                <span className="guide-number">2.</span>
-                                <div className="guide-content">
-                                    <span className="guide-text">Safety Measure</span>
-                                    <span className="guide-description">Safety Text goes here</span>
-                                </div>
-                            </div>
-                            <div className="safety-guide-item">
-                                <span className="guide-number">3.</span>
-                                <div className="guide-content">
-                                    <span className="guide-text">Safety Measure</span>
-                                    <span className="guide-description">Safety Text goes here</span>
-                                </div>
-                            </div>
+                            {safetyLoading ? (
+                                <div className="faq-loading">Loading...</div>
+                            ) : safetyGuides.length === 0 ? (
+                                <div className="faq-loading">No safety guides available.</div>
+                            ) : (
+                                safetyGuides.map((guide, index) => (
+                                    <div className="safety-guide-item" key={guide.id || index}>
+                                        <span className="guide-number">{index + 1}.</span>
+                                        <div className="guide-content">
+                                            <span className="guide-text">{guide.title || 'Safety Measure'}</span>
+                                            <span className="guide-description">
+                                                {guide.description || guide.summary || 'Details coming soon.'}
+                                            </span>
+                                        </div>
+                                    </div>
+                                ))
+                            )}
                         </div>
                     )}
                 </div>
@@ -161,79 +184,93 @@ function ResourcesPage() {
                     {openBlogs && (
                         <div className="blogs-dropdown-container">
                             <div className="blog-posts-list">
-                                {blogCards.map((blog) => {
-                                    const tips = blog.tips || []
-                                    const [primaryTip, ...secondaryTips] = tips
+                                {blogsLoading ? (
+                                    <div className="faq-loading">Loading...</div>
+                                ) : blogCards.length === 0 ? (
+                                    <div className="faq-loading">No blogs available.</div>
+                                ) : (
+                                    blogCards.map((blog) => {
+                                        const tips = blog.tips || []
+                                        const [primaryTip, ...secondaryTips] = tips
 
-                                    return (
-                                        <div key={blog.id} className="blog-post-wrapper">
-                                            <div className="blog-post-card" onClick={() => handleBlogSelect(blog.id)}>
-                                                <div className="blog-image">
-                                                    <img src={blog.heroImage} alt={blog.title} />
-                                                </div>
-                                                <div className="blog-content">
-                                                    <div className="blog-meta">
-                                                        <span className="blog-date">{blog.date}</span>
-                                                        <Link to={`/resources/blog/${blog.id}`} className="blog-read-more">
-                                                            Read more
-                                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                                                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                                            </svg>
-                                                        </Link>
+                                        return (
+                                            <div key={blog.id} className="blog-post-wrapper">
+                                                <div className="blog-post-card" onClick={() => handleBlogSelect(blog.id)}>
+                                                    <div className="blog-image">
+                                                        <img src={blog.heroImage} alt={blog.title} />
                                                     </div>
-                                                    <h4 className="blog-title">{blog.title}</h4>
-                                                    <p className="blog-description">{blog.excerpt}</p>
+                                                    <div className="blog-content">
+                                                        <div className="blog-meta">
+                                                            <span className="blog-date">{blog.date}</span>
+                                                            <Link
+                                                                to={`/resources/blog/${blog.id}`}
+                                                                className="blog-read-more"
+                                                            >
+                                                                Read more
+                                                                <span
+                                                                    className="blog-read-more-icon"
+                                                                    style={{
+                                                                        WebkitMaskImage: `url(${readMoreIcon})`,
+                                                                        maskImage: `url(${readMoreIcon})`
+                                                                    }}
+                                                                    aria-hidden="true"
+                                                                />
+                                                            </Link>
+                                                        </div>
+                                                        <h4 className="blog-title">{blog.title}</h4>
+                                                        <p className="blog-description">{blog.excerpt}</p>
+                                                    </div>
                                                 </div>
+                                                {activeBlogId === blog.id && (
+                                                    <div className="blog-detail-preview">
+                                                        <div className="blog-detail-main">
+                                                            <div className="blog-detail-image">
+                                                                <img src={blog.heroImage} alt={blog.title} />
+                                                            </div>
+                                                            <div className="blog-detail-content">
+                                                                <span className="blog-pill">{blog.date}</span>
+                                                                <h3>{blog.title}</h3>
+                                                                <p className="blog-detail-description">{blog.content}</p>
+                                                                {primaryTip && (
+                                                                    <div className="blog-tip-item">
+                                                                        <p className="blog-tip-title">{primaryTip.title}</p>
+                                                                        {Array.isArray(primaryTip.body) ? (
+                                                                            <ul>
+                                                                                {primaryTip.body.map((item, idx) => (
+                                                                                    <li key={idx}>{item}</li>
+                                                                                ))}
+                                                                            </ul>
+                                                                        ) : (
+                                                                            <p>{primaryTip.body}</p>
+                                                                        )}
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                        {secondaryTips.length > 0 && (
+                                                            <div className="blog-tip-list">
+                                                                {secondaryTips.map((tip, index) => (
+                                                                    <div key={index} className="blog-tip-item">
+                                                                        <p className="blog-tip-title">{tip.title}</p>
+                                                                        {Array.isArray(tip.body) ? (
+                                                                            <ul>
+                                                                                {tip.body.map((item, idx) => (
+                                                                                    <li key={idx}>{item}</li>
+                                                                                ))}
+                                                                            </ul>
+                                                                        ) : (
+                                                                            <p>{tip.body}</p>
+                                                                        )}
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                )}
                                             </div>
-                                            {activeBlogId === blog.id && (
-                                                <div className="blog-detail-preview">
-                                                    <div className="blog-detail-main">
-                                                        <div className="blog-detail-image">
-                                                            <img src={blog.heroImage} alt={blog.title} />
-                                                        </div>
-                                                        <div className="blog-detail-content">
-                                                            <span className="blog-pill">{blog.date}</span>
-                                                            <h3>{blog.title}</h3>
-                                                            <p className="blog-detail-description">{blog.content}</p>
-                                                            {primaryTip && (
-                                                                <div className="blog-tip-item">
-                                                                    <p className="blog-tip-title">{primaryTip.title}</p>
-                                                                    {Array.isArray(primaryTip.body) ? (
-                                                                        <ul>
-                                                                            {primaryTip.body.map((item, idx) => (
-                                                                                <li key={idx}>{item}</li>
-                                                                            ))}
-                                                                        </ul>
-                                                                    ) : (
-                                                                        <p>{primaryTip.body}</p>
-                                                                    )}
-                                                                </div>
-                                                            )}
-                                                        </div>
-                                                    </div>
-                                                    {secondaryTips.length > 0 && (
-                                                        <div className="blog-tip-list">
-                                                            {secondaryTips.map((tip, index) => (
-                                                                <div key={index} className="blog-tip-item">
-                                                                    <p className="blog-tip-title">{tip.title}</p>
-                                                                    {Array.isArray(tip.body) ? (
-                                                                        <ul>
-                                                                            {tip.body.map((item, idx) => (
-                                                                                <li key={idx}>{item}</li>
-                                                                            ))}
-                                                                        </ul>
-                                                                    ) : (
-                                                                        <p>{tip.body}</p>
-                                                                    )}
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    )}
-                                                </div>
-                                            )}
-                                        </div>
-                                    )
-                                })}
+                                        )
+                                    })
+                                )}
                             </div>
                         </div>
                     )}
@@ -265,7 +302,7 @@ function ResourcesPage() {
                     {openFaqs && (
                         <div className="faq-dropdown-container">
                             <div className="faq-items-section">
-                                {loading ? (
+                                {faqLoading ? (
                                     <div className="faq-loading">Loading...</div>
                                 ) : (
                                     faqData.map((faq) => (

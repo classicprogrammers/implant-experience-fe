@@ -1,12 +1,36 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { blogPosts } from '../../data/blogPosts'
+import { getBlogDetail } from '../../components/resources/resourcesApis'
 import './BlogDetailPage.css'
+import arrowLeft from '../../assets/images/ArrowLeft.png'
 
 const BlogDetailPage = () => {
     const { blogId } = useParams()
     const navigate = useNavigate()
-    const blog = blogPosts.find((post) => post.id === blogId)
+    const [blog, setBlog] = useState(null)
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
+
+    useEffect(() => {
+        const fetchBlogDetail = async () => {
+            setLoading(true)
+            setError(null)
+            try {
+                const blogDetail = await getBlogDetail(blogId)
+                setBlog(blogDetail)
+            } catch (err) {
+                console.error('Error fetching blog detail:', err)
+                setError('Blog post not found.')
+                setBlog(null)
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        if (blogId) {
+            fetchBlogDetail()
+        }
+    }, [blogId])
 
     const { primaryTip, secondaryTips } = useMemo(() => {
         const tips = blog?.tips || []
@@ -14,15 +38,29 @@ const BlogDetailPage = () => {
         return { primaryTip: first, secondaryTips: rest }
     }, [blog])
 
-    if (!blog) {
-        return (
-            <div className="blog-detail-page">
-                <button className="back-button" onClick={() => navigate(-1)}>
-                    ← Back
+    const renderStatusCard = (message) => (
+        <div className="blog-detail-card">
+            <div className="blog-detail-header">
+                <button className="blog-detail-back-btn" onClick={() => navigate(-1)} aria-label="Back to resources">
+                    <img src={arrowLeft} alt="Back" />
                 </button>
-                <p>Blog post not found.</p>
+                <div className="blog-detail-header-text">
+                    <h2>Resources</h2>
+                    <p>Guides</p>
+                </div>
             </div>
-        )
+            <div className="blog-detail-preview blog-detail-preview--expanded">
+                <p>{message}</p>
+            </div>
+        </div>
+    )
+
+    if (loading) {
+        return <div className="blog-detail-page">{renderStatusCard('Loading blog...')}</div>
+    }
+
+    if (error || !blog) {
+        return <div className="blog-detail-page">{renderStatusCard(error || 'Blog post not found.')}</div>
     }
 
     return (
@@ -30,9 +68,7 @@ const BlogDetailPage = () => {
             <div className="blog-detail-card">
                 <div className="blog-detail-header">
                     <button className="blog-detail-back-btn" onClick={() => navigate(-1)} aria-label="Back to resources">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#5F6368" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
+                        <img src={arrowLeft} alt="Back" />
                     </button>
                     <div className="blog-detail-header-text">
                         <h2>Resources</h2>

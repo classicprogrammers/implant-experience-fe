@@ -16,6 +16,8 @@ import groupImage from '../../assets/images/Group.png';
 import settingImage from '../../assets/images/setting.png';
 import setting2Image from '../../assets/images/setting-2.png';
 import plusIcon from '../../assets/images/plusIcon.png';
+import MyPlan from '../../assets/images/My-Plan.png';
+import MyPlanActive from '../../assets/images/My-Plan-Active.png';
 
 const Sidebar = ({ isOpen, onClose }) => {
     const [notifications] = useState(0);
@@ -115,6 +117,17 @@ const Sidebar = ({ isOpen, onClose }) => {
                             <img src={location.pathname === '/resources' ? resourcesImage2 : resourcesImage} alt="Setting" width="16" height="16" />
                         </div>
                         <span className="nav-text">Resources</span>
+                        {resources > 0 && (
+                            <div className="notification-badge">
+                                {resources}
+                            </div>
+                        )}
+                    </div>
+                    <div className={`nav-item ${location.pathname === '/my-plan' ? 'active' : ''}`} onClick={() => navigate('/my-plan')}>
+                        <div className="nav-icon">
+                            <img src={location.pathname === '/my-plan' ? MyPlanActive : MyPlan } alt="Setting" width="16" height="16" />
+                        </div>
+                        <span className="nav-text">My Plan</span>
                         {resources > 0 && (
                             <div className="notification-badge">
                                 {resources}

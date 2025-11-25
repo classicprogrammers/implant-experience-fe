@@ -196,15 +196,15 @@
 
 .notification-modal {
     background: #fff;
-    border-radius: 16px;
-    max-width: 700px;
-    width: 90vw;
-    padding: 40px;
+    border-radius: 40px;
+    max-width: 550px;
+    width: 85vw;
+    padding: 40px 40px 50px 40px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
 }
 
 .modal-close-btn {
@@ -223,13 +223,23 @@
     border: none;
     font-size: 1.6rem;
     color: #00325C;
-    /* line-height: 15px; */
+    line-height: 1;
+    display: inline-block;
+    padding-top: 0;
+    margin-top: -2px;
 }
 
 .modal-header {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-top: -10px;
+}
+
+.modal-header h2 {
+    /* font-size: 1.2rem; */
+    font-weight: 800 !important;
+    font-family: 'CabinetGrotesk-Bold', 'CabinetGrotesk-Variable', sans-serif !important;
 }
 
 .modal-warning-icon {
@@ -241,21 +251,46 @@
 .modal-description {
     font-size: 13px;
     color: #000000;
+    font-family: 'CabinetGrotesk-Regular', 'CabinetGrotesk-Variable', sans-serif;
+    margin: 0;
+    margin-top: -4px;
+}
+
+.modal-divider {
+    border: 1px solid #F0F0F0;
+    width: calc(100% + 80px);
+    margin-left: -40px;
+    margin-right: -40px;
+    margin-top: -6px;
+    margin-bottom: 6px;
+    border-top: 1px solid #F0F0F0;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
 }
 
 .modal-steps {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 18px;
 
 }
 
 .modal-step {
+    font-family: 'CabinetGrotesk-Regular', 'CabinetGrotesk-Variable', sans-serif !important;
     border: 1px solid #EFEFEF;
     background: #FDFDFD;
     border-radius: 8px;
     padding: 12px;
     font-size: 0.98rem;
+}
+
+.modal-step p {
+    font-family: 'CabinetGrotesk-Regular', 'CabinetGrotesk-Variable', sans-serif !important;
+}
+
+.modal-step strong {
+    font-family: 'CabinetGrotesk-Bold', 'CabinetGrotesk-Variable', sans-serif !important;
 }
 
 .modal-actions {
@@ -265,6 +300,10 @@
     align-items: center;
     margin-top: 10px;
     flex-wrap: wrap;
+}
+
+.modal-actions p {
+    font-family: 'CabinetGrotesk-Regular', 'CabinetGrotesk-Variable', sans-serif !important;
 }
 
 .modal-btn {
@@ -277,6 +316,7 @@
     font-size: 12px;
     cursor: pointer;
     transition: background 0.2s;
+    font-family: 'CabinetGrotesk-Medium', 'CabinetGrotesk-Variable', sans-serif;
 }
 
 .modal-btn.acknowledge {
