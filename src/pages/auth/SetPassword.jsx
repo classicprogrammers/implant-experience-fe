@@ -5,6 +5,7 @@ import { api } from '../../utils/api'
 import '../../App.css'
 import AuthHeader from '../../components/auth/AuthHeader'
 import AuthFooter from '../../components/auth/AuthFooter';
+import './SetPassword.css';
 
 function SetPasswordPage() {
   const navigate = useNavigate()
@@ -14,7 +15,6 @@ function SetPasswordPage() {
   })
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
-  const [showSuccessModal, setShowSuccessModal] = useState(false)
   const [validationErrors, setValidationErrors] = useState({})
 
   const validateForm = () => {
@@ -37,6 +37,7 @@ function SetPasswordPage() {
     return errors
   }
 
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -49,6 +50,7 @@ function SetPasswordPage() {
         [e.target.name]: ''
       })
     }
+
     // Clear general error when user starts typing
     if (error) {
       setError('')
@@ -57,6 +59,7 @@ function SetPasswordPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
     setIsLoading(true)
     setError('')
     setValidationErrors({})
@@ -81,7 +84,7 @@ function SetPasswordPage() {
 
       if (response.data.success) {
         console.log('Password reset successfully:', response.data)
-        setShowSuccessModal(true)
+        navigate('/password-success')
       } else {
         setError(response.data.message || 'Failed to reset password')
       }
@@ -103,11 +106,9 @@ function SetPasswordPage() {
     } finally {
       setIsLoading(false)
     }
+
   }
 
-  const handleSignIn = () => {
-    navigate('/login')
-  }
 
   return (
     <>
@@ -201,83 +202,6 @@ function SetPasswordPage() {
         </div>
       </div>
       <AuthFooter />
-
-      {/* Success Modal/Popup */}
-      {showSuccessModal && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: '#0A0A0A40',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          zIndex: 1000
-        }}>
-          <div style={{
-            backgroundColor: 'white',
-            borderRadius: '8px',
-            padding: '40px',
-            maxWidth: '500px',
-            width: '90%',
-            textAlign: 'center',
-            boxShadow: '0px 29px 28.1px 0px #0000000D'
-          }}>
-            {/* Icon Placeholder - User will import icon here */}
-            <div style={{
-              width: '120px',
-              height: '120px',
-              margin: '0 auto 20px',
-              display: 'block'
-            }}>
-              {/* Icon will be imported here */}
-            </div>
-
-            {/* Heading */}
-            <h2 style={{
-              fontSize: '24px',
-              fontWeight: '700',
-              color: '#141414',
-              marginBottom: '16px',
-              fontFamily: 'sans-serif'
-            }}>
-              Password Changed Successfully!
-            </h2>
-
-            {/* Descriptive Text */}
-            <p style={{
-              fontSize: '14px',
-              color: '#6B7280',
-              marginBottom: '30px',
-              lineHeight: '1.5',
-              fontFamily: 'sans-serif'
-            }}>
-              If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing.
-            </p>
-
-            {/* Sign In Button */}
-            <button
-              onClick={handleSignIn}
-              style={{
-                width: '100%',
-                backgroundColor: '#00325C',
-                color: 'white',
-                border: 'none',
-                padding: '1rem',
-                borderRadius: '8px',
-                fontSize: '1rem',
-                fontWeight: '500',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease'
-              }}
-            >
-              Sign in
-            </button>
-          </div>
-        </div>
-      )}
     </>
   )
 }

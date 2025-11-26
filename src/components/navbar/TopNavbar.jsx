@@ -181,7 +181,7 @@ const TopNavbar = ({ onMenuToggle }) => {
 
                 {/* Dropdown Arrow */}
                 <div className="dropdown-arrow">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </div>
@@ -193,7 +193,7 @@ const TopNavbar = ({ onMenuToggle }) => {
                         <button onClick={handleClose} className='modal-close-btn'><span>&times;</span></button>
                         <div className="modal-header">
                             <img src={warningIcon} alt="" className="modal-warning-icon" />
-                            <h2 className='text-[#00325C] text-[28px]'>Your device has been recalled</h2>
+                            <h2>Your device has been recalled</h2>
                         </div>
                         <p className="modal-description ">
                             A recall has been issued for this device due to a potential safety concern. Please follow the steps below to address this issue.
