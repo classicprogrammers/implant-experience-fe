@@ -98,11 +98,9 @@ const Sidebar = ({ isOpen, onClose }) => {
                             <img src={location.pathname == '/notifications' ? notificationImage2 : notificationImage} alt="Notification" width="16" height="16" />
                         </div>
                         <span className="nav-text">Notification</span>
-                        {notifications > 0 && (
-                            <div className="notification-badge">
-                                {notifications}
-                            </div>
-                        )}
+                        <div className="notification-badge">
+                            {notifications}
+                        </div>
                     </div>
 
                     <div className={`nav-item ${location.pathname.startsWith('/my-devices') ? 'active' : ''}`} onClick={() => navigate('/my-devices')}>
@@ -117,11 +115,9 @@ const Sidebar = ({ isOpen, onClose }) => {
                             <img src={location.pathname === '/resources' ? resourcesImage2 : resourcesImage} alt="Setting" width="16" height="16" />
                         </div>
                         <span className="nav-text">Resources</span>
-                        {resources > 0 && (
-                            <div className="notification-badge">
-                                {resources}
-                            </div>
-                        )}
+                        <div className="notification-badge">
+                            {resources}
+                        </div>
                     </div>
                     <div className={`nav-item ${location.pathname === '/my-plan' ? 'active' : ''}`} onClick={() => navigate('/my-plan')}>
                         <div className="nav-icon">

@@ -123,6 +123,14 @@
     font-weight: 600;
 }
 
+.nav-item.active .nav-icon img {
+    filter: brightness(0) invert(1);
+}
+
+.nav-item.active .nav-text {
+    color: #FFFFFF;
+}
+
 .nav-icon {
     width: 20px;
     height: 20px;
@@ -159,6 +167,12 @@
     line-height: 16px;
     margin-left: auto;
     flex-shrink: 0;
+    min-width: 20px;
+}
+
+.nav-item.active .notification-badge {
+    background: #EF4444;
+    color: #FFFFFF;
 }
 
 /* Footer Section - Removed, logout is now in navigation */
