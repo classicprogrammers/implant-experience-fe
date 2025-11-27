@@ -10,6 +10,8 @@ import ResourcesPage from '../components/resources/ResourcesPage'
 import BlogDetailPage from '../pages/resources/BlogDetailPage'
 import SettingsPage from '../components/settings/SettingsPage'
 import AddUserPage from '../pages/superAdmin/addUser/user'
+import MyPlan from '../pages/myplan/MyPlan'
+import UpgradePlan from '../pages/myplan/UpgradePlan'
 
 const DashboardRoutes = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -34,6 +36,8 @@ const DashboardRoutes = () => {
                     <Route path="/notifications" element={<NotificationPage />} />
                     <Route path="/resources" element={<ResourcesPage />} />
                     <Route path="/resources/blog/:blogId" element={<BlogDetailPage />} />
+                    <Route path="/my-plan" element={<MyPlan />} />
+                    <Route path="/my-plan/upgrade" element={<UpgradePlan />} />
                     <Route path="/settings" element={<SettingsPage />} />
                     <Route path="/admin/add-user" element={<AddUserPage />} />
                 </Routes>

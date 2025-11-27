@@ -1,0 +1,353 @@
+/* Breadcrumb Wrapper - Outside container */
+.breadcrumb-wrapper {
+    padding: 24px 32px 0 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #6B7280;
+}
+
+.breadcrumb a {
+    color: #00ACB2;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+    color: #00325C;
+}
+
+.breadcrumb-separator {
+    color: #9CA3AF;
+}
+
+.breadcrumb-current {
+    color: #374151;
+    font-weight: 500;
+}
+
+/* Upgrade Plan Page Container */
+.upgrade-plan-page {
+    padding: 24px 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-radius: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    overflow-x: hidden;
+}
+
+/* Header Section */
+.upgrade-plan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    gap: 20px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+}
+
+.back-arrow-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+}
+
+.back-arrow-btn:hover {
+    opacity: 0.7;
+}
+
+.back-arrow-btn img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.header-text h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1A365D;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+}
+
+.header-text p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #6B7280;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* View Current Plan Button */
+.view-current-plan-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #E0FCFF;
+    border: 1px solid #00ACB2;
+    border-radius: 8px;
+    color: #00ACB2;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.view-current-plan-btn:hover {
+    background: #BAE6FD;
+    border-color: #7DD3FC;
+}
+
+.view-current-plan-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* Premium Plan Card */
+.premium-plan-card {
+    background: #00ACB2;
+    border-radius: 16px;
+    padding: 24px 32px;
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 12px rgba(0, 172, 178, 0.2);
+}
+
+/* Most Popular Badge */
+.plan-badge {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: #FFFFFF;
+    color: #00ACB2;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Plan Title */
+.plan-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 12px 0;
+    line-height: 1.2;
+}
+
+/* Plan Pricing */
+.plan-pricing {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.price-amount {
+    font-size: 40px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1;
+}
+
+.price-period {
+    font-size: 16px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+/* Plan Description */
+.plan-description {
+    font-size: 14px;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+    opacity: 0.95;
+}
+
+/* Plan Features List */
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.checkmark-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: #00ACB2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.feature-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 1.5;
+    flex: 1;
+}
+
+/* Upgrade Now Button */
+.upgrade-now-btn {
+    width: 100%;
+    padding: 14px 24px;
+    background: #FFFFFF;
+    color: #00ACB2;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.upgrade-now-btn:hover {
+    background: #F0F0F0;
+    transform: translateY(-1px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.upgrade-now-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .upgrade-plan-page {
+        padding: 16px 20px;
+    }
+
+    .upgrade-plan-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .header-right {
+        width: 100%;
+    }
+
+    .view-current-plan-btn {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .premium-plan-card {
+        padding: 24px 28px;
+        max-width: 100%;
+    }
+
+    .plan-badge {
+        top: 16px;
+        right: 16px;
+        font-size: 11px;
+        padding: 3px 10px;
+    }
+
+    .plan-title {
+        font-size: 28px;
+    }
+
+    .price-amount {
+        font-size: 40px;
+    }
+
+    .price-period {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .breadcrumb-wrapper {
+        padding: 16px 20px 0 20px;
+    }
+
+    .upgrade-plan-page {
+        padding: 12px 16px;
+    }
+
+    .header-text h1 {
+        font-size: 24px;
+    }
+
+    .premium-plan-card {
+        padding: 20px 20px;
+    }
+
+    .plan-title {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .price-amount {
+        font-size: 36px;
+    }
+
+    .plan-description {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .feature-text {
+        font-size: 14px;
+    }
+
+    .plan-features {
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+}
+

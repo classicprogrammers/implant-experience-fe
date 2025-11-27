@@ -9,6 +9,7 @@ import SignupPage from './pages/auth/SignupPage'
 import ForgotPasswordPage from './pages/auth/ForgotPasswordPage'
 import SetPasswordPage from './pages/auth/SetPassword'
 import PasswordSuccessPage from './pages/auth/PasswordSuccess'
+import PaymentSuccessPage from './pages/auth/PaymentSuccess'
 import VerifyOTP from './pages/auth/VerifyOTP'
 import ContactPage from './pages/landing/ContactPage'
 import TermsPage from './pages/landing/TermsPage'
@@ -81,6 +82,7 @@ function App() {
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/set-password" element={<SetPasswordPage />} />
             <Route path="/password-success" element={<PasswordSuccessPage />} />
+            <Route path="/payment-success" element={<PaymentSuccessPage />} />
             <Route path="/verify-otp" element={<VerifyOTP />} />
 
             {/* OCR page - accessible after sign-in/sign-up */}
